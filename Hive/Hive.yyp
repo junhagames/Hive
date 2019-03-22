@@ -39,6 +39,14 @@
             }
         },
         {
+            "Key": "016dcd35-4f55-452a-b6bf-f8612afb07ad",
+            "Value": {
+                "id": "7576facc-182a-4aa7-8d88-7ad73f0ec008",
+                "resourcePath": "scripts\\scr_camera_zoom\\scr_camera_zoom.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "02f1f587-e331-437f-8a0c-58fe25fc8448",
             "Value": {
                 "id": "e51f4e65-d8e2-4df4-bc55-454ac7648bb8",
@@ -68,6 +76,14 @@
                 "id": "d6be4802-759a-45e9-83d1-2a812c709a3f",
                 "resourcePath": "objects\\obj_block\\obj_block.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "1fc70e0a-acc0-450a-8ec4-03bf6f54509c",
+            "Value": {
+                "id": "62964445-d626-469c-a839-f722e21c233d",
+                "resourcePath": "views\\1fc70e0a-acc0-450a-8ec4-03bf6f54509c.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -111,6 +127,22 @@
             }
         },
         {
+            "Key": "51127d59-376c-4ea7-9059-5fadff27366a",
+            "Value": {
+                "id": "07d3b9a4-322a-4cc9-b25c-6ea3b42e0343",
+                "resourcePath": "scripts\\scr_init_game\\scr_init_game.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "51273a99-ebd3-4aec-a44c-09ca4b2b92d8",
+            "Value": {
+                "id": "6fcb1ed8-0069-4b1f-8bf1-98a0a31c36ae",
+                "resourcePath": "views\\51273a99-ebd3-4aec-a44c-09ca4b2b92d8.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "556aea66-afad-440a-aaac-d764f5e831f8",
             "Value": {
                 "id": "57ab9d92-4d0e-4ae7-a99e-b92e9d73c710",
@@ -135,6 +167,22 @@
             }
         },
         {
+            "Key": "62ac01ca-9a22-4d80-8afb-43c7855812a7",
+            "Value": {
+                "id": "cf71eb09-1869-4db9-816a-20e92f62c6d9",
+                "resourcePath": "objects\\obj_camera\\obj_camera.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "69e5e323-bdb0-4a74-aa24-fa1296e4279f",
+            "Value": {
+                "id": "00f78883-4e0a-462f-94ee-3137b0b4685e",
+                "resourcePath": "views\\69e5e323-bdb0-4a74-aa24-fa1296e4279f.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "6f7e4c68-6a4c-44e7-8ff1-7e5bfb7ca1bd",
             "Value": {
                 "id": "c46630ad-e8df-41fe-90c0-5d96daa178ce",
@@ -156,6 +204,14 @@
                 "id": "4f0ead00-c03a-404c-af94-6a62d6e1f235",
                 "resourcePath": "views\\7f0776db-9aee-4aad-9428-f4cab54d365b.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "86f862ea-f6e2-47e1-be5b-259ab3140628",
+            "Value": {
+                "id": "61e37af9-a794-4152-97da-aaf8e0ee7ac9",
+                "resourcePath": "sprites\\bgr_main\\bgr_main.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -231,11 +287,27 @@
             }
         },
         {
+            "Key": "bfe6eb9a-0998-4df0-a63d-85fd4459f2b2",
+            "Value": {
+                "id": "e363ae8c-c3b5-4034-9352-633a43d33300",
+                "resourcePath": "objects\\obj_system\\obj_system.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "cc98d028-7bdd-4680-85f3-c87a7baa481e",
             "Value": {
                 "id": "bab29142-73c5-4e93-8cbb-d82845664e4c",
                 "resourcePath": "options\\windows\\options_windows.yy",
                 "resourceType": "GMWindowsOptions"
+            }
+        },
+        {
+            "Key": "da28364c-3e06-4a09-9cc8-c729958cadd4",
+            "Value": {
+                "id": "adfa31ff-4b8f-45cc-9cfb-950fbc8ba826",
+                "resourcePath": "scripts\\scr_camera\\scr_camera.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -280,8 +352,11 @@
         }
     ],
     "script_order": [
+        "51127d59-376c-4ea7-9059-5fadff27366a",
         "02f1f587-e331-437f-8a0c-58fe25fc8448",
-        "9d3e84f0-fbe5-4252-9a91-2f1c478dca00"
+        "9d3e84f0-fbe5-4252-9a91-2f1c478dca00",
+        "016dcd35-4f55-452a-b6bf-f8612afb07ad",
+        "da28364c-3e06-4a09-9cc8-c729958cadd4"
     ],
     "tutorial": ""
 }
