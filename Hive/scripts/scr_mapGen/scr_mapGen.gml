@@ -3,8 +3,7 @@
 
 var roomMax = argument0;
 worldGrid = ds_grid_create(15, 15);
-entryRoomList = ds_list_create();
-unitMap = ds_map_create();
+worldList = ds_list_create();
 
 var control_x = ds_grid_width(worldGrid) div 2;
 var control_y = ds_grid_height(worldGrid) div 2;
@@ -18,6 +17,16 @@ for (var i = 0; i < ds_grid_height(worldGrid); i++) {
 
 // Set room
 worldGrid[# control_x, control_y] = 0;
+ds_list_add(worldList, ds_list_create());
+ds_list_mark_as_list(worldList, 0);
+var infoList = worldList[| 0];
+infoList[| MARK.ENTRY] = ds_list_create();
+infoList[| MARK.OBJECT] = ds_map_create();
+ds_list_mark_as_list(infoList, MARK.ENTRY);
+ds_list_mark_as_map(infoList, MARK.OBJECT);
+
+var entryRoomList = infoList[| MARK.ENTRY];
+var objectMap = infoList[| MARK.OBJECT];
 
 for (var i = 1; i < roomMax; i++) {
 	var isGenRoom = false;
@@ -256,10 +265,9 @@ for (var i = 0; i < ds_grid_height(worldGrid); i++) {
 	show_debug_message(text);
 }
 
-repeat(10) {
-	show_debug_message("===============");
+repeat(3) {
+	show_debug_message("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
 }
 
 ds_grid_destroy(worldGrid);
-ds_list_destroy(entryRoomList);
-ds_map_destroy(unitMap);
+ds_list_destroy(worldList);
