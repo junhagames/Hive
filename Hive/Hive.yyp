@@ -119,6 +119,14 @@
             }
         },
         {
+            "Key": "46afe279-5c2c-4f73-8ee6-8dd99ba3ad23",
+            "Value": {
+                "id": "cf64bd7b-a190-4884-891b-651ce062e645",
+                "resourcePath": "scripts\\scr_mapGen\\scr_mapGen.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "4eabf323-7ca7-4974-8dc1-795563c42815",
             "Value": {
                 "id": "c3aa4ba3-cd49-4cb0-9b0a-64db3d2fcd49",
@@ -188,6 +196,14 @@
                 "id": "c46630ad-e8df-41fe-90c0-5d96daa178ce",
                 "resourcePath": "views\\6f7e4c68-6a4c-44e7-8ff1-7e5bfb7ca1bd.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "73b7e694-fcf3-4855-95c6-891bcbafa08f",
+            "Value": {
+                "id": "7f4804b0-c75d-495d-af5c-0cf2f262d4f8",
+                "resourcePath": "scripts\\scr_camera_shake\\scr_camera_shake.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -319,6 +335,14 @@
             }
         },
         {
+            "Key": "de2a6a39-f5c0-4ce2-987e-cdc295363a9c",
+            "Value": {
+                "id": "8d1e8834-0299-407d-8ad3-493da30f5fdf",
+                "resourcePath": "scripts\\scr_camera_resize\\scr_camera_resize.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "e037fc6a-180a-4a81-acd0-31fa0d9c5b41",
             "Value": {
                 "id": "46bbb1d6-90af-437b-b033-f4ab8d59bdc9",
@@ -332,6 +356,14 @@
                 "id": "73322a3b-c2f4-401d-87ed-8ac76a3f3c18",
                 "resourcePath": "options\\mac\\options_mac.yy",
                 "resourceType": "GMMacOptions"
+            }
+        },
+        {
+            "Key": "fc2311dc-689b-4240-89b8-f84f026da32d",
+            "Value": {
+                "id": "0e394c2b-bfcc-418a-bcff-e1179de2513f",
+                "resourcePath": "views\\fc2311dc-689b-4240-89b8-f84f026da32d.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -355,8 +387,11 @@
         "51127d59-376c-4ea7-9059-5fadff27366a",
         "02f1f587-e331-437f-8a0c-58fe25fc8448",
         "9d3e84f0-fbe5-4252-9a91-2f1c478dca00",
+        "46afe279-5c2c-4f73-8ee6-8dd99ba3ad23",
+        "da28364c-3e06-4a09-9cc8-c729958cadd4",
         "016dcd35-4f55-452a-b6bf-f8612afb07ad",
-        "da28364c-3e06-4a09-9cc8-c729958cadd4"
+        "73b7e694-fcf3-4855-95c6-891bcbafa08f",
+        "de2a6a39-f5c0-4ce2-987e-cdc295363a9c"
     ],
     "tutorial": ""
 }

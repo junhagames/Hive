@@ -1,21 +1,22 @@
-/// @description 카메라 조작
-/// @param length
+/// @description 카메라 설정
+/// @param lengthMax
 /// @param moveSpeed
 /// @param scaleSpeed
 
-var len = argument0;
+var lengthMax = argument0;
 var moveSpeed = argument1;
 var scaleSpeed = argument2;
 var target_x, target_y;
 
 with (obj_chr) {
-	if (distance_to_point(mouse_x, mouse_y) < len) {
+	if (distance_to_point(mouse_x, mouse_y) < lengthMax) {
 		target_x = mouse_x;
 		target_y = mouse_y;
 	}
 	else {
-		target_x = x + lengthdir_x(len, point_direction(x, y, mouse_x, mouse_y));
-		target_y = y + lengthdir_y(len, point_direction(x, y, mouse_x, mouse_y));
+		var mouseDir = point_direction(x, y, mouse_x, mouse_y);
+		target_x = x + lengthdir_x(lengthMax, mouseDir);
+		target_y = y + lengthdir_y(lengthMax, mouseDir);
 	}
 }
 
@@ -26,7 +27,7 @@ camera_set_view_pos(camera,
 	camera_x - camera_get_view_width(camera) / 2,
 	camera_y - camera_get_view_height(camera) / 2);
 
-//	Scale
+//	Zoom
 camera_set_view_size(camera,
 	camera_get_view_width(camera) + (global.gameWidth - camera_get_view_width(camera)) / scaleSpeed,
 	camera_get_view_height(camera) + (global.gameHeight - camera_get_view_height(camera)) / scaleSpeed);
