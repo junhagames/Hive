@@ -1,8 +1,8 @@
 {
-    "id": "46afe279-5c2c-4f73-8ee6-8dd99ba3ad23",
+    "id": "5f0d5b52-f531-4efc-86ad-5234c2dc8ffe",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "scr_mapGen",
+    "name": "scr_world_object",
     "IsCompatibility": false,
     "IsDnD": false
 }

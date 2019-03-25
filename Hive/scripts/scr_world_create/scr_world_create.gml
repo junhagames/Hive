@@ -1,32 +1,22 @@
-/// @description 무작위 방 생성
+/// @description 무작위 월드 생성
 /// @param roomMax
 
 var roomMax = argument0;
+
 worldGrid = ds_grid_create(15, 15);
 worldList = ds_list_create();
-
 var control_x = ds_grid_width(worldGrid) div 2;
 var control_y = ds_grid_height(worldGrid) div 2;
 
 // Reset world
-for (var i = 0; i < ds_grid_height(worldGrid); i++) {
-	for (var j = 0; j < ds_grid_width(worldGrid); j++) {
-		worldGrid[# i, j] = "#";	
+for (var _y = 0; _y < ds_grid_height(worldGrid); _y++) {
+	for (var _x = 0; _x < ds_grid_width(worldGrid); _x++) {
+		worldGrid[# _x, _y] = "#";	
 	}
 }
 
-// Set room
+// Create world
 worldGrid[# control_x, control_y] = 0;
-ds_list_add(worldList, ds_list_create());
-ds_list_mark_as_list(worldList, 0);
-var infoList = worldList[| 0];
-infoList[| MARK.ENTRY] = ds_list_create();
-infoList[| MARK.OBJECT] = ds_map_create();
-ds_list_mark_as_list(infoList, MARK.ENTRY);
-ds_list_mark_as_map(infoList, MARK.OBJECT);
-
-var entryRoomList = infoList[| MARK.ENTRY];
-var objectMap = infoList[| MARK.OBJECT];
 
 for (var i = 1; i < roomMax; i++) {
 	var isGenRoom = false;
@@ -256,18 +246,33 @@ for (var i = 1; i < roomMax; i++) {
 	until (isGenRoom);
 }
 
-// Print
-for (var i = 0; i < ds_grid_height(worldGrid); i++) {
-	var text = "";
-	for (var j = 0; j < ds_grid_width(worldGrid); j++) {
-		text += string(worldGrid[# j, i]);	
+// Add room
+for (var _y = 0; _y < ds_grid_height(worldGrid); _y++) {
+	for (var _x = 0; _x < ds_grid_width(worldGrid); _x++) {
+		if (worldGrid[# _x, _y] != "#") {
+			scr_world_roomAdd(worldGrid[# _x, _y], _x, _y);	
+		}
 	}
-	show_debug_message(text);
 }
 
-repeat(3) {
-	show_debug_message("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-}
+// Print
+//for (var _y = 0; _y < ds_grid_height(worldGrid); _y++) {
+//	var text = "";
+	
+//	for (var _x = 0; _x < ds_grid_width(worldGrid); _x++) {
+//		if (worldGrid[# _x, _y] == "#") {
+//			text += " ";
+//		}
+//		else {
+//			text += string(worldGrid[# _x, _y]);	
+//		}
+//	}
+//	show_debug_message(text);
+//}
+
+//repeat(3) {
+//	show_debug_message("+++++++++++++++++++++++++++");
+//}
 
 ds_grid_destroy(worldGrid);
 ds_list_destroy(worldList);
