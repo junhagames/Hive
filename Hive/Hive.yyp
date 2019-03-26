@@ -55,14 +55,6 @@
             }
         },
         {
-            "Key": "038778e8-6510-4f67-9596-eb173011ba12",
-            "Value": {
-                "id": "299beeee-00dc-49e1-88a3-cb31b3e71502",
-                "resourcePath": "scripts\\scr_world_entryRoom\\scr_world_entryRoom.yy",
-                "resourceType": "GMScript"
-            }
-        },
-        {
             "Key": "0765190f-8d82-4099-92d0-00f62212ef51",
             "Value": {
                 "id": "69c096ca-8ab5-465e-bca6-4f5db8cc55ea",
@@ -196,14 +188,6 @@
                 "id": "5f95d6cb-f762-465d-bfa9-92122f725dce",
                 "resourcePath": "views\\5e8ec261-57ff-4f12-ab46-6dfea6a09f6d.yy",
                 "resourceType": "GMFolder"
-            }
-        },
-        {
-            "Key": "5f0d5b52-f531-4efc-86ad-5234c2dc8ffe",
-            "Value": {
-                "id": "8ba554c0-c914-4fdd-9b1a-2d35e93e3334",
-                "resourcePath": "scripts\\scr_world_object\\scr_world_object.yy",
-                "resourceType": "GMScript"
             }
         },
         {
@@ -447,6 +431,14 @@
             }
         },
         {
+            "Key": "f9cec0f6-b6f4-4914-8872-e3fc7283a961",
+            "Value": {
+                "id": "742d6d0c-b77b-48ae-bd32-3c8b3a826c17",
+                "resourcePath": "scripts\\scr_world_roomReset\\scr_world_roomReset.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "fc2311dc-689b-4240-89b8-f84f026da32d",
             "Value": {
                 "id": "0e394c2b-bfcc-418a-bcff-e1179de2513f",
@@ -475,14 +467,13 @@
         "51127d59-376c-4ea7-9059-5fadff27366a",
         "02f1f587-e331-437f-8a0c-58fe25fc8448",
         "9d3e84f0-fbe5-4252-9a91-2f1c478dca00",
+        "46afe279-5c2c-4f73-8ee6-8dd99ba3ad23",
+        "f9cec0f6-b6f4-4914-8872-e3fc7283a961",
+        "171bcf87-cea3-41b8-a2c2-a43ceb7d6abd",
         "da28364c-3e06-4a09-9cc8-c729958cadd4",
         "016dcd35-4f55-452a-b6bf-f8612afb07ad",
         "73b7e694-fcf3-4855-95c6-891bcbafa08f",
-        "de2a6a39-f5c0-4ce2-987e-cdc295363a9c",
-        "46afe279-5c2c-4f73-8ee6-8dd99ba3ad23",
-        "171bcf87-cea3-41b8-a2c2-a43ceb7d6abd",
-        "038778e8-6510-4f67-9596-eb173011ba12",
-        "5f0d5b52-f531-4efc-86ad-5234c2dc8ffe"
+        "de2a6a39-f5c0-4ce2-987e-cdc295363a9c"
     ],
     "tutorial": ""
 }

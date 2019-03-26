@@ -1,8 +1,8 @@
 {
-    "id": "5f0d5b52-f531-4efc-86ad-5234c2dc8ffe",
+    "id": "f9cec0f6-b6f4-4914-8872-e3fc7283a961",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "scr_world_object",
+    "name": "scr_world_roomReset",
     "IsCompatibility": false,
     "IsDnD": false
 }
