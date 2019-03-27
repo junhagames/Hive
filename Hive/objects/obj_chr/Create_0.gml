@@ -1,4 +1,4 @@
-chr_move_speed = 4;
+chr_moveSpeed = 4;
 
 chr_hspeed = 0;
 chr_vspeed = 0;

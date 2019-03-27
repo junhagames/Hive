@@ -90,7 +90,7 @@
             "Key": "171bcf87-cea3-41b8-a2c2-a43ceb7d6abd",
             "Value": {
                 "id": "30940865-4346-4678-bead-807ce67dc2f2",
-                "resourcePath": "scripts\\scr_world_roomEntry\\scr_world_roomEntry.yy",
+                "resourcePath": "scripts\\scr_world_room_createEntry\\scr_world_room_createEntry.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -135,10 +135,18 @@
             }
         },
         {
+            "Key": "450ce1a3-b8d0-4879-ad0e-fcdabe7e5c49",
+            "Value": {
+                "id": "380a2b11-8e51-43b4-b848-03b4f1e66a6b",
+                "resourcePath": "views\\450ce1a3-b8d0-4879-ad0e-fcdabe7e5c49.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "46afe279-5c2c-4f73-8ee6-8dd99ba3ad23",
             "Value": {
                 "id": "cf64bd7b-a190-4884-891b-651ce062e645",
-                "resourcePath": "scripts\\scr_world_create\\scr_world_create.yy",
+                "resourcePath": "scripts\\scr_createWorld\\scr_createWorld.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -178,7 +186,7 @@
             "Key": "5836e629-df4d-4edf-b0c8-3e5c6dafec98",
             "Value": {
                 "id": "5cbe7d45-6b03-45d4-a2f0-e3acfd2646a3",
-                "resourcePath": "rooms\\room_small1\\room_small1.yy",
+                "resourcePath": "rooms\\room_stage_small1\\room_stage_small1.yy",
                 "resourceType": "GMRoom"
             }
         },
@@ -434,7 +442,7 @@
             "Key": "f9cec0f6-b6f4-4914-8872-e3fc7283a961",
             "Value": {
                 "id": "742d6d0c-b77b-48ae-bd32-3c8b3a826c17",
-                "resourcePath": "scripts\\scr_world_roomReset\\scr_world_roomReset.yy",
+                "resourcePath": "scripts\\scr_world_createRoom\\scr_world_createRoom.yy",
                 "resourceType": "GMScript"
             }
         },

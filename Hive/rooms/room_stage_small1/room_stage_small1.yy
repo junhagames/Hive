@@ -1,6 +1,6 @@
 
 {
-    "name": "room_small1",
+    "name": "room_stage_small1",
     "id": "5836e629-df4d-4edf-b0c8-3e5c6dafec98",
     "creationCodeFile": "",
     "inheritCode": false,

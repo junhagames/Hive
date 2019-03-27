@@ -3,7 +3,7 @@
 
 var roomMax = argument0;
 
-worldGrid = ds_grid_create(15, 15);
+worldGrid = ds_grid_create(10, 10);
 worldList = ds_list_create();
 var control_x = ds_grid_width(worldGrid) div 2;
 var control_y = ds_grid_height(worldGrid) div 2;
@@ -17,7 +17,7 @@ for (var _y = 0; _y < ds_grid_height(worldGrid); _y++) {
 
 // Create world
 worldGrid[# control_x, control_y] = 0;
-scr_world_roomReset(worldGrid[# control_x, control_y], SHAPE.SMALL);
+scr_world_createRoom(worldGrid[# control_x, control_y], SHAPE.SMALL);
 
 for (var i = 1; i < roomMax; i++) {
 	var isCreateRoom = false;
@@ -26,7 +26,7 @@ for (var i = 1; i < roomMax; i++) {
 		var previous_x = control_x;
 		var previous_y = control_y;
 		var control_dir = choose(DIR.EAST, DIR.WEST, DIR.SOUTH, DIR.NORTH);
-		var roomShape = SHAPE.WLONG//choose(SHAPE.SMALL, SHAPE.BIG, SHAPE.WLONG, SHAPE.HLONG);
+		var roomShape = choose(SHAPE.SMALL, SHAPE.BIG, SHAPE.WLONG, SHAPE.HLONG);
 
 		switch (roomShape) {
 			#region SMALL
@@ -52,7 +52,7 @@ for (var i = 1; i < roomMax; i++) {
 				}
 				else if (worldGrid[# control_x, control_y] == WALL) {
 					worldGrid[# control_x, control_y] = i;
-					scr_world_roomReset(worldGrid[# control_x, control_y], SHAPE.SMALL);
+					scr_world_createRoom(worldGrid[# control_x, control_y], SHAPE.SMALL);
 					isCreateRoom = true;
 				}
 				break;
@@ -116,7 +116,7 @@ for (var i = 1; i < roomMax; i++) {
 					}
 					
 					ds_grid_set_region(worldGrid, _control1_x, _control1_y, _control2_x, _control2_y, i);
-					scr_world_roomReset(worldGrid[# control_x, control_y], SHAPE.BIG);
+					scr_world_createRoom(worldGrid[# control_x, control_y], SHAPE.BIG);
 					isCreateRoom = true;
 				}
 				break;
@@ -180,7 +180,7 @@ for (var i = 1; i < roomMax; i++) {
 					}
 					
 					ds_grid_set_region(worldGrid, _control1_x, _control1_y, _control2_x, _control2_y, i);
-					scr_world_roomReset(worldGrid[# control_x, control_y], SHAPE.WLONG);
+					scr_world_createRoom(worldGrid[# control_x, control_y], SHAPE.WLONG);
 					isCreateRoom = true;
 				}
 				break;
@@ -244,7 +244,7 @@ for (var i = 1; i < roomMax; i++) {
 					}
 					
 					ds_grid_set_region(worldGrid, _control1_x, _control1_y, _control2_x, _control2_y, i);
-					scr_world_roomReset(worldGrid[# control_x, control_y], SHAPE.HLONG);
+					scr_world_createRoom(worldGrid[# control_x, control_y], SHAPE.HLONG);
 					isCreateRoom = true;
 				}
 				break;
@@ -258,7 +258,7 @@ for (var i = 1; i < roomMax; i++) {
 for (var _y = 0; _y < ds_grid_height(worldGrid); _y++) {
 	for (var _x = 0; _x < ds_grid_width(worldGrid); _x++) {
 		if (worldGrid[# _x, _y] != WALL) {
-			scr_world_roomEntry(worldGrid[# _x, _y], _x, _y);	
+			scr_world_room_createEntry(worldGrid[# _x, _y], _x, _y);	
 		}
 	}
 }
@@ -292,6 +292,13 @@ for (var i = 0; i < ds_list_size(worldList); i++) {
 		show_message(hiveMap[? "pos"]);
 	}
 }
+
+//ini_open("save.ini"); 
+//ini_write_string("worldGrid", "0", ds_grid_write(worldGrid)); 
+//ini_write_string("worldList", "0", ds_list_write(worldList));
+//ini_close();
+
+//show_message(ds_list_write(worldList));
 
 ds_grid_destroy(worldGrid);
 ds_list_destroy(worldList);
