@@ -90,7 +90,7 @@
             "Key": "171bcf87-cea3-41b8-a2c2-a43ceb7d6abd",
             "Value": {
                 "id": "30940865-4346-4678-bead-807ce67dc2f2",
-                "resourcePath": "scripts\\scr_world_roomAdd\\scr_world_roomAdd.yy",
+                "resourcePath": "scripts\\scr_world_roomEntry\\scr_world_roomEntry.yy",
                 "resourceType": "GMScript"
             }
         },

@@ -20,13 +20,13 @@ worldGrid[# control_x, control_y] = 0;
 scr_world_roomReset(worldGrid[# control_x, control_y], SHAPE.SMALL);
 
 for (var i = 1; i < roomMax; i++) {
-	var isGenRoom = false;
+	var isCreateRoom = false;
 	
 	do {
 		var previous_x = control_x;
 		var previous_y = control_y;
 		var control_dir = choose(DIR.EAST, DIR.WEST, DIR.SOUTH, DIR.NORTH);
-		var roomShape = choose(SHAPE.SMALL)//, SHAPE.BIG, SHAPE.WLONG, SHAPE.HLONG);
+		var roomShape = SHAPE.WLONG//choose(SHAPE.SMALL, SHAPE.BIG, SHAPE.WLONG, SHAPE.HLONG);
 
 		switch (roomShape) {
 			#region SMALL
@@ -53,7 +53,7 @@ for (var i = 1; i < roomMax; i++) {
 				else if (worldGrid[# control_x, control_y] == WALL) {
 					worldGrid[# control_x, control_y] = i;
 					scr_world_roomReset(worldGrid[# control_x, control_y], SHAPE.SMALL);
-					isGenRoom = true;
+					isCreateRoom = true;
 				}
 				break;
 			#endregion
@@ -114,33 +114,10 @@ for (var i = 1; i < roomMax; i++) {
 						}
 						break;	
 					}
+					
 					ds_grid_set_region(worldGrid, _control1_x, _control1_y, _control2_x, _control2_y, i);
-					var sx, dx, sy, dy;
-					
-					if (_control1_x < _control2_x) {
-						sx = _control1_x;
-						dx = _control2_x;
-					}
-					else {
-						sx = _control2_x;
-						dx = _control1_x;
-					}
-					
-					if (_control1_y < _control2_y) {
-						sy = _control1_y;
-						dy = _control2_y;
-					}
-					else {
-						sy = _control2_y;
-						dy = _control1_y;
-					}
-
-					for (var _y = sy; _y <= dy; _y++) {
-						for (var _x = sx; _x <= dx; _x++) {
-							scr_world_roomReset(worldGrid[# _x, _y], SHAPE.BIG);
-						}
-					}
-					isGenRoom = true;
+					scr_world_roomReset(worldGrid[# control_x, control_y], SHAPE.BIG);
+					isCreateRoom = true;
 				}
 				break;
 			#endregion
@@ -201,33 +178,10 @@ for (var i = 1; i < roomMax; i++) {
 						}
 						break;	
 					}
+					
 					ds_grid_set_region(worldGrid, _control1_x, _control1_y, _control2_x, _control2_y, i);
-					var sx, dx, sy, dy;
-					
-					if (_control1_x < _control2_x) {
-						sx = _control1_x;
-						dx = _control2_x;
-					}
-					else {
-						sx = _control2_x;
-						dx = _control1_x;
-					}
-					
-					if (_control1_y < _control2_y) {
-						sy = _control1_y;
-						dy = _control2_y;
-					}
-					else {
-						sy = _control2_y;
-						dy = _control1_y;
-					}
-
-					for (var _y = sy; _y <= dy; _y++) {
-						for (var _x = sx; _x <= dx; _x++) {
-							scr_world_roomReset(worldGrid[# _x, _y], SHAPE.WLONG);
-						}
-					}
-					isGenRoom = true;
+					scr_world_roomReset(worldGrid[# control_x, control_y], SHAPE.WLONG);
+					isCreateRoom = true;
 				}
 				break;
 			#endregion
@@ -288,46 +242,23 @@ for (var i = 1; i < roomMax; i++) {
 						}
 						break;	
 					}
+					
 					ds_grid_set_region(worldGrid, _control1_x, _control1_y, _control2_x, _control2_y, i);
-					var sx, dx, sy, dy;
-					
-					if (_control1_x < _control2_x) {
-						sx = _control1_x;
-						dx = _control2_x;
-					}
-					else {
-						sx = _control2_x;
-						dx = _control1_x;
-					}
-					
-					if (_control1_y < _control2_y) {
-						sy = _control1_y;
-						dy = _control2_y;
-					}
-					else {
-						sy = _control2_y;
-						dy = _control1_y;
-					}
-
-					for (var _y = sy; _y <= dy; _y++) {
-						for (var _x = sx; _x <= dx; _x++) {
-							scr_world_roomReset(worldGrid[# _x, _y], SHAPE.HLONG);
-						}
-					}
-					isGenRoom = true;
+					scr_world_roomReset(worldGrid[# control_x, control_y], SHAPE.HLONG);
+					isCreateRoom = true;
 				}
 				break;
 			#endregion
 		}
 	}
-	until (isGenRoom);
+	until (isCreateRoom);
 }
 
-// Add room
+// Create room entry
 for (var _y = 0; _y < ds_grid_height(worldGrid); _y++) {
 	for (var _x = 0; _x < ds_grid_width(worldGrid); _x++) {
 		if (worldGrid[# _x, _y] != WALL) {
-			scr_world_roomAdd(worldGrid[# _x, _y], _x, _y);	
+			scr_world_roomEntry(worldGrid[# _x, _y], _x, _y);	
 		}
 	}
 }
@@ -351,6 +282,16 @@ repeat(3) {
 	show_debug_message("+++++++++++++++++++++++++++");
 }
 #endregion
+
+for (var i = 0; i < ds_list_size(worldList); i++) {
+	var worldIndex = worldList[| i];
+	var entryIndex = worldIndex[| MARK.ENTRY];
+	
+	for (var j = 0; j < ds_list_size(entryIndex); j++) {
+		var hiveMap = entryIndex[| j];
+		show_message(hiveMap[? "pos"]);
+	}
+}
 
 ds_grid_destroy(worldGrid);
 ds_list_destroy(worldList);
