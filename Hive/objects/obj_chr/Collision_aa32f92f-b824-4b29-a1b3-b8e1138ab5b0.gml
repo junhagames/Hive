@@ -1,0 +1,1 @@
+scr_world_room_goto(other.target_roomId, other.pos);
