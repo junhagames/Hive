@@ -17,7 +17,8 @@ ds_list_mark_as_list(worldIndex, MARK.HIVE);
 
 var infoMap = worldIndex[| MARK.INFO];
 
-// Add room shape
+// Add room info
+infoMap[? "index"] = index;
 infoMap[? "shape"] = shape;
 
 #region Add room kind
@@ -28,16 +29,13 @@ switch (shape) {
 		roomKind = choose(room_stage_small1, room_stage_small2);
 		break;
 	case SHAPE.BIG:
-		roomKind = choose(room_stage_small1, room_stage_small2);
-		//roomKind = choose(room_stage_big1, room_stage_big2);
+		roomKind = choose(room_stage_big1);
 		break;
 	case SHAPE.WLONG:
-		roomKind = choose(room_stage_small1, room_stage_small2);
-		//roomKind = choose(room_stage_wlong1, room_stage_wlong2);
+		roomKind = choose(room_stage_wlong1);
 		break;
 	case SHAPE.HLONG:
-		roomKind = choose(room_stage_small1, room_stage_small2);
-		//roomKind = choose(room_stage_hlong1, room_stage_hlong2);
+		roomKind = choose(room_stage_hlong1);
 		break;
 }
 infoMap[? "room"] = roomKind;

@@ -62,6 +62,7 @@ global.worldGrid = ds_grid_create(10, 10);
 global.worldList = ds_list_create();
 
 global.currentIndex = 0;
+global.previousIndex = noone;
 global.previousPos = noone;
 
 randomize();

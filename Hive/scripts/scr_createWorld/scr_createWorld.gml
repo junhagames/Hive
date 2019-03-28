@@ -2,6 +2,7 @@
 /// @param roomMax
 
 var roomMax = argument0;
+
 var control_x = ds_grid_width(global.worldGrid) div 2;
 var control_y = ds_grid_height(global.worldGrid) div 2;
 

@@ -6,6 +6,7 @@
 var lengthMax = argument0;
 var moveSpeed = argument1;
 var scaleSpeed = argument2;
+
 var target_x, target_y;
 
 with (obj_chr) {

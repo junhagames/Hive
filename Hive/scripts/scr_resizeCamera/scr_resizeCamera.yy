@@ -1,5 +1,5 @@
 {
-    "id": "de2a6a39-f5c0-4ce2-987e-cdc295363a9c",
+    "id": "a67f6977-a4bf-420c-930b-2b6420042aac",
     "modelName": "GMScript",
     "mvc": "1.0",
     "name": "scr_resizeCamera",
