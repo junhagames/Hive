@@ -40,7 +40,6 @@ switch (shape) {
 }
 infoMap[? "room"] = roomKind;
 #endregion
-
 #region Add room hive
 var hiveIndex = worldIndex[| MARK.HIVE];
 

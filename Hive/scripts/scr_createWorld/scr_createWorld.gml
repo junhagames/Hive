@@ -112,7 +112,6 @@ for (var i = 1; i < roomMax; i++) {
 						}
 						break;	
 					}
-					
 					ds_grid_set_region(global.worldGrid, _control1_x, _control1_y, _control2_x, _control2_y, i);
 					scr_world_createRoom(global.worldGrid[# control_x, control_y], SHAPE.BIG);
 					isCreateRoom = true;
@@ -176,7 +175,6 @@ for (var i = 1; i < roomMax; i++) {
 						}
 						break;	
 					}
-					
 					ds_grid_set_region(global.worldGrid, _control1_x, _control1_y, _control2_x, _control2_y, i);
 					scr_world_createRoom(global.worldGrid[# control_x, control_y], SHAPE.WLONG);
 					isCreateRoom = true;
@@ -240,7 +238,6 @@ for (var i = 1; i < roomMax; i++) {
 						}
 						break;	
 					}
-					
 					ds_grid_set_region(global.worldGrid, _control1_x, _control1_y, _control2_x, _control2_y, i);
 					scr_world_createRoom(global.worldGrid[# control_x, control_y], SHAPE.HLONG);
 					isCreateRoom = true;

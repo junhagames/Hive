@@ -9,9 +9,7 @@ var pos_y = argument2;
 
 var worldIndex = global.worldList[| index];
 var infoMap = worldIndex[| MARK.INFO];
-
 var entryIndex = worldIndex[| MARK.ENTRY];
-var entryMap;
 var entryCount = ds_list_size(entryIndex);
 
 switch (infoMap[? "shape"]) {
@@ -27,7 +25,7 @@ switch (infoMap[? "shape"]) {
 			if (target_index != index && target_index != WALL) {
 				entryIndex[| entryCount] = ds_map_create();
 				ds_list_mark_as_map(entryIndex, entryCount);
-				entryMap = entryIndex[| entryCount];
+				var entryMap = entryIndex[| entryCount];
 				entryCount++;
 				
 				entryMap[? "target_roomId"] = target_index;
@@ -45,7 +43,7 @@ switch (infoMap[? "shape"]) {
 			if (target_index != index && target_index != WALL) {
 				entryIndex[| entryCount] = ds_map_create();
 				ds_list_mark_as_map(entryIndex, entryCount);
-				entryMap = entryIndex[| entryCount];
+				var entryMap = entryIndex[| entryCount];
 				entryCount++;
 				
 				entryMap[? "target_roomId"] = target_index;
@@ -63,7 +61,7 @@ switch (infoMap[? "shape"]) {
 			if (target_index != index && target_index != WALL) {
 				entryIndex[| entryCount] = ds_map_create();
 				ds_list_mark_as_map(entryIndex, entryCount);
-				entryMap = entryIndex[| entryCount];
+				var entryMap = entryIndex[| entryCount];
 				entryCount++;
 				
 				entryMap[? "target_roomId"] = target_index;
@@ -81,7 +79,7 @@ switch (infoMap[? "shape"]) {
 			if (target_index != index && target_index != WALL) {
 				entryIndex[| entryCount] = ds_map_create();
 				ds_list_mark_as_map(entryIndex, entryCount);
-				entryMap = entryIndex[| entryCount];
+				var entryMap = entryIndex[| entryCount];
 				entryCount++;
 				
 				entryMap[? "target_roomId"] = target_index;
@@ -106,7 +104,7 @@ switch (infoMap[? "shape"]) {
 						if (target_index != index && target_index != WALL) {
 							entryIndex[| entryCount] = ds_map_create();
 							ds_list_mark_as_map(entryIndex, entryCount);
-							entryMap = entryIndex[| entryCount];
+							var entryMap = entryIndex[| entryCount];
 							entryCount++;
 							
 							entryMap[? "target_roomId"] = target_index;
@@ -123,7 +121,7 @@ switch (infoMap[? "shape"]) {
 						if (target_index != index && target_index != WALL) {
 							entryIndex[| entryCount] = ds_map_create();
 							ds_list_mark_as_map(entryIndex, entryCount);
-							entryMap = entryIndex[| entryCount];
+							var entryMap = entryIndex[| entryCount];
 							entryCount++;
 				
 							entryMap[? "target_roomId"] = target_index;
@@ -142,7 +140,7 @@ switch (infoMap[? "shape"]) {
 							if (target_index != index && target_index != WALL) {
 								entryIndex[| entryCount] = ds_map_create();
 								ds_list_mark_as_map(entryIndex, entryCount);
-								entryMap = entryIndex[| entryCount];
+								var entryMap = entryIndex[| entryCount];
 								entryCount++;
 							
 								entryMap[? "target_roomId"] = target_index;
@@ -160,7 +158,7 @@ switch (infoMap[? "shape"]) {
 						if (target_index != index && target_index != WALL) {
 							entryIndex[| entryCount] = ds_map_create();
 							ds_list_mark_as_map(entryIndex, entryCount);
-							entryMap = entryIndex[| entryCount];
+							var entryMap = entryIndex[| entryCount];
 							entryCount++;
 							
 							entryMap[? "target_roomId"] = target_index;
@@ -179,7 +177,7 @@ switch (infoMap[? "shape"]) {
 					if (target_index != index && target_index != WALL) {
 						entryIndex[| entryCount] = ds_map_create();
 						ds_list_mark_as_map(entryIndex, entryCount);
-						entryMap = entryIndex[| entryCount];
+						var entryMap = entryIndex[| entryCount];
 						entryCount++;
 							
 						entryMap[? "target_roomId"] = target_index;
@@ -200,7 +198,7 @@ switch (infoMap[? "shape"]) {
 						if (target_index != index && target_index != WALL) {
 							entryIndex[| entryCount] = ds_map_create();
 							ds_list_mark_as_map(entryIndex, entryCount);
-							entryMap = entryIndex[| entryCount];
+							var entryMap = entryIndex[| entryCount];
 							entryCount++;
 						
 							entryMap[? "target_roomId"] = target_index;
@@ -218,7 +216,7 @@ switch (infoMap[? "shape"]) {
 							if (target_index != index && target_index != WALL) {
 								entryIndex[| entryCount] = ds_map_create();
 								ds_list_mark_as_map(entryIndex, entryCount);
-								entryMap = entryIndex[| entryCount];
+								var entryMap = entryIndex[| entryCount];
 								entryCount++;
 						
 								entryMap[? "target_roomId"] = target_index;
@@ -238,7 +236,7 @@ switch (infoMap[? "shape"]) {
 							if (target_index != index && target_index != WALL) {
 								entryIndex[| entryCount] = ds_map_create();
 								ds_list_mark_as_map(entryIndex, entryCount);
-								entryMap = entryIndex[| entryCount];
+								var entryMap = entryIndex[| entryCount];
 								entryCount++;
 							
 								entryMap[? "target_roomId"] = target_index;
@@ -257,7 +255,7 @@ switch (infoMap[? "shape"]) {
 							if (target_index != index && target_index != WALL) {
 								entryIndex[| entryCount] = ds_map_create();
 								ds_list_mark_as_map(entryIndex, entryCount);
-								entryMap = entryIndex[| entryCount];
+								var entryMap = entryIndex[| entryCount];
 								entryCount++;
 						
 								entryMap[? "target_roomId"] = target_index;
@@ -280,7 +278,7 @@ switch (infoMap[? "shape"]) {
 				if (target_index != index && target_index != WALL) {
 					entryIndex[| entryCount] = ds_map_create();
 					ds_list_mark_as_map(entryIndex, entryCount);
-					entryMap = entryIndex[| entryCount];
+					var entryMap = entryIndex[| entryCount];
 					entryCount++;
 							
 					entryMap[? "target_roomId"] = target_index;
@@ -299,7 +297,7 @@ switch (infoMap[? "shape"]) {
 				if (target_index != index && target_index != WALL) {
 					entryIndex[| entryCount] = ds_map_create();
 					ds_list_mark_as_map(entryIndex, entryCount);
-					entryMap = entryIndex[| entryCount];
+					var entryMap = entryIndex[| entryCount];
 					entryCount++;
 					
 					entryMap[? "target_roomId"] = target_index;
@@ -323,7 +321,7 @@ switch (infoMap[? "shape"]) {
 					if (target_index != index && target_index != WALL) {
 						entryIndex[| entryCount] = ds_map_create();
 						ds_list_mark_as_map(entryIndex, entryCount);
-						entryMap = entryIndex[| entryCount];
+						var entryMap = entryIndex[| entryCount];
 						entryCount++;
 					
 						entryMap[? "target_roomId"] = target_index;
@@ -341,7 +339,7 @@ switch (infoMap[? "shape"]) {
 					if (target_index != index && target_index != WALL) {
 						entryIndex[| entryCount] = ds_map_create();
 						ds_list_mark_as_map(entryIndex, entryCount);
-						entryMap = entryIndex[| entryCount];
+						var entryMap = entryIndex[| entryCount];
 						entryCount++;
 					
 						entryMap[? "target_roomId"] = target_index;
@@ -358,7 +356,7 @@ switch (infoMap[? "shape"]) {
 				if (target_index != index && target_index != WALL) {
 					entryIndex[| entryCount] = ds_map_create();
 					ds_list_mark_as_map(entryIndex, entryCount);
-					entryMap = entryIndex[| entryCount];
+					var entryMap = entryIndex[| entryCount];
 					entryCount++;
 				
 					entryMap[? "target_roomId"] = target_index;
@@ -376,7 +374,7 @@ switch (infoMap[? "shape"]) {
 					if (target_index != index && target_index != WALL) {
 						entryIndex[| entryCount] = ds_map_create();
 						ds_list_mark_as_map(entryIndex, entryCount);
-						entryMap = entryIndex[| entryCount];
+						var entryMap = entryIndex[| entryCount];
 						entryCount++;
 					
 						entryMap[? "target_roomId"] = target_index;
@@ -394,7 +392,7 @@ switch (infoMap[? "shape"]) {
 					if (target_index != index && target_index != WALL) {
 						entryIndex[| entryCount] = ds_map_create();
 						ds_list_mark_as_map(entryIndex, entryCount);
-						entryMap = entryIndex[| entryCount];
+						var entryMap = entryIndex[| entryCount];
 						entryCount++;
 					
 						entryMap[? "target_roomId"] = target_index;
@@ -412,7 +410,7 @@ switch (infoMap[? "shape"]) {
 					if (target_index != index && target_index != WALL) {
 						entryIndex[| entryCount] = ds_map_create();
 						ds_list_mark_as_map(entryIndex, entryCount);
-						entryMap = entryIndex[| entryCount];
+						var entryMap = entryIndex[| entryCount];
 						entryCount++;
 					
 						entryMap[? "target_roomId"] = target_index;
@@ -432,7 +430,7 @@ switch (infoMap[? "shape"]) {
 				if (target_index != index && target_index != WALL) {
 					entryIndex[| entryCount] = ds_map_create();
 					ds_list_mark_as_map(entryIndex, entryCount);
-					entryMap = entryIndex[| entryCount];
+					var entryMap = entryIndex[| entryCount];
 					entryCount++;
 							
 					entryMap[? "target_roomId"] = target_index;
@@ -450,7 +448,7 @@ switch (infoMap[? "shape"]) {
 				if (target_index != index && target_index != WALL) {
 					entryIndex[| entryCount] = ds_map_create();
 					ds_list_mark_as_map(entryIndex, entryCount);
-					entryMap = entryIndex[| entryCount];
+					var entryMap = entryIndex[| entryCount];
 					entryCount++;
 					
 					entryMap[? "target_roomId"] = target_index;
@@ -474,7 +472,7 @@ switch (infoMap[? "shape"]) {
 				if (target_index != index && target_index != WALL) {
 					entryIndex[| entryCount] = ds_map_create();
 					ds_list_mark_as_map(entryIndex, entryCount);
-					entryMap = entryIndex[| entryCount];
+					var entryMap = entryIndex[| entryCount];
 					entryCount++;
 					
 					entryMap[? "target_roomId"] = target_index;
@@ -492,7 +490,7 @@ switch (infoMap[? "shape"]) {
 					if (target_index != index && target_index != WALL) {
 						entryIndex[| entryCount] = ds_map_create();
 						ds_list_mark_as_map(entryIndex, entryCount);
-						entryMap = entryIndex[| entryCount];
+						var entryMap = entryIndex[| entryCount];
 						entryCount++;
 					
 						entryMap[? "target_roomId"] = target_index;
@@ -511,7 +509,7 @@ switch (infoMap[? "shape"]) {
 					if (target_index != index && target_index != WALL) {
 						entryIndex[| entryCount] = ds_map_create();
 						ds_list_mark_as_map(entryIndex, entryCount);
-						entryMap = entryIndex[| entryCount];
+						var entryMap = entryIndex[| entryCount];
 						entryCount++;
 				
 						entryMap[? "target_roomId"] = target_index;
@@ -531,7 +529,7 @@ switch (infoMap[? "shape"]) {
 					if (target_index != index && target_index != WALL) {
 						entryIndex[| entryCount] = ds_map_create();
 						ds_list_mark_as_map(entryIndex, entryCount);
-						entryMap = entryIndex[| entryCount];
+						var entryMap = entryIndex[| entryCount];
 						entryCount++;
 						
 						entryMap[? "target_roomId"] = target_index;
@@ -550,7 +548,7 @@ switch (infoMap[? "shape"]) {
 					if (target_index != index && target_index != WALL) {
 						entryIndex[| entryCount] = ds_map_create();
 						ds_list_mark_as_map(entryIndex, entryCount);
-						entryMap = entryIndex[| entryCount];
+						var entryMap = entryIndex[| entryCount];
 						entryCount++;
 					
 						entryMap[? "target_roomId"] = target_index;
@@ -569,7 +567,7 @@ switch (infoMap[? "shape"]) {
 					if (target_index != index && target_index != WALL) {
 						entryIndex[| entryCount] = ds_map_create();
 						ds_list_mark_as_map(entryIndex, entryCount);
-						entryMap = entryIndex[| entryCount];
+						var entryMap = entryIndex[| entryCount];
 						entryCount++;
 					
 						entryMap[? "target_roomId"] = target_index;
@@ -590,7 +588,7 @@ switch (infoMap[? "shape"]) {
 				if (target_index != index && target_index != WALL) {
 					entryIndex[| entryCount] = ds_map_create();
 					ds_list_mark_as_map(entryIndex, entryCount);
-					entryMap = entryIndex[| entryCount];
+					var entryMap = entryIndex[| entryCount];
 					entryCount++;
 					
 					entryMap[? "target_roomId"] = target_index;
@@ -609,7 +607,7 @@ switch (infoMap[? "shape"]) {
 				if (target_index != index && target_index != WALL) {
 					entryIndex[| entryCount] = ds_map_create();
 					ds_list_mark_as_map(entryIndex, entryCount);
-					entryMap = entryIndex[| entryCount];
+					var entryMap = entryIndex[| entryCount];
 					entryCount++;
 					
 					entryMap[? "target_roomId"] = target_index;

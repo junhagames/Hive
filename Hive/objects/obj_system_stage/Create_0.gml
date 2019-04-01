@@ -21,47 +21,85 @@ with (Door) {
 	}
 }
 #endregion
-
 #region Create player
 if (global.previousIndex == noone) {
 	instance_create_depth(room_width / 2, room_height / 2, 0, obj_chr);
 }
 else {
-	// TODO 캐릭터 복제버그 수정
+	var _worldIndex = global.worldList[| global.previousIndex];
+	var _infoMap = _worldIndex[| MARK.INFO];
+	var _entryIndex = _worldIndex[| MARK.ENTRY];
+	
+	if (!isEntry) {
+		instance_destroy();
+	}
+	
 	with (Door) {
-		if (global.previousPos == POS.TOP || global.previousPos == POS.TOP_LEFT || global.previousPos == POS.TOP_RIGHT) {
-			if (pos == POS.BOTTOM || pos == POS.BOTTOM_RIGHT || pos == POS.BOTTOM_LEFT) {
-				instance_create_depth(x, y - 64, 0, obj_chr);
-			}
-		}
+		switch (_infoMap[? "shape"]) {
+			case SHAPE.SMALL:
+				if (global.previousPos == POS.TOP &&
+					(pos == POS.BOTTOM || pos == POS.BOTTOM_RIGHT || pos == POS.BOTTOM_LEFT)) {
+					instance_create_depth(x, y - 64, 0, obj_chr);
+				}
 		
-		if (global.previousPos == POS.RIGHT || global.previousPos == POS.RIGHT_TOP || global.previousPos == POS.RIGHT_BOTTOM) {
-			if (pos == POS.LEFT || pos == POS.LEFT_BOTTOM || pos == POS.LEFT_TOP) {
-				instance_create_depth(x + 64, y, 0, obj_chr);
-			}
-		}
+				if (global.previousPos == POS.RIGHT &&
+					(pos == POS.LEFT || pos == POS.LEFT_BOTTOM || pos == POS.LEFT_TOP)) {
+					instance_create_depth(x + 64, y, 0, obj_chr);
+				}
+				
+				if (global.previousPos == POS.BOTTOM &&
+					(pos == POS.TOP || pos == POS.TOP_LEFT || pos == POS.TOP_RIGHT)) {
+					instance_create_depth(x, y + 64, 0, obj_chr);
+				}
+				
+				if (global.previousPos == POS.LEFT &&
+					(pos == POS.RIGHT || pos == POS.RIGHT_TOP || pos == POS.RIGHT_BOTTOM)) {
+					instance_create_depth(x - 64, y, 0, obj_chr);
+				}
+				break;
+				
+			case SHAPE.BIG:
+				if (global.previousPos == POS.TOP_LEFT) {
+					var entryCount = 0;
+					
+					for (var i = 0; i < ds_list_size(_entryIndex); i++) {
+						if (pos == target_roomId) {
+							entryCount++;
+						}
+					}
+					
+					if (entryCount == 1) {
+					
+					}
+					else {
+						
+					}
+				}
 		
-		if (global.previousPos == POS.BOTTOM || global.previousPos == POS.BOTTOM_RIGHT || global.previousPos == POS.BOTTOM_LEFT) {
-			if (pos == POS.TOP || pos == POS.TOP_LEFT || pos == POS.TOP_RIGHT) {
-				instance_create_depth(x, y + 64, 0, obj_chr);
-			}
-		}
-
-		if (global.previousPos == POS.LEFT || global.previousPos == POS.LEFT_BOTTOM || global.previousPos == POS.LEFT_TOP) {
-			if (pos == POS.RIGHT || pos == POS.RIGHT_TOP || pos == POS.RIGHT_BOTTOM) {
-				instance_create_depth(x - 64, y, 0, obj_chr);
-			}
+				//if (global.previousPos == POS.RIGHT &&
+				//	(pos == POS.LEFT || pos == POS.LEFT_BOTTOM || pos == POS.LEFT_TOP)) {
+				//	instance_create_depth(x + 64, y, 0, obj_chr);
+				//}
+				
+				//if (global.previousPos == POS.BOTTOM &&
+				//	(pos == POS.TOP || pos == POS.TOP_LEFT || pos == POS.TOP_RIGHT)) {
+				//	instance_create_depth(x, y + 64, 0, obj_chr);
+				//}
+				
+				//if (global.previousPos == POS.LEFT &&
+				//	(pos == POS.RIGHT || pos == POS.RIGHT_TOP || pos == POS.RIGHT_BOTTOM)) {
+				//	instance_create_depth(x - 64, y, 0, obj_chr);
+				//}
+				break;
 		}
 	}
 }
 #endregion
-
 #region Create Camera
 with (obj_chr) {
 	instance_create_depth(x, y, 0, obj_camera);
 }
 #endregion
-
 #region Create hive
 var hiveIndex = worldIndex[| MARK.HIVE];
 
