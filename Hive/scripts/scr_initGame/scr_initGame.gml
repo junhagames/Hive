@@ -58,7 +58,7 @@ global.gameHeight = 720;
 global.zoom = 1;
 global.resolution = 1;
 
-global.worldGrid = ds_grid_create(10, 10);
+global.worldGrid = ds_grid_create(15, 15);
 global.worldList = ds_list_create();
 
 global.currentIndex = 0;

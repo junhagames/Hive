@@ -19,7 +19,7 @@
         "dcadd34d-a481-4bc4-b581-b0757b437a29"
     ],
     "filterType": "GMObject",
-    "folderName": "Door",
+    "folderName": "Entry",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

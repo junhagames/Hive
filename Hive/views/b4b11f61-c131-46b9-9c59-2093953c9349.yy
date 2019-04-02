@@ -7,7 +7,7 @@
         "a729fe5f-481b-4288-bcaf-ac9860d35191"
     ],
     "filterType": "GMSprite",
-    "folderName": "Door",
+    "folderName": "Entry",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

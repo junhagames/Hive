@@ -1,9 +1,8 @@
 var worldIndex = global.worldList[| global.currentIndex];
-var infoMap = worldIndex[| MARK.INFO];
 var entryIndex = worldIndex[| MARK.ENTRY];
 
 #region Create entry
-with (Door) {
+with (Entry) {
 	var isEntry = false;
 	
 	for (var i = 0; i < ds_list_size(entryIndex); i++) {
@@ -17,6 +16,9 @@ with (Door) {
 	}
 	
 	if (!isEntry) {
+		var b = instance_create_depth(x, y, 0, Block);
+		b.image_xscale = image_xscale;
+		b.image_yscale = image_yscale;
 		instance_destroy();
 	}
 }
@@ -26,78 +28,67 @@ if (global.previousIndex == noone) {
 	instance_create_depth(room_width / 2, room_height / 2, 0, obj_chr);
 }
 else {
-	var _worldIndex = global.worldList[| global.previousIndex];
-	var _infoMap = _worldIndex[| MARK.INFO];
-	var _entryIndex = _worldIndex[| MARK.ENTRY];
-	
-	if (!isEntry) {
-		instance_destroy();
-	}
-	
-	with (Door) {
-		switch (_infoMap[? "shape"]) {
-			case SHAPE.SMALL:
-				if (global.previousPos == POS.TOP &&
-					(pos == POS.BOTTOM || pos == POS.BOTTOM_RIGHT || pos == POS.BOTTOM_LEFT)) {
-					instance_create_depth(x, y - 64, 0, obj_chr);
+	with (Entry) {
+		if (target_roomId == global.previousIndex && !instance_exists(obj_chr)) {
+			var entryCount = 0;
+			
+			for (var i = 0; i < ds_list_size(entryIndex); i++) {
+				var entryMap = entryIndex[| i];
+					
+				if (target_roomId == entryMap[? "target_roomId"]) {
+					entryCount++;
 				}
+			}
+			
+			var wcenter = (bbox_left + bbox_right) / 2;
+			var hcenter = (bbox_top + bbox_bottom) / 2;
+			
+			if (global.previousPos == POS.TOP || global.previousPos == POS.TOP_LEFT || global.previousPos == POS.TOP_RIGHT) {
+				if (entryCount == 1 ||
+					(entryCount == 2 && ((global.previousPos == POS.TOP_LEFT && pos == POS.BOTTOM_LEFT) || (global.previousPos == POS.TOP_RIGHT && pos == POS.BOTTOM_RIGHT)))) {
+					instance_create_depth(wcenter, hcenter - 64, 0, obj_chr);
+				}
+			}
+				
+			if (global.previousPos == POS.RIGHT || global.previousPos == POS.RIGHT_TOP || global.previousPos == POS.RIGHT_BOTTOM) {
+				if (entryCount == 1 ||
+					(entryCount == 2 && ((global.previousPos == POS.RIGHT_TOP && pos == POS.LEFT_TOP) || (global.previousPos == POS.RIGHT_BOTTOM && pos == POS.LEFT_BOTTOM)))) {
+					instance_create_depth(wcenter + 64, hcenter, 0, obj_chr);
+				}
+			}
 		
-				if (global.previousPos == POS.RIGHT &&
-					(pos == POS.LEFT || pos == POS.LEFT_BOTTOM || pos == POS.LEFT_TOP)) {
-					instance_create_depth(x + 64, y, 0, obj_chr);
+			if (global.previousPos == POS.BOTTOM || global.previousPos == POS.BOTTOM_RIGHT || global.previousPos == POS.BOTTOM_LEFT) {
+				if (entryCount == 1 ||
+					(entryCount == 2 && ((global.previousPos == POS.BOTTOM_RIGHT && pos == POS.TOP_RIGHT) || (global.previousPos == POS.BOTTOM_LEFT && pos == POS.TOP_LEFT)))) {
+					instance_create_depth(wcenter, hcenter + 64, 0, obj_chr);
 				}
-				
-				if (global.previousPos == POS.BOTTOM &&
-					(pos == POS.TOP || pos == POS.TOP_LEFT || pos == POS.TOP_RIGHT)) {
-					instance_create_depth(x, y + 64, 0, obj_chr);
-				}
-				
-				if (global.previousPos == POS.LEFT &&
-					(pos == POS.RIGHT || pos == POS.RIGHT_TOP || pos == POS.RIGHT_BOTTOM)) {
-					instance_create_depth(x - 64, y, 0, obj_chr);
-				}
-				break;
-				
-			case SHAPE.BIG:
-				if (global.previousPos == POS.TOP_LEFT) {
-					var entryCount = 0;
-					
-					for (var i = 0; i < ds_list_size(_entryIndex); i++) {
-						if (pos == target_roomId) {
-							entryCount++;
-						}
-					}
-					
-					if (entryCount == 1) {
-					
-					}
-					else {
-						
-					}
-				}
+			}
 		
-				//if (global.previousPos == POS.RIGHT &&
-				//	(pos == POS.LEFT || pos == POS.LEFT_BOTTOM || pos == POS.LEFT_TOP)) {
-				//	instance_create_depth(x + 64, y, 0, obj_chr);
-				//}
-				
-				//if (global.previousPos == POS.BOTTOM &&
-				//	(pos == POS.TOP || pos == POS.TOP_LEFT || pos == POS.TOP_RIGHT)) {
-				//	instance_create_depth(x, y + 64, 0, obj_chr);
-				//}
-				
-				//if (global.previousPos == POS.LEFT &&
-				//	(pos == POS.RIGHT || pos == POS.RIGHT_TOP || pos == POS.RIGHT_BOTTOM)) {
-				//	instance_create_depth(x - 64, y, 0, obj_chr);
-				//}
-				break;
+			if (global.previousPos == POS.LEFT ||global.previousPos == POS.LEFT_BOTTOM || global.previousPos == POS.LEFT_TOP) {
+				if (entryCount == 1 ||
+					(entryCount == 2 && ((global.previousPos == POS.LEFT_BOTTOM && pos == POS.RIGHT_BOTTOM) || (global.previousPos == POS.LEFT_TOP && pos == POS.RIGHT_TOP)))) {
+					instance_create_depth(wcenter - 64, hcenter, 0, obj_chr);
+				}
+			}
 		}
 	}
 }
 #endregion
 #region Create Camera
-with (obj_chr) {
-	instance_create_depth(x, y, 0, obj_camera);
+if (global.previousPos == POS.TOP || global.previousPos == POS.TOP_LEFT || global.previousPos == POS.TOP_RIGHT) {
+	instance_create_depth(obj_chr.x, obj_chr.y + 320, 0, obj_camera);	
+}
+else if (global.previousPos == POS.RIGHT || global.previousPos == POS.RIGHT_TOP || global.previousPos == POS.RIGHT_BOTTOM) {
+	instance_create_depth(obj_chr.x - 320, obj_chr.y, 0, obj_camera);	
+}
+else if (global.previousPos == POS.BOTTOM || global.previousPos == POS.BOTTOM_RIGHT || global.previousPos == POS.BOTTOM_LEFT) {
+	instance_create_depth(obj_chr.x, obj_chr.y - 320, 0, obj_camera);	
+}
+else if (global.previousPos == POS.LEFT || global.previousPos == POS.LEFT_BOTTOM || global.previousPos == POS.LEFT_TOP) {
+	instance_create_depth(obj_chr.x + 320, obj_chr.y, 0, obj_camera);	
+}
+else {
+	instance_create_depth(obj_chr.x, obj_chr.y, 0, obj_camera);
 }
 #endregion
 #region Create hive
@@ -106,9 +97,6 @@ var hiveIndex = worldIndex[| MARK.HIVE];
 for (var i = 0; i < ds_list_size(hiveIndex); i++) {
 	var hiveMap = hiveIndex[| i];
 	var hive = instance_create_depth(hiveMap[? "x"], hiveMap[? "y"], 0, obj_hive1);
-	
-	with (hive) {
-		hive_id = hiveMap[? "id"];
-	}
+	hive.hive_id = hiveMap[? "id"];
 }
 #endregion

@@ -1,1 +1,1 @@
-scr_createCamera(30, 10, 10);
+scr_camera(30, 10, 10);

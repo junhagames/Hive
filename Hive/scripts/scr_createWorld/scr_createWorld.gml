@@ -258,7 +258,7 @@ for (var _y = 0; _y < ds_grid_height(global.worldGrid); _y++) {
 	}
 }
 
-#region Print
+// Print
 for (var _y = 0; _y < ds_grid_height(global.worldGrid); _y++) {
 	var text = "";
 	
@@ -279,11 +279,3 @@ for (var i = 0; i < ds_grid_width(global.worldGrid); i++) {
 	line += "+";
 }
 show_debug_message(line);
-#endregion
-
-//ini_open("save.ini"); 
-//ini_write_string("global.worldGrid", "0", ds_grid_write(global.worldGrid)); 
-//ini_write_string("global.worldList", "0", ds_list_write(global.worldList));
-//ini_close();
-
-//show_message(ds_list_write(global.worldList));

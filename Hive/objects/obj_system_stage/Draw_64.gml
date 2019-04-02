@@ -1,4 +1,4 @@
-// Minimap
+// Draw Minimap
 var text = "";
 
 for (var _y = 0; _y < ds_grid_height(global.worldGrid); _y++) {
@@ -18,4 +18,6 @@ for (var _y = 0; _y < ds_grid_height(global.worldGrid); _y++) {
 	text += "\n";
 }
 
-draw_text(10, 10, text);
+draw_set_color(c_lime);
+draw_text(1000, 10, text);
+draw_set_color(c_white);
