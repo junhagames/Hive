@@ -1,5 +1,6 @@
-chr_moveSpeed = 6;
+instance_kind = obj_chr;
 
+chr_moveSpeed = 6;
 chr_hspeed = 0;
 chr_vspeed = 0;
 chr_angle = 0;

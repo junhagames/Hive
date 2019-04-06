@@ -1,0 +1,1 @@
+instance_kind = obj_hive1;

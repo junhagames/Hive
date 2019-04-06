@@ -1,22 +1,31 @@
 var worldIndex = global.worldList[| global.currentIndex];
+var infoMap = worldIndex[| MARK.INFO];
 var entryIndex = worldIndex[| MARK.ENTRY];
+var hiveIndex = worldIndex[| MARK.HIVE];
+infoMap[? "search"] = SEARCH.KNOWN;
 
 #region Create entry
-with (Entry) {
+with (obj_parrent_entry) {
 	var isEntry = false;
 	
 	for (var i = 0; i < ds_list_size(entryIndex); i++) {
 		var entryMap = entryIndex[| i];
 		
 		if (pos == entryMap[? "pos"]) {
+			target_roomId = entryMap[? "target_roomId"];
+			var _worldIndex = global.worldList[| target_roomId];
+			var _infoMap = _worldIndex[| MARK.INFO];
+			
+			if (_infoMap[? "search"] == SEARCH.UNKNOWN) { 
+				_infoMap[? "search"] = SEARCH.CLOSE;
+			}
 			isEntry = true;
-			target_roomId =  entryMap[? "target_roomId"];
 			break;
 		}
 	}
 	
 	if (!isEntry) {
-		var b = instance_create_depth(x, y, 0, Block);
+		var b = instance_create_depth(x, y, 0, obj_block);
 		b.image_xscale = image_xscale;
 		b.image_yscale = image_yscale;
 		instance_destroy();
@@ -28,7 +37,7 @@ if (global.previousIndex == noone) {
 	instance_create_depth(room_width / 2, room_height / 2, 0, obj_chr);
 }
 else {
-	with (Entry) {
+	with (obj_parrent_entry) {
 		if (target_roomId == global.previousIndex && !instance_exists(obj_chr)) {
 			var entryCount = 0;
 			
@@ -74,29 +83,13 @@ else {
 	}
 }
 #endregion
-#region Create Camera
-if (global.previousPos == POS.TOP || global.previousPos == POS.TOP_LEFT || global.previousPos == POS.TOP_RIGHT) {
-	instance_create_depth(obj_chr.x, obj_chr.y + 320, 0, obj_camera);	
-}
-else if (global.previousPos == POS.RIGHT || global.previousPos == POS.RIGHT_TOP || global.previousPos == POS.RIGHT_BOTTOM) {
-	instance_create_depth(obj_chr.x - 320, obj_chr.y, 0, obj_camera);	
-}
-else if (global.previousPos == POS.BOTTOM || global.previousPos == POS.BOTTOM_RIGHT || global.previousPos == POS.BOTTOM_LEFT) {
-	instance_create_depth(obj_chr.x, obj_chr.y - 320, 0, obj_camera);	
-}
-else if (global.previousPos == POS.LEFT || global.previousPos == POS.LEFT_BOTTOM || global.previousPos == POS.LEFT_TOP) {
-	instance_create_depth(obj_chr.x + 320, obj_chr.y, 0, obj_camera);	
-}
-else {
-	instance_create_depth(obj_chr.x, obj_chr.y, 0, obj_camera);
-}
-#endregion
 #region Create hive
-var hiveIndex = worldIndex[| MARK.HIVE];
-
 for (var i = 0; i < ds_list_size(hiveIndex); i++) {
 	var hiveMap = hiveIndex[| i];
 	var hive = instance_create_depth(hiveMap[? "x"], hiveMap[? "y"], 0, obj_hive1);
 	hive.hive_id = hiveMap[? "id"];
 }
 #endregion
+
+instance_create_depth(obj_chr.x, obj_chr.y, 0, obj_camera);
+instance_create_depth(0, 0, 0, obj_draw);

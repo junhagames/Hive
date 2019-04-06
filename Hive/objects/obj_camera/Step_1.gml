@@ -1,1 +1,1 @@
-scr_resizeCamera();
+scr_camera_resize();

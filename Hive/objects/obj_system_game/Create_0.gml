@@ -1,5 +1,5 @@
-scr_initGame();
-scr_createWorld(20);
+scr_init();
+scr_world_reset(20);
 scr_world_room_goto(global.currentIndex, noone);
 
 // TODO save & load

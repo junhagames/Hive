@@ -1,2 +1,3 @@
-scr_moveChr();
-scr_angleChr();
+scr_chr_move();
+scr_chr_angle();
+scr_chr_attack();
