@@ -1,4 +1,5 @@
 if (hiveMap[? "hp"] < 1) {
-	ds_map_delete(hiveIndex, hiveID);
+	//TODO 오류 고치기
+	//ds_list_delete(hiveIndex, hiveID);
 	instance_destroy();
 }

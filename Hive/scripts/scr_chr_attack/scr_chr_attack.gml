@@ -21,10 +21,10 @@ if (!isAttackDelay) {
 			var melee = instance_create_depth(x + lengthdir_x(64, angle), y + lengthdir_y(64, angle), 0, obj_melee1);
 			melee.image_angle = angle;
 			melee.damage = global.chrStatus[? "strength"] + global.chrStatus[? "warriorDamage"];
+			var eft = instance_create_depth(melee.x, melee.y, 0, obj_eft_melee1);
+			eft.image_angle = angle;
 			isAttackDelay = true;
 			alarm[0] = global.chrStatus[? "warriorSpeed"];
-			//scr_camera_shake(20);
-			//scr_camera_zoom(1.2);
 		}
 	}
 }

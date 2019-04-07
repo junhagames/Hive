@@ -13,3 +13,8 @@ if (global.chrStatus[? "swap"] == SWAP.RANGER) {
 else {
 	weaponSprite = spr_warrior_weapon1;
 }
+
+if (global.chrStatus[? "hp"] < 0) {
+	show_message("사망했습니다!");
+	game_restart();
+}

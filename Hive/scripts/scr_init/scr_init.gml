@@ -2,6 +2,8 @@
 
 #region Macro
 #macro WALL "#"
+#macro CELL_WIDTH 32
+#macro CELL_HEIGHT 32
 #macro SMALL_WIDTH 1280
 #macro SMALL_HEIGHT 720
 #macro BIG_WIDTH 2560
@@ -82,13 +84,13 @@ global.chrStatus[? "armor"] = 1;
 global.chrStatus[? "speed"] = 6;
 global.chrStatus[? "dodge"] = 1;
 global.chrStatus[? "swap"] = SWAP.RANGER;
-global.chrStatus[? "rangerAmmoMax"] = 30;
+global.chrStatus[? "rangerAmmoMax"] = 300;
 global.chrStatus[? "rangerAmmo"] = global.chrStatus[? "rangerAmmoMax"];
 global.chrStatus[? "rangerDamage"] = 3;
 global.chrStatus[? "rangerSpeed"] = room_speed * 0.1;
 global.chrStatus[? "rangerAccuracy"] = 8;
 global.chrStatus[? "warriorDamage"] = 10;
-global.chrStatus[? "warriorSpeed"] = room_speed * 1;
+global.chrStatus[? "warriorSpeed"] = room_speed * 0.4;
 #endregion
 
 randomize();
