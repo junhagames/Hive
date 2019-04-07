@@ -25,9 +25,9 @@ with (obj_parrent_entry) {
 	}
 	
 	if (!isEntry) {
-		var b = instance_create_depth(x, y, 0, obj_block);
-		b.image_xscale = image_xscale;
-		b.image_yscale = image_yscale;
+		var block = instance_create_depth(x, y, 0, obj_block);
+		block.image_xscale = image_xscale;
+		block.image_yscale = image_yscale;
 		instance_destroy();
 	}
 }
@@ -87,7 +87,10 @@ else {
 for (var i = 0; i < ds_list_size(hiveIndex); i++) {
 	var hiveMap = hiveIndex[| i];
 	var hive = instance_create_depth(hiveMap[? "x"], hiveMap[? "y"], 0, obj_hive1);
-	hive.hive_id = hiveMap[? "id"];
+	hive.hiveID = hiveMap[? "id"];
+	hive.worldIndex = global.worldList[| global.currentIndex];
+	hive.hiveIndex = hive.worldIndex[| MARK.HIVE];
+	hive.hiveMap = hive.hiveIndex[| hive.hiveID];
 }
 #endregion
 

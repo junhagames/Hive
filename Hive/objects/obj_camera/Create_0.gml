@@ -13,4 +13,4 @@ if (!view_enabled) {
 	view_enabled = true;
 }
 
-camera_shake = 0;
+shake = 0;

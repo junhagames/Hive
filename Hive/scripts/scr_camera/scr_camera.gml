@@ -2,10 +2,12 @@
 /// @param lengthMax
 /// @param moveSpeed
 /// @param scaleSpeed
+/// @param shakeSpeed
 
 var lengthMax = argument0;
 var moveSpeed = argument1;
 var scaleSpeed = argument2;
+var shakeSpeed = argument3;
 
 var target_x, target_y;
 
@@ -35,12 +37,12 @@ camera_set_view_size(camera,
 
 //	Shake
 camera_set_view_pos(camera,
-	camera_get_view_x(camera) + random_range(-camera_shake, camera_shake),
-	camera_get_view_y(camera) + random_range(-camera_shake, camera_shake));
+	camera_get_view_x(camera) + random_range(-shake, shake),
+	camera_get_view_y(camera) + random_range(-shake, shake));
 
 camera_set_view_angle(camera,
-	random_range(-camera_shake, camera_shake));
+	random_range(-shake, shake));
 	
-if (camera_shake > 0) {
-    camera_shake -= camera_shake / 4;
+if (shake > 0) {
+    shake -= shake / shakeSpeed;
 }

@@ -1,11 +1,11 @@
 instance_kind = obj_chr;
 
-chr_moveSpeed = 6;
-chr_hspeed = 0;
-chr_vspeed = 0;
-chr_angle = 0;
+angle = 0;
+isMove = false;
+xdir = 1;
+weaponSprite = spr_ranger_weapon1;
+weaponLen = 16;
 
-chr_isMove = false;
-chr_xdir = 1;
+isAttackDelay = false;
 
 image_speed = 0.4;

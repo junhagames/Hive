@@ -1,1 +1,1 @@
-/// @description Do not Draw Self
+// Do not draw self

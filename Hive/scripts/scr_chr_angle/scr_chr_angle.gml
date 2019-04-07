@@ -1,10 +1,10 @@
 /// @description 캐릭터 각도 조정
 
-chr_angle = point_direction(x, y, mouse_x, mouse_y);
+angle = point_direction(x, y, mouse_x, mouse_y);
 
-if (chr_angle > 90 && chr_angle < 270) {
-	chr_xdir = -1;
+if (angle > 90 && angle < 270) {
+	xdir = -1;
 }
 else {
-	chr_xdir = 1;
+	xdir = 1;
 }

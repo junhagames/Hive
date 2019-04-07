@@ -5,24 +5,24 @@ var key_right = keyboard_check(ord("D"));
 var key_up = keyboard_check(ord("W"));
 var key_down = keyboard_check(ord("S"));
 
-chr_hspeed = (key_right - key_left) * chr_moveSpeed;
-chr_vspeed = (key_down - key_up) * chr_moveSpeed;
-chr_isMove = chr_hspeed != 0 || chr_vspeed != 0;
+var _hspeed = (key_right - key_left) * global.chrStatus[? "speed"];
+var _vspeed = (key_down - key_up) * global.chrStatus[? "speed"];
+isMove = _hspeed != 0 || _vspeed != 0;
 
-if (place_meeting(x + chr_hspeed, y, obj_block)) {
-	while (!place_meeting(x + sign(chr_hspeed), y, obj_block)) {
-		x += sign(chr_hspeed);
+if (place_meeting(x + _hspeed, y, obj_block)) {
+	while (!place_meeting(x + sign(_hspeed), y, obj_block)) {
+		x += sign(_hspeed);
 	}
-	chr_hspeed = 0;
+	_hspeed = 0;
 }
 
-if (place_meeting(x, y + chr_vspeed, obj_block)) {
-	while (!place_meeting(x, y + sign(chr_vspeed), obj_block)) {
-		y += sign(chr_vspeed);
+if (place_meeting(x, y + _vspeed, obj_block)) {
+	while (!place_meeting(x, y + sign(_vspeed), obj_block)) {
+		y += sign(_vspeed);
 	}
-	chr_vspeed = 0;
+	_vspeed = 0;
 }
 
-var moveDir = point_direction(0, 0, chr_hspeed, chr_vspeed);
-x += lengthdir_x(abs(chr_hspeed), moveDir);
-y += lengthdir_y(abs(chr_vspeed), moveDir);
+var moveDir = point_direction(0, 0, _hspeed, _vspeed);
+x += lengthdir_x(abs(_hspeed), moveDir);
+y += lengthdir_y(abs(_vspeed), moveDir);

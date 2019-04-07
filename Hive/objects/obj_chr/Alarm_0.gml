@@ -1,0 +1,1 @@
+isAttackDelay = false;

@@ -4,5 +4,5 @@
 var shakePower = argument0;
 
 with (obj_camera) {
-	camera_shake = shakePower;
+	shake = shakePower;
 }
