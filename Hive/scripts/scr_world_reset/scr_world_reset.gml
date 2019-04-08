@@ -105,7 +105,7 @@ for (var i = 1; i < roomMax; i++) {
 						}
 					}
 					
-					if (isEmpty == false) {
+					if (!isEmpty) {
 						if (global.worldGrid[# control_x, control_y] == WALL) {
 							control_x = previous_x;
 							control_y = previous_y;
@@ -168,7 +168,7 @@ for (var i = 1; i < roomMax; i++) {
 						}
 					}
 					
-					if (isEmpty == false) {
+					if (!isEmpty) {
 						if (global.worldGrid[# control_x, control_y] == WALL) {
 							control_x = previous_x;
 							control_y = previous_y;
@@ -231,7 +231,7 @@ for (var i = 1; i < roomMax; i++) {
 						}
 					}
 					
-					if (isEmpty == false) {
+					if (!isEmpty) {
 						if (global.worldGrid[# control_x, control_y] == WALL) {
 							control_x = previous_x;
 							control_y = previous_y;

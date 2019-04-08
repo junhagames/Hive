@@ -5,6 +5,6 @@ if (instance_exists(obj_chr)) {
 	var dy = (obj_chr.y div CELL_HEIGHT) * CELL_HEIGHT + CELL_HEIGHT / 2;
 
 	if (mp_grid_path(obj_system_stage.enemyGrid, path, x, y, dx, dy, 1)) {
-	    path_start(path, _speed, path_action_stop, false); 
+	    path_start(path, spd, path_action_stop, false); 
 	}
 }

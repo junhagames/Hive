@@ -28,7 +28,7 @@ switch (infoMap[? "shape"]) {
 				var entryMap = entryIndex[| entryCount];
 				entryCount++;
 				
-				entryMap[? "target_roomId"] = target_index;
+				entryMap[? "targetRoomID"] = target_index;
 				entryMap[? "pos"] = POS.TOP;
 			}
 		}
@@ -46,7 +46,7 @@ switch (infoMap[? "shape"]) {
 				var entryMap = entryIndex[| entryCount];
 				entryCount++;
 				
-				entryMap[? "target_roomId"] = target_index;
+				entryMap[? "targetRoomID"] = target_index;
 				entryMap[? "pos"] = POS.RIGHT;
 			}
 		}
@@ -64,7 +64,7 @@ switch (infoMap[? "shape"]) {
 				var entryMap = entryIndex[| entryCount];
 				entryCount++;
 				
-				entryMap[? "target_roomId"] = target_index;
+				entryMap[? "targetRoomID"] = target_index;
 				entryMap[? "pos"] = POS.BOTTOM;
 			}
 		}
@@ -82,7 +82,7 @@ switch (infoMap[? "shape"]) {
 				var entryMap = entryIndex[| entryCount];
 				entryCount++;
 				
-				entryMap[? "target_roomId"] = target_index;
+				entryMap[? "targetRoomID"] = target_index;
 				entryMap[? "pos"] = POS.LEFT;
 			}
 		}
@@ -107,7 +107,7 @@ switch (infoMap[? "shape"]) {
 							var entryMap = entryIndex[| entryCount];
 							entryCount++;
 							
-							entryMap[? "target_roomId"] = target_index;
+							entryMap[? "targetRoomID"] = target_index;
 							entryMap[? "pos"] = POS.TOP_LEFT;
 						}
 						
@@ -124,7 +124,7 @@ switch (infoMap[? "shape"]) {
 							var entryMap = entryIndex[| entryCount];
 							entryCount++;
 				
-							entryMap[? "target_roomId"] = target_index;
+							entryMap[? "targetRoomID"] = target_index;
 							entryMap[? "pos"] = POS.LEFT_TOP;
 						}
 					}
@@ -143,7 +143,7 @@ switch (infoMap[? "shape"]) {
 								var entryMap = entryIndex[| entryCount];
 								entryCount++;
 							
-								entryMap[? "target_roomId"] = target_index;
+								entryMap[? "targetRoomID"] = target_index;
 								entryMap[? "pos"] = POS.BOTTOM_LEFT;
 							}
 						}
@@ -161,7 +161,7 @@ switch (infoMap[? "shape"]) {
 							var entryMap = entryIndex[| entryCount];
 							entryCount++;
 							
-							entryMap[? "target_roomId"] = target_index;
+							entryMap[? "targetRoomID"] = target_index;
 							entryMap[? "pos"] = POS.LEFT_BOTTOM;
 						}
 					}
@@ -180,7 +180,7 @@ switch (infoMap[? "shape"]) {
 						var entryMap = entryIndex[| entryCount];
 						entryCount++;
 							
-						entryMap[? "target_roomId"] = target_index;
+						entryMap[? "targetRoomID"] = target_index;
 						entryMap[? "pos"] = POS.LEFT_TOP;
 					}
 				}
@@ -201,7 +201,7 @@ switch (infoMap[? "shape"]) {
 							var entryMap = entryIndex[| entryCount];
 							entryCount++;
 						
-							entryMap[? "target_roomId"] = target_index;
+							entryMap[? "targetRoomID"] = target_index;
 							entryMap[? "pos"] = POS.TOP_RIGHT;
 						}
 						
@@ -219,7 +219,7 @@ switch (infoMap[? "shape"]) {
 								var entryMap = entryIndex[| entryCount];
 								entryCount++;
 						
-								entryMap[? "target_roomId"] = target_index;
+								entryMap[? "targetRoomID"] = target_index;
 								entryMap[? "pos"] = POS.RIGHT_TOP;
 							}
 						}
@@ -239,7 +239,7 @@ switch (infoMap[? "shape"]) {
 								var entryMap = entryIndex[| entryCount];
 								entryCount++;
 							
-								entryMap[? "target_roomId"] = target_index;
+								entryMap[? "targetRoomID"] = target_index;
 								entryMap[? "pos"] = POS.RIGHT_BOTTOM;
 							}
 						}
@@ -258,7 +258,7 @@ switch (infoMap[? "shape"]) {
 								var entryMap = entryIndex[| entryCount];
 								entryCount++;
 						
-								entryMap[? "target_roomId"] = target_index;
+								entryMap[? "targetRoomID"] = target_index;
 								entryMap[? "pos"] = POS.BOTTOM_RIGHT;
 							}
 						}
@@ -281,7 +281,7 @@ switch (infoMap[? "shape"]) {
 					var entryMap = entryIndex[| entryCount];
 					entryCount++;
 							
-					entryMap[? "target_roomId"] = target_index;
+					entryMap[? "targetRoomID"] = target_index;
 					entryMap[? "pos"] = POS.TOP_LEFT;
 				}
 			}
@@ -300,7 +300,7 @@ switch (infoMap[? "shape"]) {
 					var entryMap = entryIndex[| entryCount];
 					entryCount++;
 					
-					entryMap[? "target_roomId"] = target_index;
+					entryMap[? "targetRoomID"] = target_index;
 					entryMap[? "pos"] = POS.BOTTOM_LEFT;
 				}
 			}
@@ -324,7 +324,7 @@ switch (infoMap[? "shape"]) {
 						var entryMap = entryIndex[| entryCount];
 						entryCount++;
 					
-						entryMap[? "target_roomId"] = target_index;
+						entryMap[? "targetRoomID"] = target_index;
 						entryMap[? "pos"] = POS.TOP_LEFT;
 					}
 				}
@@ -342,7 +342,7 @@ switch (infoMap[? "shape"]) {
 						var entryMap = entryIndex[| entryCount];
 						entryCount++;
 					
-						entryMap[? "target_roomId"] = target_index;
+						entryMap[? "targetRoomID"] = target_index;
 						entryMap[? "pos"] = POS.BOTTOM_LEFT;
 					}
 				}
@@ -359,7 +359,7 @@ switch (infoMap[? "shape"]) {
 					var entryMap = entryIndex[| entryCount];
 					entryCount++;
 				
-					entryMap[? "target_roomId"] = target_index;
+					entryMap[? "targetRoomID"] = target_index;
 					entryMap[? "pos"] = POS.LEFT;
 				}
 			}
@@ -377,7 +377,7 @@ switch (infoMap[? "shape"]) {
 						var entryMap = entryIndex[| entryCount];
 						entryCount++;
 					
-						entryMap[? "target_roomId"] = target_index;
+						entryMap[? "targetRoomID"] = target_index;
 						entryMap[? "pos"] = POS.TOP_RIGHT;
 					}
 				}
@@ -395,7 +395,7 @@ switch (infoMap[? "shape"]) {
 						var entryMap = entryIndex[| entryCount];
 						entryCount++;
 					
-						entryMap[? "target_roomId"] = target_index;
+						entryMap[? "targetRoomID"] = target_index;
 						entryMap[? "pos"] = POS.RIGHT;
 					}
 				}
@@ -413,7 +413,7 @@ switch (infoMap[? "shape"]) {
 						var entryMap = entryIndex[| entryCount];
 						entryCount++;
 					
-						entryMap[? "target_roomId"] = target_index;
+						entryMap[? "targetRoomID"] = target_index;
 						entryMap[? "pos"] = POS.BOTTOM_RIGHT;
 					}
 				}
@@ -433,7 +433,7 @@ switch (infoMap[? "shape"]) {
 					var entryMap = entryIndex[| entryCount];
 					entryCount++;
 							
-					entryMap[? "target_roomId"] = target_index;
+					entryMap[? "targetRoomID"] = target_index;
 					entryMap[? "pos"] = POS.TOP_LEFT;
 				}
 			}
@@ -451,7 +451,7 @@ switch (infoMap[? "shape"]) {
 					var entryMap = entryIndex[| entryCount];
 					entryCount++;
 					
-					entryMap[? "target_roomId"] = target_index;
+					entryMap[? "targetRoomID"] = target_index;
 					entryMap[? "pos"] = POS.BOTTOM_LEFT;
 				}
 			}
@@ -475,7 +475,7 @@ switch (infoMap[? "shape"]) {
 					var entryMap = entryIndex[| entryCount];
 					entryCount++;
 					
-					entryMap[? "target_roomId"] = target_index;
+					entryMap[? "targetRoomID"] = target_index;
 					entryMap[? "pos"] = POS.TOP;
 				}
 				
@@ -493,7 +493,7 @@ switch (infoMap[? "shape"]) {
 						var entryMap = entryIndex[| entryCount];
 						entryCount++;
 					
-						entryMap[? "target_roomId"] = target_index;
+						entryMap[? "targetRoomID"] = target_index;
 						entryMap[? "pos"] = POS.RIGHT_TOP;
 					}
 				}
@@ -512,7 +512,7 @@ switch (infoMap[? "shape"]) {
 						var entryMap = entryIndex[| entryCount];
 						entryCount++;
 				
-						entryMap[? "target_roomId"] = target_index;
+						entryMap[? "targetRoomID"] = target_index;
 						entryMap[? "pos"] = POS.LEFT_TOP;
 					}
 				}
@@ -532,7 +532,7 @@ switch (infoMap[? "shape"]) {
 						var entryMap = entryIndex[| entryCount];
 						entryCount++;
 						
-						entryMap[? "target_roomId"] = target_index;
+						entryMap[? "targetRoomID"] = target_index;
 						entryMap[? "pos"] = POS.RIGHT_BOTTOM;
 					}
 				}
@@ -551,7 +551,7 @@ switch (infoMap[? "shape"]) {
 						var entryMap = entryIndex[| entryCount];
 						entryCount++;
 					
-						entryMap[? "target_roomId"] = target_index;
+						entryMap[? "targetRoomID"] = target_index;
 						entryMap[? "pos"] = POS.BOTTOM;
 					}
 				}
@@ -570,7 +570,7 @@ switch (infoMap[? "shape"]) {
 						var entryMap = entryIndex[| entryCount];
 						entryCount++;
 					
-						entryMap[? "target_roomId"] = target_index;
+						entryMap[? "targetRoomID"] = target_index;
 						entryMap[? "pos"] = POS.LEFT_BOTTOM;
 					}
 				}
@@ -591,7 +591,7 @@ switch (infoMap[? "shape"]) {
 					var entryMap = entryIndex[| entryCount];
 					entryCount++;
 					
-					entryMap[? "target_roomId"] = target_index;
+					entryMap[? "targetRoomID"] = target_index;
 					entryMap[? "pos"] = POS.LEFT_TOP;
 				}
 			}
@@ -610,7 +610,7 @@ switch (infoMap[? "shape"]) {
 					var entryMap = entryIndex[| entryCount];
 					entryCount++;
 					
-					entryMap[? "target_roomId"] = target_index;
+					entryMap[? "targetRoomID"] = target_index;
 					entryMap[? "pos"] = POS.RIGHT_TOP;
 				}
 			}

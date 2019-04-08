@@ -1,28 +1,28 @@
 /// @description 캐릭터 이동
 
-var key_left = keyboard_check(ord("A"));
-var key_right = keyboard_check(ord("D"));
-var key_up = keyboard_check(ord("W"));
-var key_down = keyboard_check(ord("S"));
+var keyLeft = keyboard_check(ord("A"));
+var keyRight = keyboard_check(ord("D"));
+var keyUp = keyboard_check(ord("W"));
+var keyDown = keyboard_check(ord("S"));
 
-var _hspeed = (key_right - key_left) * global.chrStatus[? "speed"];
-var _vspeed = (key_down - key_up) * global.chrStatus[? "speed"];
-isMove = _hspeed != 0 || _vspeed != 0;
+var hspd = (keyRight - keyLeft) * global.chrStatus[? "speed"];
+var vspd = (keyDown - keyUp) * global.chrStatus[? "speed"];
+isMove = hspd != 0 || vspd != 0;
 
-if (place_meeting(x + _hspeed, y, obj_block)) {
-	while (!place_meeting(x + sign(_hspeed), y, obj_block)) {
-		x += sign(_hspeed);
+if (place_meeting(x + hspd, y, obj_block)) {
+	while (!place_meeting(x + sign(hspd), y, obj_block)) {
+		x += sign(hspd);
 	}
-	_hspeed = 0;
+	hspd = 0;
 }
 
-if (place_meeting(x, y + _vspeed, obj_block)) {
-	while (!place_meeting(x, y + sign(_vspeed), obj_block)) {
-		y += sign(_vspeed);
+if (place_meeting(x, y + vspd, obj_block)) {
+	while (!place_meeting(x, y + sign(vspd), obj_block)) {
+		y += sign(vspd);
 	}
-	_vspeed = 0;
+	vspd = 0;
 }
 
-var moveDir = point_direction(0, 0, _hspeed, _vspeed);
-x += lengthdir_x(abs(_hspeed), moveDir);
-y += lengthdir_y(abs(_vspeed), moveDir);
+var moveDir = point_direction(0, 0, hspd, vspd);
+x += lengthdir_x(abs(hspd), moveDir);
+y += lengthdir_y(abs(vspd), moveDir);

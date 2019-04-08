@@ -9,3 +9,5 @@ var str = json_encode(saveMap);
 var file = file_text_open_write("save.json");
 file_text_write_string(file, str);
 file_text_close(file);
+
+show_debug_overlay(true);

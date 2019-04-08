@@ -530,7 +530,7 @@
             "Key": "7eabb263-08f4-4073-b7d7-ab9c995fc160",
             "Value": {
                 "id": "7fe52161-01c6-4297-98ad-9803ca449b85",
-                "resourcePath": "objects\\obj_hive1\\obj_hive1.yy",
+                "resourcePath": "objects\\obj_parent_hive\\obj_parent_hive.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -587,6 +587,14 @@
             "Value": {
                 "id": "9008430f-151a-4538-8e47-191ee64e6c28",
                 "resourcePath": "objects\\obj_parent_depth\\obj_parent_depth.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "99823e9c-0147-4246-bf53-b03e238b7549",
+            "Value": {
+                "id": "6ed15680-2e1d-45a6-9c97-5505aa4d22c2",
+                "resourcePath": "objects\\obj_hive1\\obj_hive1.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -666,7 +674,7 @@
             "Key": "a89f5e8e-4ac0-4fa4-9d28-3ad773091c2c",
             "Value": {
                 "id": "bfaecaa2-149f-4102-a735-4b6c2c1a616e",
-                "resourcePath": "objects\\obj_parent_enemy\\obj_parent_enemy.yy",
+                "resourcePath": "objects\\obj_parent_insect\\obj_parent_insect.yy",
                 "resourceType": "GMObject"
             }
         },

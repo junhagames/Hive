@@ -12,8 +12,8 @@ with (obj_parrent_entry) {
 		var entryMap = entryIndex[| i];
 		
 		if (pos == entryMap[? "pos"]) {
-			target_roomId = entryMap[? "target_roomId"];
-			var _worldIndex = global.worldList[| target_roomId];
+			targetRoomID = entryMap[? "targetRoomID"];
+			var _worldIndex = global.worldList[| targetRoomID];
 			var _infoMap = _worldIndex[| MARK.INFO];
 			
 			if (_infoMap[? "search"] == SEARCH.UNKNOWN) { 
@@ -38,13 +38,13 @@ if (global.previousIndex == noone) {
 }
 else {
 	with (obj_parrent_entry) {
-		if (target_roomId == global.previousIndex && !instance_exists(obj_chr)) {
+		if (targetRoomID == global.previousIndex && !instance_exists(obj_chr)) {
 			var entryCount = 0;
 			
 			for (var i = 0; i < ds_list_size(entryIndex); i++) {
 				var entryMap = entryIndex[| i];
 					
-				if (target_roomId == entryMap[? "target_roomId"]) {
+				if (targetRoomID == entryMap[? "targetRoomID"]) {
 					entryCount++;
 				}
 			}
