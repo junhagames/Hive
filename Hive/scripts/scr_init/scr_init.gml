@@ -2,8 +2,10 @@
 
 #region Macro
 #macro WALL "#"
+
 #macro CELL_WIDTH 32
 #macro CELL_HEIGHT 32
+
 #macro SMALL_WIDTH 1280
 #macro SMALL_HEIGHT 720
 #macro BIG_WIDTH 2560
@@ -82,7 +84,6 @@ global.chrStatus[? "hp"] = global.chrStatus[? "hpMax"];
 global.chrStatus[? "strength"] = 1;
 global.chrStatus[? "armor"] = 1;
 global.chrStatus[? "speed"] = 6;
-global.chrStatus[? "dodge"] = 1;
 global.chrStatus[? "swap"] = SWAP.RANGER;
 global.chrStatus[? "rangerAmmoMax"] = 300;
 global.chrStatus[? "rangerAmmo"] = global.chrStatus[? "rangerAmmoMax"];

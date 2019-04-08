@@ -83,36 +83,15 @@ else {
 	}
 }
 #endregion
-#region Create enemy
+#region Create hive
 for (var i = 0; i < ds_list_size(hiveIndex); i++) {
 	var hiveMap = hiveIndex[| i];
-	var hive = instance_create_depth(hiveMap[? "x"], hiveMap[? "y"], 0, obj_hive1);
-	hive.hiveID = hiveMap[? "id"];
-	hive.worldIndex = global.worldList[| global.currentIndex];
-	hive.hiveIndex = hive.worldIndex[| MARK.HIVE];
-	hive.hiveMap = hive.hiveIndex[| hive.hiveID];
 	
-	var sx, sy;
-	
-	switch (infoMap[? "shape"]) {
-		case SHAPE.SMALL:
-			sx = SMALL_WIDTH;
-			sy = SMALL_HEIGHT;
-			break;
-		case SHAPE.BIG:
-			sx = BIG_WIDTH;
-			sy = BIG_HEIGHT;
-			break;
-		case SHAPE.WLONG:
-			sx = WLONG_WIDTH;
-			sy = WLONG_HEIGHT;
-			break;
-		case SHAPE.HLONG:
-			sx = WLONG_WIDTH;
-			sy = WLONG_HEIGHT;
-			break;
+	if (hiveMap[? "hp"] > 0) {
+		var hive = instance_create_depth(hiveMap[? "x"], hiveMap[? "y"], 0, obj_hive1);
+		hive.hiveID = hiveMap[? "id"];
+		hive.hiveMap = hiveMap;
 	}
-	instance_create_depth(random_range(100, SMALL_WIDTH - 100), random_range(100, SMALL_HEIGHT), 0, obj_insect1);
 }
 #endregion
 

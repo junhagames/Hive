@@ -1,10 +1,10 @@
 /// @description 카메라 설정
-/// @param lengthMax
+/// @param lengthLimit
 /// @param moveSpeed
 /// @param scaleSpeed
 /// @param shakeSpeed
 
-var lengthMax = argument0;
+var lengthLimit = argument0;
 var moveSpeed = argument1;
 var scaleSpeed = argument2;
 var shakeSpeed = argument3;
@@ -12,14 +12,14 @@ var shakeSpeed = argument3;
 var target_x, target_y;
 
 with (obj_chr) {
-	if (distance_to_point(mouse_x, mouse_y) < lengthMax) {
+	if (distance_to_point(mouse_x, mouse_y) < lengthLimit) {
 		target_x = mouse_x;
 		target_y = mouse_y;
 	}
 	else {
 		var mouseDir = point_direction(x, y, mouse_x, mouse_y);
-		target_x = x + lengthdir_x(lengthMax, mouseDir);
-		target_y = y + lengthdir_y(lengthMax, mouseDir);
+		target_x = x + lengthdir_x(lengthLimit, mouseDir);
+		target_y = y + lengthdir_y(lengthLimit, mouseDir);
 	}
 }
 

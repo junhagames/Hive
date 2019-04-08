@@ -9,16 +9,14 @@ for (var _y = 0; _y < ds_grid_height(global.worldGrid); _y++) {
 		
 		if (index == WALL) {
 			text += "□";
-			continue;
 		}
-
-		var worldIndex = global.worldList[| index];
-		var infoMap = worldIndex[| MARK.INFO];
-		
-		if (index == global.currentIndex) {
+		else if (index == global.currentIndex) {
 			text += "@";
 		}
 		else {
+			var worldIndex = global.worldList[| index];
+			var infoMap = worldIndex[| MARK.INFO];
+		
 			switch (infoMap[? "search"]) {
 				case SEARCH.UNKNOWN:
 					text += "□";
@@ -34,7 +32,6 @@ for (var _y = 0; _y < ds_grid_height(global.worldGrid); _y++) {
 	}
 	text += "\n";
 }
-
 draw_set_color(c_lime);
 draw_text_ext(1000, 10, text, 18, 1000);
 draw_set_color(c_white);

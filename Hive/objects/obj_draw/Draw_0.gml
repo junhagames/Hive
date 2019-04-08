@@ -14,9 +14,9 @@ ds_grid_sort(depthGrid, 1, true);
 yy = 0;
 
 repeat (instNum) {
-	var instanceID = depthGrid[# 0, yy];
+	var instID = depthGrid[# 0, yy];
 	
-	with (instanceID) {
+	with (instID) {
 		switch (sprite_index) {
 			#region obj_chr
 			case spr_chr:

@@ -11,5 +11,4 @@ var infoMap = worldIndex[| MARK.INFO];
 if (pos != noone) {
 	global.previousPos = pos;
 }
-
 room_goto(infoMap[? "room"]);

@@ -1,11 +1,11 @@
 /// @description 룸 입구 생성
 /// @param index
-/// @param pos_x
-/// @param pos_y
+/// @param _x
+/// @param _y
 
 var index = argument0;
-var pos_x = argument1;
-var pos_y = argument2;
+var _x = argument1;
+var _y = argument2;
 
 var worldIndex = global.worldList[| index];
 var infoMap = worldIndex[| MARK.INFO];
@@ -19,16 +19,16 @@ switch (infoMap[? "shape"]) {
 		 *   □
 		 *  
 		 */
-		if (pos_y > 0) {
-			var target_index = global.worldGrid[# pos_x, pos_y - 1];
+		if (_y > 0) {
+			var targetIndex = global.worldGrid[# _x, _y - 1];
 			
-			if (target_index != index && target_index != WALL) {
+			if (targetIndex != index && targetIndex != WALL) {
 				entryIndex[| entryCount] = ds_map_create();
 				ds_list_mark_as_map(entryIndex, entryCount);
 				var entryMap = entryIndex[| entryCount];
 				entryCount++;
 				
-				entryMap[? "targetRoomID"] = target_index;
+				entryMap[? "targetRoomID"] = targetIndex;
 				entryMap[? "pos"] = POS.TOP;
 			}
 		}
@@ -37,16 +37,16 @@ switch (infoMap[? "shape"]) {
 		 *   □ ■
 		 *  
 		 */
-		if (pos_x < ds_grid_width(global.worldGrid) - 1) {	
-			var target_index = global.worldGrid[# pos_x + 1, pos_y];
+		if (_x < ds_grid_width(global.worldGrid) - 1) {	
+			var targetIndex = global.worldGrid[# _x + 1, _y];
 			
-			if (target_index != index && target_index != WALL) {
+			if (targetIndex != index && targetIndex != WALL) {
 				entryIndex[| entryCount] = ds_map_create();
 				ds_list_mark_as_map(entryIndex, entryCount);
 				var entryMap = entryIndex[| entryCount];
 				entryCount++;
 				
-				entryMap[? "targetRoomID"] = target_index;
+				entryMap[? "targetRoomID"] = targetIndex;
 				entryMap[? "pos"] = POS.RIGHT;
 			}
 		}
@@ -55,16 +55,16 @@ switch (infoMap[? "shape"]) {
 		 *   □ 
 		 *   ■
 		 */ 
-		if (pos_y < ds_grid_height(global.worldGrid) - 1) {
-			var target_index = global.worldGrid[# pos_x, pos_y + 1];
+		if (_y < ds_grid_height(global.worldGrid) - 1) {
+			var targetIndex = global.worldGrid[# _x, _y + 1];
 			
-			if (target_index != index && target_index != WALL) {
+			if (targetIndex != index && targetIndex != WALL) {
 				entryIndex[| entryCount] = ds_map_create();
 				ds_list_mark_as_map(entryIndex, entryCount);
 				var entryMap = entryIndex[| entryCount];
 				entryCount++;
 				
-				entryMap[? "targetRoomID"] = target_index;
+				entryMap[? "targetRoomID"] = targetIndex;
 				entryMap[? "pos"] = POS.BOTTOM;
 			}
 		}
@@ -73,16 +73,16 @@ switch (infoMap[? "shape"]) {
 		 * ■ □ 
 		 *   
 		 */
-		if (pos_x > 0) {
-			var target_index = global.worldGrid[# pos_x - 1, pos_y];
+		if (_x > 0) {
+			var targetIndex = global.worldGrid[# _x - 1, _y];
 			
-			if (target_index != index && target_index != WALL) {
+			if (targetIndex != index && targetIndex != WALL) {
 				entryIndex[| entryCount] = ds_map_create();
 				ds_list_mark_as_map(entryIndex, entryCount);
 				var entryMap = entryIndex[| entryCount];
 				entryCount++;
 				
-				entryMap[? "targetRoomID"] = target_index;
+				entryMap[? "targetRoomID"] = targetIndex;
 				entryMap[? "pos"] = POS.LEFT;
 			}
 		}
@@ -90,24 +90,24 @@ switch (infoMap[? "shape"]) {
 	#endregion
 	#region BIG
 	case SHAPE.BIG:	
-		if (pos_x > 0) {
-			if (global.worldGrid[# pos_x - 1, pos_y] != index) {	 
-				if (pos_y > 0) {
-					if (global.worldGrid[# pos_x, pos_y - 1] != index) {
+		if (_x > 0) {
+			if (global.worldGrid[# _x - 1, _y] != index) {	 
+				if (_y > 0) {
+					if (global.worldGrid[# _x, _y - 1] != index) {
 						/*   ■
 						 *   □ □
 						 *   □ □
 						 *
 						 */
-						var target_index = global.worldGrid[# pos_x, pos_y - 1];
+						var targetIndex = global.worldGrid[# _x, _y - 1];
 						
-						if (target_index != index && target_index != WALL) {
+						if (targetIndex != index && targetIndex != WALL) {
 							entryIndex[| entryCount] = ds_map_create();
 							ds_list_mark_as_map(entryIndex, entryCount);
 							var entryMap = entryIndex[| entryCount];
 							entryCount++;
 							
-							entryMap[? "targetRoomID"] = target_index;
+							entryMap[? "targetRoomID"] = targetIndex;
 							entryMap[? "pos"] = POS.TOP_LEFT;
 						}
 						
@@ -116,15 +116,15 @@ switch (infoMap[? "shape"]) {
 						 *   □ □
 						 *
 						 */
-						var target_index = global.worldGrid[# pos_x - 1, pos_y];
+						var targetIndex = global.worldGrid[# _x - 1, _y];
 						
-						if (target_index != index && target_index != WALL) {
+						if (targetIndex != index && targetIndex != WALL) {
 							entryIndex[| entryCount] = ds_map_create();
 							ds_list_mark_as_map(entryIndex, entryCount);
 							var entryMap = entryIndex[| entryCount];
 							entryCount++;
 				
-							entryMap[? "targetRoomID"] = target_index;
+							entryMap[? "targetRoomID"] = targetIndex;
 							entryMap[? "pos"] = POS.LEFT_TOP;
 						}
 					}
@@ -134,16 +134,16 @@ switch (infoMap[? "shape"]) {
 						 *   □ □
 						 *	 ■
 						 */
-						if (pos_y < ds_grid_height(global.worldGrid) - 1) {
-							var target_index = global.worldGrid[# pos_x, pos_y + 1];
+						if (_y < ds_grid_height(global.worldGrid) - 1) {
+							var targetIndex = global.worldGrid[# _x, _y + 1];
 						
-							if (target_index != index && target_index != WALL) {
+							if (targetIndex != index && targetIndex != WALL) {
 								entryIndex[| entryCount] = ds_map_create();
 								ds_list_mark_as_map(entryIndex, entryCount);
 								var entryMap = entryIndex[| entryCount];
 								entryCount++;
 							
-								entryMap[? "targetRoomID"] = target_index;
+								entryMap[? "targetRoomID"] = targetIndex;
 								entryMap[? "pos"] = POS.BOTTOM_LEFT;
 							}
 						}
@@ -153,15 +153,15 @@ switch (infoMap[? "shape"]) {
 						 * ■ □ □
 						 *  
 						 */
-						var target_index = global.worldGrid[# pos_x - 1, pos_y];
+						var targetIndex = global.worldGrid[# _x - 1, _y];
 						
-						if (target_index != index && target_index != WALL) {
+						if (targetIndex != index && targetIndex != WALL) {
 							entryIndex[| entryCount] = ds_map_create();
 							ds_list_mark_as_map(entryIndex, entryCount);
 							var entryMap = entryIndex[| entryCount];
 							entryCount++;
 							
-							entryMap[? "targetRoomID"] = target_index;
+							entryMap[? "targetRoomID"] = targetIndex;
 							entryMap[? "pos"] = POS.LEFT_BOTTOM;
 						}
 					}
@@ -172,36 +172,36 @@ switch (infoMap[? "shape"]) {
 					 *   □ □
 					 *
 					 */
-					var target_index = global.worldGrid[# pos_x - 1, pos_y];
+					var targetIndex = global.worldGrid[# _x - 1, _y];
 					
-					if (target_index != index && target_index != WALL) {
+					if (targetIndex != index && targetIndex != WALL) {
 						entryIndex[| entryCount] = ds_map_create();
 						ds_list_mark_as_map(entryIndex, entryCount);
 						var entryMap = entryIndex[| entryCount];
 						entryCount++;
 							
-						entryMap[? "targetRoomID"] = target_index;
+						entryMap[? "targetRoomID"] = targetIndex;
 						entryMap[? "pos"] = POS.LEFT_TOP;
 					}
 				}
 			}
 			else {
-				if (pos_y > 0) {
-					if (global.worldGrid[# pos_x, pos_y - 1] != index) {
+				if (_y > 0) {
+					if (global.worldGrid[# _x, _y - 1] != index) {
 						/*     ■
 						 *   □ □
 						 *   □ □
 						 *
 						 */
-						var target_index = global.worldGrid[# pos_x, pos_y - 1];
+						var targetIndex = global.worldGrid[# _x, _y - 1];
 						
-						if (target_index != index && target_index != WALL) {
+						if (targetIndex != index && targetIndex != WALL) {
 							entryIndex[| entryCount] = ds_map_create();
 							ds_list_mark_as_map(entryIndex, entryCount);
 							var entryMap = entryIndex[| entryCount];
 							entryCount++;
 						
-							entryMap[? "targetRoomID"] = target_index;
+							entryMap[? "targetRoomID"] = targetIndex;
 							entryMap[? "pos"] = POS.TOP_RIGHT;
 						}
 						
@@ -210,16 +210,16 @@ switch (infoMap[? "shape"]) {
 						 *   □ □
 						 *
 						 */
-						if (pos_x < ds_grid_width(global.worldGrid) - 1) {
-							var target_index = global.worldGrid[# pos_x + 1, pos_y];
+						if (_x < ds_grid_width(global.worldGrid) - 1) {
+							var targetIndex = global.worldGrid[# _x + 1, _y];
 						
-							if (target_index != index && target_index != WALL) {
+							if (targetIndex != index && targetIndex != WALL) {
 								entryIndex[| entryCount] = ds_map_create();
 								ds_list_mark_as_map(entryIndex, entryCount);
 								var entryMap = entryIndex[| entryCount];
 								entryCount++;
 						
-								entryMap[? "targetRoomID"] = target_index;
+								entryMap[? "targetRoomID"] = targetIndex;
 								entryMap[? "pos"] = POS.RIGHT_TOP;
 							}
 						}
@@ -230,16 +230,16 @@ switch (infoMap[? "shape"]) {
 						 *   □ □ ■
 						 *  
 						 */
-						if (pos_x < ds_grid_width(global.worldGrid) - 1) {
-							var target_index = global.worldGrid[# pos_x + 1, pos_y];
+						if (_x < ds_grid_width(global.worldGrid) - 1) {
+							var targetIndex = global.worldGrid[# _x + 1, _y];
 						
-							if (target_index != index && target_index != WALL) {
+							if (targetIndex != index && targetIndex != WALL) {
 								entryIndex[| entryCount] = ds_map_create();
 								ds_list_mark_as_map(entryIndex, entryCount);
 								var entryMap = entryIndex[| entryCount];
 								entryCount++;
 							
-								entryMap[? "targetRoomID"] = target_index;
+								entryMap[? "targetRoomID"] = targetIndex;
 								entryMap[? "pos"] = POS.RIGHT_BOTTOM;
 							}
 						}
@@ -249,16 +249,16 @@ switch (infoMap[? "shape"]) {
 						 *   □ □
 						 *	   ■
 					 	 */  
-						if (pos_y < ds_grid_height(global.worldGrid) - 1) {
-							var target_index = global.worldGrid[# pos_x, pos_y + 1];
+						if (_y < ds_grid_height(global.worldGrid) - 1) {
+							var targetIndex = global.worldGrid[# _x, _y + 1];
 						
-							if (target_index != index && target_index != WALL) {
+							if (targetIndex != index && targetIndex != WALL) {
 								entryIndex[| entryCount] = ds_map_create();
 								ds_list_mark_as_map(entryIndex, entryCount);
 								var entryMap = entryIndex[| entryCount];
 								entryCount++;
 						
-								entryMap[? "targetRoomID"] = target_index;
+								entryMap[? "targetRoomID"] = targetIndex;
 								entryMap[? "pos"] = POS.BOTTOM_RIGHT;
 							}
 						}
@@ -272,16 +272,16 @@ switch (infoMap[? "shape"]) {
 			 * | □ □
 			 * |
 			 */
-			if (pos_y > 0) {
-				var target_index = global.worldGrid[# pos_x, pos_y - 1];
+			if (_y > 0) {
+				var targetIndex = global.worldGrid[# _x, _y - 1];
 				
-				if (target_index != index && target_index != WALL) {
+				if (targetIndex != index && targetIndex != WALL) {
 					entryIndex[| entryCount] = ds_map_create();
 					ds_list_mark_as_map(entryIndex, entryCount);
 					var entryMap = entryIndex[| entryCount];
 					entryCount++;
 							
-					entryMap[? "targetRoomID"] = target_index;
+					entryMap[? "targetRoomID"] = targetIndex;
 					entryMap[? "pos"] = POS.TOP_LEFT;
 				}
 			}
@@ -291,16 +291,16 @@ switch (infoMap[? "shape"]) {
 			 * | □ □
 			 * | ■
 			 */
-			if (pos_y < ds_grid_height(global.worldGrid) - 1) {
-				var target_index = global.worldGrid[# pos_x, pos_y + 1];
+			if (_y < ds_grid_height(global.worldGrid) - 1) {
+				var targetIndex = global.worldGrid[# _x, _y + 1];
 				
-				if (target_index != index && target_index != WALL) {
+				if (targetIndex != index && targetIndex != WALL) {
 					entryIndex[| entryCount] = ds_map_create();
 					ds_list_mark_as_map(entryIndex, entryCount);
 					var entryMap = entryIndex[| entryCount];
 					entryCount++;
 					
-					entryMap[? "targetRoomID"] = target_index;
+					entryMap[? "targetRoomID"] = targetIndex;
 					entryMap[? "pos"] = POS.BOTTOM_LEFT;
 				}
 			}
@@ -309,22 +309,22 @@ switch (infoMap[? "shape"]) {
 	#endregion
 	#region WLONG
 	case SHAPE.WLONG:
-		if (pos_x > 0) {
-			if (global.worldGrid[# pos_x - 1, pos_y] != index) {
+		if (_x > 0) {
+			if (global.worldGrid[# _x - 1, _y] != index) {
 				/*   ■
 				 *   □ □
 				 *
 				 */
-				if (pos_y > 0) {
-					var target_index = global.worldGrid[# pos_x, pos_y - 1];
+				if (_y > 0) {
+					var targetIndex = global.worldGrid[# _x, _y - 1];
 					
-					if (target_index != index && target_index != WALL) {
+					if (targetIndex != index && targetIndex != WALL) {
 						entryIndex[| entryCount] = ds_map_create();
 						ds_list_mark_as_map(entryIndex, entryCount);
 						var entryMap = entryIndex[| entryCount];
 						entryCount++;
 					
-						entryMap[? "targetRoomID"] = target_index;
+						entryMap[? "targetRoomID"] = targetIndex;
 						entryMap[? "pos"] = POS.TOP_LEFT;
 					}
 				}
@@ -333,16 +333,16 @@ switch (infoMap[? "shape"]) {
 				 *   □ □
 				 *   ■
 				 */
-				if (pos_y < ds_grid_height(global.worldGrid) - 1) {
-					var target_index = global.worldGrid[# pos_x, pos_y + 1];
+				if (_y < ds_grid_height(global.worldGrid) - 1) {
+					var targetIndex = global.worldGrid[# _x, _y + 1];
 					
-					if (target_index != index && target_index != WALL) {
+					if (targetIndex != index && targetIndex != WALL) {
 						entryIndex[| entryCount] = ds_map_create();
 						ds_list_mark_as_map(entryIndex, entryCount);
 						var entryMap = entryIndex[| entryCount];
 						entryCount++;
 					
-						entryMap[? "targetRoomID"] = target_index;
+						entryMap[? "targetRoomID"] = targetIndex;
 						entryMap[? "pos"] = POS.BOTTOM_LEFT;
 					}
 				}
@@ -351,15 +351,15 @@ switch (infoMap[? "shape"]) {
 				 * ■ □ □
 				 *   
 				 */
-				var target_index = global.worldGrid[# pos_x - 1, pos_y];
+				var targetIndex = global.worldGrid[# _x - 1, _y];
 				
-				if (target_index != index && target_index != WALL) {
+				if (targetIndex != index && targetIndex != WALL) {
 					entryIndex[| entryCount] = ds_map_create();
 					ds_list_mark_as_map(entryIndex, entryCount);
 					var entryMap = entryIndex[| entryCount];
 					entryCount++;
 				
-					entryMap[? "targetRoomID"] = target_index;
+					entryMap[? "targetRoomID"] = targetIndex;
 					entryMap[? "pos"] = POS.LEFT;
 				}
 			}
@@ -368,16 +368,16 @@ switch (infoMap[? "shape"]) {
 				 *   □ □
 				 *   
 				 */
-				if (pos_y > 0) {
-					var target_index = global.worldGrid[# pos_x, pos_y - 1];
+				if (_y > 0) {
+					var targetIndex = global.worldGrid[# _x, _y - 1];
 					
-					if (target_index != index && target_index != WALL) {
+					if (targetIndex != index && targetIndex != WALL) {
 						entryIndex[| entryCount] = ds_map_create();
 						ds_list_mark_as_map(entryIndex, entryCount);
 						var entryMap = entryIndex[| entryCount];
 						entryCount++;
 					
-						entryMap[? "targetRoomID"] = target_index;
+						entryMap[? "targetRoomID"] = targetIndex;
 						entryMap[? "pos"] = POS.TOP_RIGHT;
 					}
 				}
@@ -386,16 +386,16 @@ switch (infoMap[? "shape"]) {
 				 *   □ □ ■
 				 *   
 				 */
-				if (pos_x < ds_grid_width(global.worldGrid) - 1) {
-					var target_index = global.worldGrid[# pos_x + 1, pos_y];
+				if (_x < ds_grid_width(global.worldGrid) - 1) {
+					var targetIndex = global.worldGrid[# _x + 1, _y];
 				
-					if (target_index != index && target_index != WALL) {
+					if (targetIndex != index && targetIndex != WALL) {
 						entryIndex[| entryCount] = ds_map_create();
 						ds_list_mark_as_map(entryIndex, entryCount);
 						var entryMap = entryIndex[| entryCount];
 						entryCount++;
 					
-						entryMap[? "targetRoomID"] = target_index;
+						entryMap[? "targetRoomID"] = targetIndex;
 						entryMap[? "pos"] = POS.RIGHT;
 					}
 				}
@@ -404,16 +404,16 @@ switch (infoMap[? "shape"]) {
 				 *   □ □
 				 *     ■
 				 */
-				if (pos_y < ds_grid_height(global.worldGrid) - 1) {
-					var target_index = global.worldGrid[# pos_x, pos_y + 1];
+				if (_y < ds_grid_height(global.worldGrid) - 1) {
+					var targetIndex = global.worldGrid[# _x, _y + 1];
 				
-					if (target_index != index && target_index != WALL) {
+					if (targetIndex != index && targetIndex != WALL) {
 						entryIndex[| entryCount] = ds_map_create();
 						ds_list_mark_as_map(entryIndex, entryCount);
 						var entryMap = entryIndex[| entryCount];
 						entryCount++;
 					
-						entryMap[? "targetRoomID"] = target_index;
+						entryMap[? "targetRoomID"] = targetIndex;
 						entryMap[? "pos"] = POS.BOTTOM_RIGHT;
 					}
 				}
@@ -424,16 +424,16 @@ switch (infoMap[? "shape"]) {
 			 * | □ □
 			 * |
 			 */	 
-			if (pos_y > 0) {
-				var target_index = global.worldGrid[# pos_x, pos_y - 1];
+			if (_y > 0) {
+				var targetIndex = global.worldGrid[# _x, _y - 1];
 				
-				if (target_index != index && target_index != WALL) {
+				if (targetIndex != index && targetIndex != WALL) {
 					entryIndex[| entryCount] = ds_map_create();
 					ds_list_mark_as_map(entryIndex, entryCount);
 					var entryMap = entryIndex[| entryCount];
 					entryCount++;
 							
-					entryMap[? "targetRoomID"] = target_index;
+					entryMap[? "targetRoomID"] = targetIndex;
 					entryMap[? "pos"] = POS.TOP_LEFT;
 				}
 			}
@@ -442,16 +442,16 @@ switch (infoMap[? "shape"]) {
 			 * | □ □
 			 * | ■
 			 */
-			if (pos_y < ds_grid_height(global.worldGrid) - 1) {
-				var target_index = global.worldGrid[# pos_x, pos_y + 1];
+			if (_y < ds_grid_height(global.worldGrid) - 1) {
+				var targetIndex = global.worldGrid[# _x, _y + 1];
 				
-				if (target_index != index && target_index != WALL) {
+				if (targetIndex != index && targetIndex != WALL) {
 					entryIndex[| entryCount] = ds_map_create();
 					ds_list_mark_as_map(entryIndex, entryCount);
 					var entryMap = entryIndex[| entryCount];
 					entryCount++;
 					
-					entryMap[? "targetRoomID"] = target_index;
+					entryMap[? "targetRoomID"] = targetIndex;
 					entryMap[? "pos"] = POS.BOTTOM_LEFT;
 				}
 			}
@@ -460,22 +460,22 @@ switch (infoMap[? "shape"]) {
 	#endregion
 	#region HLONG
 	case SHAPE.HLONG:
-		if (pos_y > 0) {
-			if (global.worldGrid[# pos_x, pos_y - 1] != index) {
+		if (_y > 0) {
+			if (global.worldGrid[# _x, _y - 1] != index) {
 				/*   ■
 				 *   □
 				 *   □
 				 *
 				 */
-				var target_index = global.worldGrid[# pos_x, pos_y - 1];
+				var targetIndex = global.worldGrid[# _x, _y - 1];
 					
-				if (target_index != index && target_index != WALL) {
+				if (targetIndex != index && targetIndex != WALL) {
 					entryIndex[| entryCount] = ds_map_create();
 					ds_list_mark_as_map(entryIndex, entryCount);
 					var entryMap = entryIndex[| entryCount];
 					entryCount++;
 					
-					entryMap[? "targetRoomID"] = target_index;
+					entryMap[? "targetRoomID"] = targetIndex;
 					entryMap[? "pos"] = POS.TOP;
 				}
 				
@@ -484,16 +484,16 @@ switch (infoMap[? "shape"]) {
 				 *   □
 				 *
 				 */
-				if (pos_x < ds_grid_width(global.worldGrid) - 1) {
-					var target_index = global.worldGrid[# pos_x + 1, pos_y];
+				if (_x < ds_grid_width(global.worldGrid) - 1) {
+					var targetIndex = global.worldGrid[# _x + 1, _y];
 					
-					if (target_index != index && target_index != WALL) {
+					if (targetIndex != index && targetIndex != WALL) {
 						entryIndex[| entryCount] = ds_map_create();
 						ds_list_mark_as_map(entryIndex, entryCount);
 						var entryMap = entryIndex[| entryCount];
 						entryCount++;
 					
-						entryMap[? "targetRoomID"] = target_index;
+						entryMap[? "targetRoomID"] = targetIndex;
 						entryMap[? "pos"] = POS.RIGHT_TOP;
 					}
 				}
@@ -503,16 +503,16 @@ switch (infoMap[? "shape"]) {
 				 *   □
 				 *
 				 */				
-				if (pos_x > 0) {
-					var target_index = global.worldGrid[# pos_x - 1, pos_y];
+				if (_x > 0) {
+					var targetIndex = global.worldGrid[# _x - 1, _y];
 					
-					if (target_index != index && target_index != WALL) {
+					if (targetIndex != index && targetIndex != WALL) {
 						entryIndex[| entryCount] = ds_map_create();
 						ds_list_mark_as_map(entryIndex, entryCount);
 						var entryMap = entryIndex[| entryCount];
 						entryCount++;
 				
-						entryMap[? "targetRoomID"] = target_index;
+						entryMap[? "targetRoomID"] = targetIndex;
 						entryMap[? "pos"] = POS.LEFT_TOP;
 					}
 				}
@@ -523,16 +523,16 @@ switch (infoMap[? "shape"]) {
 				 *   □ ■
 				 *
 				 */
-				if (pos_x < ds_grid_width(global.worldGrid) - 1) {
-					var target_index = global.worldGrid[# pos_x + 1, pos_y];
+				if (_x < ds_grid_width(global.worldGrid) - 1) {
+					var targetIndex = global.worldGrid[# _x + 1, _y];
 					
-					if (target_index != index && target_index != WALL) {
+					if (targetIndex != index && targetIndex != WALL) {
 						entryIndex[| entryCount] = ds_map_create();
 						ds_list_mark_as_map(entryIndex, entryCount);
 						var entryMap = entryIndex[| entryCount];
 						entryCount++;
 						
-						entryMap[? "targetRoomID"] = target_index;
+						entryMap[? "targetRoomID"] = targetIndex;
 						entryMap[? "pos"] = POS.RIGHT_BOTTOM;
 					}
 				}
@@ -542,16 +542,16 @@ switch (infoMap[? "shape"]) {
 				 *   □ 
 				 *   ■
 				 */
-				if (pos_y < ds_grid_height(global.worldGrid) - 1) {
-					var target_index = global.worldGrid[# pos_x, pos_y + 1];
+				if (_y < ds_grid_height(global.worldGrid) - 1) {
+					var targetIndex = global.worldGrid[# _x, _y + 1];
 				
-					if (target_index != index && target_index != WALL) {
+					if (targetIndex != index && targetIndex != WALL) {
 						entryIndex[| entryCount] = ds_map_create();
 						ds_list_mark_as_map(entryIndex, entryCount);
 						var entryMap = entryIndex[| entryCount];
 						entryCount++;
 					
-						entryMap[? "targetRoomID"] = target_index;
+						entryMap[? "targetRoomID"] = targetIndex;
 						entryMap[? "pos"] = POS.BOTTOM;
 					}
 				}
@@ -561,16 +561,16 @@ switch (infoMap[? "shape"]) {
 				 * ■ □ 
 				 *   
 				 */
-				if (pos_x > 0) {
-					var target_index = global.worldGrid[# pos_x - 1, pos_y];
+				if (_x > 0) {
+					var targetIndex = global.worldGrid[# _x - 1, _y];
 				
-					if (target_index != index && target_index != WALL) {
+					if (targetIndex != index && targetIndex != WALL) {
 						entryIndex[| entryCount] = ds_map_create();
 						ds_list_mark_as_map(entryIndex, entryCount);
 						var entryMap = entryIndex[| entryCount];
 						entryCount++;
 					
-						entryMap[? "targetRoomID"] = target_index;
+						entryMap[? "targetRoomID"] = targetIndex;
 						entryMap[? "pos"] = POS.LEFT_BOTTOM;
 					}
 				}
@@ -582,16 +582,16 @@ switch (infoMap[? "shape"]) {
 			 *   □
 			 *
 			 */
-			if (pos_x > 0) {
-				var target_index = global.worldGrid[# pos_x - 1, pos_y];
+			if (_x > 0) {
+				var targetIndex = global.worldGrid[# _x - 1, _y];
 			
-				if (target_index != index && target_index != WALL) {
+				if (targetIndex != index && targetIndex != WALL) {
 					entryIndex[| entryCount] = ds_map_create();
 					ds_list_mark_as_map(entryIndex, entryCount);
 					var entryMap = entryIndex[| entryCount];
 					entryCount++;
 					
-					entryMap[? "targetRoomID"] = target_index;
+					entryMap[? "targetRoomID"] = targetIndex;
 					entryMap[? "pos"] = POS.LEFT_TOP;
 				}
 			}
@@ -601,16 +601,16 @@ switch (infoMap[? "shape"]) {
 			 *   □
 			 *
 			 */
-			if (pos_x < ds_grid_width(global.worldGrid) - 1) {
-				var target_index = global.worldGrid[# pos_x + 1, pos_y];
+			if (_x < ds_grid_width(global.worldGrid) - 1) {
+				var targetIndex = global.worldGrid[# _x + 1, _y];
 			
-				if (target_index != index && target_index != WALL) {
+				if (targetIndex != index && targetIndex != WALL) {
 					entryIndex[| entryCount] = ds_map_create();
 					ds_list_mark_as_map(entryIndex, entryCount);
 					var entryMap = entryIndex[| entryCount];
 					entryCount++;
 					
-					entryMap[? "targetRoomID"] = target_index;
+					entryMap[? "targetRoomID"] = targetIndex;
 					entryMap[? "pos"] = POS.RIGHT_TOP;
 				}
 			}

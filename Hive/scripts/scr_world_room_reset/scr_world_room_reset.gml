@@ -54,20 +54,20 @@ for (var i = 0; i < 5; i++) {
 	
 	switch (shape) {
 		case SHAPE.SMALL:
-			hiveMap[? "x"] = random(SMALL_WIDTH);
-			hiveMap[? "y"] = random(SMALL_HEIGHT);
+			hiveMap[? "x"] = random_range(100, SMALL_WIDTH - 100);
+			hiveMap[? "y"] = random_range(100, SMALL_HEIGHT - 100);
 			break;
 		case SHAPE.BIG:
-			hiveMap[? "x"] = random(BIG_WIDTH);
-			hiveMap[? "y"] = random(BIG_HEIGHT);
+			hiveMap[? "x"] = random_range(100, BIG_WIDTH - 100);
+			hiveMap[? "y"] = random_range(100, BIG_HEIGHT - 100);
 			break;
 		case SHAPE.WLONG:
-			hiveMap[? "x"] = random(WLONG_WIDTH);
-			hiveMap[? "y"] = random(WLONG_HEIGHT);
+			hiveMap[? "x"] = random_range(100, WLONG_WIDTH - 100);
+			hiveMap[? "y"] = random_range(100, WLONG_HEIGHT - 100);
 			break;
 		case SHAPE.HLONG:
-			hiveMap[? "x"] = random(HLONG_WIDTH);
-			hiveMap[? "y"] = random(HLONG_HEIGHT);
+			hiveMap[? "x"] = random_range(100, HLONG_WIDTH - 100);
+			hiveMap[? "y"] = random_range(100, HLONG_HEIGHT - 100);
 			break;
 	}
 }
