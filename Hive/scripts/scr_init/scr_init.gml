@@ -97,3 +97,4 @@ global.chrStatus[? "warriorSpeed"] = room_speed * 0.4;
 randomize();
 
 draw_set_font(font_main);
+

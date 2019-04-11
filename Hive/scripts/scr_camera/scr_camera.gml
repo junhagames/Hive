@@ -24,8 +24,8 @@ with (obj_chr) {
 }
 
 //	Move
-x += (target_x - x) / moveSpeed;
-y += (target_y - y) / moveSpeed;
+x = median(global.gameWidth / 2, (x + (target_x - x) / moveSpeed), room_width - global.gameWidth / 2);
+y = median(global.gameHeight / 2, (y + (target_y - y) / moveSpeed), room_height - global.gameHeight / 2);
 camera_set_view_pos(camera,
 	x - camera_get_view_width(camera) / 2,
 	y - camera_get_view_height(camera) / 2);

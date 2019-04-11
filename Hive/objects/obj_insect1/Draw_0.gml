@@ -1,3 +1,3 @@
 event_inherited();
 
-draw_circle(x, y, traceDistance, true);
+//draw_circle(x, y, traceDistance, true);
