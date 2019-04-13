@@ -1,7 +1,7 @@
 /// @description 무작위 월드 초기화
-/// @param roomMax
+/// @param roomCount
 
-var roomMax = argument0;
+var roomCount = argument0;
 
 var controlX = ds_grid_width(global.worldGrid) div 2;
 var controlY = ds_grid_height(global.worldGrid) div 2;
@@ -17,8 +17,8 @@ for (var _y = 0; _y < ds_grid_height(global.worldGrid); _y++) {
 global.worldGrid[# controlX, controlY] = 0;
 scr_world_room_reset(global.worldGrid[# controlX, controlY], SHAPE.SMALL);
 
-for (var i = 1; i < roomMax; i++) {
-	var isCreateRoom = false;
+for (var i = 1; i < roomCount; i++) {
+	var isRoomCreate = false;
 	
 	do {
 		var previousX = controlX;
@@ -51,47 +51,47 @@ for (var i = 1; i < roomMax; i++) {
 				else if (global.worldGrid[# controlX, controlY] == WALL) {
 					global.worldGrid[# controlX, controlY] = i;
 					scr_world_room_reset(global.worldGrid[# controlX, controlY], SHAPE.SMALL);
-					isCreateRoom = true;
+					isRoomCreate = true;
 				}
 				break;
 			#endregion
 			#region BIG
 			case SHAPE.BIG:	
-				var _controlX1, _controlY1, _controlX2, _controlY2;
+				var controlX1, controlY1, controlX2, controlY2;
 			
 				switch (controlDir) {
 					case DIR.EAST:
 						controlX++;
-						_controlX1 = controlX;
-						_controlY1 = controlY + choose(0, -1);
-						_controlX2 = _controlX1 + 1;
-						_controlY2 = _controlY1 + 1;
+						controlX1 = controlX;
+						controlY1 = controlY + choose(0, -1);
+						controlX2 = controlX1 + 1;
+						controlY2 = controlY1 + 1;
 						break;
 					case DIR.WEST:
 						controlX--;
-						_controlX1 = controlX;
-						_controlY1 = controlY + choose(0, -1);
-						_controlX2 = _controlX1 - 1;
-						_controlY2 = _controlY1 + 1;
+						controlX1 = controlX;
+						controlY1 = controlY + choose(0, -1);
+						controlX2 = controlX1 - 1;
+						controlY2 = controlY1 + 1;
 						break;
 					case DIR.SOUTH:
 						controlY++;
-						_controlX1 = controlX + choose(0, -1);
-						_controlY1 = controlY;
-						_controlX2 = _controlX1 + 1;
-						_controlY2 = _controlY1 + 1;
+						controlX1 = controlX + choose(0, -1);
+						controlY1 = controlY;
+						controlX2 = controlX1 + 1;
+						controlY2 = controlY1 + 1;
 						break;
 					case DIR.NORTH:
 						controlY--;
-						_controlX1 = controlX + choose(0, -1);
-						_controlY1 = controlY;
-						_controlX2 = _controlX1 + 1;
-						_controlY2 = _controlY1 - 1;
+						controlX1 = controlX + choose(0, -1);
+						controlY1 = controlY;
+						controlX2 = controlX1 + 1;
+						controlY2 = controlY1 - 1;
 						break;
 				}
 
-				if (_controlX1 < 0 || _controlY1 < 0 || _controlX1 >= ds_grid_width(global.worldGrid) || _controlY1 >= ds_grid_height(global.worldGrid) ||
-					_controlX2 < 0 || _controlY2 < 0 || _controlX2 >= ds_grid_width(global.worldGrid) || _controlY2 >= ds_grid_height(global.worldGrid)) {
+				if (controlX1 < 0 || controlY1 < 0 || controlX1 >= ds_grid_width(global.worldGrid) || controlY1 >= ds_grid_height(global.worldGrid) ||
+					controlX2 < 0 || controlY2 < 0 || controlX2 >= ds_grid_width(global.worldGrid) || controlY2 >= ds_grid_height(global.worldGrid)) {
 					controlX = previousX;
 					controlY = previousY;
 				}
@@ -99,7 +99,7 @@ for (var i = 1; i < roomMax; i++) {
 					var isEmpty = true;
 					
 					for (var j = 0; j < i; j++) {
-						if (ds_grid_value_exists(global.worldGrid, _controlX1, _controlY1, _controlX2, _controlY2, j)) {
+						if (ds_grid_value_exists(global.worldGrid, controlX1, controlY1, controlX2, controlY2, j)) {
 							isEmpty = false;
 							break;
 						}
@@ -112,49 +112,49 @@ for (var i = 1; i < roomMax; i++) {
 						}
 						break;	
 					}
-					ds_grid_set_region(global.worldGrid, _controlX1, _controlY1, _controlX2, _controlY2, i);
+					ds_grid_set_region(global.worldGrid, controlX1, controlY1, controlX2, controlY2, i);
 					scr_world_room_reset(global.worldGrid[# controlX, controlY], SHAPE.BIG);
-					isCreateRoom = true;
+					isRoomCreate = true;
 				}
 				break;
 			#endregion
 			#region WLONG
 			case SHAPE.WLONG:	
-				var _controlX1, _controlY1, _controlX2, _controlY2;
+				var controlX1, controlY1, controlX2, controlY2;
 			
 				switch (controlDir) {
 					case DIR.EAST:
 						controlX++;
-						_controlX1 = controlX;
-						_controlY1 = controlY;
-						_controlX2 = _controlX1 + 1;
-						_controlY2 = _controlY1;
+						controlX1 = controlX;
+						controlY1 = controlY;
+						controlX2 = controlX1 + 1;
+						controlY2 = controlY1;
 						break;
 					case DIR.WEST:
 						controlX--;
-						_controlX1 = controlX;
-						_controlY1 = controlY;
-						_controlX2 = _controlX1 - 1;
-						_controlY2 = _controlY1;
+						controlX1 = controlX;
+						controlY1 = controlY;
+						controlX2 = controlX1 - 1;
+						controlY2 = controlY1;
 						break;
 					case DIR.SOUTH:
 						controlY++;
-						_controlX1 = controlX + choose(0, -1);
-						_controlY1 = controlY;
-						_controlX2 = _controlX1 + 1;
-						_controlY2 = _controlY1;
+						controlX1 = controlX + choose(0, -1);
+						controlY1 = controlY;
+						controlX2 = controlX1 + 1;
+						controlY2 = controlY1;
 						break;
 					case DIR.NORTH:
 						controlY--;
-						_controlX1 = controlX + choose(0, -1);
-						_controlY1 = controlY;
-						_controlX2 = _controlX1 + 1;
-						_controlY2 = _controlY1;
+						controlX1 = controlX + choose(0, -1);
+						controlY1 = controlY;
+						controlX2 = controlX1 + 1;
+						controlY2 = controlY1;
 						break;
 				}
 
-				if (_controlX1 < 0 || _controlY1 < 0 || _controlX1 >= ds_grid_width(global.worldGrid) || _controlY1 >= ds_grid_height(global.worldGrid) ||
-					_controlX2 < 0 || _controlY2 < 0 || _controlX2 >= ds_grid_width(global.worldGrid) || _controlY2 >= ds_grid_height(global.worldGrid)) {
+				if (controlX1 < 0 || controlY1 < 0 || controlX1 >= ds_grid_width(global.worldGrid) || controlY1 >= ds_grid_height(global.worldGrid) ||
+					controlX2 < 0 || controlY2 < 0 || controlX2 >= ds_grid_width(global.worldGrid) || controlY2 >= ds_grid_height(global.worldGrid)) {
 					controlX = previousX;
 					controlY = previousY;
 				}
@@ -162,7 +162,7 @@ for (var i = 1; i < roomMax; i++) {
 					var isEmpty = true;
 					
 					for (var j = 0; j < i; j++) {
-						if (ds_grid_value_exists(global.worldGrid, _controlX1, _controlY1, _controlX2, _controlY2, j)) {
+						if (ds_grid_value_exists(global.worldGrid, controlX1, controlY1, controlX2, controlY2, j)) {
 							isEmpty = false;
 							break;
 						}
@@ -175,49 +175,49 @@ for (var i = 1; i < roomMax; i++) {
 						}
 						break;	
 					}
-					ds_grid_set_region(global.worldGrid, _controlX1, _controlY1, _controlX2, _controlY2, i);
+					ds_grid_set_region(global.worldGrid, controlX1, controlY1, controlX2, controlY2, i);
 					scr_world_room_reset(global.worldGrid[# controlX, controlY], SHAPE.WLONG);
-					isCreateRoom = true;
+					isRoomCreate = true;
 				}
 				break;
 			#endregion
 			#region HLONG
 			case SHAPE.HLONG:	
-				var _controlX1, _controlY1, _controlX2, _controlY2;
+				var controlX1, controlY1, controlX2, controlY2;
 			
 				switch (controlDir) {
 					case DIR.EAST:
 						controlX++;
-						_controlX1 = controlX;
-						_controlY1 = controlY + choose(0, -1);
-						_controlX2 = _controlX1;
-						_controlY2 = _controlY1 + 1;
+						controlX1 = controlX;
+						controlY1 = controlY + choose(0, -1);
+						controlX2 = controlX1;
+						controlY2 = controlY1 + 1;
 						break;
 					case DIR.WEST:
 						controlX--;
-						_controlX1 = controlX;
-						_controlY1 = controlY + choose(0, -1);
-						_controlX2 = _controlX1;
-						_controlY2 = _controlY1 + 1;
+						controlX1 = controlX;
+						controlY1 = controlY + choose(0, -1);
+						controlX2 = controlX1;
+						controlY2 = controlY1 + 1;
 						break;
 					case DIR.SOUTH:
 						controlY++;
-						_controlX1 = controlX;
-						_controlY1 = controlY;
-						_controlX2 = _controlX1;
-						_controlY2 = _controlY1 + 1;
+						controlX1 = controlX;
+						controlY1 = controlY;
+						controlX2 = controlX1;
+						controlY2 = controlY1 + 1;
 						break;
 					case DIR.NORTH:
 						controlY--;
-						_controlX1 = controlX;
-						_controlY1 = controlY;
-						_controlX2 = _controlX1;
-						_controlY2 = _controlY1 - 1;
+						controlX1 = controlX;
+						controlY1 = controlY;
+						controlX2 = controlX1;
+						controlY2 = controlY1 - 1;
 						break;
 				}
 
-				if (_controlX1 < 0 || _controlY1 < 0 || _controlX1 >= ds_grid_width(global.worldGrid) || _controlY1 >= ds_grid_height(global.worldGrid) ||
-					_controlX2 < 0 || _controlY2 < 0 || _controlX2 >= ds_grid_width(global.worldGrid) || _controlY2 >= ds_grid_height(global.worldGrid)) {
+				if (controlX1 < 0 || controlY1 < 0 || controlX1 >= ds_grid_width(global.worldGrid) || controlY1 >= ds_grid_height(global.worldGrid) ||
+					controlX2 < 0 || controlY2 < 0 || controlX2 >= ds_grid_width(global.worldGrid) || controlY2 >= ds_grid_height(global.worldGrid)) {
 					controlX = previousX;
 					controlY = previousY;
 				}
@@ -225,7 +225,7 @@ for (var i = 1; i < roomMax; i++) {
 					var isEmpty = true;
 					
 					for (var j = 0; j < i; j++) {
-						if (ds_grid_value_exists(global.worldGrid, _controlX1, _controlY1, _controlX2, _controlY2, j)) {
+						if (ds_grid_value_exists(global.worldGrid, controlX1, controlY1, controlX2, controlY2, j)) {
 							isEmpty = false;
 							break;
 						}
@@ -238,15 +238,15 @@ for (var i = 1; i < roomMax; i++) {
 						}
 						break;	
 					}
-					ds_grid_set_region(global.worldGrid, _controlX1, _controlY1, _controlX2, _controlY2, i);
+					ds_grid_set_region(global.worldGrid, controlX1, controlY1, controlX2, controlY2, i);
 					scr_world_room_reset(global.worldGrid[# controlX, controlY], SHAPE.HLONG);
-					isCreateRoom = true;
+					isRoomCreate = true;
 				}
 				break;
 			#endregion
 		}
 	}
-	until (isCreateRoom);
+	until (isRoomCreate);
 }
 
 // Create room entry
@@ -258,7 +258,7 @@ for (var _y = 0; _y < ds_grid_height(global.worldGrid); _y++) {
 	}
 }
 
-// Print
+#region Print
 for (var _y = 0; _y < ds_grid_height(global.worldGrid); _y++) {
 	var text = "";
 	
@@ -279,3 +279,4 @@ for (var i = 0; i < ds_grid_width(global.worldGrid); i++) {
 	line += "+";
 }
 show_debug_message(line);
+#endregion

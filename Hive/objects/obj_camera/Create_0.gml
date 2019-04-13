@@ -1,8 +1,14 @@
 camera = camera_create();
-vm = matrix_build_lookat(0, 0, -10, 0, 0, 0, 0, 1, 0);
-pm = matrix_build_projection_ortho(global.gameWidth, global.gameHeight, 1, 3200);
+target = obj_chr;
+
+if (instance_exists(target)) {
+	x = target.x;
+	y = target.y;
+}
 
 if (!view_enabled) {
+	var vm = matrix_build_lookat(x, y, -10, x, y, 0, 0, 1, 0);
+	var pm = matrix_build_projection_ortho(global.gameWidth, global.gameHeight, 1, 3200);
 	view_set_wport(0, global.gameWidth);
 	view_set_hport(0, global.gameHeight);
 	view_set_visible(0, true);
@@ -12,5 +18,3 @@ if (!view_enabled) {
 	view_camera[0] = camera;
 	view_enabled = true;
 }
-
-shake = 0;

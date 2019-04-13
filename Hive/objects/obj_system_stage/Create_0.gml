@@ -1,7 +1,8 @@
 var worldIndex = global.worldList[| global.currentIndex];
 var infoMap = worldIndex[| MARK.INFO];
 var entryIndex = worldIndex[| MARK.ENTRY];
-var hiveIndex = worldIndex[| MARK.HIVE];
+
+// Set search
 infoMap[? "search"] = SEARCH.KNOWN;
 
 #region Create entry
@@ -12,8 +13,8 @@ with (obj_parrent_entry) {
 		var entryMap = entryIndex[| i];
 		
 		if (pos == entryMap[? "pos"]) {
-			targetRoomID = entryMap[? "targetRoomID"];
-			var _worldIndex = global.worldList[| targetRoomID];
+			targetIndex = entryMap[? "targetIndex"];
+			var _worldIndex = global.worldList[| targetIndex];
 			var _infoMap = _worldIndex[| MARK.INFO];
 			
 			if (_infoMap[? "search"] == SEARCH.UNKNOWN) { 
@@ -38,13 +39,13 @@ if (global.previousIndex == noone) {
 }
 else {
 	with (obj_parrent_entry) {
-		if (targetRoomID == global.previousIndex && !instance_exists(obj_chr)) {
+		if (targetIndex == global.previousIndex && !instance_exists(obj_chr)) {
 			var entryCount = 0;
 			
 			for (var i = 0; i < ds_list_size(entryIndex); i++) {
 				var entryMap = entryIndex[| i];
 					
-				if (targetRoomID == entryMap[? "targetRoomID"]) {
+				if (targetIndex == entryMap[? "targetIndex"]) {
 					entryCount++;
 				}
 			}
@@ -83,22 +84,16 @@ else {
 	}
 }
 #endregion
-#region Create hive
-for (var i = 0; i < ds_list_size(hiveIndex); i++) {
-	var hiveMap = hiveIndex[| i];
-	
-	if (hiveMap[? "hp"] > 0) {
-		var hive = instance_create_depth(hiveMap[? "x"], hiveMap[? "y"], 0, obj_hive1);
-		hive.hiveID = hiveMap[? "id"];
-		hive.hiveMap = hiveMap;
-	}
+#region Create enemy
+for (var i = 0; i < 7; i++) {
+	instance_create_depth(random_range(100, room_width - 100), random_range(100, room_height - 100), 0, choose(obj_insect1, obj_hive1));
 }
 #endregion
 
-instance_create_depth(obj_chr.x, obj_chr.y, 0, obj_camera);
+instance_create_depth(0, 0, 0, obj_camera);
 instance_create_depth(0, 0, 0, obj_draw);
 
 // Enemy grid
-enemyGrid = mp_grid_create(0, 0, room_width div CELL_WIDTH + 1, room_height div CELL_HEIGHT + 1, CELL_WIDTH, CELL_HEIGHT);
-mp_grid_add_instances(enemyGrid, obj_block, false);
-mp_grid_add_instances(enemyGrid, obj_parrent_entry, false);
+enemyGridPath = mp_grid_create(0, 0, room_width div CELL_WIDTH + 1, room_height div CELL_HEIGHT + 1, CELL_WIDTH, CELL_HEIGHT);
+mp_grid_add_instances(enemyGridPath, obj_block, false);
+mp_grid_add_instances(enemyGridPath, obj_parrent_entry, false);

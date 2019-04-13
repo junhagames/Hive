@@ -1,1 +1,0 @@
-hiveMap[? "hp"] -= other.damage;

@@ -2,18 +2,8 @@
 
 #region Macro
 #macro WALL "#"
-
 #macro CELL_WIDTH 32
 #macro CELL_HEIGHT 32
-
-#macro SMALL_WIDTH 1280
-#macro SMALL_HEIGHT 720
-#macro BIG_WIDTH 2560
-#macro BIG_HEIGHT 1440
-#macro WLONG_WIDTH 2560
-#macro WLONG_HEIGHT 720
-#macro HLONG_WIDTH 1280
-#macro HLONG_HEIGHT 1440
 #endregion
 #region Enum
 enum DIR {

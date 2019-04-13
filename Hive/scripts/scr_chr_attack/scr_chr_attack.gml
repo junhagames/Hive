@@ -12,7 +12,6 @@ if (!isAttackDelay) {
 				global.chrStatus[? "rangerAmmo"]--;
 				isAttackDelay = true;
 				alarm[0] = global.chrStatus[? "rangerSpeed"];
-				alarm[1] = 0;
 			}
 		}
 	}

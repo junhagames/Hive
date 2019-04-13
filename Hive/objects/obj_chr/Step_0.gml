@@ -5,7 +5,7 @@ scr_chr_swap();
 
 // Reload
 if (global.chrStatus[? "rangerAmmo"] < global.chrStatus[? "rangerAmmoMax"] && alarm[1] == -1) {
-	alarm[1] = room_speed * 2;
+
 }
 
 // Weapon sprite

@@ -1,6 +1,6 @@
-scr_insect_move();
+scr_insect_move(target);
 
-if (x > obj_chr.x) {
+if (x > target.x) {
 	image_xscale = -1;
 }
 else {

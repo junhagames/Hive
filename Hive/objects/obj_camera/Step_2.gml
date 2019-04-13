@@ -1,1 +1,1 @@
-scr_camera(30, 10, 10, 4);
+scr_camera(target);
