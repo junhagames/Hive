@@ -26,7 +26,7 @@ with (obj_parrent_entry) {
 	}
 	
 	if (!isEntry) {
-		var block = instance_create_depth(x, y, 0, obj_block);
+		var block = instance_create_layer(x, y, "layer_block", obj_block);
 		block.image_xscale = image_xscale;
 		block.image_yscale = image_yscale;
 		instance_destroy();
@@ -34,11 +34,19 @@ with (obj_parrent_entry) {
 }
 #endregion
 #region Create player
+var startX = 10, startY = 10;
+
 if (global.previousIndex == noone) {
-	instance_create_depth(room_width / 2, room_height / 2, 0, obj_chr);
+	startX = room_width / 2;
+	startY = room_height / 2;
 }
 else {
 	with (obj_parrent_entry) {
+		var entryw = (bbox_left + bbox_right) / 2;
+		var entryh = (bbox_top + bbox_bottom) / 2;
+		var chrw = 80;
+		var chrh = 80;
+
 		if (targetIndex == global.previousIndex && !instance_exists(obj_chr)) {
 			var entryCount = 0;
 			
@@ -50,48 +58,50 @@ else {
 				}
 			}
 			
-			var wcenter = (bbox_left + bbox_right) / 2;
-			var hcenter = (bbox_top + bbox_bottom) / 2;
-			
 			if (global.previousPos == POS.TOP || global.previousPos == POS.TOP_LEFT || global.previousPos == POS.TOP_RIGHT) {
 				if (entryCount == 1 ||
 					(entryCount == 2 && ((global.previousPos == POS.TOP_LEFT && pos == POS.BOTTOM_LEFT) || (global.previousPos == POS.TOP_RIGHT && pos == POS.BOTTOM_RIGHT)))) {
-					instance_create_depth(wcenter, hcenter - 64, 0, obj_chr);
+					startX = entryw;
+					startY = entryh - chrh;
 				}
 			}
 				
 			if (global.previousPos == POS.RIGHT || global.previousPos == POS.RIGHT_TOP || global.previousPos == POS.RIGHT_BOTTOM) {
 				if (entryCount == 1 ||
 					(entryCount == 2 && ((global.previousPos == POS.RIGHT_TOP && pos == POS.LEFT_TOP) || (global.previousPos == POS.RIGHT_BOTTOM && pos == POS.LEFT_BOTTOM)))) {
-					instance_create_depth(wcenter + 64, hcenter, 0, obj_chr);
+					startX = entryw + chrw;
+					startY = entryh;
 				}
 			}
 		
 			if (global.previousPos == POS.BOTTOM || global.previousPos == POS.BOTTOM_RIGHT || global.previousPos == POS.BOTTOM_LEFT) {
 				if (entryCount == 1 ||
 					(entryCount == 2 && ((global.previousPos == POS.BOTTOM_RIGHT && pos == POS.TOP_RIGHT) || (global.previousPos == POS.BOTTOM_LEFT && pos == POS.TOP_LEFT)))) {
-					instance_create_depth(wcenter, hcenter + 64, 0, obj_chr);
+					startX = entryw;
+					startY = entryh + chrh;
 				}
 			}
 		
 			if (global.previousPos == POS.LEFT ||global.previousPos == POS.LEFT_BOTTOM || global.previousPos == POS.LEFT_TOP) {
 				if (entryCount == 1 ||
 					(entryCount == 2 && ((global.previousPos == POS.LEFT_BOTTOM && pos == POS.RIGHT_BOTTOM) || (global.previousPos == POS.LEFT_TOP && pos == POS.RIGHT_TOP)))) {
-					instance_create_depth(wcenter - 64, hcenter, 0, obj_chr);
+					startX = entryw - chrw;
+					startY = entryh;
 				}
 			}
 		}
 	}
 }
+instance_create_layer(startX, startY, "layer_inst", obj_chr);
 #endregion
 #region Create enemy
 for (var i = 0; i < 7; i++) {
-	instance_create_depth(random_range(100, room_width - 100), random_range(100, room_height - 100), 0, choose(obj_insect1, obj_hive1));
+	instance_create_layer(random_range(100, room_width - 100), random_range(100, room_height - 100), "layer_inst", choose(obj_insect1, obj_hive1));
 }
 #endregion
 
-instance_create_depth(0, 0, 0, obj_camera);
-instance_create_depth(0, 0, 0, obj_draw);
+instance_create_layer(0, 0, "layer_system", obj_camera);
+instance_create_layer(0, 0, "layer_draw", obj_draw);
 
 // Enemy grid
 enemyGridPath = mp_grid_create(0, 0, room_width div CELL_WIDTH + 1, room_height div CELL_HEIGHT + 1, CELL_WIDTH, CELL_HEIGHT);

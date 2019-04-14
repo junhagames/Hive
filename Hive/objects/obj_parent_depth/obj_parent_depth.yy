@@ -5,7 +5,7 @@
     "name": "obj_parent_depth",
     "eventList": [
         {
-            "id": "e3538a27-7279-493d-8a39-399179faeae1",
+            "id": "43d746a0-0f30-48e9-a39f-695bb58841bb",
             "modelName": "GMEvent",
             "mvc": "1.0",
             "IsDnD": false,

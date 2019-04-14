@@ -42,7 +42,6 @@ enum POS {
 enum MARK {
 	INFO,
 	ENTRY,
-	HIVE,
 }
 
 enum SEARCH {
@@ -69,7 +68,7 @@ global.previousIndex = noone;
 global.previousPos = noone;
 
 global.chrStatus = ds_map_create();
-global.chrStatus[? "hpMax"] = 20;
+global.chrStatus[? "hpMax"] = 2000;
 global.chrStatus[? "hp"] = global.chrStatus[? "hpMax"];
 global.chrStatus[? "strength"] = 1;
 global.chrStatus[? "armor"] = 1;

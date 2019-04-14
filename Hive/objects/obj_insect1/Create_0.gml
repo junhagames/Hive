@@ -1,3 +1,5 @@
+event_inherited();
+
 hpMax = 20;
 hp = hpMax; 
 spd = random_range(3, 5);

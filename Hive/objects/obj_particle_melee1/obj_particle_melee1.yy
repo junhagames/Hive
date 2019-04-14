@@ -2,7 +2,7 @@
     "id": "7d22d634-4533-4b39-9d05-27316f3163b4",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "obj_eft_melee1",
+    "name": "obj_particle_melee1",
     "eventList": [
         {
             "id": "49f65d73-8277-4421-9f72-2a389857c3c1",

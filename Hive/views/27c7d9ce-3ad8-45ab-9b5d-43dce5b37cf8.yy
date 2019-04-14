@@ -8,7 +8,7 @@
         "7d22d634-4533-4b39-9d05-27316f3163b4"
     ],
     "filterType": "GMObject",
-    "folderName": "Effect",
+    "folderName": "Particle",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

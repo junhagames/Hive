@@ -5,8 +5,8 @@ var target = argument0;
 
 if (instance_exists(target)) {
 	//	Move
-	x = lerp(target.x, mouse_x, 0.2);
-	y = lerp(target.y, mouse_y, 0.2);
+	x = lerp(target.x, mouse_x, 0.1);
+	y = lerp(target.y, mouse_y, 0.1);
 }
 x = clamp(x, global.gameWidth / 2, room_width - global.gameWidth / 2);
 y = clamp(y, global.gameHeight / 2, room_height - global.gameHeight / 2);

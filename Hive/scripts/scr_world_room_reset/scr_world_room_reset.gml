@@ -25,7 +25,7 @@ var roomSelect;
 
 switch (shape) {
 	case SHAPE.SMALL:
-		roomSelect = choose(room_stage_small1, room_stage_small2);
+		roomSelect = choose(room_stage_small1);
 		break;
 	case SHAPE.BIG:
 		roomSelect = choose(room_stage_big1);
