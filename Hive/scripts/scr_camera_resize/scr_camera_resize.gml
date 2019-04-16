@@ -1,4 +1,4 @@
-/// @description 해상도 재설정
+/// @description 해상도 설정
 
 if (window_get_width() != global.gameWidth * global.zoom &&
 	window_get_height() != global.gameHeight * global.zoom) {

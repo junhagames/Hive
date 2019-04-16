@@ -1,5 +1,4 @@
 draw_set_alpha(0.6);
-
 #region Minimap
 var text = "";
 
@@ -50,5 +49,4 @@ draw_rectangle(120, 120, 120 + global.chrStatus[? "rangerAmmo"] / global.chrStat
 draw_set_color(c_white);
 draw_rectangle(120, 120, 400, 160, true);
 #endregion
-
 draw_set_alpha(1);

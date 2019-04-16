@@ -93,8 +93,8 @@
             "layers": [
                 {
                     "__type": "GMRInstanceLayer_Model:#YoYoStudio.MVCFormat",
-                    "name": "layer_effect",
-                    "id": "ba4b42e3-bd8a-4d93-9b6a-81bfed5e31b3",
+                    "name": "layer_inst",
+                    "id": "6943bf37-0c8a-46a7-944e-260a5139b542",
                     "depth": 300,
                     "grid_x": 32,
                     "grid_y": 32,
@@ -119,11 +119,11 @@
                 },
                 {
                     "__type": "GMRInstanceLayer_Model:#YoYoStudio.MVCFormat",
-                    "name": "layer_inst",
-                    "id": "2f434b46-8081-47f0-badd-1251650ff06f",
+                    "name": "layer_particle",
+                    "id": "c83dd969-6d6a-40ad-9c62-679d8e21284f",
                     "depth": 400,
-                    "grid_x": 40,
-                    "grid_y": 40,
+                    "grid_x": 32,
+                    "grid_y": 32,
                     "hierarchyFrozen": false,
                     "hierarchyVisible": true,
                     "inheritLayerDepth": false,

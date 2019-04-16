@@ -33,6 +33,7 @@ repeat (instCount) {
 			#region default
 			default:
 				draw_self();
+				break;
 			#endregion
 		}
 	}

@@ -1,7 +1,7 @@
 /// @description 무작위 월드 초기화
-/// @param roomCount
+/// @param roomNumber
 
-var roomCount = argument0;
+var roomNumber = argument0;
 
 var controlX = ds_grid_width(global.worldGrid) div 2;
 var controlY = ds_grid_height(global.worldGrid) div 2;
@@ -17,7 +17,7 @@ for (var _y = 0; _y < ds_grid_height(global.worldGrid); _y++) {
 global.worldGrid[# controlX, controlY] = 0;
 scr_world_room_reset(global.worldGrid[# controlX, controlY], SHAPE.SMALL);
 
-for (var i = 1; i < roomCount; i++) {
+for (var i = 1; i < roomNumber; i++) {
 	var isRoomCreate = false;
 	
 	do {
@@ -184,7 +184,7 @@ for (var i = 1; i < roomCount; i++) {
 			#region HLONG
 			case SHAPE.HLONG:	
 				var controlX1, controlY1, controlX2, controlY2;
-			
+				
 				switch (controlDir) {
 					case DIR.EAST:
 						controlX++;

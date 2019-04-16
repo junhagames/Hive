@@ -1,11 +1,13 @@
-scr_chr_move();
-scr_chr_angle();
-scr_chr_attack();
-scr_chr_swap();
+if (!instance_exists(obj_parent_transition)) {
+	scr_chr_move();
+	scr_chr_angle();
+	scr_chr_attack();
+	scr_chr_swap();
 
-// Reload
-if (global.chrStatus[? "rangerAmmo"] < global.chrStatus[? "rangerAmmoMax"] && alarm[1] == -1) {
+	// TODO reload
+	if (global.chrStatus[? "rangerAmmo"] < global.chrStatus[? "rangerAmmoMax"] && alarm[1] == -1) {
 
+	}
 }
 
 // Weapon sprite

@@ -10,5 +10,6 @@ var infoMap = worldIndex[| MARK.INFO];
 
 if (pos != noone) {
 	global.previousPos = pos;
+	instance_create_layer(0, 0, "layer_system", obj_transition_slide);
 }
 room_goto(infoMap[? "room"]);

@@ -1,12 +1,10 @@
-/// @description 값 증가
-/// @param val
+/// @description 부드러운 애니메이션
 /// @param src
 /// @param dest
-/// @param time
+/// @param spd
 
-var val = argument0;
-var src = argument1;
-var dest = argument2;
-var time = argument3;
+var src = argument0;
+var dest = argument1;
+var spd = argument2;
 
-return val + (dest - src) / room_speed * time;
+return src + (dest - src) / spd;

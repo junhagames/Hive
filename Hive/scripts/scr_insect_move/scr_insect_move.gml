@@ -10,4 +10,11 @@ if (instance_exists(target)) {
 	if (mp_grid_path(obj_system_stage.enemyGridPath, path, x, y, dx, dy, true)) {
 	    path_start(path, spd, path_action_stop, false); 
 	}
+	
+	if (x > target.x) {
+		image_xscale = -1;
+	}
+	else {
+		image_xscale = 1;
+	}
 }

@@ -2,8 +2,8 @@
 
 #region Macro
 #macro WALL "#"
-#macro CELL_WIDTH 32
-#macro CELL_HEIGHT 32
+#macro CELL_WIDTH sprite_get_width(spr_block)
+#macro CELL_HEIGHT sprite_get_height(spr_block)
 #endregion
 #region Enum
 enum DIR {
@@ -54,6 +54,8 @@ enum SWAP {
 	RANGER,
 	WARRIOR,
 }
+
+// TODO alarm enum
 #endregion
 #region Global
 global.gameWidth = 1280;

@@ -85,8 +85,8 @@
             "layers": [
                 {
                     "__type": "GMRInstanceLayer_Model:#YoYoStudio.MVCFormat",
-                    "name": "layer_effect",
-                    "id": "55e2757a-66a9-4423-8876-af2fd472ec5c",
+                    "name": "layer_inst",
+                    "id": "1586e5c4-071b-492e-bbdf-f060006ee4b1",
                     "depth": 300,
                     "grid_x": 32,
                     "grid_y": 32,
@@ -111,8 +111,8 @@
                 },
                 {
                     "__type": "GMRInstanceLayer_Model:#YoYoStudio.MVCFormat",
-                    "name": "layer_inst",
-                    "id": "1586e5c4-071b-492e-bbdf-f060006ee4b1",
+                    "name": "layer_particle",
+                    "id": "55e2757a-66a9-4423-8876-af2fd472ec5c",
                     "depth": 400,
                     "grid_x": 32,
                     "grid_y": 32,
@@ -238,8 +238,8 @@
                     "m_parentID": "00000000-0000-0000-0000-000000000000",
                     "m_serialiseFrozen": false,
                     "modelName": "GMRTileLayer",
-                    "prev_tileheight": 16,
-                    "prev_tilewidth": 16,
+                    "prev_tileheight": 80,
+                    "prev_tilewidth": 80,
                     "mvc": "1.0",
                     "tiles": {
                         "SerialiseData": null,

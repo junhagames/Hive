@@ -2,8 +2,8 @@ camera = camera_create();
 target = obj_chr;
 
 if (instance_exists(target)) {
-	x = target.x;
-	y = target.y;
+	x = median(global.gameWidth / 2, target.x, room_width - global.gameWidth / 2);
+	y = median(global.gameHeight / 2, target.y, room_height - global.gameHeight / 2);
 }
 
 if (!view_enabled) {

@@ -23,7 +23,7 @@ if (!isAttackDelay) {
 			isAttackDelay = true;
 			alarm[0] = global.chrStatus[? "warriorSpeed"];
 			
-			var eft = instance_create_layer(melee.x, melee.y, "layer_effect", obj_particle_melee1);
+			var eft = instance_create_layer(melee.x, melee.y, "layer_particle", obj_particle_melee1);
 			eft.image_angle = melee.image_angle;
 		}
 	}

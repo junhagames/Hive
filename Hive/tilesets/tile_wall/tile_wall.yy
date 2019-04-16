@@ -1,11 +1,11 @@
 {
-    "id": "5aa5835c-ebc6-48bb-bf88-3cc8ee567ea1",
+    "id": "4f8ee8a2-c7ff-4d0b-b4c5-7ac579fe7cf3",
     "modelName": "GMTileSet",
     "mvc": "1.11",
-    "name": "tile_wall_front",
+    "name": "tile_wall",
     "auto_tile_sets": [
         {
-            "id": "56a0ecb8-ec1d-44b4-9634-51f190358987",
+            "id": "7d4d7bb9-c326-48c6-834c-80b8f022fe72",
             "modelName": "GMAutoTileSet",
             "mvc": "1.0",
             "closed_edge": false,
@@ -72,7 +72,7 @@
     "out_columns": 7,
     "out_tilehborder": 2,
     "out_tilevborder": 2,
-    "spriteId": "91aa195b-def0-4fd0-9b4a-0c68c691e739",
+    "spriteId": "c3133537-4b8a-4d3b-b828-3e86eb119b87",
     "sprite_no_export": false,
     "textureGroupId": "1225f6b0-ac20-43bd-a82e-be73fa0b6f4f",
     "tile_animation": {
