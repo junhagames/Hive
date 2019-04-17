@@ -1,4 +1,4 @@
-var tweenTime = 2;
+var tweenTime = 0.3;
 x += xTo / room_speed / tweenTime;
 y += yTo / room_speed / tweenTime;
 

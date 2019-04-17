@@ -1,1 +1,1 @@
-// Do not draw self
+// DO NOT DRAW SELF

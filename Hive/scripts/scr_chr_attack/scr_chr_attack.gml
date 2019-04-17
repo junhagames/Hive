@@ -3,13 +3,13 @@
 if (!isAttackDelay) {
 	if (global.chrStatus[? "swap"] == SWAP.RANGER) {
 		if (mouse_check_button(mb_left)) {
-			if (global.chrStatus[? "rangerAmmo"] > 0) {
+			if (global.chrStatus[? "ammoMax"] > 0) {
 				var bullet = instance_create_layer(x + lengthdir_x(weaponLength, weaponAngle), y + lengthdir_y(weaponLength, weaponAngle) - 8, "layer_inst", obj_bullet1);
 				bullet.direction = weaponAngle + random_range(-global.chrStatus[? "rangerAccuracy"], global.chrStatus[? "rangerAccuracy"]);
 				bullet.image_angle = bullet.direction;
 				bullet.speed = 20;
 				bullet.damage = global.chrStatus[? "strength"] + global.chrStatus[? "rangerDamage"];
-				global.chrStatus[? "rangerAmmo"]--;
+				global.chrStatus[? "ammoMax"]--;
 				isAttackDelay = true;
 				alarm[0] = global.chrStatus[? "rangerSpeed"];
 			}

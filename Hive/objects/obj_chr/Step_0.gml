@@ -5,7 +5,7 @@ if (!instance_exists(obj_parent_transition)) {
 	scr_chr_swap();
 
 	// TODO reload
-	if (global.chrStatus[? "rangerAmmo"] < global.chrStatus[? "rangerAmmoMax"] && alarm[1] == -1) {
+	if (global.chrStatus[? "ammoMax"] < global.chrStatus[? "ammo"] && alarm[1] == -1) {
 
 	}
 }
