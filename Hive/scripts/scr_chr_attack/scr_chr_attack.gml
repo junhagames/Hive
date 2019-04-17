@@ -7,7 +7,7 @@ if (!isAttackDelay) {
 				var bullet = instance_create_layer(x + lengthdir_x(weaponLength, weaponAngle), y + lengthdir_y(weaponLength, weaponAngle) - 8, "layer_inst", obj_bullet1);
 				bullet.direction = weaponAngle + random_range(-global.chrStatus[? "rangerAccuracy"], global.chrStatus[? "rangerAccuracy"]);
 				bullet.image_angle = bullet.direction;
-				bullet.speed = 18;
+				bullet.speed = 20;
 				bullet.damage = global.chrStatus[? "strength"] + global.chrStatus[? "rangerDamage"];
 				global.chrStatus[? "rangerAmmo"]--;
 				isAttackDelay = true;

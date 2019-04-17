@@ -72,20 +72,25 @@ global.previousPos = noone;
 global.chrStatus = ds_map_create();
 global.chrStatus[? "hpMax"] = 2000;
 global.chrStatus[? "hp"] = global.chrStatus[? "hpMax"];
+global.chrStatus[? "money"] = 0;
 global.chrStatus[? "strength"] = 1;
 global.chrStatus[? "armor"] = 1;
 global.chrStatus[? "speed"] = 6;
 global.chrStatus[? "swap"] = SWAP.RANGER;
 global.chrStatus[? "rangerAmmoMax"] = 300;
 global.chrStatus[? "rangerAmmo"] = global.chrStatus[? "rangerAmmoMax"];
-global.chrStatus[? "rangerDamage"] = 3;
+global.chrStatus[? "rangerDamage"] = 2;
 global.chrStatus[? "rangerSpeed"] = room_speed * 0.1;
-global.chrStatus[? "rangerAccuracy"] = 8;
-global.chrStatus[? "warriorDamage"] = 10;
+global.chrStatus[? "rangerAccuracy"] = 10;
+global.chrStatus[? "warriorDamage"] = 8;
 global.chrStatus[? "warriorSpeed"] = room_speed * 0.4;
 #endregion
 
 randomize();
 
 draw_set_font(font_main);
+draw_set_halign(fa_left);
+draw_set_valign(fa_middle);
+
+cursor_sprite = spr_ui_cursor;
 

@@ -24,11 +24,14 @@ with (obj_parent_entry) {
 			break;
 		}
 	}
-	
-	if (!isEntry) {
-		var block = instance_create_layer(x, y, "layer_block", obj_block);
-		block.image_xscale = sprite_width / block.sprite_width;
-		block.image_yscale = sprite_height / block.sprite_height;
+	var block = instance_create_layer(x, y, "layer_block", obj_block);
+	block.image_xscale = sprite_width / block.sprite_width;
+	block.image_yscale = sprite_height / block.sprite_height;
+		
+	if (isEntry) {
+		blockID = block.id;
+	}
+	else {
 		instance_destroy();
 	}
 }
@@ -94,7 +97,7 @@ instance_create_layer(0, 0, "layer_system", obj_camera);
 instance_create_layer(0, 0, "layer_draw", obj_draw);
 #endregion
 #region Create enemy
-for (var i = 0; i < 7; i++) {
+for (var i = 0; i < 3; i++) {
 	instance_create_layer(random_range(100, room_width - 100), random_range(100, room_height - 100), "layer_inst", choose(obj_insect1, obj_hive1));
 }
 #endregion

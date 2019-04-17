@@ -1,5 +1,5 @@
-xdir = 1;
 weaponSprite = spr_ranger_weapon1;
+weaponDir = 1;
 weaponLength = 16;
 weaponAngle = 0;
 

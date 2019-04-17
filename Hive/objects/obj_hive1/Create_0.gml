@@ -1,4 +1,2 @@
-event_inherited();
-
-hpMax = 100;
+hpMax = 20;
 hp = hpMax;

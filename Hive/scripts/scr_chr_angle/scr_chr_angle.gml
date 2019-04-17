@@ -3,8 +3,8 @@
 weaponAngle = point_direction(x, y, mouse_x, mouse_y);
 
 if (weaponAngle > 90 && weaponAngle < 270) {
-	xdir = -1;
+	weaponDir = -1;
 }
 else {
-	xdir = 1;
+	weaponDir = 1;
 }
