@@ -5,5 +5,5 @@ damage = 3;
 
 target = obj_chr;
 path = path_add();
-traceDelay = room_speed * 0.5;
-traceDistance = 200;
+moveDelay = room_speed * 0.5;
+moveDistance = 1000;

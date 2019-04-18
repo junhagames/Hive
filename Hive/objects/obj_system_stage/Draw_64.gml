@@ -1,3 +1,5 @@
+// TODO need optimize!
+
 draw_set_alpha(0.6);
 #region Minimap
 var text = "";
@@ -48,7 +50,9 @@ draw_text(60, 120, global.chrStatus[? "money"]);
 draw_set_alpha(1);
 
 #region Ammo
-draw_set_halign(fa_center);
-draw_text(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0) + 32, global.chrStatus[? "ammoMax"]);
-draw_set_halign(fa_left);
+if (global.chrStatus[? "swap"] == SWAP.RANGER) {
+	draw_set_halign(fa_center);
+	draw_text(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0) + 32, global.chrStatus[? "ammo"]);
+	draw_set_halign(fa_left);
+}
 #endregion

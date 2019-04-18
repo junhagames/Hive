@@ -983,6 +983,14 @@
             }
         },
         {
+            "Key": "ef38db62-5f6e-4d4a-9b37-e3902fa45fae",
+            "Value": {
+                "id": "f447fe1c-af86-4bbd-86cd-e39e50f17e97",
+                "resourcePath": "scripts\\scr_chr_skill\\scr_chr_skill.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "f1dd2d68-3b3e-49d2-ab4d-413d22b099fa",
             "Value": {
                 "id": "ce3f5706-8a44-4ef7-812a-99736a042da4",
@@ -1067,6 +1075,7 @@
         "9d3e84f0-fbe5-4252-9a91-2f1c478dca00",
         "0f319c96-de13-474b-90de-65773d97d57a",
         "d549e5da-eac9-4073-aa64-e5927f646d6e",
+        "ef38db62-5f6e-4d4a-9b37-e3902fa45fae",
         "f45fd46a-addb-40f2-bf55-1a5bca0b645d",
         "2c695cf3-c202-4496-b298-ccaddba35813"
     ],

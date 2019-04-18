@@ -1,1 +1,1 @@
-isDamageDelay = false;
+isSkillDelay = false;

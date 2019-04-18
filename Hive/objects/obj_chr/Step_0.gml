@@ -2,14 +2,15 @@ if (!instance_exists(obj_parent_transition)) {
 	scr_chr_move();
 	scr_chr_angle();
 	scr_chr_attack();
+	scr_chr_skill();
 	scr_chr_swap();
-
-	// TODO reload
-	if (global.chrStatus[? "ammoMax"] < global.chrStatus[? "ammo"] && alarm[1] == -1) {
-
-	}
 }
 
+// Reload
+if (global.chrStatus[? "ammo"] <= 0 && alarm[ALARM_CHR.RELOAD] == -1) {
+	alarm[ALARM_CHR.RELOAD] = reloadSpeed;
+}
+	
 // Weapon sprite
 if (global.chrStatus[? "swap"] == SWAP.RANGER) {
 	weaponSprite = spr_ranger_weapon1;

@@ -55,7 +55,17 @@ enum SWAP {
 	WARRIOR,
 }
 
-// TODO alarm enum
+enum ALARM_CHR {
+	ATTACK,
+	SKILL,
+	DAMAGE,
+	SWAP,
+	RELOAD,
+}
+
+enum ALARM_INSECT {
+	MOVE,
+}
 #endregion
 #region Global
 global.gameWidth = 1280;
@@ -77,8 +87,8 @@ global.chrStatus[? "strength"] = 1;
 global.chrStatus[? "armor"] = 1;
 global.chrStatus[? "speed"] = 6;
 global.chrStatus[? "swap"] = SWAP.RANGER;
-global.chrStatus[? "ammo"] = 300;
-global.chrStatus[? "ammoMax"] = global.chrStatus[? "ammo"];
+global.chrStatus[? "ammoMax"] = 30;
+global.chrStatus[? "ammo"] = global.chrStatus[? "ammoMax"];
 global.chrStatus[? "rangerDamage"] = 2;
 global.chrStatus[? "rangerSpeed"] = room_speed * 0.1;
 global.chrStatus[? "rangerAccuracy"] = 10;
@@ -93,4 +103,3 @@ draw_set_halign(fa_left);
 draw_set_valign(fa_middle);
 
 cursor_sprite = spr_ui_cursor;
-
