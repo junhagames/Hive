@@ -25,9 +25,8 @@ switch (infoMap[? "shape"]) {
 			if (targetIndex != index && targetIndex != WALL) {
 				entryIndex[| entryCount] = ds_map_create();
 				ds_list_mark_as_map(entryIndex, entryCount);
-				var entryMap = entryIndex[| entryCount];
-				entryCount++;
 				
+				var entryMap = entryIndex[| entryCount++];
 				entryMap[? "targetIndex"] = targetIndex;
 				entryMap[? "pos"] = POS.TOP;
 			}
@@ -43,9 +42,8 @@ switch (infoMap[? "shape"]) {
 			if (targetIndex != index && targetIndex != WALL) {
 				entryIndex[| entryCount] = ds_map_create();
 				ds_list_mark_as_map(entryIndex, entryCount);
-				var entryMap = entryIndex[| entryCount];
-				entryCount++;
 				
+				var entryMap = entryIndex[| entryCount++];
 				entryMap[? "targetIndex"] = targetIndex;
 				entryMap[? "pos"] = POS.RIGHT;
 			}
@@ -61,9 +59,8 @@ switch (infoMap[? "shape"]) {
 			if (targetIndex != index && targetIndex != WALL) {
 				entryIndex[| entryCount] = ds_map_create();
 				ds_list_mark_as_map(entryIndex, entryCount);
-				var entryMap = entryIndex[| entryCount];
-				entryCount++;
 				
+				var entryMap = entryIndex[| entryCount++];
 				entryMap[? "targetIndex"] = targetIndex;
 				entryMap[? "pos"] = POS.BOTTOM;
 			}
@@ -79,9 +76,8 @@ switch (infoMap[? "shape"]) {
 			if (targetIndex != index && targetIndex != WALL) {
 				entryIndex[| entryCount] = ds_map_create();
 				ds_list_mark_as_map(entryIndex, entryCount);
-				var entryMap = entryIndex[| entryCount];
-				entryCount++;
 				
+				var entryMap = entryIndex[| entryCount++];
 				entryMap[? "targetIndex"] = targetIndex;
 				entryMap[? "pos"] = POS.LEFT;
 			}
@@ -104,9 +100,8 @@ switch (infoMap[? "shape"]) {
 						if (targetIndex != index && targetIndex != WALL) {
 							entryIndex[| entryCount] = ds_map_create();
 							ds_list_mark_as_map(entryIndex, entryCount);
-							var entryMap = entryIndex[| entryCount];
-							entryCount++;
 							
+							var entryMap = entryIndex[| entryCount++];
 							entryMap[? "targetIndex"] = targetIndex;
 							entryMap[? "pos"] = POS.TOP_LEFT;
 						}
@@ -121,9 +116,8 @@ switch (infoMap[? "shape"]) {
 						if (targetIndex != index && targetIndex != WALL) {
 							entryIndex[| entryCount] = ds_map_create();
 							ds_list_mark_as_map(entryIndex, entryCount);
-							var entryMap = entryIndex[| entryCount];
-							entryCount++;
-				
+							
+							var entryMap = entryIndex[| entryCount++];
 							entryMap[? "targetIndex"] = targetIndex;
 							entryMap[? "pos"] = POS.LEFT_TOP;
 						}
@@ -140,9 +134,8 @@ switch (infoMap[? "shape"]) {
 							if (targetIndex != index && targetIndex != WALL) {
 								entryIndex[| entryCount] = ds_map_create();
 								ds_list_mark_as_map(entryIndex, entryCount);
-								var entryMap = entryIndex[| entryCount];
-								entryCount++;
-							
+								
+								var entryMap = entryIndex[| entryCount++];
 								entryMap[? "targetIndex"] = targetIndex;
 								entryMap[? "pos"] = POS.BOTTOM_LEFT;
 							}
@@ -158,9 +151,8 @@ switch (infoMap[? "shape"]) {
 						if (targetIndex != index && targetIndex != WALL) {
 							entryIndex[| entryCount] = ds_map_create();
 							ds_list_mark_as_map(entryIndex, entryCount);
-							var entryMap = entryIndex[| entryCount];
-							entryCount++;
 							
+							var entryMap = entryIndex[| entryCount++];
 							entryMap[? "targetIndex"] = targetIndex;
 							entryMap[? "pos"] = POS.LEFT_BOTTOM;
 						}
@@ -177,9 +169,8 @@ switch (infoMap[? "shape"]) {
 					if (targetIndex != index && targetIndex != WALL) {
 						entryIndex[| entryCount] = ds_map_create();
 						ds_list_mark_as_map(entryIndex, entryCount);
-						var entryMap = entryIndex[| entryCount];
-						entryCount++;
-							
+						
+						var entryMap = entryIndex[| entryCount++];
 						entryMap[? "targetIndex"] = targetIndex;
 						entryMap[? "pos"] = POS.LEFT_TOP;
 					}
@@ -198,9 +189,8 @@ switch (infoMap[? "shape"]) {
 						if (targetIndex != index && targetIndex != WALL) {
 							entryIndex[| entryCount] = ds_map_create();
 							ds_list_mark_as_map(entryIndex, entryCount);
-							var entryMap = entryIndex[| entryCount];
-							entryCount++;
-						
+							
+							var entryMap = entryIndex[| entryCount++];
 							entryMap[? "targetIndex"] = targetIndex;
 							entryMap[? "pos"] = POS.TOP_RIGHT;
 						}
@@ -216,9 +206,8 @@ switch (infoMap[? "shape"]) {
 							if (targetIndex != index && targetIndex != WALL) {
 								entryIndex[| entryCount] = ds_map_create();
 								ds_list_mark_as_map(entryIndex, entryCount);
-								var entryMap = entryIndex[| entryCount];
-								entryCount++;
-						
+								
+								var entryMap = entryIndex[| entryCount++];
 								entryMap[? "targetIndex"] = targetIndex;
 								entryMap[? "pos"] = POS.RIGHT_TOP;
 							}
@@ -236,9 +225,8 @@ switch (infoMap[? "shape"]) {
 							if (targetIndex != index && targetIndex != WALL) {
 								entryIndex[| entryCount] = ds_map_create();
 								ds_list_mark_as_map(entryIndex, entryCount);
-								var entryMap = entryIndex[| entryCount];
-								entryCount++;
-							
+								
+								var entryMap = entryIndex[| entryCount++];
 								entryMap[? "targetIndex"] = targetIndex;
 								entryMap[? "pos"] = POS.RIGHT_BOTTOM;
 							}
@@ -255,9 +243,8 @@ switch (infoMap[? "shape"]) {
 							if (targetIndex != index && targetIndex != WALL) {
 								entryIndex[| entryCount] = ds_map_create();
 								ds_list_mark_as_map(entryIndex, entryCount);
-								var entryMap = entryIndex[| entryCount];
-								entryCount++;
-						
+								
+								var entryMap = entryIndex[| entryCount++];
 								entryMap[? "targetIndex"] = targetIndex;
 								entryMap[? "pos"] = POS.BOTTOM_RIGHT;
 							}
@@ -278,9 +265,8 @@ switch (infoMap[? "shape"]) {
 				if (targetIndex != index && targetIndex != WALL) {
 					entryIndex[| entryCount] = ds_map_create();
 					ds_list_mark_as_map(entryIndex, entryCount);
-					var entryMap = entryIndex[| entryCount];
-					entryCount++;
-							
+					
+					var entryMap = entryIndex[| entryCount++];	
 					entryMap[? "targetIndex"] = targetIndex;
 					entryMap[? "pos"] = POS.TOP_LEFT;
 				}
@@ -297,9 +283,8 @@ switch (infoMap[? "shape"]) {
 				if (targetIndex != index && targetIndex != WALL) {
 					entryIndex[| entryCount] = ds_map_create();
 					ds_list_mark_as_map(entryIndex, entryCount);
-					var entryMap = entryIndex[| entryCount];
-					entryCount++;
 					
+					var entryMap = entryIndex[| entryCount++];
 					entryMap[? "targetIndex"] = targetIndex;
 					entryMap[? "pos"] = POS.BOTTOM_LEFT;
 				}
@@ -321,9 +306,8 @@ switch (infoMap[? "shape"]) {
 					if (targetIndex != index && targetIndex != WALL) {
 						entryIndex[| entryCount] = ds_map_create();
 						ds_list_mark_as_map(entryIndex, entryCount);
-						var entryMap = entryIndex[| entryCount];
-						entryCount++;
-					
+						
+						var entryMap = entryIndex[| entryCount++];
 						entryMap[? "targetIndex"] = targetIndex;
 						entryMap[? "pos"] = POS.TOP_LEFT;
 					}
@@ -339,9 +323,8 @@ switch (infoMap[? "shape"]) {
 					if (targetIndex != index && targetIndex != WALL) {
 						entryIndex[| entryCount] = ds_map_create();
 						ds_list_mark_as_map(entryIndex, entryCount);
-						var entryMap = entryIndex[| entryCount];
-						entryCount++;
-					
+						
+						var entryMap = entryIndex[| entryCount++];
 						entryMap[? "targetIndex"] = targetIndex;
 						entryMap[? "pos"] = POS.BOTTOM_LEFT;
 					}
@@ -356,9 +339,8 @@ switch (infoMap[? "shape"]) {
 				if (targetIndex != index && targetIndex != WALL) {
 					entryIndex[| entryCount] = ds_map_create();
 					ds_list_mark_as_map(entryIndex, entryCount);
-					var entryMap = entryIndex[| entryCount];
-					entryCount++;
-				
+					
+					var entryMap = entryIndex[| entryCount++];
 					entryMap[? "targetIndex"] = targetIndex;
 					entryMap[? "pos"] = POS.LEFT;
 				}
@@ -374,9 +356,8 @@ switch (infoMap[? "shape"]) {
 					if (targetIndex != index && targetIndex != WALL) {
 						entryIndex[| entryCount] = ds_map_create();
 						ds_list_mark_as_map(entryIndex, entryCount);
-						var entryMap = entryIndex[| entryCount];
-						entryCount++;
-					
+						
+						var entryMap = entryIndex[| entryCount++];
 						entryMap[? "targetIndex"] = targetIndex;
 						entryMap[? "pos"] = POS.TOP_RIGHT;
 					}
@@ -392,9 +373,8 @@ switch (infoMap[? "shape"]) {
 					if (targetIndex != index && targetIndex != WALL) {
 						entryIndex[| entryCount] = ds_map_create();
 						ds_list_mark_as_map(entryIndex, entryCount);
-						var entryMap = entryIndex[| entryCount];
-						entryCount++;
-					
+						
+						var entryMap = entryIndex[| entryCount++];
 						entryMap[? "targetIndex"] = targetIndex;
 						entryMap[? "pos"] = POS.RIGHT;
 					}
@@ -410,9 +390,8 @@ switch (infoMap[? "shape"]) {
 					if (targetIndex != index && targetIndex != WALL) {
 						entryIndex[| entryCount] = ds_map_create();
 						ds_list_mark_as_map(entryIndex, entryCount);
-						var entryMap = entryIndex[| entryCount];
-						entryCount++;
-					
+						
+						var entryMap = entryIndex[| entryCount++];
 						entryMap[? "targetIndex"] = targetIndex;
 						entryMap[? "pos"] = POS.BOTTOM_RIGHT;
 					}
@@ -430,9 +409,8 @@ switch (infoMap[? "shape"]) {
 				if (targetIndex != index && targetIndex != WALL) {
 					entryIndex[| entryCount] = ds_map_create();
 					ds_list_mark_as_map(entryIndex, entryCount);
-					var entryMap = entryIndex[| entryCount];
-					entryCount++;
-							
+					
+					var entryMap = entryIndex[| entryCount++];	
 					entryMap[? "targetIndex"] = targetIndex;
 					entryMap[? "pos"] = POS.TOP_LEFT;
 				}
@@ -448,9 +426,8 @@ switch (infoMap[? "shape"]) {
 				if (targetIndex != index && targetIndex != WALL) {
 					entryIndex[| entryCount] = ds_map_create();
 					ds_list_mark_as_map(entryIndex, entryCount);
-					var entryMap = entryIndex[| entryCount];
-					entryCount++;
 					
+					var entryMap = entryIndex[| entryCount++];
 					entryMap[? "targetIndex"] = targetIndex;
 					entryMap[? "pos"] = POS.BOTTOM_LEFT;
 				}
@@ -472,9 +449,8 @@ switch (infoMap[? "shape"]) {
 				if (targetIndex != index && targetIndex != WALL) {
 					entryIndex[| entryCount] = ds_map_create();
 					ds_list_mark_as_map(entryIndex, entryCount);
-					var entryMap = entryIndex[| entryCount];
-					entryCount++;
 					
+					var entryMap = entryIndex[| entryCount++];
 					entryMap[? "targetIndex"] = targetIndex;
 					entryMap[? "pos"] = POS.TOP;
 				}
@@ -490,9 +466,8 @@ switch (infoMap[? "shape"]) {
 					if (targetIndex != index && targetIndex != WALL) {
 						entryIndex[| entryCount] = ds_map_create();
 						ds_list_mark_as_map(entryIndex, entryCount);
-						var entryMap = entryIndex[| entryCount];
-						entryCount++;
-					
+						
+						var entryMap = entryIndex[| entryCount++];
 						entryMap[? "targetIndex"] = targetIndex;
 						entryMap[? "pos"] = POS.RIGHT_TOP;
 					}
@@ -509,9 +484,8 @@ switch (infoMap[? "shape"]) {
 					if (targetIndex != index && targetIndex != WALL) {
 						entryIndex[| entryCount] = ds_map_create();
 						ds_list_mark_as_map(entryIndex, entryCount);
-						var entryMap = entryIndex[| entryCount];
-						entryCount++;
-				
+						
+						var entryMap = entryIndex[| entryCount++];
 						entryMap[? "targetIndex"] = targetIndex;
 						entryMap[? "pos"] = POS.LEFT_TOP;
 					}
@@ -529,9 +503,8 @@ switch (infoMap[? "shape"]) {
 					if (targetIndex != index && targetIndex != WALL) {
 						entryIndex[| entryCount] = ds_map_create();
 						ds_list_mark_as_map(entryIndex, entryCount);
-						var entryMap = entryIndex[| entryCount];
-						entryCount++;
 						
+						var entryMap = entryIndex[| entryCount++];
 						entryMap[? "targetIndex"] = targetIndex;
 						entryMap[? "pos"] = POS.RIGHT_BOTTOM;
 					}
@@ -548,9 +521,8 @@ switch (infoMap[? "shape"]) {
 					if (targetIndex != index && targetIndex != WALL) {
 						entryIndex[| entryCount] = ds_map_create();
 						ds_list_mark_as_map(entryIndex, entryCount);
-						var entryMap = entryIndex[| entryCount];
-						entryCount++;
-					
+						
+						var entryMap = entryIndex[| entryCount++];
 						entryMap[? "targetIndex"] = targetIndex;
 						entryMap[? "pos"] = POS.BOTTOM;
 					}
@@ -567,9 +539,8 @@ switch (infoMap[? "shape"]) {
 					if (targetIndex != index && targetIndex != WALL) {
 						entryIndex[| entryCount] = ds_map_create();
 						ds_list_mark_as_map(entryIndex, entryCount);
-						var entryMap = entryIndex[| entryCount];
-						entryCount++;
-					
+						
+						var entryMap = entryIndex[| entryCount++];
 						entryMap[? "targetIndex"] = targetIndex;
 						entryMap[? "pos"] = POS.LEFT_BOTTOM;
 					}
@@ -588,9 +559,8 @@ switch (infoMap[? "shape"]) {
 				if (targetIndex != index && targetIndex != WALL) {
 					entryIndex[| entryCount] = ds_map_create();
 					ds_list_mark_as_map(entryIndex, entryCount);
-					var entryMap = entryIndex[| entryCount];
-					entryCount++;
 					
+					var entryMap = entryIndex[| entryCount++];
 					entryMap[? "targetIndex"] = targetIndex;
 					entryMap[? "pos"] = POS.LEFT_TOP;
 				}
@@ -607,9 +577,8 @@ switch (infoMap[? "shape"]) {
 				if (targetIndex != index && targetIndex != WALL) {
 					entryIndex[| entryCount] = ds_map_create();
 					ds_list_mark_as_map(entryIndex, entryCount);
-					var entryMap = entryIndex[| entryCount];
-					entryCount++;
 					
+					var entryMap = entryIndex[| entryCount++];
 					entryMap[? "targetIndex"] = targetIndex;
 					entryMap[? "pos"] = POS.RIGHT_TOP;
 				}

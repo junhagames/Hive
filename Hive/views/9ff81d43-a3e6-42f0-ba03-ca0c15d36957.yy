@@ -7,7 +7,7 @@
         "1733d451-c5bb-4f92-906a-673fbd0fd9c3"
     ],
     "filterType": "GMSprite",
-    "folderName": "Effect",
+    "folderName": "Particle",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

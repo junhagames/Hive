@@ -1,1 +1,1 @@
-// DO NOT DRAW SELF
+// Draw inst to obj_draw

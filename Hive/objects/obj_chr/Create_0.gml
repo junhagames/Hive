@@ -1,7 +1,7 @@
 weaponSprite = spr_ranger_weapon1;
-weaponDir = 1;
 weaponLength = 16;
 weaponAngle = 0;
+weaponDir = 1;
 
 isMove = false;
 isAttackDelay = false;
@@ -14,4 +14,3 @@ swapSpeed = room_speed * 1;
 reloadSpeed = room_speed * 2;
 
 global.chrMap[? "ammo"] = global.chrMap[? "ammoMax"];
-image_speed = 0.3;

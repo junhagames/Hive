@@ -1,4 +1,4 @@
-/// @description 캐릭터 각도 조절
+/// @description 캐릭터 무기 방향 조절
 
 weaponAngle = point_direction(x, y, mouse_x, mouse_y);
 

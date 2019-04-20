@@ -1,4 +1,4 @@
-/// @description 무작위 월드 초기화
+/// @description 월드 무작위 초기화
 /// @param roomNumber
 
 var roomNumber = argument0;
@@ -19,7 +19,7 @@ global.worldGrid[# controlX, controlY] = 0;
 scr_world_room_reset(global.worldGrid[# controlX, controlY], SHAPE.SMALL);
 
 for (var i = 1; i < roomNumber; i++) {
-	var isRoomCreate = false;
+	var isCreateRoom = false;
 	
 	do {
 		var previousX = controlX;
@@ -52,7 +52,7 @@ for (var i = 1; i < roomNumber; i++) {
 				else if (global.worldGrid[# controlX, controlY] == WALL) {
 					global.worldGrid[# controlX, controlY] = i;
 					scr_world_room_reset(global.worldGrid[# controlX, controlY], SHAPE.SMALL);
-					isRoomCreate = true;
+					isCreateRoom = true;
 				}
 				break;
 			#endregion
@@ -106,16 +106,15 @@ for (var i = 1; i < roomNumber; i++) {
 						}
 					}
 					
-					if (!isEmpty) {
-						if (global.worldGrid[# controlX, controlY] == WALL) {
-							controlX = previousX;
-							controlY = previousY;
-						}
-						break;	
+					if (isEmpty) {
+						ds_grid_set_region(global.worldGrid, controlX1, controlY1, controlX2, controlY2, i);
+						scr_world_room_reset(global.worldGrid[# controlX, controlY], SHAPE.BIG);
+						isCreateRoom = true;
 					}
-					ds_grid_set_region(global.worldGrid, controlX1, controlY1, controlX2, controlY2, i);
-					scr_world_room_reset(global.worldGrid[# controlX, controlY], SHAPE.BIG);
-					isRoomCreate = true;
+					else if (global.worldGrid[# controlX, controlY] == WALL) {
+						controlX = previousX;
+						controlY = previousY;
+					}	
 				}
 				break;
 			#endregion
@@ -169,16 +168,15 @@ for (var i = 1; i < roomNumber; i++) {
 						}
 					}
 					
-					if (!isEmpty) {
-						if (global.worldGrid[# controlX, controlY] == WALL) {
-							controlX = previousX;
-							controlY = previousY;
-						}
-						break;	
+					if (isEmpty) {
+						ds_grid_set_region(global.worldGrid, controlX1, controlY1, controlX2, controlY2, i);
+						scr_world_room_reset(global.worldGrid[# controlX, controlY], SHAPE.WLONG);
+						isCreateRoom = true;
 					}
-					ds_grid_set_region(global.worldGrid, controlX1, controlY1, controlX2, controlY2, i);
-					scr_world_room_reset(global.worldGrid[# controlX, controlY], SHAPE.WLONG);
-					isRoomCreate = true;
+					else if (global.worldGrid[# controlX, controlY] == WALL) {
+						controlX = previousX;
+						controlY = previousY;
+					}
 				}
 				break;
 			#endregion
@@ -232,22 +230,21 @@ for (var i = 1; i < roomNumber; i++) {
 						}
 					}
 					
-					if (!isEmpty) {
-						if (global.worldGrid[# controlX, controlY] == WALL) {
-							controlX = previousX;
-							controlY = previousY;
-						}
-						break;	
+					if (isEmpty) {
+						ds_grid_set_region(global.worldGrid, controlX1, controlY1, controlX2, controlY2, i);
+						scr_world_room_reset(global.worldGrid[# controlX, controlY], SHAPE.HLONG);
+						isCreateRoom = true;
 					}
-					ds_grid_set_region(global.worldGrid, controlX1, controlY1, controlX2, controlY2, i);
-					scr_world_room_reset(global.worldGrid[# controlX, controlY], SHAPE.HLONG);
-					isRoomCreate = true;
+					else if (global.worldGrid[# controlX, controlY] == WALL) {
+						controlX = previousX;
+						controlY = previousY;
+					}
 				}
 				break;
 			#endregion
 		}
 	}
-	until (isRoomCreate);
+	until (isCreateRoom);
 }
 
 // Create room entry
@@ -258,26 +255,3 @@ for (var _y = 0; _y < ds_grid_height(global.worldGrid); _y++) {
 		}
 	}
 }
-
-#region Print
-for (var _y = 0; _y < ds_grid_height(global.worldGrid); _y++) {
-	var text = "";
-	
-	for (var _x = 0; _x < ds_grid_width(global.worldGrid); _x++) {
-		if (global.worldGrid[# _x, _y] == WALL) {
-			text += " ";
-		}
-		else {
-			text += string(global.worldGrid[# _x, _y]);	
-		}
-	}
-	show_debug_message(text);
-}
-
-var line = "";
-
-for (var i = 0; i < ds_grid_width(global.worldGrid); i++) {
-	line += "+";
-}
-show_debug_message(line);
-#endregion

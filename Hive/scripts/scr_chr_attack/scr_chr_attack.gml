@@ -15,7 +15,7 @@ if (!isAttackDelay) {
 			}
 		}
 	}
-	else {
+	else if (global.chrMap[? "swap"] == SWAP.WARRIOR) {
 		if (mouse_check_button(mb_left)) {
 			var melee = instance_create_layer(x + lengthdir_x(64, weaponAngle), y + lengthdir_y(64, weaponAngle), "layer_inst", obj_melee1);
 			melee.image_angle = weaponAngle;

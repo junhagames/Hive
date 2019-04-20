@@ -1,0 +1,1 @@
+scr_resolution_resize();

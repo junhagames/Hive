@@ -6,7 +6,7 @@ if (keyboard_check_pressed(vk_space)) {
 			global.chrMap[? "swap"] = SWAP.WARRIOR;
 			alarm[ALARM_CHR.RELOAD] = 0;
 		}
-		else {
+		else if (global.chrMap[? "swap"] == SWAP.WARRIOR) {
 			global.chrMap[? "swap"] = SWAP.RANGER;
 			global.chrMap[? "ammo"] = global.chrMap[? "ammoMax"];
 		}

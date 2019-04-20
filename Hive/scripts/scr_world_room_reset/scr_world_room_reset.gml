@@ -1,4 +1,4 @@
-/// @description 룸 정보 초기화
+/// @description 룸 초기화
 /// @param index
 /// @param shape
 

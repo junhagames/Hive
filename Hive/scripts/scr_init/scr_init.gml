@@ -1,7 +1,6 @@
 /// @description 게임 초기화
 
 #region Macro
-#macro NULL 0
 #macro WALL "#"
 #macro CELL_WIDTH sprite_get_width(spr_block)
 #macro CELL_HEIGHT sprite_get_height(spr_block)
@@ -76,12 +75,12 @@ global.resolution = 1;
 
 global.worldGrid = ds_grid_create(15, 15);
 global.worldList = ds_list_create();
-global.currentIndex = NULL;
+global.currentIndex = 0;
 global.previousIndex = noone;
 global.previousPos = noone;
 
 global.chrMap = ds_map_create();
-global.chrMap[? "hpMax"] = 2000;
+global.chrMap[? "hpMax"] = 100;
 global.chrMap[? "hp"] = global.chrMap[? "hpMax"];
 global.chrMap[? "money"] = 0;
 global.chrMap[? "strength"] = 1;

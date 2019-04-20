@@ -1,1 +1,2 @@
+// DEBUG
 game_restart();

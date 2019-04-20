@@ -15,7 +15,7 @@ if (global.chrMap[? "ammo"] <= 0 && alarm[ALARM_CHR.RELOAD] == -1) {
 if (global.chrMap[? "swap"] == SWAP.RANGER) {
 	weaponSprite = spr_ranger_weapon1;
 }
-else {
+else if (global.chrMap[? "swap"] == SWAP.WARRIOR) {
 	weaponSprite = spr_warrior_weapon1;
 }
 

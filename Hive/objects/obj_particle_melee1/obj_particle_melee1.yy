@@ -4,16 +4,7 @@
     "mvc": "1.0",
     "name": "obj_particle_melee1",
     "eventList": [
-        {
-            "id": "49f65d73-8277-4421-9f72-2a389857c3c1",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 0,
-            "eventtype": 0,
-            "m_owner": "7d22d634-4533-4b39-9d05-27316f3163b4"
-        }
+        
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,
