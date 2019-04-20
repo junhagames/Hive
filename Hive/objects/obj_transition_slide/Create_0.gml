@@ -1,5 +1,12 @@
 newRoomSuf = surface_create(global.gameWidth, global.gameHeight);
 oldRoomSuf = surface_create(global.gameWidth, global.gameHeight);
+surface_set_target(newRoomSuf);
+draw_clear_alpha(c_black, 0);
+surface_set_target(oldRoomSuf);
+draw_clear_alpha(c_black, 0);
+surface_reset_target();
+surface_reset_target();
+
 surface_copy(oldRoomSuf, 0, 0, application_surface);
 
 if (global.previousPos == POS.TOP || global.previousPos == POS.TOP_LEFT || global.previousPos == POS.TOP_RIGHT) {

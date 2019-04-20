@@ -2,13 +2,13 @@
 
 if (keyboard_check_pressed(vk_space)) {
 	if (!isSwapDelay) {
-		if (global.chrStatus[? "swap"] == SWAP.RANGER) {
-			global.chrStatus[? "swap"] = SWAP.WARRIOR;
+		if (global.chrMap[? "swap"] == SWAP.RANGER) {
+			global.chrMap[? "swap"] = SWAP.WARRIOR;
 			alarm[ALARM_CHR.RELOAD] = 0;
 		}
 		else {
-			global.chrStatus[? "swap"] = SWAP.RANGER;
-			global.chrStatus[? "ammo"] = global.chrStatus[? "ammoMax"];
+			global.chrMap[? "swap"] = SWAP.RANGER;
+			global.chrMap[? "ammo"] = global.chrMap[? "ammoMax"];
 		}
 		isSwapDelay = true;
 		alarm[ALARM_CHR.SWAP] = swapSpeed;

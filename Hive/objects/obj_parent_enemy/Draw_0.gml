@@ -1,4 +1,4 @@
-if (hp < hpMax) {
+if (hp < hpMax && hp > 0) {
 	draw_set_alpha(0.6);
 	draw_set_color(c_orange);
 	draw_rectangle(x - 32, y - sprite_height - 20, x - 32 + hp / hpMax * 64, y - sprite_height - 5, false);

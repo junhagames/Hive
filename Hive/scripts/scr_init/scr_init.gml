@@ -1,6 +1,7 @@
 /// @description 게임 초기화
 
 #region Macro
+#macro NULL 0
 #macro WALL "#"
 #macro CELL_WIDTH sprite_get_width(spr_block)
 #macro CELL_HEIGHT sprite_get_height(spr_block)
@@ -75,25 +76,25 @@ global.resolution = 1;
 
 global.worldGrid = ds_grid_create(15, 15);
 global.worldList = ds_list_create();
-global.currentIndex = 0;
+global.currentIndex = NULL;
 global.previousIndex = noone;
 global.previousPos = noone;
 
-global.chrStatus = ds_map_create();
-global.chrStatus[? "hpMax"] = 2000;
-global.chrStatus[? "hp"] = global.chrStatus[? "hpMax"];
-global.chrStatus[? "money"] = 0;
-global.chrStatus[? "strength"] = 1;
-global.chrStatus[? "armor"] = 1;
-global.chrStatus[? "speed"] = 6;
-global.chrStatus[? "swap"] = SWAP.RANGER;
-global.chrStatus[? "ammoMax"] = 30;
-global.chrStatus[? "ammo"] = global.chrStatus[? "ammoMax"];
-global.chrStatus[? "rangerDamage"] = 2;
-global.chrStatus[? "rangerSpeed"] = room_speed * 0.1;
-global.chrStatus[? "rangerAccuracy"] = 10;
-global.chrStatus[? "warriorDamage"] = 8;
-global.chrStatus[? "warriorSpeed"] = room_speed * 0.4;
+global.chrMap = ds_map_create();
+global.chrMap[? "hpMax"] = 2000;
+global.chrMap[? "hp"] = global.chrMap[? "hpMax"];
+global.chrMap[? "money"] = 0;
+global.chrMap[? "strength"] = 1;
+global.chrMap[? "armor"] = 1;
+global.chrMap[? "speed"] = 6;
+global.chrMap[? "swap"] = SWAP.RANGER;
+global.chrMap[? "ammoMax"] = 30;
+global.chrMap[? "ammo"] = global.chrMap[? "ammoMax"];
+global.chrMap[? "rangerDamage"] = 2;
+global.chrMap[? "rangerSpeed"] = room_speed * 0.1;
+global.chrMap[? "rangerAccuracy"] = 10;
+global.chrMap[? "warriorDamage"] = 8;
+global.chrMap[? "warriorSpeed"] = room_speed * 0.4;
 #endregion
 
 randomize();

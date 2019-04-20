@@ -1,1 +1,1 @@
-global.chrStatus[? "ammo"] = global.chrStatus[? "ammoMax"];
+global.chrMap[? "ammo"] = global.chrMap[? "ammoMax"];

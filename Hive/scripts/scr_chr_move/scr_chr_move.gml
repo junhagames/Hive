@@ -5,8 +5,8 @@ var keyRight = keyboard_check(ord("D"));
 var keyUp = keyboard_check(ord("W"));
 var keyDown = keyboard_check(ord("S"));
 
-var hspd = (keyRight - keyLeft) * global.chrStatus[? "speed"];
-var vspd = (keyDown - keyUp) * global.chrStatus[? "speed"];
+var hspd = (keyRight - keyLeft) * global.chrMap[? "speed"];
+var vspd = (keyDown - keyUp) * global.chrMap[? "speed"];
 isMove = hspd != 0 || vspd != 0;
 
 if (place_meeting(x + hspd, y, obj_block)) {

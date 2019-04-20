@@ -13,5 +13,5 @@ skillSpeed = room_speed * 10;
 swapSpeed = room_speed * 1;
 reloadSpeed = room_speed * 2;
 
-global.chrStatus[? "ammo"] = global.chrStatus[? "ammoMax"];
+global.chrMap[? "ammo"] = global.chrMap[? "ammoMax"];
 image_speed = 0.3;

@@ -5,6 +5,7 @@ var roomNumber = argument0;
 
 var controlX = ds_grid_width(global.worldGrid) div 2;
 var controlY = ds_grid_height(global.worldGrid) div 2;
+global.currentIndex = 0;
 
 // Reset world
 for (var _y = 0; _y < ds_grid_height(global.worldGrid); _y++) {

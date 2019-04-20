@@ -7,12 +7,12 @@ if (!instance_exists(obj_parent_transition)) {
 }
 
 // Reload
-if (global.chrStatus[? "ammo"] <= 0 && alarm[ALARM_CHR.RELOAD] == -1) {
+if (global.chrMap[? "ammo"] <= 0 && alarm[ALARM_CHR.RELOAD] == -1) {
 	alarm[ALARM_CHR.RELOAD] = reloadSpeed;
 }
 	
 // Weapon sprite
-if (global.chrStatus[? "swap"] == SWAP.RANGER) {
+if (global.chrMap[? "swap"] == SWAP.RANGER) {
 	weaponSprite = spr_ranger_weapon1;
 }
 else {
@@ -20,7 +20,7 @@ else {
 }
 
 // Dead
-if (global.chrStatus[? "hp"] < 0) {
+if (global.chrMap[? "hp"] < 0) {
 	show_message("사망했습니다!");
 	game_restart();
 }
