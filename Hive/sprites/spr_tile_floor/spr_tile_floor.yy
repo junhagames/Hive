@@ -2,7 +2,7 @@
     "id": "5374d4bb-f00d-497c-9acf-269345ccce0e",
     "modelName": "GMSprite",
     "mvc": "1.12",
-    "name": "spr_tile_ground",
+    "name": "spr_tile_floor",
     "For3D": false,
     "HTile": false,
     "VTile": false,

@@ -1,10 +1,11 @@
 draw_set_alpha(0.6);
 #region HP
 if (global.chrMap[? "hp"] > 0) {
-	draw_set_color(c_fuchsia);
+	draw_set_color(c_red);
 	draw_rectangle(40, 40, 40 + global.chrMap[? "hp"] / global.chrMap[? "hpMax"] * 300, 80, false);
-	draw_set_color(c_white);
+	draw_set_color(c_black);
 	draw_rectangle(40, 40, 340, 80, true);
+	draw_set_color(c_white);
 }
 #endregion
 #region Money
