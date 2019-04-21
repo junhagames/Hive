@@ -1,6 +1,6 @@
 scr_init();
 
-scr_world_reset(30);
+scr_world_reset(25);
 scr_world_room_goto(global.currentIndex);
 
 scr_save_game("save.sav");

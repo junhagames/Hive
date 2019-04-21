@@ -45,9 +45,9 @@ enum MARK {
 }
 
 enum SEARCH {
-	UNKNOWN,
-	CLOSE,
 	KNOWN,
+	CLOSE,
+	UNKNOWN,
 }
 
 enum SWAP {
@@ -73,7 +73,7 @@ global.gameHeight = 720;
 global.zoom = 1;
 global.resolution = 1;
 
-global.worldGrid = ds_grid_create(15, 15);
+global.worldGrid = ds_grid_create(7, 7);
 global.worldList = ds_list_create();
 global.currentIndex = 0;
 global.previousIndex = noone;
@@ -98,8 +98,13 @@ global.chrMap[? "warriorSpeed"] = room_speed * 0.4;
 
 randomize();
 
+// Font
 draw_set_font(font_main);
 draw_set_halign(fa_left);
 draw_set_valign(fa_middle);
 
+// Screen
+window_set_size(global.gameWidth * global.zoom, global.gameHeight * global.zoom);
+display_set_gui_size(global.gameWidth * global.zoom, global.gameHeight * global.zoom);
+	
 cursor_sprite = spr_ui_cursor;

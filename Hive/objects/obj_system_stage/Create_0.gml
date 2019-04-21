@@ -101,14 +101,11 @@ for (var i = 0; i < 3; i++) {
 	instance_create_layer(random_range(100, room_width - 100), random_range(100, room_height - 100), "layer_inst", choose(obj_insect1, obj_hive1));
 }
 
+// Pathfinding grid
 enemyGridPath = mp_grid_create(0, 0, room_width div CELL_WIDTH, room_height div CELL_HEIGHT, CELL_WIDTH, CELL_HEIGHT);
 mp_grid_add_instances(enemyGridPath, obj_block, false);
 mp_grid_add_instances(enemyGridPath, obj_parent_entry, false);
 #endregion
 #region Create minimap
-minimapSuf = surface_create(ds_grid_width(global.worldGrid) * sprite_get_width(spr_ui_minimap_small),
-	ds_grid_height(global.worldGrid) * sprite_get_height(spr_ui_minimap_small));
-minimapX = 0;
-minimapY = 0;
 scr_minimap_create();
 #endregion
