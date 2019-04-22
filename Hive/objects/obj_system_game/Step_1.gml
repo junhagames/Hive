@@ -1,1 +1,1 @@
-scr_resolution_resize();
+scr_screen_resize();

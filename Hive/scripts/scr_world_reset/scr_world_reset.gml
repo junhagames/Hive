@@ -3,9 +3,9 @@
 
 var roomNumber = argument0;
 
+global.currentIndex = 0;
 var controlX = ds_grid_width(global.worldGrid) div 2;
 var controlY = ds_grid_height(global.worldGrid) div 2;
-global.currentIndex = 0;
 
 // Reset world
 for (var _y = 0; _y < ds_grid_height(global.worldGrid); _y++) {
@@ -251,7 +251,7 @@ for (var i = 1; i < roomNumber; i++) {
 for (var _y = 0; _y < ds_grid_height(global.worldGrid); _y++) {
 	for (var _x = 0; _x < ds_grid_width(global.worldGrid); _x++) {
 		if (global.worldGrid[# _x, _y] != WALL) {
-			scr_world_room_entry(global.worldGrid[# _x, _y], _x, _y);	
+			scr_world_room_entry_create(global.worldGrid[# _x, _y], _x, _y);	
 		}
 	}
 }

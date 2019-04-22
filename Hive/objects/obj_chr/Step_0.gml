@@ -7,7 +7,7 @@ if (!instance_exists(obj_parent_transition)) {
 }
 
 // Reload
-if (global.chrMap[? "ammo"] <= 0 && alarm[ALARM_CHR.RELOAD] == -1) {
+if (global.chrMap[? "ammo"] < 1 && alarm[ALARM_CHR.RELOAD] == -1) {
 	alarm[ALARM_CHR.RELOAD] = reloadSpeed;
 }
 	
@@ -20,7 +20,7 @@ else if (global.chrMap[? "swap"] == SWAP.WARRIOR) {
 }
 
 // Dead
-if (global.chrMap[? "hp"] < 0) {
+if (global.chrMap[? "hp"] < 1) {
 	show_message("사망했습니다!");
 	game_restart();
 }

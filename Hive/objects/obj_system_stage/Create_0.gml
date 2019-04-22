@@ -106,6 +106,5 @@ enemyGridPath = mp_grid_create(0, 0, room_width div CELL_WIDTH, room_height div 
 mp_grid_add_instances(enemyGridPath, obj_block, false);
 mp_grid_add_instances(enemyGridPath, obj_parent_entry, false);
 #endregion
-#region Create minimap
+
 scr_minimap_create();
-#endregion

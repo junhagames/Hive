@@ -1,4 +1,4 @@
-// Sort depth order
+// Depth sort order
 var instCount = instance_number(obj_parent_depth);
 ds_grid_resize(depthGrid, 2, instCount);
 	

@@ -1,6 +1,6 @@
 hpMax = 10;
 hp = hpMax; 
-spd = random_range(5, 7);
+spd = random_range(3, 6);
 damage = 3;
 
 target = obj_chr;

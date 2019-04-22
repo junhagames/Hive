@@ -40,8 +40,8 @@ for (var _y = 0; _y < ds_grid_height(global.worldGrid); _y++) {
 				#endregion
 			}
 			
-			var marginX = ds_grid_width(global.worldGrid) * 1.25 - ds_grid_width(global.worldGrid);
-			var marginY = ds_grid_height(global.worldGrid) * 1.25 - ds_grid_height(global.worldGrid);
+			var marginX = ds_grid_width(global.worldGrid) * 0.25;
+			var marginY = ds_grid_height(global.worldGrid) * 0.25;
 			
 			if (index == global.currentIndex) {
 				minimapX = _x * sprite_get_width(spr_ui_minimap_small) + sprite_get_width(sprite) / 2 + sprite_get_width(spr_ui_minimap_small) * marginX - 100;

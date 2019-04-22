@@ -1,8 +1,8 @@
 {
-    "id": "171bcf87-cea3-41b8-a2c2-a43ceb7d6abd",
+    "id": "a67f6977-a4bf-420c-930b-2b6420042aac",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "scr_world_room_entry",
+    "name": "scr_screen_resize",
     "IsCompatibility": false,
     "IsDnD": false
 }

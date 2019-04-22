@@ -7,6 +7,4 @@ draw_rectangle(0, 0, global.gameWidth, global.gameHeight, false);
 draw_set_color(c_white);
 draw_set_alpha(1);
 
-draw_set_halign(fa_center);
 draw_text_transformed(global.gameWidth / 2 * global.zoom, global.gameHeight / 2 * global.zoom, "PAUSE", 3, 3, 0);
-draw_set_halign(fa_left);

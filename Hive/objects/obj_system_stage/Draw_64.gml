@@ -39,8 +39,6 @@ draw_set_alpha(1);
 
 #region Ammo
 if (global.chrMap[? "swap"] == SWAP.RANGER) {
-	draw_set_halign(fa_center);
 	draw_text(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0) + 25, global.chrMap[? "ammo"]);
-	draw_set_halign(fa_left);
 }
 #endregion
