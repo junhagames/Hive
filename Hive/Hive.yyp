@@ -47,6 +47,14 @@
             }
         },
         {
+            "Key": "0310e762-1006-434c-bdff-b79c880dee29",
+            "Value": {
+                "id": "d5e46e70-eb9b-4438-918c-9e23a33852ff",
+                "resourcePath": "sprites\\spr_ui_minimap_event_shop\\spr_ui_minimap_event_shop.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "03d41b76-3f68-4a57-9121-73296a3b82b7",
             "Value": {
                 "id": "06e509f0-7fcb-493a-987b-d556340e7d2a",
@@ -495,6 +503,14 @@
             }
         },
         {
+            "Key": "6ff19a54-452c-4e92-88c2-65575fde447f",
+            "Value": {
+                "id": "df11855e-a51b-4292-b70d-696ef7e8743d",
+                "resourcePath": "views\\6ff19a54-452c-4e92-88c2-65575fde447f.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "7379e722-2767-4145-9a88-deb938ded254",
             "Value": {
                 "id": "00ecc7e0-c5f1-46d9-b121-9ca55568a7e6",
@@ -556,6 +572,14 @@
                 "id": "de6efdcb-14d6-470a-ac35-28960ebd73b8",
                 "resourcePath": "views\\767e550f-17e0-4a12-ae2f-287f41cb88bd.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "76c6fdfb-a0d1-4a28-8dfe-bef3f2bae375",
+            "Value": {
+                "id": "09b437f8-412b-47be-9a18-c170189eec65",
+                "resourcePath": "sprites\\spr_ui_minimap_event_supply\\spr_ui_minimap_event_supply.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -628,6 +652,14 @@
                 "id": "6862aea0-0c93-4085-8924-cee46dd4435a",
                 "resourcePath": "objects\\obj_block_rock\\obj_block_rock.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "88b63f0c-3e6d-404d-81ca-3adeb05135af",
+            "Value": {
+                "id": "90663a68-1455-42de-8300-eaaaf3beaaf3",
+                "resourcePath": "sprites\\spr_ui_minimap_event_quest\\spr_ui_minimap_event_quest.yy",
+                "resourceType": "GMSprite"
             }
         },
         {

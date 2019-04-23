@@ -20,6 +20,7 @@ var infoMap = worldIndex[| MARK.INFO];
 infoMap[? "index"] = index;
 infoMap[? "shape"] = shape;
 infoMap[? "search"] = SEARCH.UNKNOWN;
+infoMap[? "event"] = choose(EVENT.STAGE, EVENT.SUPPLY, EVENT.SHOP, EVENT.QUEST);
 
 var roomSelect;
 

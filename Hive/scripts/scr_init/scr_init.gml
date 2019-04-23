@@ -42,12 +42,20 @@ enum POS {
 enum MARK {
 	INFO,
 	ENTRY,
+	EVENT,
 }
 
 enum SEARCH {
 	KNOWN,
 	CLOSE,
 	UNKNOWN,
+}
+
+enum EVENT {
+	STAGE,
+	SUPPLY,
+	SHOP,
+	QUEST,
 }
 
 enum SWAP {

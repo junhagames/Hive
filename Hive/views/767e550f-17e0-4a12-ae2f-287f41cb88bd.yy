@@ -7,7 +7,8 @@
         "f89ea9e2-b98e-4ac8-a995-3a05d8a5e3f4",
         "f63848d7-7c4c-4cb8-8ba6-8d5c260b249b",
         "a6609d5e-edfe-45d6-bbc4-b2bdbca428de",
-        "c2cd640c-1219-47e3-93fa-ad510deb8f22"
+        "c2cd640c-1219-47e3-93fa-ad510deb8f22",
+        "6ff19a54-452c-4e92-88c2-65575fde447f"
     ],
     "filterType": "GMSprite",
     "folderName": "Minimap",
