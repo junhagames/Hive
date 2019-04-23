@@ -8,9 +8,9 @@ if (global.chrMap[? "hp"] > 0) {
 	draw_set_color(c_white);
 }
 #endregion
-#region Money
-draw_sprite_ext(spr_ui_money, 0, 40, 120, 1, 1, 0, c_white, draw_get_alpha());
-draw_text(60, 120, global.chrMap[? "money"]);
+#region Coin
+draw_sprite_ext(spr_ui_coin, 0, 40, 120, 1, 1, 0, c_white, draw_get_alpha());
+draw_text(60, 120, global.chrMap[? "coin"]);
 #endregion
 #region Minimap
 if (surface_exists(minimapSuf)) {

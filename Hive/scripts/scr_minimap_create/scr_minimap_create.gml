@@ -36,6 +36,9 @@ for (var _y = 0; _y < ds_grid_height(global.worldGrid); _y++) {
 				}
 			
 				switch (infoMap[? "event"]) {
+					case EVENT.BOSS:
+						eventSprite = spr_ui_minimap_event_boss;
+						break;
 					case EVENT.SUPPLY:			
 						eventSprite = spr_ui_minimap_event_supply;
 						break;

@@ -13,10 +13,10 @@ if (global.chrMap[? "ammo"] < 1 && alarm[ALARM_CHR.RELOAD] == -1) {
 	
 // Weapon sprite
 if (global.chrMap[? "swap"] == SWAP.RANGER) {
-	weaponSprite = spr_ranger_weapon1;
+	weaponSprite = spr_chr_weapon_ranger1;
 }
 else if (global.chrMap[? "swap"] == SWAP.WARRIOR) {
-	weaponSprite = spr_warrior_weapon1;
+	weaponSprite = spr_chr_weapon_warrior1;
 }
 
 // Dead

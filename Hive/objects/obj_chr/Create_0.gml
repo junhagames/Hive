@@ -1,4 +1,4 @@
-weaponSprite = spr_ranger_weapon1;
+weaponSprite = spr_chr_weapon_ranger1;
 weaponLength = 16;
 weaponAngle = 0;
 weaponDir = 1;

@@ -42,7 +42,7 @@ enum POS {
 enum MARK {
 	INFO,
 	ENTRY,
-	EVENT,
+	INST,
 }
 
 enum SEARCH {
@@ -53,9 +53,11 @@ enum SEARCH {
 
 enum EVENT {
 	STAGE,
+	BOSS,
 	SUPPLY,
 	SHOP,
 	QUEST,
+	
 }
 
 enum SWAP {
@@ -90,7 +92,7 @@ global.previousPos = noone;
 global.chrMap = ds_map_create();
 global.chrMap[? "hpMax"] = 100;
 global.chrMap[? "hp"] = global.chrMap[? "hpMax"];
-global.chrMap[? "money"] = 0;
+global.chrMap[? "coin"] = 0;
 global.chrMap[? "strength"] = 1;
 global.chrMap[? "armor"] = 1;
 global.chrMap[? "speed"] = 6;

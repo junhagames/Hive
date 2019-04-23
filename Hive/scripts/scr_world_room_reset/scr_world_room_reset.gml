@@ -11,16 +11,17 @@ ds_list_mark_as_list(global.worldList, index);
 var worldIndex = global.worldList[| index];
 worldIndex[| MARK.INFO] = ds_map_create();
 worldIndex[| MARK.ENTRY] = ds_list_create();
+worldIndex[| MARK.INST] = ds_list_create();
 ds_list_mark_as_map(worldIndex, MARK.INFO);
 ds_list_mark_as_list(worldIndex, MARK.ENTRY);
-
-var infoMap = worldIndex[| MARK.INFO];
+ds_list_mark_as_list(worldIndex, MARK.INST);
 
 // Add room info
+var infoMap = worldIndex[| MARK.INFO];
 infoMap[? "index"] = index;
 infoMap[? "shape"] = shape;
 infoMap[? "search"] = SEARCH.UNKNOWN;
-infoMap[? "event"] = choose(EVENT.STAGE, EVENT.SUPPLY, EVENT.SHOP, EVENT.QUEST);
+infoMap[? "event"] = choose(EVENT.STAGE, EVENT.BOSS, EVENT.SUPPLY, EVENT.SHOP, EVENT.QUEST);
 
 var roomSelect;
 
@@ -39,3 +40,11 @@ switch (shape) {
 		break;
 }
 infoMap[? "room"] = roomSelect;
+
+var instIndex = worldIndex[| MARK.INST];
+instIndex[| ds_list_size(instIndex)] = ds_map_create();
+ds_list_mark_as_map(instIndex, ds_list_size(instIndex) - 1);
+
+var instMap = instIndex[| ds_list_size(instIndex) - 1];
+instMap[? "inst"] = "obj_block";
+instMap[? "hp"] = 10;
