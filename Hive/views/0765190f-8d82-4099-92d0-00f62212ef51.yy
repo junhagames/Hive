@@ -10,7 +10,7 @@
         "74e8ac18-b3d2-4e01-833b-a08d663844e1"
     ],
     "filterType": "GMRoom",
-    "folderName": "Stage",
+    "folderName": "Field",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

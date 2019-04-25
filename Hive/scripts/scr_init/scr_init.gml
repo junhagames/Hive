@@ -2,8 +2,8 @@
 
 #region Macro
 #macro WALL "#"
-#macro CELL_WIDTH sprite_get_width(spr_block)
-#macro CELL_HEIGHT sprite_get_height(spr_block)
+#macro CELL_WIDTH 40
+#macro CELL_HEIGHT 40
 #endregion
 #region Enum
 enum DIR {

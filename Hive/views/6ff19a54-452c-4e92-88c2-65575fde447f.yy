@@ -10,7 +10,7 @@
         "88b63f0c-3e6d-404d-81ca-3adeb05135af"
     ],
     "filterType": "GMSprite",
-    "folderName": "Event",
+    "folderName": "Icon",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

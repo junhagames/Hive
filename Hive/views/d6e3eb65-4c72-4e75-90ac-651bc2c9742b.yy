@@ -8,7 +8,7 @@
         "87b945ae-b7c3-4dc1-a4da-6ecdf45dabce"
     ],
     "filterType": "GMObject",
-    "folderName": "Block",
+    "folderName": "Solid",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

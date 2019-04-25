@@ -37,16 +37,16 @@ for (var _y = 0; _y < ds_grid_height(global.worldGrid); _y++) {
 			
 				switch (infoMap[? "event"]) {
 					case EVENT.BOSS:
-						eventSprite = spr_ui_minimap_event_boss;
+						eventSprite = spr_ui_minimap_boss;
 						break;
 					case EVENT.SUPPLY:			
-						eventSprite = spr_ui_minimap_event_supply;
+						eventSprite = spr_ui_minimap_supply;
 						break;
 					case EVENT.SHOP:
-						eventSprite = spr_ui_minimap_event_shop;
+						eventSprite = spr_ui_minimap_shop;
 						break;
 					case EVENT.QUEST:
-						eventSprite = spr_ui_minimap_event_quest;
+						eventSprite = spr_ui_minimap_quest;
 						break;
 				}
 			

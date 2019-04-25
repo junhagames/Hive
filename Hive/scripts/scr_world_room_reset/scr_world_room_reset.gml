@@ -46,5 +46,5 @@ instIndex[| ds_list_size(instIndex)] = ds_map_create();
 ds_list_mark_as_map(instIndex, ds_list_size(instIndex) - 1);
 
 var instMap = instIndex[| ds_list_size(instIndex) - 1];
-instMap[? "inst"] = "obj_block";
+instMap[? "inst"] = "obj_solid_block";
 instMap[? "hp"] = 10;
