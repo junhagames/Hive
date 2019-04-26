@@ -16,7 +16,7 @@ for (var _y = 0; _y < ds_grid_height(global.worldGrid); _y++) {
 		if (ds_list_find_index(overlapList, index) == -1 && index != WALL) {
 			var worldIndex = global.worldList[| index];
 			var infoMap = worldIndex[| MARK.INFO]; 
-			var minimapSprite, eventSprite, color;
+			var minimapSprite, iconSprite, color;
 			ds_list_add(overlapList, index);
 
 			if (infoMap[? "search"] != SEARCH.UNKNOWN) {
@@ -37,16 +37,19 @@ for (var _y = 0; _y < ds_grid_height(global.worldGrid); _y++) {
 			
 				switch (infoMap[? "event"]) {
 					case EVENT.BOSS:
-						eventSprite = spr_ui_minimap_boss;
+						iconSprite = spr_ui_minimap_boss;
+						break;
+					case EVENT.MINIBOSS:
+						iconSprite = spr_ui_minimap_miniboss;
 						break;
 					case EVENT.SUPPLY:			
-						eventSprite = spr_ui_minimap_supply;
+						iconSprite = spr_ui_minimap_supply;
 						break;
 					case EVENT.SHOP:
-						eventSprite = spr_ui_minimap_shop;
+						iconSprite = spr_ui_minimap_shop;
 						break;
 					case EVENT.QUEST:
-						eventSprite = spr_ui_minimap_quest;
+						iconSprite = spr_ui_minimap_quest;
 						break;
 				}
 			
@@ -69,7 +72,7 @@ for (var _y = 0; _y < ds_grid_height(global.worldGrid); _y++) {
 			
 				// Draw minimap event
 				if (infoMap[? "event"] != EVENT.STAGE) {
-					draw_sprite_ext(eventSprite, 0,
+					draw_sprite_ext(iconSprite, 0,
 						minimapSpriteX + (sprite_get_width(minimapSprite) - minimapw) / minimapw * minimapw / 2,
 						minimapSpriteY + (sprite_get_height(minimapSprite) - minimaph) / minimaph * minimaph / 2,
 						1, 1, 0, c_white, 1);

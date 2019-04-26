@@ -1,9 +1,11 @@
 /// @description 룸 초기화
 /// @param index
 /// @param shape
+///	@param event
 
 var index = argument0;
 var shape = argument1;
+var event = argument2;
 
 global.worldList[| index] = ds_list_create();
 ds_list_mark_as_list(global.worldList, index);
@@ -20,8 +22,14 @@ ds_list_mark_as_list(worldIndex, MARK.INST);
 var infoMap = worldIndex[| MARK.INFO];
 infoMap[? "index"] = index;
 infoMap[? "shape"] = shape;
-infoMap[? "search"] = SEARCH.UNKNOWN;
-infoMap[? "event"] = choose(EVENT.STAGE, EVENT.BOSS, EVENT.SUPPLY, EVENT.SHOP, EVENT.QUEST);
+infoMap[? "event"] = event;
+
+if (event == EVENT.SUPPLY) {
+	infoMap[? "search"] = SEARCH.CLOSE;
+}
+else {
+	infoMap[? "search"] = SEARCH.UNKNOWN;
+}
 
 var roomSelect;
 

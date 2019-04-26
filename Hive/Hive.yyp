@@ -271,6 +271,14 @@
             }
         },
         {
+            "Key": "3475c3fe-ca22-41d9-a837-9e40fae800ed",
+            "Value": {
+                "id": "abbc1b36-315b-4aab-b0f1-d17d46a06714",
+                "resourcePath": "sprites\\spr_altar_king\\spr_altar_king.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "35508d1d-1a8d-4a07-838d-67a8759f60c5",
             "Value": {
                 "id": "aa686a96-98dd-45ab-834b-c65b18e1d9e7",
@@ -559,6 +567,14 @@
             }
         },
         {
+            "Key": "6ce6514c-5d15-438e-b66a-589f8d3ea366",
+            "Value": {
+                "id": "f36ceb42-f53a-4e0e-abd7-94fab45a1c2b",
+                "resourcePath": "rooms\\room_stage_small2\\room_stage_small2.yy",
+                "resourceType": "GMRoom"
+            }
+        },
+        {
             "Key": "6f7e4c68-6a4c-44e7-8ff1-7e5bfb7ca1bd",
             "Value": {
                 "id": "c46630ad-e8df-41fe-90c0-5d96daa178ce",
@@ -652,6 +668,14 @@
                 "id": "26fd757b-4d90-42c2-8d07-382d57619b67",
                 "resourcePath": "sprites\\spr_entry_common_right\\spr_entry_common_right.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "788ef8ce-506a-4441-abb8-0f7d2653c074",
+            "Value": {
+                "id": "01dbc3e0-83d3-436b-a26f-d7cac892204f",
+                "resourcePath": "views\\788ef8ce-506a-4441-abb8-0f7d2653c074.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -1236,6 +1260,14 @@
                 "id": "0dedc413-ca30-447e-bf4b-54fda2a4b30a",
                 "resourcePath": "objects\\obj_draw\\obj_draw.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "e7d3bd98-054d-4a05-9625-c29a7406b0c7",
+            "Value": {
+                "id": "52c1bc61-5b66-49a5-8ac1-4040ad508971",
+                "resourcePath": "sprites\\spr_ui_minimap_miniboss\\spr_ui_minimap_miniboss.yy",
+                "resourceType": "GMSprite"
             }
         },
         {

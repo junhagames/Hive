@@ -14,9 +14,33 @@ for (var _y = 0; _y < ds_grid_height(global.worldGrid); _y++) {
 	}
 }
 
+// Event list
+var minibossNumber = 1;
+var supplyNumber = 3;
+var shopNumber = 1;
+var questNumber = 1;
+var eventList = ds_list_create();
+
+repeat (minibossNumber) {
+	ds_list_add(eventList, EVENT.MINIBOSS);
+}
+
+repeat (supplyNumber) {
+	ds_list_add(eventList, EVENT.SUPPLY);
+}
+
+repeat (shopNumber) {
+	ds_list_add(eventList, EVENT.SHOP);
+}
+
+repeat (questNumber) {
+	ds_list_add(eventList, EVENT.QUEST);
+}
+ds_list_shuffle(eventList);
+
 // Create world
 global.worldGrid[# controlX, controlY] = 0;
-scr_world_room_reset(global.worldGrid[# controlX, controlY], SHAPE.SMALL);
+scr_world_room_reset(global.worldGrid[# controlX, controlY], SHAPE.SMALL, EVENT.STAGE);
 
 for (var i = 1; i < roomNumber; i++) {
 	var isCreateRoom = false;
@@ -25,7 +49,25 @@ for (var i = 1; i < roomNumber; i++) {
 		var previousX = controlX;
 		var previousY = controlY;
 		var controlDir = choose(DIR.EAST, DIR.WEST, DIR.SOUTH, DIR.NORTH);
-		var roomShape = choose(SHAPE.SMALL, SHAPE.BIG, SHAPE.WLONG, SHAPE.HLONG);
+		var roomShape, roomEvent;
+		
+		if (i == roomNumber - 1) {
+			// Boss stage
+			roomShape = SHAPE.SMALL;
+			roomEvent = EVENT.BOSS;
+		}
+		else {
+			// Common stage
+			roomShape = choose(SHAPE.SMALL, SHAPE.BIG, SHAPE.WLONG, SHAPE.HLONG);
+			var eventCycle = floor((roomNumber - 2) / ds_list_size(eventList));
+
+			if (i mod eventCycle == 0) {
+				roomEvent = eventList[| i / eventCycle - 1];
+			}
+			else {
+				roomEvent = EVENT.STAGE;
+			}
+		}
 
 		switch (roomShape) {
 			#region SMALL
@@ -51,7 +93,7 @@ for (var i = 1; i < roomNumber; i++) {
 				}
 				else if (global.worldGrid[# controlX, controlY] == WALL) {
 					global.worldGrid[# controlX, controlY] = i;
-					scr_world_room_reset(global.worldGrid[# controlX, controlY], SHAPE.SMALL);
+					scr_world_room_reset(global.worldGrid[# controlX, controlY], SHAPE.SMALL, roomEvent);
 					isCreateRoom = true;
 				}
 				break;
@@ -108,7 +150,7 @@ for (var i = 1; i < roomNumber; i++) {
 					
 					if (isEmpty) {
 						ds_grid_set_region(global.worldGrid, controlX1, controlY1, controlX2, controlY2, i);
-						scr_world_room_reset(global.worldGrid[# controlX, controlY], SHAPE.BIG);
+						scr_world_room_reset(global.worldGrid[# controlX, controlY], SHAPE.BIG, roomEvent);
 						isCreateRoom = true;
 					}
 					else if (global.worldGrid[# controlX, controlY] == WALL) {
@@ -170,7 +212,7 @@ for (var i = 1; i < roomNumber; i++) {
 					
 					if (isEmpty) {
 						ds_grid_set_region(global.worldGrid, controlX1, controlY1, controlX2, controlY2, i);
-						scr_world_room_reset(global.worldGrid[# controlX, controlY], SHAPE.WLONG);
+						scr_world_room_reset(global.worldGrid[# controlX, controlY], SHAPE.WLONG, roomEvent);
 						isCreateRoom = true;
 					}
 					else if (global.worldGrid[# controlX, controlY] == WALL) {
@@ -232,7 +274,7 @@ for (var i = 1; i < roomNumber; i++) {
 					
 					if (isEmpty) {
 						ds_grid_set_region(global.worldGrid, controlX1, controlY1, controlX2, controlY2, i);
-						scr_world_room_reset(global.worldGrid[# controlX, controlY], SHAPE.HLONG);
+						scr_world_room_reset(global.worldGrid[# controlX, controlY], SHAPE.HLONG, roomEvent);
 						isCreateRoom = true;
 					}
 					else if (global.worldGrid[# controlX, controlY] == WALL) {

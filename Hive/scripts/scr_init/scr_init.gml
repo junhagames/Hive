@@ -53,6 +53,7 @@ enum SEARCH {
 
 enum EVENT {
 	STAGE,
+	MINIBOSS,
 	BOSS,
 	SUPPLY,
 	SHOP,
@@ -71,6 +72,10 @@ enum ALARM_CHR {
 	DAMAGE,
 	SWAP,
 	RELOAD,
+}
+
+enum ALARM_HIVE {
+	SPAWN,
 }
 
 enum ALARM_INSECT {
@@ -104,6 +109,62 @@ global.chrMap[? "rangerSpeed"] = room_speed * 0.1;
 global.chrMap[? "rangerAccuracy"] = 10;
 global.chrMap[? "warriorDamage"] = 8;
 global.chrMap[? "warriorSpeed"] = room_speed * 0.4;
+
+global.hierarchy = ds_map_create();
+
+// Add object
+var objectIndex;
+
+for (objectIndex = 0; object_exists(objectIndex); objectIndex++) {
+	if (!ds_map_exists(global.hierarchy, objectIndex)){
+		ds_map_add_list(global.hierarchy, objectIndex, ds_list_create());
+	}
+	var parent = object_get_parent(objectIndex);
+	
+	if (object_exists(parent)) {
+		if (!ds_map_exists(global.hierarchy, parent)) {
+			ds_map_add_list(global.hierarchy, parent, ds_list_create());
+		}
+		ds_list_add(global.hierarchy[? parent], objectIndex);
+		
+		for (var super = object_get_parent(parent); object_exists(super); super = object_get_parent(super)) {
+			if (!ds_map_exists(global.hierarchy, super)) {
+				ds_map_add_list(global.hierarchy, super, ds_list_create());
+			}
+			ds_list_add(global.hierarchy[? super], objectIndex);
+		}
+	}
+}
+
+// Add parse room
+//for (var i = 0; i < 4; i++) {
+//	ds_map_add_list(global.hierarchy, objectIndex + i, ds_list_create());
+	
+//	for (var roomIndex = 0; room_exists(roomIndex); roomIndex++) {
+//		room_exists()
+//		string_copy(room_get_name(room_stage_small1), 12, 15)
+	
+//		if (object_exists(parent)) {
+//			if (!ds_map_exists(global.hierarchy, parent)) {
+//				ds_map_add_list(global.hierarchy, parent, ds_list_create());
+//			}
+//			ds_list_add(global.hierarchy[? parent], roomIndex);
+		
+//			for (var super = object_get_parent(parent); object_exists(super); super = object_get_parent(super)) {
+//				if (!ds_map_exists(global.hierarchy, super)) {
+//					ds_map_add_list(global.hierarchy, super, ds_list_create());
+//				}
+//				ds_list_add(global.hierarchy[? super], roomIndex);
+//			}
+//		}
+//	}
+//}
+
+//var childList = global.hierarchy[? room_parent_stage_small];
+//for (var i = 0; i < ds_list_size(childList); i++) {
+//	show_debug_message(childList[| i]);
+//}
+//show_message();
 #endregion
 
 randomize();

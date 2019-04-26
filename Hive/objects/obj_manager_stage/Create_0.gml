@@ -96,16 +96,10 @@ instance_create_layer(startX, startY, "layer_inst", obj_chr);
 instance_create_layer(0, 0, "layer_system", obj_camera);
 instance_create_layer(0, 0, "layer_draw", obj_draw);
 #endregion
-#region Create enemy
-for (var i = 0; i < 3; i++) {
-	instance_create_layer(random_range(100, room_width - 100), random_range(100, room_height - 100), "layer_inst", choose(obj_hive_zurg, obj_insect_zerg));
-}
 
 // Pathfinding grid
 enemyGridPath = mp_grid_create(0, 0, room_width div CELL_WIDTH, room_height div CELL_HEIGHT, CELL_WIDTH, CELL_HEIGHT);
 mp_grid_add_instances(enemyGridPath, obj_solid_block, false);
 mp_grid_add_instances(enemyGridPath, obj_parent_entry, false);
-#endregion
-// TODO add map inst
 
 scr_minimap_create();
