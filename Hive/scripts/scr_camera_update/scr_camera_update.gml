@@ -1,4 +1,4 @@
-/// @description 카메라 이동
+/// @description 카메라 업데이트
 /// @param target
 
 var target = argument0;

@@ -1,1 +1,1 @@
-// Draw inst to obj_draw
+// obj_draw에 인스턴스 그리기

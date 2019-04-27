@@ -6,12 +6,12 @@ if (!instance_exists(obj_parent_transition)) {
 	scr_chr_swap();
 }
 
-// Reload
+// 재장전
 if (global.chrMap[? "ammo"] < 1 && alarm[ALARM_CHR.RELOAD] == -1) {
 	alarm[ALARM_CHR.RELOAD] = reloadSpeed;
 }
 	
-// Weapon sprite
+// 무기 스프라이트
 if (global.chrMap[? "swap"] == SWAP.RANGER) {
 	weaponSprite = spr_weapon_pistol;
 }
@@ -19,7 +19,7 @@ else if (global.chrMap[? "swap"] == SWAP.WARRIOR) {
 	weaponSprite = spr_weapon_bat;
 }
 
-// Dead
+// 사망
 if (global.chrMap[? "hp"] < 1) {
 	show_message("사망했습니다!");
 	game_restart();

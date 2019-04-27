@@ -1,5 +1,5 @@
 draw_set_alpha(0.6);
-#region HP
+#region 체력
 if (global.chrMap[? "hp"] > 0) {
 	draw_set_color(c_red);
 	draw_rectangle(40, 40, 40 + global.chrMap[? "hp"] / global.chrMap[? "hpMax"] * 300, 80, false);
@@ -8,11 +8,11 @@ if (global.chrMap[? "hp"] > 0) {
 	draw_set_color(c_white);
 }
 #endregion
-#region Coin
+#region 돈
 draw_sprite_ext(spr_ui_coin, 0, 40, 120, 1, 1, 0, c_white, draw_get_alpha());
-draw_text(60, 120, global.chrMap[? "coin"]);
+draw_text(60, 120, global.chrMap[? "money"]);
 #endregion
-#region Minimap
+#region 미니맵
 if (surface_exists(minimapSuf)) {
 	if (keyboard_check(vk_tab)) {
 		draw_set_color(c_black);
@@ -37,7 +37,7 @@ else {
 #endregion
 draw_set_alpha(1);
 
-#region Ammo
+#region 총알
 if (global.chrMap[? "swap"] == SWAP.RANGER) {
 	draw_text(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0) + 25, global.chrMap[? "ammo"]);
 }

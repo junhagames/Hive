@@ -1,0 +1,1 @@
+mp_grid_clear_rectangle(obj_manager_stage.enemyPathGrid, x, y, x + sprite_width - 1, y + sprite_width - 1);

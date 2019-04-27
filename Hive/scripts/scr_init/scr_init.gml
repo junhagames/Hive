@@ -1,10 +1,10 @@
 /// @description 게임 초기화
-#region Macro
+#region 메크로 상수
 #macro WALL "#"
 #macro CELL_WIDTH 40
 #macro CELL_HEIGHT 40
 #endregion
-#region Enum
+#region 열거형
 enum DIR {
 	EAST,
 	WEST,
@@ -41,7 +41,7 @@ enum POS {
 enum MARK {
 	INFO,
 	ENTRY,
-	KEEP,
+	MEMORY,
 }
 
 enum SEARCH {
@@ -57,7 +57,6 @@ enum EVENT {
 	SUPPLY,
 	SHOP,
 	QUEST,
-	
 }
 
 enum SWAP {
@@ -73,31 +72,34 @@ enum ALARM_CHR {
 	RELOAD,
 }
 
-enum ALARM_HIVE {
-	SPAWN,
-}
-
 enum ALARM_INSECT {
 	MOVE,
 }
+
+enum ALARM_HIVE {
+	SPAWN,
+}
 #endregion
-#region Global
+
+// 화면 초기화
 global.gameWidth = 1280;
 global.gameHeight = 720;
 global.zoom = 1;
 global.resolution = 1;
 
+// 월드 초기화
 global.worldGrid = ds_grid_create(7, 7);
 global.worldList = ds_list_create();
 global.currentIndex = 0;
 global.previousIndex = noone;
 global.previousPos = noone;
 
+// 캐릭터 초기화
 global.chrMap = ds_map_create();
 global.chrMap[? "hpMax"] = 100;
 global.chrMap[? "hp"] = global.chrMap[? "hpMax"];
-global.chrMap[? "coin"] = 0;
-global.chrMap[? "strength"] = 1;
+global.chrMap[? "money"] = 0;
+global.chrMap[? "power"] = 1;
 global.chrMap[? "armor"] = 1;
 global.chrMap[? "speed"] = 6;
 global.chrMap[? "swap"] = SWAP.RANGER;
@@ -109,59 +111,48 @@ global.chrMap[? "rangerAccuracy"] = 10;
 global.chrMap[? "warriorDamage"] = 8;
 global.chrMap[? "warriorSpeed"] = room_speed * 0.4;
 
-// Object hierarchy(parent)
-global.objHierarchy = ds_map_create();
+// 오브젝트 부모 계층 초기화
+global.objParentMap = ds_map_create();
 
-for (var objectIndex = 0; object_exists(objectIndex); objectIndex++) {
-	if (!ds_map_exists(global.objHierarchy, objectIndex)){
-		ds_map_add_list(global.objHierarchy, objectIndex, ds_list_create());
-	}
-	var parent = object_get_parent(objectIndex);
-	
-	if (object_exists(parent)) {
-		if (!ds_map_exists(global.objHierarchy, parent)) {
-			ds_map_add_list(global.objHierarchy, parent, ds_list_create());
+for (var obj = 0; object_exists(obj); obj++) {
+	for (var parent = object_get_parent(obj); object_exists(parent); parent = object_get_parent(parent)) {
+		if (!ds_map_exists(global.objParentMap, parent)) {
+			ds_map_add_list(global.objParentMap, parent, ds_list_create());
 		}
-		ds_list_add(global.objHierarchy[? parent], objectIndex);
-		
-		for (var super = object_get_parent(parent); object_exists(super); super = object_get_parent(super)) {
-			if (!ds_map_exists(global.objHierarchy, super)) {
-				ds_map_add_list(global.objHierarchy, super, ds_list_create());
-			}
-			ds_list_add(global.objHierarchy[? super], objectIndex);
-		}
+		ds_list_add(global.objParentMap[? parent], obj);
 	}
 }
 
-// Room hierarchy(parse)
-global.roomHierarchy = ds_map_create();
-var roomParent = noone;
+// 룸 부모 계층 초기화
+global.roomParentMap = ds_map_create();
+var parent = noone;
 
-for (var roomIndex = 0; room_exists(roomIndex); roomIndex++) {
-	var roomName = room_get_name(roomIndex);
+for (var rom = 0; room_exists(rom); rom++) {
+	var roomName = room_get_name(rom);
 	
 	if (roomName == "room_parent_stage_small" ||
 		roomName == "room_parent_stage_big" ||
 		roomName == "room_parent_stage_wlong" ||
 		roomName == "room_parent_stage_hlong") {
-		roomParent = roomIndex;
-		ds_map_add_list(global.roomHierarchy, roomParent, ds_list_create());
+		parent = rom;
+		ds_map_add_list(global.roomParentMap, parent, ds_list_create());
 	}
-	else if (roomParent != noone) {
-		ds_list_add(global.roomHierarchy[? roomParent], roomIndex);
+	else if (parent != noone) {
+		ds_list_add(global.roomParentMap[? parent], rom);
 	}
 }
-#endregion
 
+// 시드값 초기화
 randomize();
 
-// Font
+// 폰트 초기화
 draw_set_font(font_main);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 
-// Screen
+// 화면 크기|해상도 초기화
 window_set_size(global.gameWidth * global.zoom, global.gameHeight * global.zoom);
 display_set_gui_size(global.gameWidth * global.zoom, global.gameHeight * global.zoom);
-	
+
+// 마우스 커서 스프라이트 초기화
 cursor_sprite = spr_ui_cursor;

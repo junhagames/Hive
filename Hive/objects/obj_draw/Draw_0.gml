@@ -1,4 +1,4 @@
-// Depth sort order
+// 깊이 순서 정렬
 var instCount = instance_number(obj_parent_depth);
 ds_grid_resize(depthGrid, 2, instCount);
 	
@@ -11,7 +11,7 @@ with (obj_parent_depth) {
 }
 ds_grid_sort(depthGrid, 1, true);
 
-yy = 0;
+var yy = 0;
 
 repeat (instCount) {
 	var instID = depthGrid[# 0, yy];

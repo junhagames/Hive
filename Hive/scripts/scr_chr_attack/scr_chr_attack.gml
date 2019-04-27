@@ -8,7 +8,7 @@ if (!isAttackDelay) {
 				bullet.direction = weaponAngle + random_range(-global.chrMap[? "rangerAccuracy"], global.chrMap[? "rangerAccuracy"]);
 				bullet.image_angle = bullet.direction;
 				bullet.speed = 18;
-				bullet.damage = global.chrMap[? "strength"] + global.chrMap[? "rangerDamage"];
+				bullet.damage = global.chrMap[? "power"] + global.chrMap[? "rangerDamage"];
 				global.chrMap[? "ammo"]--;
 				isAttackDelay = true;
 				alarm[ALARM_CHR.ATTACK] = global.chrMap[? "rangerSpeed"];
@@ -19,7 +19,7 @@ if (!isAttackDelay) {
 		if (mouse_check_button(mb_left)) {
 			var melee = instance_create_layer(x + lengthdir_x(16, weaponAngle), y + lengthdir_y(16, weaponAngle), "layer_inst", obj_melee);
 			melee.image_angle = weaponAngle;
-			melee.damage = global.chrMap[? "strength"] + global.chrMap[? "warriorDamage"];
+			melee.damage = global.chrMap[? "power"] + global.chrMap[? "warriorDamage"];
 			isAttackDelay = true;
 			alarm[ALARM_CHR.ATTACK] = global.chrMap[? "warriorSpeed"];
 			

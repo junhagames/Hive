@@ -5,5 +5,5 @@ scr_world_room_goto(global.currentIndex);
 
 scr_save_game("save.sav");
 
-// DEBUG
+// 디버그
 show_debug_overlay(true);

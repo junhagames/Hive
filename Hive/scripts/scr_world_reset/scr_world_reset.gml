@@ -1,48 +1,48 @@
 /// @description 월드 무작위 초기화
-/// @param roomNumber
+/// @param roomNum
 
-var roomNumber = argument0;
+var roomNum = argument0;
 
-global.currentIndex = 0;
 var controlX = ds_grid_width(global.worldGrid) div 2;
 var controlY = ds_grid_height(global.worldGrid) div 2;
+global.currentIndex = 0;
 
-// Reset world
+// 월드 초기화
 for (var _y = 0; _y < ds_grid_height(global.worldGrid); _y++) {
 	for (var _x = 0; _x < ds_grid_width(global.worldGrid); _x++) {
 		global.worldGrid[# _x, _y] = WALL;	
 	}
 }
 
-// Event list
-var minibossNumber = 1;
-var supplyNumber = 3;
-var shopNumber = 1;
-var questNumber = 1;
+// 룸 이벤트 추가|섞기
+var minibossNum = 1;
+var supplyNum = 3;
+var shopNum = 1;
+var questNum = 1;
 var eventList = ds_list_create();
 
-repeat (minibossNumber) {
+repeat (minibossNum) {
 	ds_list_add(eventList, EVENT.MINIBOSS);
 }
 
-repeat (supplyNumber) {
+repeat (supplyNum) {
 	ds_list_add(eventList, EVENT.SUPPLY);
 }
 
-repeat (shopNumber) {
+repeat (shopNum) {
 	ds_list_add(eventList, EVENT.SHOP);
 }
 
-repeat (questNumber) {
+repeat (questNum) {
 	ds_list_add(eventList, EVENT.QUEST);
 }
 ds_list_shuffle(eventList);
 
-// Create world
+// 월드 생성
 global.worldGrid[# controlX, controlY] = 0;
 scr_world_room_reset(global.worldGrid[# controlX, controlY], SHAPE.SMALL, EVENT.STAGE);
 
-for (var i = 1; i < roomNumber; i++) {
+for (var i = 1; i < roomNum; i++) {
 	var isCreateRoom = false;
 	
 	do {
@@ -51,15 +51,14 @@ for (var i = 1; i < roomNumber; i++) {
 		var controlDir = choose(DIR.EAST, DIR.WEST, DIR.SOUTH, DIR.NORTH);
 		var roomShape, roomEvent;
 		
-		if (i == roomNumber - 1) {
-			// Boss stage
+		// 보스|일반 스테이지 설정
+		if (i == roomNum - 1) {
 			roomShape = SHAPE.SMALL;
 			roomEvent = EVENT.BOSS;
 		}
 		else {
-			// Common stage
 			roomShape = choose(SHAPE.SMALL, SHAPE.BIG, SHAPE.WLONG, SHAPE.HLONG);
-			var eventCycle = floor((roomNumber - 2) / ds_list_size(eventList));
+			var eventCycle = floor((roomNum - 2) / ds_list_size(eventList));
 
 			if (i mod eventCycle == 0) {
 				roomEvent = eventList[| i / eventCycle - 1];
@@ -289,7 +288,7 @@ for (var i = 1; i < roomNumber; i++) {
 	until (isCreateRoom);
 }
 
-// Create room entry
+// 룸 입구 생성
 for (var _y = 0; _y < ds_grid_height(global.worldGrid); _y++) {
 	for (var _x = 0; _x < ds_grid_width(global.worldGrid); _x++) {
 		if (global.worldGrid[# _x, _y] != WALL) {

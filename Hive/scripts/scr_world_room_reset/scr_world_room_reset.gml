@@ -13,12 +13,12 @@ ds_list_mark_as_list(global.worldList, index);
 var worldIndex = global.worldList[| index];
 worldIndex[| MARK.INFO] = ds_map_create();
 worldIndex[| MARK.ENTRY] = ds_list_create();
-worldIndex[| MARK.KEEP] = ds_list_create();
+worldIndex[| MARK.MEMORY] = ds_list_create();
 ds_list_mark_as_map(worldIndex, MARK.INFO);
 ds_list_mark_as_list(worldIndex, MARK.ENTRY);
-ds_list_mark_as_list(worldIndex, MARK.KEEP);
+ds_list_mark_as_list(worldIndex, MARK.MEMORY);
 
-// Add room info
+// 룸 정보 추가
 var infoMap = worldIndex[| MARK.INFO];
 infoMap[? "index"] = index;
 infoMap[? "shape"] = shape;
@@ -32,20 +32,26 @@ else {
 	infoMap[? "search"] = SEARCH.UNKNOWN;
 }
 
-var childRoom;
-
-switch (shape) {
-	case SHAPE.SMALL:
-		var childRoom = global.roomHierarchy[? room_parent_stage_small];
-		break;
-	case SHAPE.BIG:
-		var childRoom = global.roomHierarchy[? room_parent_stage_big];
-		break;
-	case SHAPE.WLONG:
-		var childRoom = global.roomHierarchy[? room_parent_stage_wlong];
-		break;
-	case SHAPE.HLONG:
-		var childRoom = global.roomHierarchy[? room_parent_stage_hlong];
-		break;
+// 룸 설정
+if (index == 0) {
+	infoMap[? "room"] = room_stage_start;
 }
-infoMap[? "room"] = irandom_range(childRoom[| 0], childRoom[| 0] + ds_list_size(childRoom) - 1);
+else {
+	var roomList;
+
+	switch (shape) {
+		case SHAPE.SMALL:
+			roomList = global.roomParentMap[? room_parent_stage_small];
+			break;
+		case SHAPE.BIG:
+			roomList = global.roomParentMap[? room_parent_stage_big];
+			break;
+		case SHAPE.WLONG:
+			roomList = global.roomParentMap[? room_parent_stage_wlong];
+			break;
+		case SHAPE.HLONG:
+			roomList = global.roomParentMap[? room_parent_stage_hlong];
+			break;
+	}
+	infoMap[? "room"] = irandom_range(roomList[| 0], roomList[| 0] + ds_list_size(roomList) - 1);
+}

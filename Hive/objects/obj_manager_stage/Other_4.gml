@@ -1,11 +1,12 @@
 var worldIndex = global.worldList[| global.currentIndex];
 var infoMap = worldIndex[| MARK.INFO];
 var entryIndex = worldIndex[| MARK.ENTRY];
+var memoryIndex = worldIndex[| MARK.MEMORY];
 
-// Set search
+// 시야 밝히기
 infoMap[? "search"] = SEARCH.KNOWN;
 
-#region Create entry
+#region 입구 생성
 with (obj_parent_entry) {
 	var isEntry = false;
 	
@@ -24,7 +25,7 @@ with (obj_parent_entry) {
 			break;
 		}
 	}
-	var block = instance_create_layer(x, y, "layer_block", obj_parent_solid);
+	var block = instance_create_layer(x, y, "layer_block", obj_solid_block);
 	block.image_xscale = sprite_width / block.sprite_width;
 	block.image_yscale = sprite_height / block.sprite_height;
 		
@@ -36,7 +37,7 @@ with (obj_parent_entry) {
 	}
 }
 #endregion
-#region Create player|system
+#region 캐릭터|시스템 생성
 var startX, startY; 
 
 if (global.previousIndex == noone) {
@@ -96,10 +97,24 @@ instance_create_layer(startX, startY, "layer_inst", obj_chr);
 instance_create_layer(0, 0, "layer_system", obj_camera);
 instance_create_layer(0, 0, "layer_draw", obj_draw);
 #endregion
+#region 메모리 저장|불러오기
+if (is_undefined(memoryIndex[| 0])) {
+	scr_room_memory_reset()
+}
+else {
+	for (var i = 0; i < ds_list_size(memoryIndex); i++) {
+		var memoryMap = memoryIndex[| i];
+		
+		with (memoryMap[? "id"]) {
+			hp = memoryMap[? "hp"];
+		}
+	}
+}
+#endregion
 
-// Pathfinding grid
-enemyGridPath = mp_grid_create(0, 0, room_width div CELL_WIDTH, room_height div CELL_HEIGHT, CELL_WIDTH, CELL_HEIGHT);
-mp_grid_add_instances(enemyGridPath, obj_parent_solid, false);
-mp_grid_add_instances(enemyGridPath, obj_parent_entry, false);
+// 길찾기 그리드 생성
+enemyPathGrid = mp_grid_create(0, 0, room_width div CELL_WIDTH, room_height div CELL_HEIGHT, CELL_WIDTH, CELL_HEIGHT);
+mp_grid_add_instances(enemyPathGrid, obj_parent_solid, false);
+mp_grid_add_instances(enemyPathGrid, obj_parent_entry, false);
 
 scr_minimap_create();

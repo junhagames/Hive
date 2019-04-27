@@ -67,10 +67,10 @@ for (var _y = 0; _y < ds_grid_height(global.worldGrid); _y++) {
 					color = make_color_hsv(10 * (index mod 255), 255, 255);	
 				}
 			
-				// Draw minimap
+				// 미니맵 그리기
 				draw_sprite_ext(minimapSprite, infoMap[? "search"], minimapSpriteX, minimapSpriteY, 1, 1, 0, color, 1);
 			
-				// Draw minimap event
+				// 미니맵 아이콘 그리기
 				if (infoMap[? "event"] != EVENT.STAGE) {
 					draw_sprite_ext(iconSprite, 0,
 						minimapSpriteX + (sprite_get_width(minimapSprite) - minimapw) / minimapw * minimapw / 2,
