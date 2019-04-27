@@ -13,10 +13,10 @@ ds_list_mark_as_list(global.worldList, index);
 var worldIndex = global.worldList[| index];
 worldIndex[| MARK.INFO] = ds_map_create();
 worldIndex[| MARK.ENTRY] = ds_list_create();
-worldIndex[| MARK.INST] = ds_list_create();
+worldIndex[| MARK.KEEP] = ds_list_create();
 ds_list_mark_as_map(worldIndex, MARK.INFO);
 ds_list_mark_as_list(worldIndex, MARK.ENTRY);
-ds_list_mark_as_list(worldIndex, MARK.INST);
+ds_list_mark_as_list(worldIndex, MARK.KEEP);
 
 // Add room info
 var infoMap = worldIndex[| MARK.INFO];
@@ -24,6 +24,7 @@ infoMap[? "index"] = index;
 infoMap[? "shape"] = shape;
 infoMap[? "event"] = event;
 
+// 보급품 시야 밝히기
 if (event == EVENT.SUPPLY) {
 	infoMap[? "search"] = SEARCH.CLOSE;
 }
@@ -31,28 +32,20 @@ else {
 	infoMap[? "search"] = SEARCH.UNKNOWN;
 }
 
-var roomSelect;
+var childRoom;
 
 switch (shape) {
 	case SHAPE.SMALL:
-		roomSelect = choose(room_stage_small1);
+		var childRoom = global.roomHierarchy[? room_parent_stage_small];
 		break;
 	case SHAPE.BIG:
-		roomSelect = choose(room_stage_big1);
+		var childRoom = global.roomHierarchy[? room_parent_stage_big];
 		break;
 	case SHAPE.WLONG:
-		roomSelect = choose(room_stage_wlong1);
+		var childRoom = global.roomHierarchy[? room_parent_stage_wlong];
 		break;
 	case SHAPE.HLONG:
-		roomSelect = choose(room_stage_hlong1);
+		var childRoom = global.roomHierarchy[? room_parent_stage_hlong];
 		break;
 }
-infoMap[? "room"] = roomSelect;
-
-var instIndex = worldIndex[| MARK.INST];
-instIndex[| ds_list_size(instIndex)] = ds_map_create();
-ds_list_mark_as_map(instIndex, ds_list_size(instIndex) - 1);
-
-var instMap = instIndex[| ds_list_size(instIndex) - 1];
-instMap[? "inst"] = "obj_solid_block";
-instMap[? "hp"] = 10;
+infoMap[? "room"] = irandom_range(childRoom[| 0], childRoom[| 0] + ds_list_size(childRoom) - 1);

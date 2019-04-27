@@ -4,8 +4,8 @@
     "mvc": "1.1",
     "name": "9e5a0d80-cd19-4de9-9548-d00a29650ac5",
     "children": [
-        "666fc29d-9916-464d-9f3d-cf48e5da3e06",
-        "4db654fb-7a72-4ae2-82e8-0ab221a65e6f"
+        "e30c1630-7dce-4009-beba-0562122fd50c",
+        "83f5245a-0f94-4f8a-8520-ddca1395003a"
     ],
     "filterType": "GMObject",
     "folderName": "Character",

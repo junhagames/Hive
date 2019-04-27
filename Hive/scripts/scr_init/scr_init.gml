@@ -1,5 +1,4 @@
 /// @description 게임 초기화
-
 #region Macro
 #macro WALL "#"
 #macro CELL_WIDTH 40
@@ -42,7 +41,7 @@ enum POS {
 enum MARK {
 	INFO,
 	ENTRY,
-	INST,
+	KEEP,
 }
 
 enum SEARCH {
@@ -110,61 +109,48 @@ global.chrMap[? "rangerAccuracy"] = 10;
 global.chrMap[? "warriorDamage"] = 8;
 global.chrMap[? "warriorSpeed"] = room_speed * 0.4;
 
-global.hierarchy = ds_map_create();
+// Object hierarchy(parent)
+global.objHierarchy = ds_map_create();
 
-// Add object
-var objectIndex;
-
-for (objectIndex = 0; object_exists(objectIndex); objectIndex++) {
-	if (!ds_map_exists(global.hierarchy, objectIndex)){
-		ds_map_add_list(global.hierarchy, objectIndex, ds_list_create());
+for (var objectIndex = 0; object_exists(objectIndex); objectIndex++) {
+	if (!ds_map_exists(global.objHierarchy, objectIndex)){
+		ds_map_add_list(global.objHierarchy, objectIndex, ds_list_create());
 	}
 	var parent = object_get_parent(objectIndex);
 	
 	if (object_exists(parent)) {
-		if (!ds_map_exists(global.hierarchy, parent)) {
-			ds_map_add_list(global.hierarchy, parent, ds_list_create());
+		if (!ds_map_exists(global.objHierarchy, parent)) {
+			ds_map_add_list(global.objHierarchy, parent, ds_list_create());
 		}
-		ds_list_add(global.hierarchy[? parent], objectIndex);
+		ds_list_add(global.objHierarchy[? parent], objectIndex);
 		
 		for (var super = object_get_parent(parent); object_exists(super); super = object_get_parent(super)) {
-			if (!ds_map_exists(global.hierarchy, super)) {
-				ds_map_add_list(global.hierarchy, super, ds_list_create());
+			if (!ds_map_exists(global.objHierarchy, super)) {
+				ds_map_add_list(global.objHierarchy, super, ds_list_create());
 			}
-			ds_list_add(global.hierarchy[? super], objectIndex);
+			ds_list_add(global.objHierarchy[? super], objectIndex);
 		}
 	}
 }
 
-// Add parse room
-//for (var i = 0; i < 4; i++) {
-//	ds_map_add_list(global.hierarchy, objectIndex + i, ds_list_create());
-	
-//	for (var roomIndex = 0; room_exists(roomIndex); roomIndex++) {
-//		room_exists()
-//		string_copy(room_get_name(room_stage_small1), 12, 15)
-	
-//		if (object_exists(parent)) {
-//			if (!ds_map_exists(global.hierarchy, parent)) {
-//				ds_map_add_list(global.hierarchy, parent, ds_list_create());
-//			}
-//			ds_list_add(global.hierarchy[? parent], roomIndex);
-		
-//			for (var super = object_get_parent(parent); object_exists(super); super = object_get_parent(super)) {
-//				if (!ds_map_exists(global.hierarchy, super)) {
-//					ds_map_add_list(global.hierarchy, super, ds_list_create());
-//				}
-//				ds_list_add(global.hierarchy[? super], roomIndex);
-//			}
-//		}
-//	}
-//}
+// Room hierarchy(parse)
+global.roomHierarchy = ds_map_create();
+var roomParent = noone;
 
-//var childList = global.hierarchy[? room_parent_stage_small];
-//for (var i = 0; i < ds_list_size(childList); i++) {
-//	show_debug_message(childList[| i]);
-//}
-//show_message();
+for (var roomIndex = 0; room_exists(roomIndex); roomIndex++) {
+	var roomName = room_get_name(roomIndex);
+	
+	if (roomName == "room_parent_stage_small" ||
+		roomName == "room_parent_stage_big" ||
+		roomName == "room_parent_stage_wlong" ||
+		roomName == "room_parent_stage_hlong") {
+		roomParent = roomIndex;
+		ds_map_add_list(global.roomHierarchy, roomParent, ds_list_create());
+	}
+	else if (roomParent != noone) {
+		ds_list_add(global.roomHierarchy[? roomParent], roomIndex);
+	}
+}
 #endregion
 
 randomize();

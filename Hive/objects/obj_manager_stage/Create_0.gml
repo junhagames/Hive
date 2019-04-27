@@ -24,7 +24,7 @@ with (obj_parent_entry) {
 			break;
 		}
 	}
-	var block = instance_create_layer(x, y, "layer_block", obj_solid_block);
+	var block = instance_create_layer(x, y, "layer_block", obj_parent_solid);
 	block.image_xscale = sprite_width / block.sprite_width;
 	block.image_yscale = sprite_height / block.sprite_height;
 		
@@ -99,7 +99,7 @@ instance_create_layer(0, 0, "layer_draw", obj_draw);
 
 // Pathfinding grid
 enemyGridPath = mp_grid_create(0, 0, room_width div CELL_WIDTH, room_height div CELL_HEIGHT, CELL_WIDTH, CELL_HEIGHT);
-mp_grid_add_instances(enemyGridPath, obj_solid_block, false);
+mp_grid_add_instances(enemyGridPath, obj_parent_solid, false);
 mp_grid_add_instances(enemyGridPath, obj_parent_entry, false);
 
 scr_minimap_create();
