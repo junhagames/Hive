@@ -7,10 +7,10 @@ var index = argument0;
 var shape = argument1;
 var event = argument2;
 
-global.worldList[| index] = ds_list_create();
-ds_list_mark_as_list(global.worldList, index);
+global.roomList[| index] = ds_list_create();
+ds_list_mark_as_list(global.roomList, index);
 
-var worldIndex = global.worldList[| index];
+var worldIndex = global.roomList[| index];
 worldIndex[| MARK.INFO] = ds_map_create();
 worldIndex[| MARK.ENTRY] = ds_list_create();
 worldIndex[| MARK.MEMORY] = ds_list_create();

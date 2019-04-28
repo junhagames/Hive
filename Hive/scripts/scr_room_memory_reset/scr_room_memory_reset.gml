@@ -1,6 +1,6 @@
 /// @description 룸 메모리 초기화
 
-var worldIndex = global.worldList[| global.currentIndex];
+var worldIndex = global.roomList[| global.currentIndex];
 var memoryIndex = worldIndex[| MARK.MEMORY];
 
 with (obj_solid_rock) {
@@ -17,4 +17,5 @@ with (obj_parent_enemy) {
 
 	var memoryMap = memoryIndex[| ds_list_size(memoryIndex) - 1];
 	memoryMap[? "id"] = id;
+	memoryMap[? "hp"] = hp;
 }

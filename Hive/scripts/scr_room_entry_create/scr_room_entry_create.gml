@@ -7,7 +7,7 @@ var index = argument0;
 var _x = argument1;
 var _y = argument2;
 
-var worldIndex = global.worldList[| index];
+var worldIndex = global.roomList[| index];
 var infoMap = worldIndex[| MARK.INFO];
 var entryIndex = worldIndex[| MARK.ENTRY];
 var entryCount = ds_list_size(entryIndex);

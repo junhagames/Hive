@@ -1,6 +1,6 @@
 /// @description 룸 메모리 저장
 
-var worldIndex = global.worldList[| global.currentIndex];
+var worldIndex = global.roomList[| global.currentIndex];
 var memoryIndex = worldIndex[| MARK.MEMORY];
 
 with (obj_solid_rock) {

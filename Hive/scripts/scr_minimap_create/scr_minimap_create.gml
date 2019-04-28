@@ -14,7 +14,7 @@ for (var _y = 0; _y < ds_grid_height(global.worldGrid); _y++) {
 		var index = global.worldGrid[# _x, _y];
 		
 		if (ds_list_find_index(overlapList, index) == -1 && index != WALL) {
-			var worldIndex = global.worldList[| index];
+			var worldIndex = global.roomList[| index];
 			var infoMap = worldIndex[| MARK.INFO]; 
 			var minimapSprite, iconSprite, color;
 			ds_list_add(overlapList, index);

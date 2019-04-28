@@ -1,8 +1,8 @@
 {
-    "id": "c69a1fd8-75d3-470b-be3d-24cb403a5224",
+    "id": "171bcf87-cea3-41b8-a2c2-a43ceb7d6abd",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "scr_save_game",
+    "name": "scr_room_entry_create",
     "IsCompatibility": false,
     "IsDnD": false
 }

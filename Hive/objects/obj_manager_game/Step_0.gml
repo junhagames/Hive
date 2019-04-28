@@ -1,4 +1,4 @@
-if (keyboard_check(vk_escape)) {
+if (keyboard_check_pressed(vk_escape)) {
 	instance_create_layer(0, 0, "layer_system", obj_pause);
 }
 

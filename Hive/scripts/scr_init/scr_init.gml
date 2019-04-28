@@ -80,16 +80,72 @@ enum ALARM_HIVE {
 	SPAWN,
 }
 #endregion
+#region 게임 설정|데이터 불러오기
+ini_open("game.ini");
 
-// 화면 초기화
-global.gameWidth = 1280;
-global.gameHeight = 720;
-global.zoom = 1;
-global.resolution = 1;
+if (!file_exists("game.ini")) {
+	// 볼륨 초기화
+	ini_write_real("settings", "bgmVolume", 1);
+	ini_write_real("settings", "sfxVolume", 1);
+
+	// 화면 초기화
+	ini_write_real("screen", "gameWidth", 1280);
+	ini_write_real("screen", "gameHeight", 720);
+	ini_write_real("screen", "zoom", 1);
+	ini_write_real("screen", "resolution", 1);
+}
+
+// 볼륨 불러오기
+global.bgmVolume = ini_read_real("settings", "bgmVolume", 1);
+global.sfxVolume = ini_read_real("settings", "sfxVolume", 1);
+
+// 화면 불러오기
+global.gameWidth = ini_read_real("screen", "gameWidth", 1280);
+global.gameHeight = ini_read_real("screen", "gameHeight", 720);
+global.zoom = ini_read_real("screen", "zoom", 1);
+global.resolution = ini_read_real("screen", "resolution", 1);
+ini_close();
+#endregion
+
+//var root = ds_map_create();
+//ds_map_add_map(root, ds_map_size(root), ds_map_create());
+
+//var rom = root[? ds_map_size(root) - 1];
+//ds_map_add_map(rom, "info", ds_map_create());
+
+//var infoMap = rom[? "info"];
+//ds_map_add_map(infoMap, "pos", ds_map_create());
+//ds_map_add_map(infoMap, "weather", ds_map_create());
+
+//var weatherMap = infoMap[? "weather"];
+//ds_map_add_map(weatherMap, "item", ds_map_create());
+
+//ds_map_add_list(infoMap, "list", ds_list_create());
+//var list = infoMap[? "list"];
+
+//ds_list_add(list, ds_list_create());
+//ds_list_mark_as_list(list, ds_list_size(list) - 1);
+//ds_list_add(list, ds_list_create());
+//ds_list_mark_as_list(list, ds_list_size(list) - 1);
+//ds_list_add(list, ds_list_create());
+//ds_list_mark_as_list(list, ds_list_size(list) - 1);
+
+//ds_list_add(list, ds_map_create());
+//ds_list_mark_as_map(list, ds_list_size(list) - 1);
+//ds_list_add(list, ds_map_create());
+//ds_list_mark_as_map(list, ds_list_size(list) - 1);
+//ds_list_add(list, ds_map_create());
+//ds_list_mark_as_map(list, ds_list_size(list) - 1);
+
+//var saveString = json_encode(root);
+//var saveBuffer = buffer_create(string_byte_length(saveString) + 1, buffer_fixed, 1);
+//buffer_write(saveBuffer, buffer_string, saveString);
+//buffer_save(saveBuffer, "fucking.sav");
+//buffer_delete(saveBuffer);
 
 // 월드 초기화
 global.worldGrid = ds_grid_create(7, 7);
-global.worldList = ds_list_create();
+global.roomList = ds_list_create();
 global.currentIndex = 0;
 global.previousIndex = noone;
 global.previousPos = noone;
@@ -110,6 +166,9 @@ global.chrMap[? "rangerSpeed"] = room_speed * 0.1;
 global.chrMap[? "rangerAccuracy"] = 10;
 global.chrMap[? "warriorDamage"] = 8;
 global.chrMap[? "warriorSpeed"] = room_speed * 0.4;
+
+// 저장 관련 구조체
+global.saveMap = ds_map_create();
 
 // 오브젝트 부모 계층 초기화
 global.objParentMap = ds_map_create();

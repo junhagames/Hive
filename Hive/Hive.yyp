@@ -170,7 +170,7 @@
             "Key": "171bcf87-cea3-41b8-a2c2-a43ceb7d6abd",
             "Value": {
                 "id": "30940865-4346-4678-bead-807ce67dc2f2",
-                "resourcePath": "scripts\\scr_world_room_entry_create\\scr_world_room_entry_create.yy",
+                "resourcePath": "scripts\\scr_room_entry_create\\scr_room_entry_create.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -386,7 +386,7 @@
             "Key": "4d3ac9be-3ade-4332-9d16-94f3dfd76208",
             "Value": {
                 "id": "acdc7848-be90-42dd-a750-d511ee9a0928",
-                "resourcePath": "scripts\\scr_load_game\\scr_load_game.yy",
+                "resourcePath": "scripts\\scr_load_file\\scr_load_file.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -516,6 +516,14 @@
                 "id": "9b217efd-00b8-4dde-9126-dad3212b07d8",
                 "resourcePath": "views\\641cad01-10d4-413a-9a17-0ceb2955faf5.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "643593c6-237b-4756-a576-37c529a5af14",
+            "Value": {
+                "id": "ff68ca77-bf60-4a22-9406-1dd8506ce44b",
+                "resourcePath": "scripts\\scr_save_world\\scr_save_world.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -804,6 +812,14 @@
                 "id": "90663a68-1455-42de-8300-eaaaf3beaaf3",
                 "resourcePath": "sprites\\spr_ui_minimap_quest\\spr_ui_minimap_quest.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "8ab3e9a0-ccdc-4a89-8d9a-1b79c1bb15a3",
+            "Value": {
+                "id": "b22003ea-080c-4a0a-a199-f9968626d031",
+                "resourcePath": "scripts\\scr_save_file\\scr_save_file.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -1162,7 +1178,7 @@
             "Key": "c69a1fd8-75d3-470b-be3d-24cb403a5224",
             "Value": {
                 "id": "7f83a2e2-0144-4b08-88c6-07ffee11e32f",
-                "resourcePath": "scripts\\scr_save_game\\scr_save_game.yy",
+                "resourcePath": "scripts\\scr_save_room\\scr_save_room.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -1468,7 +1484,9 @@
         "38b67bd2-278e-4d3f-98b9-dd7150bcfe6b",
         "da28364c-3e06-4a09-9cc8-c729958cadd4",
         "7f487025-b17f-4ebe-8d7a-635f57250f14",
+        "643593c6-237b-4756-a576-37c529a5af14",
         "c69a1fd8-75d3-470b-be3d-24cb403a5224",
+        "8ab3e9a0-ccdc-4a89-8d9a-1b79c1bb15a3",
         "4d3ac9be-3ade-4332-9d16-94f3dfd76208",
         "02f1f587-e331-437f-8a0c-58fe25fc8448",
         "9d3e84f0-fbe5-4252-9a91-2f1c478dca00",

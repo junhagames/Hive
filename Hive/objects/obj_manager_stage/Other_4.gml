@@ -1,4 +1,4 @@
-var worldIndex = global.worldList[| global.currentIndex];
+var worldIndex = global.roomList[| global.currentIndex];
 var infoMap = worldIndex[| MARK.INFO];
 var entryIndex = worldIndex[| MARK.ENTRY];
 var memoryIndex = worldIndex[| MARK.MEMORY];
@@ -15,7 +15,7 @@ with (obj_parent_entry) {
 		
 		if (pos == entryMap[? "pos"]) {
 			targetIndex = entryMap[? "targetIndex"];
-			var _worldIndex = global.worldList[| targetIndex];
+			var _worldIndex = global.roomList[| targetIndex];
 			var _infoMap = _worldIndex[| MARK.INFO];
 			
 			if (_infoMap[? "search"] == SEARCH.UNKNOWN) { 
@@ -116,5 +116,7 @@ else {
 enemyPathGrid = mp_grid_create(0, 0, room_width div CELL_WIDTH, room_height div CELL_HEIGHT, CELL_WIDTH, CELL_HEIGHT);
 mp_grid_add_instances(enemyPathGrid, obj_parent_solid, false);
 mp_grid_add_instances(enemyPathGrid, obj_parent_entry, false);
+
+scr_save_room();
 
 scr_minimap_create();
