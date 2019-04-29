@@ -1,69 +1,11 @@
 /// @description 게임 초기화
+
 #region 메크로 상수
 #macro WALL "#"
 #macro CELL_WIDTH 40
 #macro CELL_HEIGHT 40
 #endregion
 #region 열거형
-enum DIR {
-	EAST,
-	WEST,
-	SOUTH,
-	NORTH,
-}
-
-enum SHAPE {
-	SMALL,
-	BIG,
-	WLONG,
-	HLONG,
-}
-
-enum POS {
-	TOP,
-	RIGHT,
-	BOTTOM,
-	LEFT,
-	
-	TOP_LEFT,
-	TOP_RIGHT,
-	
-	RIGHT_TOP,
-	RIGHT_BOTTOM,
-	
-	BOTTOM_RIGHT,
-	BOTTOM_LEFT,
-	
-	LEFT_BOTTOM,
-	LEFT_TOP,
-}
-
-enum MARK {
-	INFO,
-	ENTRY,
-	MEMORY,
-}
-
-enum SEARCH {
-	KNOWN,
-	CLOSE,
-	UNKNOWN,
-}
-
-enum EVENT {
-	STAGE,
-	MINIBOSS,
-	BOSS,
-	SUPPLY,
-	SHOP,
-	QUEST,
-}
-
-enum SWAP {
-	RANGER,
-	WARRIOR,
-}
-
 enum ALARM_CHR {
 	ATTACK,
 	SKILL,
@@ -107,45 +49,9 @@ global.resolution = ini_read_real("screen", "resolution", 1);
 ini_close();
 #endregion
 
-//var root = ds_map_create();
-//ds_map_add_map(root, ds_map_size(root), ds_map_create());
-
-//var rom = root[? ds_map_size(root) - 1];
-//ds_map_add_map(rom, "info", ds_map_create());
-
-//var infoMap = rom[? "info"];
-//ds_map_add_map(infoMap, "pos", ds_map_create());
-//ds_map_add_map(infoMap, "weather", ds_map_create());
-
-//var weatherMap = infoMap[? "weather"];
-//ds_map_add_map(weatherMap, "item", ds_map_create());
-
-//ds_map_add_list(infoMap, "list", ds_list_create());
-//var list = infoMap[? "list"];
-
-//ds_list_add(list, ds_list_create());
-//ds_list_mark_as_list(list, ds_list_size(list) - 1);
-//ds_list_add(list, ds_list_create());
-//ds_list_mark_as_list(list, ds_list_size(list) - 1);
-//ds_list_add(list, ds_list_create());
-//ds_list_mark_as_list(list, ds_list_size(list) - 1);
-
-//ds_list_add(list, ds_map_create());
-//ds_list_mark_as_map(list, ds_list_size(list) - 1);
-//ds_list_add(list, ds_map_create());
-//ds_list_mark_as_map(list, ds_list_size(list) - 1);
-//ds_list_add(list, ds_map_create());
-//ds_list_mark_as_map(list, ds_list_size(list) - 1);
-
-//var saveString = json_encode(root);
-//var saveBuffer = buffer_create(string_byte_length(saveString) + 1, buffer_fixed, 1);
-//buffer_write(saveBuffer, buffer_string, saveString);
-//buffer_save(saveBuffer, "fucking.sav");
-//buffer_delete(saveBuffer);
-
 // 월드 초기화
 global.worldGrid = ds_grid_create(7, 7);
-global.roomList = ds_list_create();
+global.roomMap = ds_map_create();
 global.currentIndex = 0;
 global.previousIndex = noone;
 global.previousPos = noone;
@@ -158,7 +64,7 @@ global.chrMap[? "money"] = 0;
 global.chrMap[? "power"] = 1;
 global.chrMap[? "armor"] = 1;
 global.chrMap[? "speed"] = 6;
-global.chrMap[? "swap"] = SWAP.RANGER;
+global.chrMap[? "swap"] = "ranger";
 global.chrMap[? "ammoMax"] = 30;
 global.chrMap[? "ammo"] = global.chrMap[? "ammoMax"];
 global.chrMap[? "rangerDamage"] = 2;
@@ -167,37 +73,39 @@ global.chrMap[? "rangerAccuracy"] = 10;
 global.chrMap[? "warriorDamage"] = 8;
 global.chrMap[? "warriorSpeed"] = room_speed * 0.4;
 
-// 저장 관련 구조체
+// 저장 구조체 초기화
 global.saveMap = ds_map_create();
+ds_map_add_map(global.saveMap, "roomMap", global.roomMap);
+ds_map_add_map(global.saveMap, "chrMap", global.chrMap);
 
 // 오브젝트 부모 계층 초기화
 global.objParentMap = ds_map_create();
 
 for (var obj = 0; object_exists(obj); obj++) {
-	for (var parent = object_get_parent(obj); object_exists(parent); parent = object_get_parent(parent)) {
-		if (!ds_map_exists(global.objParentMap, parent)) {
-			ds_map_add_list(global.objParentMap, parent, ds_list_create());
+	for (var objParent = object_get_parent(obj); object_exists(objParent); objParent = object_get_parent(objParent)) {
+		if (!ds_map_exists(global.objParentMap, objParent)) {
+			ds_map_add_list(global.objParentMap, objParent, ds_list_create());
 		}
-		ds_list_add(global.objParentMap[? parent], obj);
+		ds_list_add(global.objParentMap[? objParent], obj);
 	}
 }
 
 // 룸 부모 계층 초기화
 global.roomParentMap = ds_map_create();
-var parent = noone;
+var roomParent = noone;
 
-for (var rom = 0; room_exists(rom); rom++) {
-	var roomName = room_get_name(rom);
+for (var _room = 0; room_exists(_room); _room++) {
+	var roomName = room_get_name(_room);
 	
 	if (roomName == "room_parent_stage_small" ||
 		roomName == "room_parent_stage_big" ||
 		roomName == "room_parent_stage_wlong" ||
 		roomName == "room_parent_stage_hlong") {
-		parent = rom;
-		ds_map_add_list(global.roomParentMap, parent, ds_list_create());
+		roomParent = _room;
+		ds_map_add_list(global.roomParentMap, roomParent, ds_list_create());
 	}
-	else if (parent != noone) {
-		ds_list_add(global.roomParentMap[? parent], rom);
+	else if (roomParent != noone) {
+		ds_list_add(global.roomParentMap[? roomParent], _room);
 	}
 }
 

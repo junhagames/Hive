@@ -1,1 +1,1 @@
-pos = POS.LEFT_TOP;
+pos = "lefttop";

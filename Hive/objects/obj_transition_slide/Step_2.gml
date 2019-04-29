@@ -9,6 +9,6 @@ if ((xTo > 0 && x > xTo) ||
 	instance_destroy();
 }
 
-if (surface_exists(newRoomSuf)) {
+if (surface_exists(newRoomSuf) && surface_exists(application_surface)) {
 	surface_copy(newRoomSuf, 0, 0, application_surface);
 }

@@ -1,10 +1,10 @@
-/// @description 저장 파일 생성
+/// @description 세이브 파일 JSON으로 불러오기
 /// @param fileName
 
 var fileName = argument0;
 
-var _buffer = buffer_load("save.sav");
-var _string = buffer_read(_buffer, buffer_string);
-buffer_delete(_buffer);
+var loadBuffer = buffer_load(fileName);
+var loadString = buffer_read(loadBuffer, buffer_string);
+buffer_delete(loadBuffer);
 
-return json_decode(_string);
+return json_decode(loadString);

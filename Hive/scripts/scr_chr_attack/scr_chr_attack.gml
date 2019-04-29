@@ -1,7 +1,7 @@
 /// @description 캐릭터 공격
 
 if (!isAttackDelay) {
-	if (global.chrMap[? "swap"] == SWAP.RANGER) {
+	if (global.chrMap[? "swap"] == "ranger") {
 		if (mouse_check_button(mb_left)) {
 			if (global.chrMap[? "ammo"] > 0) {
 				var bullet = instance_create_layer(x + lengthdir_x(weaponLength, weaponAngle), y + lengthdir_y(weaponLength, weaponAngle) - 8, "layer_inst", obj_bullet);
@@ -15,7 +15,7 @@ if (!isAttackDelay) {
 			}
 		}
 	}
-	else if (global.chrMap[? "swap"] == SWAP.WARRIOR) {
+	else if (global.chrMap[? "swap"] == "warrior") {
 		if (mouse_check_button(mb_left)) {
 			var melee = instance_create_layer(x + lengthdir_x(16, weaponAngle), y + lengthdir_y(16, weaponAngle), "layer_inst", obj_melee);
 			melee.image_angle = weaponAngle;

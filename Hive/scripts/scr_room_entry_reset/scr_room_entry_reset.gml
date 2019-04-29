@@ -1,4 +1,4 @@
-/// @description 룸 입구 생성
+/// @description 룸 입구 초기화
 /// @param index
 /// @param _x
 /// @param _y
@@ -7,14 +7,13 @@ var index = argument0;
 var _x = argument1;
 var _y = argument2;
 
-var worldIndex = global.roomList[| index];
-var infoMap = worldIndex[| MARK.INFO];
-var entryIndex = worldIndex[| MARK.ENTRY];
-var entryCount = ds_list_size(entryIndex);
+var _roomMap = global.roomMap[? index];
+var infoMap = _roomMap[? "info"];
+var entryMap = _roomMap[? "entry"];
 
 switch (infoMap[? "shape"]) {
-	#region SMALL
-	case SHAPE.SMALL:
+	#region small
+	case "small":
 		/*   ■
 		 *   □
 		 *  
@@ -23,12 +22,12 @@ switch (infoMap[? "shape"]) {
 			var targetIndex = global.worldGrid[# _x, _y - 1];
 			
 			if (targetIndex != index && targetIndex != WALL) {
-				entryIndex[| entryCount] = ds_map_create();
-				ds_list_mark_as_map(entryIndex, entryCount);
+				var entryIndex = ds_map_size(entryMap);
+				ds_map_add_map(entryMap, entryIndex, ds_map_create());
 				
-				var entryMap = entryIndex[| entryCount++];
-				entryMap[? "targetIndex"] = targetIndex;
-				entryMap[? "pos"] = POS.TOP;
+				var _entryMap = entryMap[? entryIndex];
+				_entryMap[? "targetIndex"] = targetIndex;
+				_entryMap[? "pos"] = "top";
 			}
 		}
 		
@@ -40,12 +39,12 @@ switch (infoMap[? "shape"]) {
 			var targetIndex = global.worldGrid[# _x + 1, _y];
 			
 			if (targetIndex != index && targetIndex != WALL) {
-				entryIndex[| entryCount] = ds_map_create();
-				ds_list_mark_as_map(entryIndex, entryCount);
+				var entryIndex = ds_map_size(entryMap);
+				ds_map_add_map(entryMap, entryIndex, ds_map_create());
 				
-				var entryMap = entryIndex[| entryCount++];
-				entryMap[? "targetIndex"] = targetIndex;
-				entryMap[? "pos"] = POS.RIGHT;
+				var _entryMap = entryMap[? entryIndex];
+				_entryMap[? "targetIndex"] = targetIndex;
+				_entryMap[? "pos"] = "right";
 			}
 		}
 		
@@ -57,12 +56,12 @@ switch (infoMap[? "shape"]) {
 			var targetIndex = global.worldGrid[# _x, _y + 1];
 			
 			if (targetIndex != index && targetIndex != WALL) {
-				entryIndex[| entryCount] = ds_map_create();
-				ds_list_mark_as_map(entryIndex, entryCount);
+				var entryIndex = ds_map_size(entryMap);
+				ds_map_add_map(entryMap, entryIndex, ds_map_create());
 				
-				var entryMap = entryIndex[| entryCount++];
-				entryMap[? "targetIndex"] = targetIndex;
-				entryMap[? "pos"] = POS.BOTTOM;
+				var _entryMap = entryMap[? entryIndex];
+				_entryMap[? "targetIndex"] = targetIndex;
+				_entryMap[? "pos"] = "bottom";
 			}
 		}
 		
@@ -74,18 +73,18 @@ switch (infoMap[? "shape"]) {
 			var targetIndex = global.worldGrid[# _x - 1, _y];
 			
 			if (targetIndex != index && targetIndex != WALL) {
-				entryIndex[| entryCount] = ds_map_create();
-				ds_list_mark_as_map(entryIndex, entryCount);
+				var entryIndex = ds_map_size(entryMap);
+				ds_map_add_map(entryMap, entryIndex, ds_map_create());
 				
-				var entryMap = entryIndex[| entryCount++];
-				entryMap[? "targetIndex"] = targetIndex;
-				entryMap[? "pos"] = POS.LEFT;
+				var _entryMap = entryMap[? entryIndex];
+				_entryMap[? "targetIndex"] = targetIndex;
+				_entryMap[? "pos"] = "left";
 			}
 		}
 		break;
 	#endregion
-	#region BIG
-	case SHAPE.BIG:	
+	#region big
+	case "big":	
 		if (_x > 0) {
 			if (global.worldGrid[# _x - 1, _y] != index) {	 
 				if (_y > 0) {
@@ -98,12 +97,12 @@ switch (infoMap[? "shape"]) {
 						var targetIndex = global.worldGrid[# _x, _y - 1];
 						
 						if (targetIndex != index && targetIndex != WALL) {
-							entryIndex[| entryCount] = ds_map_create();
-							ds_list_mark_as_map(entryIndex, entryCount);
+							var entryIndex = ds_map_size(entryMap);
+							ds_map_add_map(entryMap, entryIndex, ds_map_create());
 							
-							var entryMap = entryIndex[| entryCount++];
-							entryMap[? "targetIndex"] = targetIndex;
-							entryMap[? "pos"] = POS.TOP_LEFT;
+							var _entryMap = entryMap[? entryIndex];
+							_entryMap[? "targetIndex"] = targetIndex;
+							_entryMap[? "pos"] = "topleft";
 						}
 						
 						/* 
@@ -114,12 +113,12 @@ switch (infoMap[? "shape"]) {
 						var targetIndex = global.worldGrid[# _x - 1, _y];
 						
 						if (targetIndex != index && targetIndex != WALL) {
-							entryIndex[| entryCount] = ds_map_create();
-							ds_list_mark_as_map(entryIndex, entryCount);
-							
-							var entryMap = entryIndex[| entryCount++];
-							entryMap[? "targetIndex"] = targetIndex;
-							entryMap[? "pos"] = POS.LEFT_TOP;
+							var entryIndex = ds_map_size(entryMap);
+							ds_map_add_map(entryMap, entryIndex, ds_map_create());
+
+							var _entryMap = entryMap[? entryIndex];
+							_entryMap[? "targetIndex"] = targetIndex;
+							_entryMap[? "pos"] = "lefttop";
 						}
 					}
 					else {
@@ -132,12 +131,12 @@ switch (infoMap[? "shape"]) {
 							var targetIndex = global.worldGrid[# _x, _y + 1];
 						
 							if (targetIndex != index && targetIndex != WALL) {
-								entryIndex[| entryCount] = ds_map_create();
-								ds_list_mark_as_map(entryIndex, entryCount);
+								var entryIndex = ds_map_size(entryMap);
+								ds_map_add_map(entryMap, entryIndex, ds_map_create());
 								
-								var entryMap = entryIndex[| entryCount++];
-								entryMap[? "targetIndex"] = targetIndex;
-								entryMap[? "pos"] = POS.BOTTOM_LEFT;
+								var _entryMap = entryMap[? entryIndex];
+								_entryMap[? "targetIndex"] = targetIndex;
+								_entryMap[? "pos"] = "bottomleft";
 							}
 						}
 						
@@ -149,12 +148,12 @@ switch (infoMap[? "shape"]) {
 						var targetIndex = global.worldGrid[# _x - 1, _y];
 						
 						if (targetIndex != index && targetIndex != WALL) {
-							entryIndex[| entryCount] = ds_map_create();
-							ds_list_mark_as_map(entryIndex, entryCount);
+							var entryIndex = ds_map_size(entryMap);
+							ds_map_add_map(entryMap, entryIndex, ds_map_create());
 							
-							var entryMap = entryIndex[| entryCount++];
-							entryMap[? "targetIndex"] = targetIndex;
-							entryMap[? "pos"] = POS.LEFT_BOTTOM;
+							var _entryMap = entryMap[? entryIndex];
+							_entryMap[? "targetIndex"] = targetIndex;
+							_entryMap[? "pos"] = "leftbottom";
 						}
 					}
 				}
@@ -167,12 +166,12 @@ switch (infoMap[? "shape"]) {
 					var targetIndex = global.worldGrid[# _x - 1, _y];
 					
 					if (targetIndex != index && targetIndex != WALL) {
-						entryIndex[| entryCount] = ds_map_create();
-						ds_list_mark_as_map(entryIndex, entryCount);
+						var entryIndex = ds_map_size(entryMap);
+						ds_map_add_map(entryMap, entryIndex, ds_map_create());
 						
-						var entryMap = entryIndex[| entryCount++];
-						entryMap[? "targetIndex"] = targetIndex;
-						entryMap[? "pos"] = POS.LEFT_TOP;
+						var _entryMap = entryMap[? entryIndex];
+						_entryMap[? "targetIndex"] = targetIndex;
+						_entryMap[? "pos"] = "lefttop";
 					}
 				}
 			}
@@ -187,12 +186,12 @@ switch (infoMap[? "shape"]) {
 						var targetIndex = global.worldGrid[# _x, _y - 1];
 						
 						if (targetIndex != index && targetIndex != WALL) {
-							entryIndex[| entryCount] = ds_map_create();
-							ds_list_mark_as_map(entryIndex, entryCount);
+							var entryIndex = ds_map_size(entryMap);
+							ds_map_add_map(entryMap, entryIndex, ds_map_create());
 							
-							var entryMap = entryIndex[| entryCount++];
-							entryMap[? "targetIndex"] = targetIndex;
-							entryMap[? "pos"] = POS.TOP_RIGHT;
+							var _entryMap = entryMap[? entryIndex];
+							_entryMap[? "targetIndex"] = targetIndex;
+							_entryMap[? "pos"] = "topright";
 						}
 						
 						/*     
@@ -204,12 +203,12 @@ switch (infoMap[? "shape"]) {
 							var targetIndex = global.worldGrid[# _x + 1, _y];
 						
 							if (targetIndex != index && targetIndex != WALL) {
-								entryIndex[| entryCount] = ds_map_create();
-								ds_list_mark_as_map(entryIndex, entryCount);
+								var entryIndex = ds_map_size(entryMap);
+								ds_map_add_map(entryMap, entryIndex, ds_map_create());
 								
-								var entryMap = entryIndex[| entryCount++];
-								entryMap[? "targetIndex"] = targetIndex;
-								entryMap[? "pos"] = POS.RIGHT_TOP;
+								var _entryMap = entryMap[? entryIndex];
+								_entryMap[? "targetIndex"] = targetIndex;
+								_entryMap[? "pos"] = "righttop";
 							}
 						}
 					}
@@ -223,12 +222,12 @@ switch (infoMap[? "shape"]) {
 							var targetIndex = global.worldGrid[# _x + 1, _y];
 						
 							if (targetIndex != index && targetIndex != WALL) {
-								entryIndex[| entryCount] = ds_map_create();
-								ds_list_mark_as_map(entryIndex, entryCount);
+								var entryIndex = ds_map_size(entryMap);
+								ds_map_add_map(entryMap, entryIndex, ds_map_create());
 								
-								var entryMap = entryIndex[| entryCount++];
-								entryMap[? "targetIndex"] = targetIndex;
-								entryMap[? "pos"] = POS.RIGHT_BOTTOM;
+								var _entryMap = entryMap[? entryIndex];
+								_entryMap[? "targetIndex"] = targetIndex;
+								_entryMap[? "pos"] = "rightbottom";
 							}
 						}
 					
@@ -241,12 +240,12 @@ switch (infoMap[? "shape"]) {
 							var targetIndex = global.worldGrid[# _x, _y + 1];
 						
 							if (targetIndex != index && targetIndex != WALL) {
-								entryIndex[| entryCount] = ds_map_create();
-								ds_list_mark_as_map(entryIndex, entryCount);
+								var entryIndex = ds_map_size(entryMap);
+								ds_map_add_map(entryMap, entryIndex, ds_map_create());
 								
-								var entryMap = entryIndex[| entryCount++];
-								entryMap[? "targetIndex"] = targetIndex;
-								entryMap[? "pos"] = POS.BOTTOM_RIGHT;
+								var _entryMap = entryMap[? entryIndex];
+								_entryMap[? "targetIndex"] = targetIndex;
+								_entryMap[? "pos"] = "bottomright";
 							}
 						}
 					}	
@@ -263,12 +262,12 @@ switch (infoMap[? "shape"]) {
 				var targetIndex = global.worldGrid[# _x, _y - 1];
 				
 				if (targetIndex != index && targetIndex != WALL) {
-					entryIndex[| entryCount] = ds_map_create();
-					ds_list_mark_as_map(entryIndex, entryCount);
+					var entryIndex = ds_map_size(entryMap);
+					ds_map_add_map(entryMap, entryIndex, ds_map_create());
 					
-					var entryMap = entryIndex[| entryCount++];	
-					entryMap[? "targetIndex"] = targetIndex;
-					entryMap[? "pos"] = POS.TOP_LEFT;
+					var _entryMap = entryMap[? entryIndex];	
+					_entryMap[? "targetIndex"] = targetIndex;
+					_entryMap[? "pos"] = "topleft";
 				}
 			}
 			
@@ -281,19 +280,19 @@ switch (infoMap[? "shape"]) {
 				var targetIndex = global.worldGrid[# _x, _y + 1];
 				
 				if (targetIndex != index && targetIndex != WALL) {
-					entryIndex[| entryCount] = ds_map_create();
-					ds_list_mark_as_map(entryIndex, entryCount);
+					var entryIndex = ds_map_size(entryMap);
+					ds_map_add_map(entryMap, entryIndex, ds_map_create());
 					
-					var entryMap = entryIndex[| entryCount++];
-					entryMap[? "targetIndex"] = targetIndex;
-					entryMap[? "pos"] = POS.BOTTOM_LEFT;
+					var _entryMap = entryMap[? entryIndex];
+					_entryMap[? "targetIndex"] = targetIndex;
+					_entryMap[? "pos"] = "bottomleft";
 				}
 			}
 		}
 		break;
 	#endregion
-	#region WLONG
-	case SHAPE.WLONG:
+	#region wlong
+	case "wlong":
 		if (_x > 0) {
 			if (global.worldGrid[# _x - 1, _y] != index) {
 				/*   ■
@@ -304,12 +303,12 @@ switch (infoMap[? "shape"]) {
 					var targetIndex = global.worldGrid[# _x, _y - 1];
 					
 					if (targetIndex != index && targetIndex != WALL) {
-						entryIndex[| entryCount] = ds_map_create();
-						ds_list_mark_as_map(entryIndex, entryCount);
+						var entryIndex = ds_map_size(entryMap);
+						ds_map_add_map(entryMap, entryIndex, ds_map_create());
 						
-						var entryMap = entryIndex[| entryCount++];
-						entryMap[? "targetIndex"] = targetIndex;
-						entryMap[? "pos"] = POS.TOP_LEFT;
+						var _entryMap = entryMap[? entryIndex];
+						_entryMap[? "targetIndex"] = targetIndex;
+						_entryMap[? "pos"] = "topleft";
 					}
 				}
 				
@@ -321,12 +320,12 @@ switch (infoMap[? "shape"]) {
 					var targetIndex = global.worldGrid[# _x, _y + 1];
 					
 					if (targetIndex != index && targetIndex != WALL) {
-						entryIndex[| entryCount] = ds_map_create();
-						ds_list_mark_as_map(entryIndex, entryCount);
+						var entryIndex = ds_map_size(entryMap);
+						ds_map_add_map(entryMap, entryIndex, ds_map_create());
 						
-						var entryMap = entryIndex[| entryCount++];
-						entryMap[? "targetIndex"] = targetIndex;
-						entryMap[? "pos"] = POS.BOTTOM_LEFT;
+						var _entryMap = entryMap[? entryIndex];
+						_entryMap[? "targetIndex"] = targetIndex;
+						_entryMap[? "pos"] = "bottomleft";
 					}
 				}
 				
@@ -337,12 +336,12 @@ switch (infoMap[? "shape"]) {
 				var targetIndex = global.worldGrid[# _x - 1, _y];
 				
 				if (targetIndex != index && targetIndex != WALL) {
-					entryIndex[| entryCount] = ds_map_create();
-					ds_list_mark_as_map(entryIndex, entryCount);
+					var entryIndex = ds_map_size(entryMap);
+					ds_map_add_map(entryMap, entryIndex, ds_map_create());
 					
-					var entryMap = entryIndex[| entryCount++];
-					entryMap[? "targetIndex"] = targetIndex;
-					entryMap[? "pos"] = POS.LEFT;
+					var _entryMap = entryMap[? entryIndex];
+					_entryMap[? "targetIndex"] = targetIndex;
+					_entryMap[? "pos"] = "left";
 				}
 			}
 			else {
@@ -354,12 +353,12 @@ switch (infoMap[? "shape"]) {
 					var targetIndex = global.worldGrid[# _x, _y - 1];
 					
 					if (targetIndex != index && targetIndex != WALL) {
-						entryIndex[| entryCount] = ds_map_create();
-						ds_list_mark_as_map(entryIndex, entryCount);
+						var entryIndex = ds_map_size(entryMap);
+						ds_map_add_map(entryMap, entryIndex, ds_map_create());
 						
-						var entryMap = entryIndex[| entryCount++];
-						entryMap[? "targetIndex"] = targetIndex;
-						entryMap[? "pos"] = POS.TOP_RIGHT;
+						var _entryMap = entryMap[? entryIndex];
+						_entryMap[? "targetIndex"] = targetIndex;
+						_entryMap[? "pos"] = "topright";
 					}
 				}
 				
@@ -371,12 +370,12 @@ switch (infoMap[? "shape"]) {
 					var targetIndex = global.worldGrid[# _x + 1, _y];
 				
 					if (targetIndex != index && targetIndex != WALL) {
-						entryIndex[| entryCount] = ds_map_create();
-						ds_list_mark_as_map(entryIndex, entryCount);
+						var entryIndex = ds_map_size(entryMap);
+						ds_map_add_map(entryMap, entryIndex, ds_map_create());
 						
-						var entryMap = entryIndex[| entryCount++];
-						entryMap[? "targetIndex"] = targetIndex;
-						entryMap[? "pos"] = POS.RIGHT;
+						var _entryMap = entryMap[? entryIndex];
+						_entryMap[? "targetIndex"] = targetIndex;
+						_entryMap[? "pos"] = "right";
 					}
 				}
 				
@@ -388,12 +387,12 @@ switch (infoMap[? "shape"]) {
 					var targetIndex = global.worldGrid[# _x, _y + 1];
 				
 					if (targetIndex != index && targetIndex != WALL) {
-						entryIndex[| entryCount] = ds_map_create();
-						ds_list_mark_as_map(entryIndex, entryCount);
+						var entryIndex = ds_map_size(entryMap);
+						ds_map_add_map(entryMap, entryIndex, ds_map_create());
 						
-						var entryMap = entryIndex[| entryCount++];
-						entryMap[? "targetIndex"] = targetIndex;
-						entryMap[? "pos"] = POS.BOTTOM_RIGHT;
+						var _entryMap = entryMap[? entryIndex];
+						_entryMap[? "targetIndex"] = targetIndex;
+						_entryMap[? "pos"] = "bottomright";
 					}
 				}
 			}
@@ -407,12 +406,12 @@ switch (infoMap[? "shape"]) {
 				var targetIndex = global.worldGrid[# _x, _y - 1];
 				
 				if (targetIndex != index && targetIndex != WALL) {
-					entryIndex[| entryCount] = ds_map_create();
-					ds_list_mark_as_map(entryIndex, entryCount);
+					var entryIndex = ds_map_size(entryMap);
+					ds_map_add_map(entryMap, entryIndex, ds_map_create());
 					
-					var entryMap = entryIndex[| entryCount++];	
-					entryMap[? "targetIndex"] = targetIndex;
-					entryMap[? "pos"] = POS.TOP_LEFT;
+					var _entryMap = entryMap[? entryIndex];	
+					_entryMap[? "targetIndex"] = targetIndex;
+					_entryMap[? "pos"] = "topleft";
 				}
 			}
 			
@@ -424,19 +423,19 @@ switch (infoMap[? "shape"]) {
 				var targetIndex = global.worldGrid[# _x, _y + 1];
 				
 				if (targetIndex != index && targetIndex != WALL) {
-					entryIndex[| entryCount] = ds_map_create();
-					ds_list_mark_as_map(entryIndex, entryCount);
+					var entryIndex = ds_map_size(entryMap);
+					ds_map_add_map(entryMap, entryIndex, ds_map_create());
 					
-					var entryMap = entryIndex[| entryCount++];
-					entryMap[? "targetIndex"] = targetIndex;
-					entryMap[? "pos"] = POS.BOTTOM_LEFT;
+					var _entryMap = entryMap[? entryIndex];
+					_entryMap[? "targetIndex"] = targetIndex;
+					_entryMap[? "pos"] = "bottomleft";
 				}
 			}
 		}
 		break;
 	#endregion
-	#region HLONG
-	case SHAPE.HLONG:
+	#region hlong
+	case "hlong":
 		if (_y > 0) {
 			if (global.worldGrid[# _x, _y - 1] != index) {
 				/*   ■
@@ -447,12 +446,12 @@ switch (infoMap[? "shape"]) {
 				var targetIndex = global.worldGrid[# _x, _y - 1];
 					
 				if (targetIndex != index && targetIndex != WALL) {
-					entryIndex[| entryCount] = ds_map_create();
-					ds_list_mark_as_map(entryIndex, entryCount);
+					var entryIndex = ds_map_size(entryMap);
+					ds_map_add_map(entryMap, entryIndex, ds_map_create());
 					
-					var entryMap = entryIndex[| entryCount++];
-					entryMap[? "targetIndex"] = targetIndex;
-					entryMap[? "pos"] = POS.TOP;
+					var _entryMap = entryMap[? entryIndex];
+					_entryMap[? "targetIndex"] = targetIndex;
+					_entryMap[? "pos"] = "top";
 				}
 				
 				/*   
@@ -464,12 +463,12 @@ switch (infoMap[? "shape"]) {
 					var targetIndex = global.worldGrid[# _x + 1, _y];
 					
 					if (targetIndex != index && targetIndex != WALL) {
-						entryIndex[| entryCount] = ds_map_create();
-						ds_list_mark_as_map(entryIndex, entryCount);
+						var entryIndex = ds_map_size(entryMap);
+						ds_map_add_map(entryMap, entryIndex, ds_map_create());
 						
-						var entryMap = entryIndex[| entryCount++];
-						entryMap[? "targetIndex"] = targetIndex;
-						entryMap[? "pos"] = POS.RIGHT_TOP;
+						var _entryMap = entryMap[? entryIndex];
+						_entryMap[? "targetIndex"] = targetIndex;
+						_entryMap[? "pos"] = "righttop";
 					}
 				}
 				
@@ -482,12 +481,12 @@ switch (infoMap[? "shape"]) {
 					var targetIndex = global.worldGrid[# _x - 1, _y];
 					
 					if (targetIndex != index && targetIndex != WALL) {
-						entryIndex[| entryCount] = ds_map_create();
-						ds_list_mark_as_map(entryIndex, entryCount);
+						var entryIndex = ds_map_size(entryMap);
+						ds_map_add_map(entryMap, entryIndex, ds_map_create());
 						
-						var entryMap = entryIndex[| entryCount++];
-						entryMap[? "targetIndex"] = targetIndex;
-						entryMap[? "pos"] = POS.LEFT_TOP;
+						var _entryMap = entryMap[? entryIndex];
+						_entryMap[? "targetIndex"] = targetIndex;
+						_entryMap[? "pos"] = "lefttop";
 					}
 				}
 			}
@@ -501,12 +500,12 @@ switch (infoMap[? "shape"]) {
 					var targetIndex = global.worldGrid[# _x + 1, _y];
 					
 					if (targetIndex != index && targetIndex != WALL) {
-						entryIndex[| entryCount] = ds_map_create();
-						ds_list_mark_as_map(entryIndex, entryCount);
+						var entryIndex = ds_map_size(entryMap);
+						ds_map_add_map(entryMap, entryIndex, ds_map_create());
 						
-						var entryMap = entryIndex[| entryCount++];
-						entryMap[? "targetIndex"] = targetIndex;
-						entryMap[? "pos"] = POS.RIGHT_BOTTOM;
+						var _entryMap = entryMap[? entryIndex];
+						_entryMap[? "targetIndex"] = targetIndex;
+						_entryMap[? "pos"] = "rightbottom";
 					}
 				}
 			
@@ -519,12 +518,12 @@ switch (infoMap[? "shape"]) {
 					var targetIndex = global.worldGrid[# _x, _y + 1];
 				
 					if (targetIndex != index && targetIndex != WALL) {
-						entryIndex[| entryCount] = ds_map_create();
-						ds_list_mark_as_map(entryIndex, entryCount);
+						var entryIndex = ds_map_size(entryMap);
+						ds_map_add_map(entryMap, entryIndex, ds_map_create());
 						
-						var entryMap = entryIndex[| entryCount++];
-						entryMap[? "targetIndex"] = targetIndex;
-						entryMap[? "pos"] = POS.BOTTOM;
+						var _entryMap = entryMap[? entryIndex];
+						_entryMap[? "targetIndex"] = targetIndex;
+						_entryMap[? "pos"] = "bottom";
 					}
 				}
 			
@@ -537,12 +536,12 @@ switch (infoMap[? "shape"]) {
 					var targetIndex = global.worldGrid[# _x - 1, _y];
 				
 					if (targetIndex != index && targetIndex != WALL) {
-						entryIndex[| entryCount] = ds_map_create();
-						ds_list_mark_as_map(entryIndex, entryCount);
+						var entryIndex = ds_map_size(entryMap);
+						ds_map_add_map(entryMap, entryIndex, ds_map_create());
 						
-						var entryMap = entryIndex[| entryCount++];
-						entryMap[? "targetIndex"] = targetIndex;
-						entryMap[? "pos"] = POS.LEFT_BOTTOM;
+						var _entryMap = entryMap[? entryIndex];
+						_entryMap[? "targetIndex"] = targetIndex;
+						_entryMap[? "pos"] = "leftbottom";
 					}
 				}
 			}
@@ -557,12 +556,12 @@ switch (infoMap[? "shape"]) {
 				var targetIndex = global.worldGrid[# _x - 1, _y];
 			
 				if (targetIndex != index && targetIndex != WALL) {
-					entryIndex[| entryCount] = ds_map_create();
-					ds_list_mark_as_map(entryIndex, entryCount);
+					var entryIndex = ds_map_size(entryMap);
+					ds_map_add_map(entryMap, entryIndex, ds_map_create());
 					
-					var entryMap = entryIndex[| entryCount++];
-					entryMap[? "targetIndex"] = targetIndex;
-					entryMap[? "pos"] = POS.LEFT_TOP;
+					var _entryMap = entryMap[? entryIndex];
+					_entryMap[? "targetIndex"] = targetIndex;
+					_entryMap[? "pos"] = "lefttop";
 				}
 			}
 			
@@ -575,12 +574,12 @@ switch (infoMap[? "shape"]) {
 				var targetIndex = global.worldGrid[# _x + 1, _y];
 			
 				if (targetIndex != index && targetIndex != WALL) {
-					entryIndex[| entryCount] = ds_map_create();
-					ds_list_mark_as_map(entryIndex, entryCount);
+					var entryIndex = ds_map_size(entryMap);
+					ds_map_add_map(entryMap, entryIndex, ds_map_create());
 					
-					var entryMap = entryIndex[| entryCount++];
-					entryMap[? "targetIndex"] = targetIndex;
-					entryMap[? "pos"] = POS.RIGHT_TOP;
+					var _entryMap = entryMap[? entryIndex];
+					_entryMap[? "targetIndex"] = targetIndex;
+					_entryMap[? "pos"] = "righttop";
 				}
 			}
 		}

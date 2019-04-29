@@ -1,7 +1,5 @@
 // 룸 이동
 if (other.isOpen) {
-	scr_room_memory_save();
-	
 	global.previousIndex = global.currentIndex;
 	global.currentIndex = other.targetIndex;
 	global.previousPos = other.pos;

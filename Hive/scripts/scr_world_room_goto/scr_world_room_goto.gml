@@ -3,6 +3,6 @@
 
 var index = argument0;
 
-var worldIndex = global.roomList[| index];
-var infoMap = worldIndex[| MARK.INFO];
+var _roomMap = global.roomMap[? index];
+var infoMap = _roomMap[? "info"];
 room_goto(infoMap[? "room"]);

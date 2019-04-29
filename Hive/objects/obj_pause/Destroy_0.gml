@@ -1,4 +1,2 @@
-if (surface_exists(pauseSuf)) {
-	surface_free(pauseSuf);
-}
+sprite_delete(spr_pause);
 instance_activate_all();

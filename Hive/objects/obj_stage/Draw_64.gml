@@ -1,7 +1,7 @@
 draw_set_alpha(0.6);
 #region 체력
 if (global.chrMap[? "hp"] > 0) {
-	draw_set_color(c_red);
+	draw_set_color(c_lime);
 	draw_rectangle(40, 40, 40 + global.chrMap[? "hp"] / global.chrMap[? "hpMax"] * 300, 80, false);
 	draw_set_color(c_black);
 	draw_rectangle(40, 40, 340, 80, true);
@@ -38,7 +38,7 @@ else {
 draw_set_alpha(1);
 
 #region 총알
-if (global.chrMap[? "swap"] == SWAP.RANGER) {
+if (global.chrMap[? "swap"] == "ranger") {
 	draw_text(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0) + 25, global.chrMap[? "ammo"]);
 }
 #endregion

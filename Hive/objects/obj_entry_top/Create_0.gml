@@ -1,1 +1,1 @@
-pos = POS.TOP;
+pos = "top";

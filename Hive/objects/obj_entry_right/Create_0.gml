@@ -1,1 +1,1 @@
-pos = POS.RIGHT;
+pos = "right";

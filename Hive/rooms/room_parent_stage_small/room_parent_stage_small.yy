@@ -137,7 +137,7 @@
             "layers": [
                 {
                     "__type": "GMRInstanceLayer_Model:#YoYoStudio.MVCFormat",
-                    "name": "layer_block",
+                    "name": "layer_solid",
                     "id": "fe338b66-5f8b-41f4-aaac-9cb3a15efa08",
                     "depth": 500,
                     "grid_x": 40,

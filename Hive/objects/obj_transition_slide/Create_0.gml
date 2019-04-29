@@ -7,21 +7,23 @@ draw_clear_alpha(c_white, 0);
 surface_reset_target();
 surface_reset_target();
 
-surface_copy(oldRoomSuf, 0, 0, application_surface);
+if (surface_exists(application_surface)) {
+	surface_copy(oldRoomSuf, 0, 0, application_surface);
+}
 
-if (global.previousPos == POS.TOP || global.previousPos == POS.TOP_LEFT || global.previousPos == POS.TOP_RIGHT) {
+if (global.previousPos == "top" || global.previousPos == "topleft" || global.previousPos == "topright") {
 	xTo = 0;
 	yTo = global.gameHeight * global.zoom;
 }
-else if (global.previousPos == POS.RIGHT || global.previousPos == POS.RIGHT_TOP || global.previousPos == POS.RIGHT_BOTTOM) {
+else if (global.previousPos == "right" || global.previousPos == "righttop" || global.previousPos == "rightbottom") {
 	xTo = -global.gameWidth * global.zoom;
 	yTo = 0;
 }
-else if (global.previousPos == POS.BOTTOM || global.previousPos == POS.BOTTOM_RIGHT || global.previousPos == POS.BOTTOM_LEFT) {
+else if (global.previousPos == "bottom" || global.previousPos == "bottomright" || global.previousPos == "bottomleft") {
 	xTo = 0;
 	yTo = -global.gameHeight * global.zoom;
 }
-else if (global.previousPos == POS.LEFT || global.previousPos == POS.LEFT_BOTTOM || global.previousPos == POS.LEFT_TOP) {
+else if (global.previousPos == "left" || global.previousPos == "leftbottom" || global.previousPos == "lefttop") {
 	xTo = global.gameWidth * global.zoom;
 	yTo = 0;
 }

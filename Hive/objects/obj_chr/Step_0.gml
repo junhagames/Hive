@@ -12,10 +12,10 @@ if (global.chrMap[? "ammo"] < 1 && alarm[ALARM_CHR.RELOAD] == -1) {
 }
 	
 // 무기 스프라이트
-if (global.chrMap[? "swap"] == SWAP.RANGER) {
+if (global.chrMap[? "swap"] == "ranger") {
 	weaponSprite = spr_weapon_pistol;
 }
-else if (global.chrMap[? "swap"] == SWAP.WARRIOR) {
+else if (global.chrMap[? "swap"] == "warrior") {
 	weaponSprite = spr_weapon_bat;
 }
 

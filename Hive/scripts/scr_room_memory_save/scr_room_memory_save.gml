@@ -1,26 +1,22 @@
-/// @description 룸 메모리 저장
+/// @description 룸 메모리 세이브
 
-var worldIndex = global.roomList[| global.currentIndex];
-var memoryIndex = worldIndex[| MARK.MEMORY];
+var _roomMap = global.roomMap[? global.currentIndex];
+var memoryMap = _roomMap[? "memory"];
 
 with (obj_solid_rock) {
-	for (var i = 0; i < ds_list_size(memoryIndex); i++) {
-		var memoryMap = memoryIndex[| i];
+	var memoryIndex = ds_map_size(memoryMap);
+	ds_map_add_map(memoryMap, memoryIndex, ds_map_create());
 
-		if (memoryMap[? "id"] == id) {
-			memoryMap[? "hp"] = hp;
-			break;
-		}
-	}
+	var _memoryMap = memoryMap[? memoryIndex];
+	_memoryMap[? "id"] = id;
+	_memoryMap[? "hp"] = hp;
 }
 
 with (obj_parent_enemy) {
-	for (var i = 0; i < ds_list_size(memoryIndex); i++) {
-		var memoryMap = memoryIndex[| i];
+	var memoryIndex = ds_map_size(memoryMap);
+	ds_map_add_map(memoryMap, memoryIndex, ds_map_create());
 
-		if (memoryMap[? "id"] == id) {
-			memoryMap[? "hp"] = hp;
-			break;
-		}
-	}
+	var _memoryMap = memoryMap[? memoryIndex];
+	_memoryMap[? "id"] = id;
+	_memoryMap[? "hp"] = hp;
 }

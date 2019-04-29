@@ -1,1 +1,1 @@
-pos = POS.BOTTOM;
+pos = "bottom";

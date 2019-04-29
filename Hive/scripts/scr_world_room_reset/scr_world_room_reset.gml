@@ -7,32 +7,27 @@ var index = argument0;
 var shape = argument1;
 var event = argument2;
 
-global.roomList[| index] = ds_list_create();
-ds_list_mark_as_list(global.roomList, index);
+ds_map_add_map(global.roomMap, index, ds_map_create());
+var _roomMap =  global.roomMap[? index];
 
-var worldIndex = global.roomList[| index];
-worldIndex[| MARK.INFO] = ds_map_create();
-worldIndex[| MARK.ENTRY] = ds_list_create();
-worldIndex[| MARK.MEMORY] = ds_list_create();
-ds_list_mark_as_map(worldIndex, MARK.INFO);
-ds_list_mark_as_list(worldIndex, MARK.ENTRY);
-ds_list_mark_as_list(worldIndex, MARK.MEMORY);
+ds_map_add_map(_roomMap, "info", ds_map_create());
+ds_map_add_map(_roomMap, "entry", ds_map_create());
+ds_map_add_map(_roomMap, "memory", ds_map_create());
 
 // 룸 정보 추가
-var infoMap = worldIndex[| MARK.INFO];
-infoMap[? "index"] = index;
+var infoMap = _roomMap[? "info"];
 infoMap[? "shape"] = shape;
 infoMap[? "event"] = event;
 
 // 보급품 시야 밝히기
-if (event == EVENT.SUPPLY) {
-	infoMap[? "search"] = SEARCH.CLOSE;
+if (event == "supply") {
+	infoMap[? "search"] = "close";
 }
 else {
-	infoMap[? "search"] = SEARCH.UNKNOWN;
+	infoMap[? "search"] = "unknown";
 }
 
-// 룸 설정
+// 룸 지정
 if (index == 0) {
 	infoMap[? "room"] = room_stage_start;
 }
@@ -40,16 +35,16 @@ else {
 	var roomList;
 
 	switch (shape) {
-		case SHAPE.SMALL:
+		case "small":
 			roomList = global.roomParentMap[? room_parent_stage_small];
 			break;
-		case SHAPE.BIG:
+		case "big":
 			roomList = global.roomParentMap[? room_parent_stage_big];
 			break;
-		case SHAPE.WLONG:
+		case "wlong":
 			roomList = global.roomParentMap[? room_parent_stage_wlong];
 			break;
-		case SHAPE.HLONG:
+		case "hlong":
 			roomList = global.roomParentMap[? room_parent_stage_hlong];
 			break;
 	}

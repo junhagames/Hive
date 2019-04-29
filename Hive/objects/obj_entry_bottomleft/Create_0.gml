@@ -1,1 +1,1 @@
-pos = POS.BOTTOM_LEFT;
+pos = "bottomleft";
