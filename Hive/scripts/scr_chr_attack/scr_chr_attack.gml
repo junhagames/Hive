@@ -12,6 +12,8 @@ if (!isAttackDelay) {
 				global.chrMap[? "ammo"]--;
 				isAttackDelay = true;
 				alarm[ALARM_CHR.ATTACK] = global.chrMap[? "rangerSpeed"];
+				
+				scr_camera_shake(4);
 			}
 		}
 	}
@@ -25,6 +27,9 @@ if (!isAttackDelay) {
 			
 			var eft = instance_create_layer(melee.x, melee.y, "layer_particle", obj_particle_melee_swing);
 			eft.image_angle = melee.image_angle;
+			
+			scr_camera_shake(10);
 		}
+		
 	}
 }

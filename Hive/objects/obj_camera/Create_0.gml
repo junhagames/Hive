@@ -1,5 +1,6 @@
 camera = camera_create();
 target = obj_chr;
+shake = 0;
 
 if (instance_exists(target)) {
 	x = median(global.gameWidth / 2, target.x, room_width - global.gameWidth / 2);
