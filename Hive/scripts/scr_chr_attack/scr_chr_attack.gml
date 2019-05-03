@@ -2,6 +2,8 @@
 
 if (!isAttackDelay) {
 	if (global.chrMap[? "swap"] == "ranger") {
+		
+		
 		if (mouse_check_button(mb_left)) {
 			if (global.chrMap[? "ammo"] > 0) {
 				var bullet = instance_create_layer(x + lengthdir_x(weaponLength, weaponAngle), y + lengthdir_y(weaponLength, weaponAngle) - 8, "layer_inst", obj_bullet);
@@ -14,6 +16,10 @@ if (!isAttackDelay) {
 				alarm[ALARM_CHR.ATTACK] = global.chrMap[? "rangerSpeed"];
 				
 				scr_camera_shake(4);
+			}
+			else if (mouse_check_button_pressed(mb_left)) {
+				// 재장전
+				global.chrMap[? "ammo"] = global.chrMap[? "ammoMax"];
 			}
 		}
 	}

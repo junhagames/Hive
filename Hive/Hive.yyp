@@ -871,14 +871,6 @@
             }
         },
         {
-            "Key": "9d3e84f0-fbe5-4252-9a91-2f1c478dca00",
-            "Value": {
-                "id": "a2c280c5-1fb8-467d-aed9-eb3399622ecd",
-                "resourcePath": "scripts\\scr_chr_angle\\scr_chr_angle.yy",
-                "resourceType": "GMScript"
-            }
-        },
-        {
             "Key": "9d444f05-3730-485e-a9ac-33851307a4c8",
             "Value": {
                 "id": "47b719d0-1f0a-47cc-bfa5-e73482b600ac",
@@ -1471,7 +1463,6 @@
         "8ab3e9a0-ccdc-4a89-8d9a-1b79c1bb15a3",
         "4d3ac9be-3ade-4332-9d16-94f3dfd76208",
         "02f1f587-e331-437f-8a0c-58fe25fc8448",
-        "9d3e84f0-fbe5-4252-9a91-2f1c478dca00",
         "0f319c96-de13-474b-90de-65773d97d57a",
         "d549e5da-eac9-4073-aa64-e5927f646d6e",
         "ef38db62-5f6e-4d4a-9b37-e3902fa45fae",

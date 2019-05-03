@@ -11,7 +11,6 @@ enum ALARM_CHR {
 	SKILL,
 	DAMAGE,
 	SWAP,
-	RELOAD,
 }
 
 enum ALARM_INSECT {

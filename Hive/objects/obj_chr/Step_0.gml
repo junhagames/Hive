@@ -1,14 +1,8 @@
 if (!instance_exists(obj_parent_transition)) {
 	scr_chr_move();
-	scr_chr_angle();
 	scr_chr_attack();
 	scr_chr_skill();
 	scr_chr_swap();
-}
-
-// 재장전
-if (global.chrMap[? "ammo"] < 1 && alarm[ALARM_CHR.RELOAD] == -1) {
-	alarm[ALARM_CHR.RELOAD] = reloadSpeed;
 }
 	
 // 무기 스프라이트
