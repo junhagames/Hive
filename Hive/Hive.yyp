@@ -90,7 +90,7 @@
             "Key": "0b61b594-d462-4db9-825f-4dacc9abb2d8",
             "Value": {
                 "id": "37f9dccf-abda-45ea-bb80-10d0195ce1b9",
-                "resourcePath": "scripts\\scr_room_memory_load\\scr_room_memory_load.yy",
+                "resourcePath": "scripts\\scr_room_inst_load\\scr_room_inst_load.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -322,7 +322,7 @@
             "Key": "38b67bd2-278e-4d3f-98b9-dd7150bcfe6b",
             "Value": {
                 "id": "d5c0c7ce-b596-4c8a-9fcb-943ba472c002",
-                "resourcePath": "scripts\\scr_room_memory_destroy\\scr_room_memory_destroy.yy",
+                "resourcePath": "scripts\\scr_room_inst_destroy\\scr_room_inst_destroy.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -554,7 +554,7 @@
             "Key": "6c471fe9-5648-4397-ad8a-06abe06be6a6",
             "Value": {
                 "id": "91caf5fa-1b35-449a-926d-309dc10abdd0",
-                "resourcePath": "scripts\\scr_room_memory_save\\scr_room_memory_save.yy",
+                "resourcePath": "scripts\\scr_room_inst_save\\scr_room_inst_save.yy",
                 "resourceType": "GMScript"
             }
         },

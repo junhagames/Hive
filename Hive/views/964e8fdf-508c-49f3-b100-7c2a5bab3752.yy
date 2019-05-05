@@ -8,7 +8,7 @@
         "4d3ac9be-3ade-4332-9d16-94f3dfd76208"
     ],
     "filterType": "GMScript",
-    "folderName": "Save|Load",
+    "folderName": "Game save|load",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

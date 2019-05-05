@@ -1,10 +1,15 @@
 /// @description 월드 무작위 초기화
 /// @param roomNum
+/// @param roomWidth
+/// @param roomHeight
 
 var roomNum = argument0;
+var roomWidth = argument1; 
+var roomHeight = argument2;
 
 // 월드 초기화
 global.currentIndex = 0;
+ds_grid_resize(global.worldGrid, roomWidth, roomHeight);
 
 for (var _y = 0; _y < ds_grid_height(global.worldGrid); _y++) {
 	for (var _x = 0; _x < ds_grid_width(global.worldGrid); _x++) {
@@ -39,9 +44,13 @@ ds_list_shuffle(eventList);
 // 월드 생성
 var controlX = ds_grid_width(global.worldGrid) div 2;
 var controlY = ds_grid_height(global.worldGrid) div 2;
+var smallList = ds_list_create();
+var bigList = ds_list_create();
+var wlongList = ds_list_create();
+var hlongList = ds_list_create();
 
 global.worldGrid[# controlX, controlY] = 0;
-scr_world_room_reset(global.worldGrid[# controlX, controlY], "small", "stage");
+scr_world_room_reset(global.worldGrid[# controlX, controlY], "small", "stage", room_stage_start);
 
 for (var i = 1; i < roomNum; i++) {
 	var isCreateRoom = false;
@@ -52,14 +61,15 @@ for (var i = 1; i < roomNum; i++) {
 		var controlDir = choose("east", "west", "south", "north");
 		var roomShape, roomEvent;
 	
-		// 보스|일반 스테이지 설정
 		if (i == roomNum - 1) {
+			// 보스 스테이지 설정
 			roomShape = "small";
 			roomEvent = "boss";
 		}
 		else {
+			// 일반 스테이지 설정
 			roomShape = choose("small", "big", "wlong", "hlong");
-			var eventTurn = floor((roomNum - 2) / ds_list_size(eventList));
+			var eventTurn = max(floor((roomNum - 2) / ds_list_size(eventList)), 1);
 
 			if (i mod eventTurn == 0) {
 				roomEvent = eventList[| i / eventTurn - 1];
@@ -93,8 +103,18 @@ for (var i = 1; i < roomNum; i++) {
 					}
 					else if (global.worldGrid[# controlX, controlY] == WALL) {
 						global.worldGrid[# controlX, controlY] = i;
-						scr_world_room_reset(global.worldGrid[# controlX, controlY], roomShape, roomEvent);
 						isCreateRoom = true;
+
+						if (ds_list_empty(smallList)) {
+							var _smallList = global.roomParentMap[? room_parent_stage_small];
+
+							for (var j = 0; j < ds_list_size(_smallList); j++) {
+								ds_list_add(smallList, _smallList[| j]);
+							}
+							ds_list_shuffle(smallList);
+						}
+						scr_world_room_reset(global.worldGrid[# controlX, controlY], roomShape, roomEvent, smallList[| ds_list_size(smallList) - 1]);
+						ds_list_delete(smallList, ds_list_size(smallList) - 1);
 					}
 					break;
 				#endregion
@@ -150,8 +170,18 @@ for (var i = 1; i < roomNum; i++) {
 					
 						if (isEmpty) {
 							ds_grid_set_region(global.worldGrid, controlX1, controlY1, controlX2, controlY2, i);
-							scr_world_room_reset(global.worldGrid[# controlX, controlY], roomShape, roomEvent);
 							isCreateRoom = true;
+
+							if (ds_list_empty(bigList)) {
+								var _bigList = global.roomParentMap[? room_parent_stage_big];
+
+								for (var j = 0; j < ds_list_size(_bigList); j++) {
+									ds_list_add(bigList, _bigList[| j]);
+								}
+								ds_list_shuffle(bigList);
+							}
+							scr_world_room_reset(global.worldGrid[# controlX, controlY], roomShape, roomEvent, bigList[| ds_list_size(bigList) - 1]);
+							ds_list_delete(bigList, ds_list_size(bigList) - 1);
 						}
 						else if (global.worldGrid[# controlX, controlY] == WALL) {
 							controlX = previousX;
@@ -212,8 +242,18 @@ for (var i = 1; i < roomNum; i++) {
 					
 						if (isEmpty) {
 							ds_grid_set_region(global.worldGrid, controlX1, controlY1, controlX2, controlY2, i);
-							scr_world_room_reset(global.worldGrid[# controlX, controlY], roomShape, roomEvent);
 							isCreateRoom = true;
+							
+							if (ds_list_empty(wlongList)) {
+								var _wlongList = global.roomParentMap[? room_parent_stage_wlong];
+
+								for (var j = 0; j < ds_list_size(_wlongList); j++) {
+									ds_list_add(wlongList, _wlongList[| j]);
+								}
+								ds_list_shuffle(wlongList);
+							}
+							scr_world_room_reset(global.worldGrid[# controlX, controlY], roomShape, roomEvent, wlongList[| ds_list_size(wlongList) - 1]);
+							ds_list_delete(wlongList, ds_list_size(wlongList) - 1);
 						}
 						else if (global.worldGrid[# controlX, controlY] == WALL) {
 							controlX = previousX;
@@ -274,8 +314,18 @@ for (var i = 1; i < roomNum; i++) {
 					
 						if (isEmpty) {
 							ds_grid_set_region(global.worldGrid, controlX1, controlY1, controlX2, controlY2, i);
-							scr_world_room_reset(global.worldGrid[# controlX, controlY], roomShape, roomEvent);
 							isCreateRoom = true;
+							
+							if (ds_list_empty(hlongList)) {
+								var _hlongList = global.roomParentMap[? room_parent_stage_hlong];
+
+								for (var j = 0; j < ds_list_size(_hlongList); j++) {
+									ds_list_add(hlongList, _hlongList[| j]);
+								}
+								ds_list_shuffle(hlongList);
+							}
+							scr_world_room_reset(global.worldGrid[# controlX, controlY], roomShape, roomEvent, hlongList[| ds_list_size(hlongList) - 1]);
+							ds_list_delete(hlongList, ds_list_size(hlongList) - 1);
 						}
 						else if (global.worldGrid[# controlX, controlY] == WALL) {
 							controlX = previousX;
@@ -289,6 +339,10 @@ for (var i = 1; i < roomNum; i++) {
 	until (isCreateRoom);
 }
 ds_list_destroy(eventList);
+ds_list_destroy(smallList);
+ds_list_destroy(bigList);
+ds_list_destroy(wlongList);
+ds_list_destroy(hlongList);
 
 // 월드 세이브
 global.saveMap[? "worldGrid"] = ds_grid_write(global.worldGrid);

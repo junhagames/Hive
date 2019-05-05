@@ -1,7 +1,7 @@
 var _roomMap = global.roomMap[? global.currentIndex];
 var infoMap = _roomMap[? "info"];
 var entryMap = _roomMap[? "entry"];
-var memoryMap = _roomMap[? "memory"];
+var instMap = _roomMap[? "inst"];
 
 // 시야 밝히기
 infoMap[? "search"] = "known";
@@ -99,11 +99,11 @@ instance_create_layer(0, 0, "layer_draw", obj_draw);
 #endregion
 
 // 메모리 세이브|불러오기
-if (ds_map_empty(memoryMap)) {
-	scr_room_memory_save();
+if (ds_map_empty(instMap)) {
+	scr_room_inst_save();
 }
 else {
-	scr_room_memory_load();
+	scr_room_inst_load();
 }
 
 // 길찾기 그리드 생성

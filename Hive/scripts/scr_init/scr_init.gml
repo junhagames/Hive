@@ -5,7 +5,7 @@
 #macro CELL_WIDTH 40
 #macro CELL_HEIGHT 40
 #endregion
-#region 열거형
+#region 알람 열거형
 enum ALARM_CHR {
 	ATTACK,
 	SKILL,

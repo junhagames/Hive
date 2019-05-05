@@ -2,8 +2,6 @@
 
 if (!isAttackDelay) {
 	if (global.chrMap[? "swap"] == "ranger") {
-		
-		
 		if (mouse_check_button(mb_left)) {
 			if (global.chrMap[? "ammo"] > 0) {
 				var bullet = instance_create_layer(x + lengthdir_x(weaponLength, weaponAngle), y + lengthdir_y(weaponLength, weaponAngle) - 8, "layer_inst", obj_bullet);
@@ -36,6 +34,5 @@ if (!isAttackDelay) {
 			
 			scr_camera_shake(10);
 		}
-		
 	}
 }

@@ -1,1 +1,1 @@
-scr_room_memory_destroy();
+scr_room_inst_destroy();

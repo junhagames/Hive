@@ -2,17 +2,19 @@
 /// @param index
 /// @param shape
 ///	@param event
+/// @param _room
 
 var index = argument0;
 var shape = argument1;
 var event = argument2;
+var _room = argument3;
 
 ds_map_add_map(global.roomMap, index, ds_map_create());
 var _roomMap =  global.roomMap[? index];
 
 ds_map_add_map(_roomMap, "info", ds_map_create());
 ds_map_add_map(_roomMap, "entry", ds_map_create());
-ds_map_add_map(_roomMap, "memory", ds_map_create());
+ds_map_add_map(_roomMap, "inst", ds_map_create());
 
 // 룸 정보 추가
 var infoMap = _roomMap[? "info"];
@@ -32,21 +34,5 @@ if (index == 0) {
 	infoMap[? "room"] = room_stage_start;
 }
 else {
-	var roomList;
-
-	switch (shape) {
-		case "small":
-			roomList = global.roomParentMap[? room_parent_stage_small];
-			break;
-		case "big":
-			roomList = global.roomParentMap[? room_parent_stage_big];
-			break;
-		case "wlong":
-			roomList = global.roomParentMap[? room_parent_stage_wlong];
-			break;
-		case "hlong":
-			roomList = global.roomParentMap[? room_parent_stage_hlong];
-			break;
-	}
-	infoMap[? "room"] = irandom_range(roomList[| 0], roomList[| 0] + ds_list_size(roomList) - 1);
+	infoMap[? "room"] = _room;
 }
