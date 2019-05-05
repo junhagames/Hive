@@ -1,4 +1,4 @@
-/// @description 인스턴스 파괴시 정보 저장
+/// @description 인스턴스 정보 저장
 
 var _roomMap = global.roomMap[? global.currentIndex];
 var instMap = _roomMap[? "inst"];

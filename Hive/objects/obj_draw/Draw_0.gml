@@ -1,20 +1,17 @@
 // 깊이 순서 정렬
 var instCount = instance_number(obj_parent_depth);
-ds_grid_resize(depthGrid, 2, instCount);
-	
+var depthGrid = ds_grid_create(2, instCount);
 var yy = 0;
 	
 with (obj_parent_depth) {
-	obj_draw.depthGrid[# 0, yy] = id;
-	obj_draw.depthGrid[# 1, yy] = y;
+	depthGrid[# 0, yy] = id;
+	depthGrid[# 1, yy] = y;
 	yy++;
 }
 ds_grid_sort(depthGrid, 1, true);
 
-var yy = 0;
-
-repeat (instCount) {
-	var instID = depthGrid[# 0, yy];
+for (var i = 0; i < instCount; i++) {
+	var instID = depthGrid[# 0, i];
 
 	with (instID) {
 		switch (object_index) {
@@ -37,5 +34,5 @@ repeat (instCount) {
 			#endregion
 		}
 	}
-	yy++;
 }
+ds_grid_destroy(depthGrid);

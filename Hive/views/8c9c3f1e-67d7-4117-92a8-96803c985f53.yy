@@ -9,7 +9,7 @@
         "38b67bd2-278e-4d3f-98b9-dd7150bcfe6b"
     ],
     "filterType": "GMScript",
-    "folderName": "Inst save|load",
+    "folderName": "Instance",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

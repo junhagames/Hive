@@ -30,9 +30,4 @@ else {
 }
 
 // 룸 지정
-if (index == 0) {
-	infoMap[? "room"] = room_stage_start;
-}
-else {
-	infoMap[? "room"] = _room;
-}
+infoMap[? "room"] = _room;

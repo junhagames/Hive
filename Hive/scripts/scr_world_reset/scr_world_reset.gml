@@ -71,7 +71,7 @@ for (var i = 1; i < roomNum; i++) {
 			roomShape = choose("small", "big", "wlong", "hlong");
 			var eventTurn = max(floor((roomNum - 2) / ds_list_size(eventList)), 1);
 
-			if (i mod eventTurn == 0) {
+			if (i mod eventTurn == 0) {	
 				roomEvent = eventList[| i / eventTurn - 1];
 			}
 			else {

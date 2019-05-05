@@ -49,7 +49,7 @@ ini_close();
 #endregion
 
 // 월드 초기화
-global.worldGrid = ds_grid_create(7, 7);
+global.worldGrid = ds_grid_create(0, 0);
 global.roomMap = ds_map_create();
 global.currentIndex = 0;
 global.previousIndex = noone;

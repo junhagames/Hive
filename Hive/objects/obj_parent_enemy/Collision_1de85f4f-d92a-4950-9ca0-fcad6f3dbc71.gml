@@ -1,1 +1,0 @@
-hp -= other.damage;
