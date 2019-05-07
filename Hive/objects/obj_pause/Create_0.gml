@@ -1,5 +1,8 @@
 // 어플리케이션 서피스 복사
 pauseSuf = surface_create(global.gameWidth * global.resolution, global.gameHeight * global.resolution);
+surface_set_target(pauseSuf);
+draw_clear_alpha(c_white, 0);
+surface_reset_target();
 surface_copy(pauseSuf, 0, 0, application_surface);
 
 // 일시정지 스프라이트 생성

@@ -1,3 +1,15 @@
+#region 광원
+if (surface_exists(lightSuf)) {
+	draw_surface(lightSuf, 0, 0);
+}
+else {
+	lightSuf = surface_create(global.gameWidth * global.zoom, global.gameHeight * global.zoom);
+	surface_set_target(lightSuf);
+	draw_clear_alpha(c_white, 0);
+	surface_reset_target();
+}
+#endregion
+
 draw_set_alpha(0.6);
 #region 체력
 if (global.chrMap[? "hp"] > 0) {
