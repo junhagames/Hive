@@ -1,7 +1,2 @@
-if (other.hp <= damage) {
-	instance_destroy(other);
-}
-else {
-	other.hp -= damage;
-}
+other.hp -= damage;
 instance_destroy();

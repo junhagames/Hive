@@ -1,0 +1,1 @@
+draw_sprite(spr_title, 0, global.gameWidth / 2, 200);

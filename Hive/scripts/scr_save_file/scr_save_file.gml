@@ -3,8 +3,8 @@
 
 var fileName = argument0;
 
-// 현재 위치 세이브
-global.saveMap[? "currentIndex"] = global.currentIndex;
+// 월드 세이브
+global.saveMap[? "worldGrid"] = ds_grid_write(global.worldGrid);
 
 // 세이브 파일 생성
 var saveString = json_encode(global.saveMap);

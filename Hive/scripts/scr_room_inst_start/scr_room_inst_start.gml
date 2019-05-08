@@ -11,6 +11,7 @@ if (ds_map_empty(instMap)) {
 
 		var _instMap = instMap[? instIndex];
 		_instMap[? "id"] = id;
+		_instMap[? "object"] = object_index;
 		_instMap[? "hp"] = hp;
 	}
 
@@ -20,6 +21,7 @@ if (ds_map_empty(instMap)) {
 
 		var _instMap = instMap[? instIndex];
 		_instMap[? "id"] = id;
+		_instMap[? "object"] = object_index;
 		_instMap[? "hp"] = hp;
 	}
 }
@@ -29,16 +31,16 @@ else {
 		var _instMap = instMap[? i];
 		
 		with (_instMap[? "id"]) {
-			if (object_index == obj_solid_rock) {
+			if (_instMap[? "object"] == obj_solid_rock) {
 				// obj_solid_rock
-				hp = _instMap[? "hp"]; 
+				hp = _instMap[? "hp"];
 			}
 			else {
 				// obj_parent_enemy
 				var enemyList = global.objParentMap[? obj_parent_enemy];
 
 				for (var j = 0; j < ds_list_size(enemyList); j++) {
-					if (object_index == enemyList[| j]) {
+					if (_instMap[? "object"] == enemyList[| j]) {
 						hp = _instMap[? "hp"];
 					}
 				}

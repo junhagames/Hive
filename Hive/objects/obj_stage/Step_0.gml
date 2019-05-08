@@ -1,7 +1,7 @@
 // 광원 블랜딩
 if (surface_exists(lightSuf)) {
 	surface_set_target(lightSuf);
-	draw_set_alpha(0.2);
+	draw_set_alpha(0.3);
 	draw_set_color(c_dkgray);
 	draw_rectangle(0, 0, global.gameWidth, global.gameHeight, false);
 	draw_set_color(c_white);

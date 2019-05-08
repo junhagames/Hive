@@ -344,9 +344,6 @@ ds_list_destroy(bigList);
 ds_list_destroy(wlongList);
 ds_list_destroy(hlongList);
 
-// 월드 세이브
-global.saveMap[? "worldGrid"] = ds_grid_write(global.worldGrid);
-
 // 룸 입구 생성
 for (var _y = 0; _y < ds_grid_height(global.worldGrid); _y++) {
 	for (var _x = 0; _x < ds_grid_width(global.worldGrid); _x++) {

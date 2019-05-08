@@ -22,3 +22,10 @@ if (keyboard_check_pressed(vk_f4)) {
 if (keyboard_check_pressed(vk_f5)) {
 	game_restart();
 }
+
+// 모든 적 사살
+if (keyboard_check_pressed(vk_space)) {
+	with (obj_parent_enemy) {
+		hp = 0;
+	}
+}

@@ -113,6 +113,3 @@ mp_grid_add_instances(enemyPathGrid, obj_parent_entry, false);
 
 // 미니맵 생성
 scr_minimap_create();
-
-// 게임 세이브
-scr_save_file("save.sav");

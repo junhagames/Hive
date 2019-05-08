@@ -4,8 +4,8 @@ var minimapw = sprite_get_width(spr_ui_minimap_small);
 var minimaph = sprite_get_height(spr_ui_minimap_small);
 var overlapList = ds_list_create();
 
-minimapSuf = surface_create(ds_grid_width(global.worldGrid) * minimapw * 1.5 * global.zoom,
-	ds_grid_height(global.worldGrid) * minimaph * 1.5 * global.zoom);
+minimapSuf = surface_create(ds_grid_width(global.worldGrid) * minimapw * 1.5,
+	ds_grid_height(global.worldGrid) * minimaph * 1.5);
 surface_set_target(minimapSuf);
 draw_clear_alpha(c_white, 0);
 

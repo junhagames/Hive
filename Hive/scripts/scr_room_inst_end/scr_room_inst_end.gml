@@ -7,7 +7,7 @@ for (var i = 0; i < ds_map_size(instMap); i++) {
 	var _instMap = instMap[? i];
 
 	with (_instMap[? "id"]) {
-		if (object_index == obj_solid_rock) {
+		if (_instMap[? "object"] == obj_solid_rock) {
 			// obj_solid_rock
 			_instMap[? "hp"] = hp;
 		}
@@ -16,7 +16,7 @@ for (var i = 0; i < ds_map_size(instMap); i++) {
 			var enemyList = global.objParentMap[? obj_parent_enemy];
 
 			for (var j = 0; j < ds_list_size(enemyList); j++) {
-				if (object_index == enemyList[| j]) {
+				if (_instMap[? "object"] == enemyList[| j]) {
 					_instMap[? "hp"] = hp; 
 				}
 			}
