@@ -8,8 +8,10 @@ isAttackDelay = false;
 isSkillDelay = false;
 isDamageDelay = false;
 isSwapDelay = false;
+isSwapSkillDelay = false;
 
 skillSpeed = room_speed * 10;
-swapSpeed = room_speed;
+swapSpeed = room_speed * 0.2;
+swapSkillSpeed = room_speed * 5;
 
 global.chrMap[? "ammo"] = global.chrMap[? "ammoMax"];

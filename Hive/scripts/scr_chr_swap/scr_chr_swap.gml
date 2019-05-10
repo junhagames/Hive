@@ -11,6 +11,10 @@ if (mouse_wheel_up() || mouse_wheel_down()) {
 		isSwapDelay = true;
 		alarm[ALARM_CHR.SWAP] = swapSpeed;
 		
-		// TODO add swap skill
+		if (!isSwapSkillDelay) {
+			// TODO add swap skill
+			isSwapSkillDelay = true;
+			alarm[ALARM_CHR.SWAP_SKILL] = swapSkillSpeed;
+		}
 	}
 }

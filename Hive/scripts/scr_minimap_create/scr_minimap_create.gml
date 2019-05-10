@@ -19,7 +19,7 @@ for (var _y = 0; _y < ds_grid_height(global.worldGrid); _y++) {
 			ds_list_add(overlapList, index);
 
 			if (infoMap[? "search"] != "unknown") {
-				var minimapSprite, minimapIndex, iconSprite, color;
+				var minimapSprite, minimapColor;
 
 				switch (infoMap[? "shape"]) {
 					case "small":			
@@ -35,34 +35,7 @@ for (var _y = 0; _y < ds_grid_height(global.worldGrid); _y++) {
 						minimapSprite = spr_ui_minimap_hlong;
 						break;
 				}
-				
-				switch (infoMap[? "search"]) {
-					case "known":
-						minimapIndex = 0;
-						break;
-					case "close":
-						minimapIndex = 1;
-						break;
-				}
-			
-				switch (infoMap[? "event"]) {
-					case "boss":
-						iconSprite = spr_ui_minimap_boss;
-						break;
-					case "miniboss":
-						iconSprite = spr_ui_minimap_miniboss;
-						break;
-					case "supply":			
-						iconSprite = spr_ui_minimap_supply;
-						break;
-					case "shop":
-						iconSprite = spr_ui_minimap_shop;
-						break;
-					case "quest":
-						iconSprite = spr_ui_minimap_quest;
-						break;
-				}
-			
+
 				var marginX = ds_grid_width(global.worldGrid) * 0.25;
 				var marginY = ds_grid_height(global.worldGrid) * 0.25;
 				var minimapSpriteX = _x * minimapw + minimapw * marginX;
@@ -71,17 +44,44 @@ for (var _y = 0; _y < ds_grid_height(global.worldGrid); _y++) {
 				if (index == global.currentIndex) {
 					minimapX = _x * minimapw + sprite_get_width(minimapSprite) / 2 + minimapw * marginX - 100;
 					minimapY = _y * minimaph + sprite_get_height(minimapSprite) / 2 + minimaph * marginY - 100;
-					color = c_white;
+					minimapColor = c_white;
 				}
 				else {
-					color = make_color_hsv(10 * (index mod 255), 255, 255);	
+					switch (infoMap[? "search"]) {
+						case "known":
+							minimapColor = $707070;
+							break;
+						case "close":
+							minimapColor = $333333;
+							break;
+					}
 				}
 			
 				// 미니맵 그리기
-				draw_sprite_ext(minimapSprite, minimapIndex, minimapSpriteX, minimapSpriteY, 1, 1, 0, color, 1);
+				draw_sprite_ext(minimapSprite, 0, minimapSpriteX, minimapSpriteY, 1, 1, 0, minimapColor, 1);
 			
 				// 미니맵 아이콘 그리기
 				if (infoMap[? "event"] != "stage") {
+					var iconSprite;
+					
+					switch (infoMap[? "event"]) {
+						case "boss":
+							iconSprite = spr_ui_minimap_boss;
+							break;
+						case "miniboss":
+							iconSprite = spr_ui_minimap_miniboss;
+							break;
+						case "supply":			
+							iconSprite = spr_ui_minimap_supply;
+							break;
+						case "shop":
+							iconSprite = spr_ui_minimap_shop;
+							break;
+						case "quest":
+							iconSprite = spr_ui_minimap_quest;
+							break;
+					}
+				
 					draw_sprite_ext(iconSprite, 0,
 						minimapSpriteX + (sprite_get_width(minimapSprite) - minimapw) / minimapw * minimapw / 2,
 						minimapSpriteY + (sprite_get_height(minimapSprite) - minimaph) / minimaph * minimaph / 2,
