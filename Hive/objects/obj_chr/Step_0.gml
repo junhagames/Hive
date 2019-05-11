@@ -5,7 +5,7 @@ if (!instance_exists(obj_parent_transition)) {
 	scr_chr_swap();
 }
 	
-// 무기 스프라이트
+// 무기 스프라이트 설정
 if (global.chrMap[? "swap"] == "ranger") {
 	weaponSprite = spr_weapon_pistol;
 }

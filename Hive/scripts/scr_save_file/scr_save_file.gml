@@ -5,6 +5,7 @@ var fileName = argument0;
 
 // 월드 세이브
 global.saveMap[? "worldGrid"] = ds_grid_write(global.worldGrid);
+global.saveMap[? "currentWorld"] = global.currentWorld;
 
 // 세이브 파일 생성
 var saveString = json_encode(global.saveMap);

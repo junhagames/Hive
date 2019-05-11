@@ -77,8 +77,8 @@ for (var _y = 0; _y < ds_grid_height(global.worldGrid); _y++) {
 						case "shop":
 							iconSprite = spr_ui_minimap_shop;
 							break;
-						case "quest":
-							iconSprite = spr_ui_minimap_quest;
+						case "encounter":
+							iconSprite = spr_ui_minimap_encounter;
 							break;
 					}
 				

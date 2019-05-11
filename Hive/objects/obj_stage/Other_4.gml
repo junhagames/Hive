@@ -2,11 +2,8 @@ var _roomMap = global.roomMap[? global.currentIndex];
 var infoMap = _roomMap[? "info"];
 var entryMap = _roomMap[? "entry"];
 
-// 광원
+// 광원 초기화
 lightSuf = surface_create(global.gameWidth * global.zoom, global.gameHeight * global.zoom);
-surface_set_target(lightSuf);
-draw_clear_alpha(c_white, 0);
-surface_reset_target();
 
 // 시야 밝히기
 infoMap[? "search"] = "known";
@@ -20,12 +17,6 @@ with (obj_parent_entry) {
 		
 		if (pos == _entryMap[? "pos"]) {
 			targetIndex = _entryMap[? "targetIndex"];
-			var targetRoomMap = global.roomMap[? targetIndex];
-			var targetInfoMap = targetRoomMap[? "info"];
-			
-			if (targetInfoMap[? "search"] == "unknown") { 
-				targetInfoMap[? "search"] = "close";
-			}
 			isEntry = true;
 			break;
 		}
@@ -35,6 +26,200 @@ with (obj_parent_entry) {
 	block.image_yscale = sprite_height / block.sprite_height;
 		
 	if (isEntry) {
+		var targetRoomMap = global.roomMap[? targetIndex];
+		var targetInfoMap = targetRoomMap[? "info"];
+		
+		// 인접한 룸 시야 밝히기
+		if (targetInfoMap[? "search"] == "unknown") { 
+			targetInfoMap[? "search"] = "close";
+		}
+		
+		// 입구 스프라이트 설정
+		var posTo;
+		
+		if (pos == "top" || pos == "topleft" || pos == "topright") {
+			posTo = "top";
+		}
+		else if (pos == "right" || pos == "righttop" || pos == "rightbottom") {
+			posTo = "right"
+		}
+		else if (pos == "bottom" || pos == "bottomright" || pos == "bottomleft") {
+			posTo = "bottom";
+		}
+		else if (pos == "left" || pos == "leftbottom" || pos == "lefttop") {
+			posTo = "left"
+		}
+				
+		switch (targetInfoMap[? "event"]) {
+			#region boss
+			case "boss":
+				if (posTo == "top") {
+					sprite_index = spr_entry_boss_top;
+				}
+				else if (posTo == "right") {
+					sprite_index = spr_entry_boss_right;
+				}
+				else if (posTo == "bottom") {
+					sprite_index = spr_entry_boss_bottom;
+				}
+				else if (posTo == "left") {
+					sprite_index = spr_entry_boss_left;
+				}
+				break;
+			#endregion
+			#region miniboss
+			case "miniboss":
+				if (posTo == "top") {
+					sprite_index = spr_entry_miniboss_top;
+				}
+				else if (posTo == "right") {
+					sprite_index = spr_entry_miniboss_right;
+				}
+				else if (posTo == "bottom") {
+					sprite_index = spr_entry_miniboss_bottom;
+				}
+				else if (posTo == "left") {
+					sprite_index = spr_entry_miniboss_left;
+				}
+				break;
+			#endregion
+			#region supply
+			case "supply":
+				if (posTo == "top") {
+					sprite_index = spr_entry_supply_top;
+				}
+				else if (posTo == "right") {
+					sprite_index = spr_entry_supply_right;
+				}
+				else if (posTo == "bottom") {
+					sprite_index = spr_entry_supply_bottom;
+				}
+				else if (posTo == "left") {
+					sprite_index = spr_entry_supply_left;
+				}
+				break;
+			#endregion
+			#region shop
+			case "shop":
+				if (posTo == "top") {
+					sprite_index = spr_entry_shop_top;
+				}
+				else if (posTo == "right") {
+					sprite_index = spr_entry_shop_right;
+				}
+				else if (posTo == "bottom") {
+					sprite_index = spr_entry_shop_bottom;
+				}
+				else if (posTo == "left") {
+					sprite_index = spr_entry_shop_left;
+				}
+				break;
+			#endregion
+			#region default
+			default:
+				switch (global.currentWorld) {
+					#region city
+					case "city":
+						if (posTo == "top") {
+							sprite_index = spr_entry_city_top;
+						}
+						else if (posTo == "right") {
+							sprite_index = spr_entry_city_right;
+						}
+						else if (posTo == "bottom") {
+							sprite_index = spr_entry_city_bottom;
+						}
+						else if (posTo == "left") {
+							sprite_index = spr_entry_city_left;
+						}
+						break;
+					#endregion
+					#region swamp;
+					case "swamp":
+						if (posTo == "top") {
+							sprite_index = spr_entry_swamp_top;
+						}
+						else if (posTo == "right") {
+							sprite_index = spr_entry_swamp_right;
+						}
+						else if (posTo == "bottom") {
+							sprite_index = spr_entry_swamp_bottom;
+						}
+						else if (posTo == "left") {
+							sprite_index = spr_entry_swamp_left;
+						}
+						break;
+					#endregion
+					#region underground
+					case "underground":
+						if (posTo == "top") {
+							sprite_index = spr_entry_underground_top;
+						}
+						else if (posTo == "right") {
+							sprite_index = spr_entry_underground_right;
+						}
+						else if (posTo == "bottom") {
+							sprite_index = spr_entry_underground_bottom;
+						}
+						else if (posTo == "left") {
+							sprite_index = spr_entry_underground_left;
+						}
+						break;
+					#endregion
+					#region jungle
+					case "jungle":
+						if (posTo == "top") {
+							sprite_index = spr_entry_jungle_top;
+						}
+						else if (posTo == "right") {
+							sprite_index = spr_entry_jungle_right;
+						}
+						else if (posTo == "bottom") {
+							sprite_index = spr_entry_jungle_bottom;
+						}
+						else if (posTo == "left") {
+							sprite_index = spr_entry_jungle_left;
+						}
+						break;
+					#endregion
+					#region desert
+					case "desert":
+						if (posTo == "top") {
+							sprite_index = spr_entry_desert_top;
+						}
+						else if (posTo == "right") {
+							sprite_index = spr_entry_desert_right;
+						}
+						else if (posTo == "bottom") {
+							sprite_index = spr_entry_desert_bottom;
+						}
+						else if (posTo == "left") {
+							sprite_index = spr_entry_desert_left;
+						}
+						break;
+					#endregion
+					#region school
+					case "school":
+						if (posTo == "top") {
+							sprite_index = spr_entry_school_top;
+						}
+						else if (posTo == "right") {
+							sprite_index = spr_entry_school_right;
+						}
+						else if (posTo == "bottom") {
+							sprite_index = spr_entry_desert_bottom;
+						}
+						else if (posTo == "left") {
+							sprite_index = spr_entry_school_left;
+						}
+						break;
+					#endregion
+				}
+				break;
+			#endregion
+		}
+		
+		// 막혀있는 블럭 ID 지정
 		blockID = block.id;
 	}
 	else {
@@ -43,7 +228,8 @@ with (obj_parent_entry) {
 }
 #endregion
 #region 캐릭터|시스템 생성
-var startX, startY; 
+var startX = 0;
+var startY = 0; 
 
 if (global.previousIndex == noone) {
 	startX = room_width / 2;

@@ -1,0 +1,1 @@
+scr_insect_move(target);

@@ -11,7 +11,7 @@
         "b2eb4e68-d21f-4785-9d26-0b0d43bf267c"
     ],
     "filterType": "GMRoom",
-    "folderName": "Stage",
+    "folderName": "City",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

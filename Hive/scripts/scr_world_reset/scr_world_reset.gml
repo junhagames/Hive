@@ -21,7 +21,7 @@ for (var _y = 0; _y < ds_grid_height(global.worldGrid); _y++) {
 var minibossNum = 1;
 var supplyNum = 3;
 var shopNum = 1;
-var questNum = 1;
+var encounterNum = 1;
 var eventList = ds_list_create();
 
 repeat (minibossNum) {
@@ -36,8 +36,8 @@ repeat (shopNum) {
 	ds_list_add(eventList, "shop");
 }
 
-repeat (questNum) {
-	ds_list_add(eventList, "quest");
+repeat (encounterNum) {
+	ds_list_add(eventList, "encounter");
 }
 ds_list_shuffle(eventList);
 
@@ -50,7 +50,7 @@ var wlongList = ds_list_create();
 var hlongList = ds_list_create();
 
 global.worldGrid[# controlX, controlY] = 0;
-scr_world_room_reset(global.worldGrid[# controlX, controlY], "small", "stage", room_stage_start);
+scr_world_room_reset(global.worldGrid[# controlX, controlY], "small", "stage", room_city_start);
 
 for (var i = 1; i < roomNum; i++) {
 	var isCreateRoom = false;
@@ -63,12 +63,11 @@ for (var i = 1; i < roomNum; i++) {
 	
 		if (i == roomNum - 1) {
 			// 보스 스테이지 설정
-			roomShape = "small";
+			roomShape = "big";
 			roomEvent = "boss";
 		}
 		else {
 			// 일반 스테이지 설정
-			roomShape = choose("small", "big", "wlong", "hlong");
 			var eventTurn = max(floor((roomNum - 2) / ds_list_size(eventList)), 1);
 
 			if (i mod eventTurn == 0) {	
@@ -76,6 +75,22 @@ for (var i = 1; i < roomNum; i++) {
 			}
 			else {
 				roomEvent = "stage";
+			}
+			
+			// 특정 이벤트 룸 모양 설정
+			switch (roomEvent) {
+				case "supply":
+					roomShape = "small";
+					break;
+				case "shop":
+					roomShape = "small";
+					break;
+				case "miniboss":
+					roomShape = "big";
+					break;
+				default:
+					roomShape = choose("small", "big", "wlong", "hlong");
+					break;
 			}
 		}
 
@@ -106,7 +121,7 @@ for (var i = 1; i < roomNum; i++) {
 						isCreateRoom = true;
 
 						if (ds_list_empty(smallList)) {
-							var _smallList = global.roomParentMap[? room_parent_stage_small];
+							var _smallList = global.roomParentMap[? room_parent_city_small];
 
 							for (var j = 0; j < ds_list_size(_smallList); j++) {
 								ds_list_add(smallList, _smallList[| j]);
@@ -173,7 +188,7 @@ for (var i = 1; i < roomNum; i++) {
 							isCreateRoom = true;
 
 							if (ds_list_empty(bigList)) {
-								var _bigList = global.roomParentMap[? room_parent_stage_big];
+								var _bigList = global.roomParentMap[? room_parent_city_big];
 
 								for (var j = 0; j < ds_list_size(_bigList); j++) {
 									ds_list_add(bigList, _bigList[| j]);
@@ -245,7 +260,7 @@ for (var i = 1; i < roomNum; i++) {
 							isCreateRoom = true;
 							
 							if (ds_list_empty(wlongList)) {
-								var _wlongList = global.roomParentMap[? room_parent_stage_wlong];
+								var _wlongList = global.roomParentMap[? room_parent_city_wlong];
 
 								for (var j = 0; j < ds_list_size(_wlongList); j++) {
 									ds_list_add(wlongList, _wlongList[| j]);
@@ -317,7 +332,7 @@ for (var i = 1; i < roomNum; i++) {
 							isCreateRoom = true;
 							
 							if (ds_list_empty(hlongList)) {
-								var _hlongList = global.roomParentMap[? room_parent_stage_hlong];
+								var _hlongList = global.roomParentMap[? room_parent_city_hlong];
 
 								for (var j = 0; j < ds_list_size(_hlongList); j++) {
 									ds_list_add(hlongList, _hlongList[| j]);

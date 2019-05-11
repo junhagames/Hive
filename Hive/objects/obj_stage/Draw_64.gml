@@ -4,9 +4,6 @@ if (surface_exists(lightSuf)) {
 }
 else {
 	lightSuf = surface_create(global.gameWidth * global.zoom, global.gameHeight * global.zoom);
-	surface_set_target(lightSuf);
-	draw_clear_alpha(c_white, 0);
-	surface_reset_target();
 }
 #endregion
 

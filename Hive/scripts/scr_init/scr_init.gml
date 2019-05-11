@@ -11,7 +11,6 @@ enum ALARM_CHR {
 	SKILL,
 	DAMAGE,
 	SWAP,
-	SWAP_SKILL,
 }
 
 enum ALARM_INSECT {
@@ -52,6 +51,7 @@ ini_close();
 // 월드 초기화
 global.worldGrid = ds_grid_create(0, 0);
 global.roomMap = ds_map_create();
+global.currentWorld = "city";
 global.currentIndex = 0;
 global.previousIndex = noone;
 global.previousPos = noone;
@@ -97,10 +97,10 @@ var roomParent = noone;
 for (var _room = 0; room_exists(_room); _room++) {
 	var roomName = room_get_name(_room);
 	
-	if (roomName == "room_parent_stage_small" ||
-		roomName == "room_parent_stage_big" ||
-		roomName == "room_parent_stage_wlong" ||
-		roomName == "room_parent_stage_hlong") {
+	if (roomName == "room_parent_city_small" ||
+		roomName == "room_parent_city_big" ||
+		roomName == "room_parent_city_wlong" ||
+		roomName == "room_parent_city_hlong") {
 		roomParent = _room;
 		ds_map_add_list(global.roomParentMap, roomParent, ds_list_create());
 	}
@@ -121,5 +121,5 @@ draw_set_valign(fa_middle);
 window_set_size(global.gameWidth * global.zoom, global.gameHeight * global.zoom);
 display_set_gui_size(global.gameWidth * global.zoom, global.gameHeight * global.zoom);
 
-// 마우스 커서 스프라이트 초기화
-cursor_sprite = spr_ui_cursor;
+// 크로스헤어 초기화
+cursor_sprite = spr_ui_crosshair_ranger;

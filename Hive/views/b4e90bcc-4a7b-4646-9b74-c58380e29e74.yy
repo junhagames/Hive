@@ -10,7 +10,7 @@
         "75465e4c-5a22-4dc0-971a-21cedab87d1c"
     ],
     "filterType": "GMSprite",
-    "folderName": "Common",
+    "folderName": "City",
     "isDefaultView": false,
     "localisedFolderName": ""
 }
