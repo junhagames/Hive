@@ -1,3 +1,11 @@
+switch (global.chrMap[? "class"]) {
+	case "worker":
+		chrSprite = spr_chr_worker;
+		break;
+	case "soldier":
+		chrSprite = spr_chr_soldier;
+		break;
+}
 weaponSprite = spr_weapon_pistol;
 weaponLength = 16;
 weaponAngle = 0;

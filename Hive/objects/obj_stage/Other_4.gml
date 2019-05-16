@@ -219,7 +219,7 @@ with (obj_parent_entry) {
 			#endregion
 		}
 		
-		// 막혀있는 블럭 ID 지정
+		// 입구막는 블럭 ID 지정
 		blockID = block.id;
 	}
 	else {

@@ -82,13 +82,11 @@ for (var i = 1; i < roomNum; i++) {
 		var controlDir = choose("east", "west", "south", "north");
 		var roomShape, roomEvent;
 	
+		// 룸 이벤트 설정
 		if (i == roomNum - 1) {
-			// 보스 스테이지 설정
-			roomShape = "big";
 			roomEvent = "boss";
 		}
 		else {
-			// 일반 스테이지 설정
 			var eventTurn = max(floor((roomNum - 2) / ds_list_size(eventList)), 1);
 
 			if (i mod eventTurn == 0) {	
@@ -97,22 +95,28 @@ for (var i = 1; i < roomNum; i++) {
 			else {
 				roomEvent = "stage";
 			}
-			
-			// 특정 이벤트 룸 모양 설정
-			switch (roomEvent) {
-				case "supply":
-					roomShape = "small";
-					break;
-				case "shop":
-					roomShape = "small";
-					break;
-				case "miniboss":
-					roomShape = "big";
-					break;
-				default:
-					roomShape = choose("small", "big", "wlong", "hlong");
-					break;
-			}
+		}
+		
+		// 룸 모양 설정
+		switch (roomEvent) {
+			case "stage":
+				roomShape = choose("small", "big", "wlong", "hlong");
+				break;
+			case "boss":
+				roomShape = "big";
+				break;
+			case "miniboss":
+				roomShape = "big";
+				break;
+			case "supply":
+				roomShape = "small";
+				break;
+			case "shop":
+				roomShape = "small";
+				break;
+			case "encounter":
+				roomShape = "big";
+				break;
 		}
 
 		switch (roomShape) {

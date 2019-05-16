@@ -35,7 +35,8 @@ if (surface_exists(minimapSuf)) {
 	}
 	else {
 		draw_surface_part(minimapSuf, minimapX, minimapY, 200, 200, global.gameWidth * global.zoom - 240, 40);
-		
+
+		// 미니맵 액자 그리기
 		var frameSprite;
 		
 		switch (global.currentWorld) {

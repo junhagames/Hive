@@ -59,9 +59,9 @@ global.previousPos = noone;
 
 // 캐릭터 초기화
 global.chrMap = ds_map_create();
+global.chrMap[? "class"] = "worker";
 global.chrMap[? "hpMax"] = 100;
 global.chrMap[? "hp"] = global.chrMap[? "hpMax"];
-global.chrMap[? "money"] = 0;
 global.chrMap[? "power"] = 1;
 global.chrMap[? "armor"] = 1;
 global.chrMap[? "speed"] = 6;
@@ -75,6 +75,7 @@ global.chrMap[? "rangerAccuracy"] = 4;
 global.chrMap[? "warriorWeapon"] = "bat";
 global.chrMap[? "warriorDamage"] = 8;
 global.chrMap[? "warriorSpeed"] = room_speed * 0.3;
+global.chrMap[? "money"] = 0;
 
 // 저장 구조체 초기화
 global.saveMap = ds_map_create();
@@ -108,7 +109,57 @@ for (var _room = 0; room_exists(_room); _room++) {
 		roomName == "room_parent_city_miniboss" ||
 		roomName == "room_parent_city_supply" ||
 		roomName == "room_parent_city_shop" ||
-		roomName == "room_parent_city_encounter") {
+		roomName == "room_parent_city_encounter" ||
+		
+		roomName == "room_parent_swamp_small" ||
+		roomName == "room_parent_swamp_big" ||
+		roomName == "room_parent_swamp_wlong" ||
+		roomName == "room_parent_swamp_hlong" ||
+		roomName == "room_parent_swamp_boss" ||
+		roomName == "room_parent_swamp_miniboss" ||
+		roomName == "room_parent_swamp_supply" ||
+		roomName == "room_parent_swamp_shop" ||
+		roomName == "room_parent_swamp_encounter" ||
+		
+		roomName == "room_parent_underground_small" ||
+		roomName == "room_parent_underground_big" ||
+		roomName == "room_parent_underground_wlong" ||
+		roomName == "room_parent_underground_hlong" ||
+		roomName == "room_parent_underground_boss" ||
+		roomName == "room_parent_underground_miniboss" ||
+		roomName == "room_parent_underground_supply" ||
+		roomName == "room_parent_underground_shop" ||
+		roomName == "room_parent_underground_encounter" ||
+		
+		roomName == "room_parent_jungle_small" ||
+		roomName == "room_parent_jungle_big" ||
+		roomName == "room_parent_jungle_wlong" ||
+		roomName == "room_parent_jungle_hlong" ||
+		roomName == "room_parent_jungle_boss" ||
+		roomName == "room_parent_jungle_miniboss" ||
+		roomName == "room_parent_jungle_supply" ||
+		roomName == "room_parent_jungle_shop" ||
+		roomName == "room_parent_jungle_encounter" ||
+		
+		roomName == "room_parent_desert_small" ||
+		roomName == "room_parent_desert_big" ||
+		roomName == "room_parent_desert_wlong" ||
+		roomName == "room_parent_desert_hlong" ||
+		roomName == "room_parent_desert_boss" ||
+		roomName == "room_parent_desert_miniboss" ||
+		roomName == "room_parent_desert_supply" ||
+		roomName == "room_parent_desert_shop" ||
+		roomName == "room_parent_desert_encounter" ||
+		
+		roomName == "room_parent_school_small" ||
+		roomName == "room_parent_school_big" ||
+		roomName == "room_parent_school_wlong" ||
+		roomName == "room_parent_school_hlong" ||
+		roomName == "room_parent_school_boss" ||
+		roomName == "room_parent_school_miniboss" ||
+		roomName == "room_parent_school_supply" ||
+		roomName == "room_parent_school_shop" ||
+		roomName == "room_parent_school_encounter") {
 		roomParent = _room;
 		ds_map_add_list(global.roomParentMap, roomParent, ds_list_create());
 	}

@@ -1,4 +1,4 @@
-/// @description 세이브 파일 JSON으로 불러오기
+/// @description 세이브 파일 불러오기
 /// @param fileName
 
 var fileName = argument0;
