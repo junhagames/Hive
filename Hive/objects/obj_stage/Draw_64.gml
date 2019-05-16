@@ -35,9 +35,30 @@ if (surface_exists(minimapSuf)) {
 	}
 	else {
 		draw_surface_part(minimapSuf, minimapX, minimapY, 200, 200, global.gameWidth * global.zoom - 240, 40);
-		draw_set_color(c_black);
-		draw_rectangle(global.gameWidth * global.zoom - 240, 40, global.gameWidth * global.zoom - 40, 240, true);
-		draw_set_color(c_white);
+		
+		var frameSprite;
+		
+		switch (global.currentWorld) {
+			case "city":
+				frameSprite = spr_ui_minimap_city;
+				break;
+			case "swamp":
+				frameSprite = spr_ui_minimap_swamp;
+				break;
+			case "underground":
+				frameSprite = spr_ui_minimap_underground;
+				break;
+			case "jungle":
+				frameSprite = spr_ui_minimap_jungle;
+				break;
+			case "desert":
+				frameSprite = spr_ui_minimap_desert;
+				break;
+			case "school":
+				frameSprite = spr_ui_minimap_school;
+				break;
+		}
+		draw_sprite_ext(frameSprite, 0, global.gameWidth * global.zoom - 240, 40, 1, 1, 0, c_white, 1);
 	}
 }
 else {

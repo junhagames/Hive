@@ -1,1 +1,1 @@
-draw_sprite(spr_title, 0, global.gameWidth / 2, 200);
+draw_sprite(spr_logo, 0, global.gameWidth / 2, 200);

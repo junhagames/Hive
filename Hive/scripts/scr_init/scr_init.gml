@@ -11,6 +11,7 @@ enum ALARM_CHR {
 	SKILL,
 	DAMAGE,
 	SWAP,
+	ROLL,
 }
 
 enum ALARM_INSECT {
@@ -65,13 +66,15 @@ global.chrMap[? "power"] = 1;
 global.chrMap[? "armor"] = 1;
 global.chrMap[? "speed"] = 6;
 global.chrMap[? "swap"] = "ranger";
-global.chrMap[? "ammoMax"] = 30;
+global.chrMap[? "ammoMax"] = 20;
 global.chrMap[? "ammo"] = global.chrMap[? "ammoMax"];
+global.chrMap[? "rangerWeapon"] = "pistol";
 global.chrMap[? "rangerDamage"] = 2;
-global.chrMap[? "rangerSpeed"] = room_speed * 0.1;
-global.chrMap[? "rangerAccuracy"] = 10;
+global.chrMap[? "rangerSpeed"] = room_speed * 0.13;
+global.chrMap[? "rangerAccuracy"] = 4;
+global.chrMap[? "warriorWeapon"] = "bat";
 global.chrMap[? "warriorDamage"] = 8;
-global.chrMap[? "warriorSpeed"] = room_speed * 0.4;
+global.chrMap[? "warriorSpeed"] = room_speed * 0.3;
 
 // 저장 구조체 초기화
 global.saveMap = ds_map_create();
@@ -100,7 +103,12 @@ for (var _room = 0; room_exists(_room); _room++) {
 	if (roomName == "room_parent_city_small" ||
 		roomName == "room_parent_city_big" ||
 		roomName == "room_parent_city_wlong" ||
-		roomName == "room_parent_city_hlong") {
+		roomName == "room_parent_city_hlong" ||
+		roomName == "room_parent_city_boss" ||
+		roomName == "room_parent_city_miniboss" ||
+		roomName == "room_parent_city_supply" ||
+		roomName == "room_parent_city_shop" ||
+		roomName == "room_parent_city_encounter") {
 		roomParent = _room;
 		ds_map_add_list(global.roomParentMap, roomParent, ds_list_create());
 	}
