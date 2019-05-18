@@ -25,6 +25,7 @@ if (global.chrMap[? "swap"] == "ranger") {
 			weaponSprite = spr_weapon_sniper;
 			break;
 	}
+	cursor_sprite = spr_ui_crosshair_ranger;
 }
 else if (global.chrMap[? "swap"] == "warrior") {
 	switch (global.chrMap[? "warriorWeapon"]) {
@@ -44,6 +45,7 @@ else if (global.chrMap[? "swap"] == "warrior") {
 			weaponSprite = spr_weapon_plunger;
 			break;
 	}
+	cursor_sprite = spr_ui_crosshair_warrior;
 }
 
 // 사망

@@ -19,7 +19,7 @@ if (global.chrMap[? "hp"] > 0) {
 #endregion
 #region 돈
 draw_sprite_ext(spr_ui_coin, 0, 40, 120, 1, 1, 0, c_white, draw_get_alpha());
-draw_text(60, 120, global.chrMap[? "money"]);
+draw_text(60, 120, global.chrMap[? "coin"]);
 #endregion
 #region 미니맵
 if (surface_exists(minimapSuf)) {

@@ -2,7 +2,7 @@
 
 if (mouse_check_button_pressed(mb_right)) {
 	if (!isDamageDelay) {
-		// TODO add skill 
+		// TODO 스킬추가
 		show_message("스킬발동!");
 		isDamageDelay = true;
 		alarm[ALARM_CHR.SKILL] = skillSpeed;

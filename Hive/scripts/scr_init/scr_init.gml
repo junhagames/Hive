@@ -56,9 +56,11 @@ global.currentWorld = "city";
 global.currentIndex = 0;
 global.previousIndex = noone;
 global.previousPos = noone;
+global.isClear = false;
 
 // 캐릭터 초기화
 global.chrMap = ds_map_create();
+global.chrMap[? "coin"] = 0;
 global.chrMap[? "class"] = "worker";
 global.chrMap[? "hpMax"] = 100;
 global.chrMap[? "hp"] = global.chrMap[? "hpMax"];
@@ -75,7 +77,6 @@ global.chrMap[? "rangerAccuracy"] = 4;
 global.chrMap[? "warriorWeapon"] = "bat";
 global.chrMap[? "warriorDamage"] = 8;
 global.chrMap[? "warriorSpeed"] = room_speed * 0.3;
-global.chrMap[? "money"] = 0;
 
 // 저장 구조체 초기화
 global.saveMap = ds_map_create();

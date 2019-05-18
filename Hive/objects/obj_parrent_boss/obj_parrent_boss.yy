@@ -4,7 +4,16 @@
     "mvc": "1.0",
     "name": "obj_parrent_boss",
     "eventList": [
-        
+        {
+            "id": "605b9e5b-8bac-4d37-8579-e8211305e1f4",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 1,
+            "m_owner": "9ab0bbfc-3d17-482e-8513-52f40d2aa148"
+        }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,

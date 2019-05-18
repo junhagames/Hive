@@ -24,6 +24,16 @@ if (ds_map_empty(instMap)) {
 		_instMap[? "object"] = object_index;
 		_instMap[? "hp"] = hp;
 	}
+	
+	with (obj_parent_altar) {
+		var instIndex = ds_map_size(instMap);
+		ds_map_add_map(instMap, instIndex, ds_map_create());
+
+		var _instMap = instMap[? instIndex];
+		_instMap[? "id"] = id;
+		_instMap[? "object"] = object_index;
+		_instMap[? "hp"] = hp;
+	}
 }
 else {
 	// 인스턴스 정보 불러오기
@@ -41,6 +51,15 @@ else {
 
 				for (var j = 0; j < ds_list_size(enemyList); j++) {
 					if (_instMap[? "object"] == enemyList[| j]) {
+						hp = _instMap[? "hp"];
+					}
+				}
+				
+				// obj_parent_altar
+				var altarList = global.objParentMap[? obj_parent_altar];
+
+				for (var j = 0; j < ds_list_size(altarList); j++) {
+					if (_instMap[? "object"] == altarList[| j]) {
 						hp = _instMap[? "hp"];
 					}
 				}

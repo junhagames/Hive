@@ -4,7 +4,16 @@
     "mvc": "1.0",
     "name": "obj_parrent_miniboss",
     "eventList": [
-        
+        {
+            "id": "89d59d7b-a984-40de-bbce-32a61f4a6446",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 1,
+            "m_owner": "211a1108-edc8-42d5-833f-8df4d2ec7996"
+        }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,

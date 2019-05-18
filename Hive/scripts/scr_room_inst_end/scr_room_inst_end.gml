@@ -20,6 +20,15 @@ for (var i = 0; i < ds_map_size(instMap); i++) {
 					_instMap[? "hp"] = hp; 
 				}
 			}
+			
+			// obj_parent_altar
+			var altarList = global.objParentMap[? obj_parent_altar];
+
+			for (var j = 0; j < ds_list_size(altarList); j++) {
+				if (_instMap[? "object"] == altarList[| j]) {
+					_instMap[? "hp"] = hp;
+				}
+			}
 		}
 	}
 }

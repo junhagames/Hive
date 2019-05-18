@@ -74,6 +74,15 @@ for (var i = 0; i < ds_map_size(roomJson); i++) {
 					_instMap[? "hp"] = _instJson[? "hp"];
 				}
 			}
+			
+			// obj_parent_altar
+			var altarList = global.objParentMap[? obj_parent_enemy];
+
+			for (var k = 0; k < ds_list_size(altarList); k++) {
+				if (_instMap[? "object"] == altarList[| k]) {
+					_instMap[? "hp"] = _instJson[? "hp"];
+				}
+			}
 		}
 	}
 }

@@ -2,9 +2,6 @@ var _roomMap = global.roomMap[? global.currentIndex];
 var infoMap = _roomMap[? "info"];
 var entryMap = _roomMap[? "entry"];
 
-// 광원 초기화
-lightSuf = surface_create(global.gameWidth * global.zoom, global.gameHeight * global.zoom);
-
 // 시야 밝히기
 infoMap[? "search"] = "known";
 

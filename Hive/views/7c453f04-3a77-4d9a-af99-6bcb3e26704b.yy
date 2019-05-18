@@ -4,8 +4,9 @@
     "mvc": "1.1",
     "name": "7c453f04-3a77-4d9a-af99-6bcb3e26704b",
     "children": [
-        "d222ce65-81b6-4dad-8744-a904ef53425b",
-        "fa36b970-107a-4d3c-a02d-d698cc349ea0"
+        "73948d8e-51c1-4340-9a65-930fabc6786d",
+        "03d41b76-3f68-4a57-9121-73296a3b82b7",
+        "4f820037-d864-473a-b8bf-8f010f6fd067"
     ],
     "filterType": "GMSprite",
     "folderName": "Insect",
