@@ -3,7 +3,7 @@ if (!instance_exists(obj_parent_transition)) {
 	scr_chr_attack();
 	scr_chr_skill();
 	scr_chr_swap();
-	scr_chr_roll();
+	scr_chr_dash();
 }
 
 // 무기 설정
@@ -63,7 +63,7 @@ else if (global.chrMap[? "swap"] == "warrior") {
 }
 
 // 사망
-if (global.chrMap[? "hp"] < 1) {
+if (global.chrMap[? "hp"] <= 0) {
 	show_message("사망했습니다!");
 	game_restart();
 }

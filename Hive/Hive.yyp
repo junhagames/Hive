@@ -3794,7 +3794,7 @@
             "Key": "efcbc3ef-ca6a-457d-9188-f57e19616f45",
             "Value": {
                 "id": "675ab441-a807-424c-856b-d1bcbea7a89a",
-                "resourcePath": "scripts\\scr_chr_roll\\scr_chr_roll.yy",
+                "resourcePath": "scripts\\scr_chr_dash\\scr_chr_dash.yy",
                 "resourceType": "GMScript"
             }
         },

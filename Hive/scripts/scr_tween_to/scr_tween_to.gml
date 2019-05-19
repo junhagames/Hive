@@ -7,7 +7,4 @@ var src = argument0;
 var dest = argument1;
 var spd = argument2;
 
-return src + (dest - src) / spd;
-
-x += (mouse_x - x) / spd;
-x += (mouse_y - y) / spd;
+return src + (dest - src) * spd;

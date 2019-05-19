@@ -4,7 +4,7 @@
     "id": "6ce6514c-5d15-438e-b66a-589f8d3ea366",
     "creationCodeFile": "",
     "inheritCode": true,
-    "inheritCreationOrder": true,
+    "inheritCreationOrder": false,
     "inheritLayers": true,
     "instanceCreationOrderIDs": [
         "24313276-13db-4dc9-86cb-1eae170d00af",

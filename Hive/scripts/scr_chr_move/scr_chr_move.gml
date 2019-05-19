@@ -1,12 +1,21 @@
 /// @description 캐릭터 이동
 
-var keyLeft = keyboard_check(ord("A"));
-var keyRight = keyboard_check(ord("D"));
-var keyUp = keyboard_check(ord("W"));
-var keyDown = keyboard_check(ord("S"));
+var isLeft = keyboard_check(ord("A"));
+var isRight = keyboard_check(ord("D"));
+var isUp = keyboard_check(ord("W"));
+var isDown = keyboard_check(ord("S"));
+var hspd, vspd;
 
-var hspd = (keyRight - keyLeft) * global.chrMap[? "speed"];
-var vspd = (keyDown - keyUp) * global.chrMap[? "speed"];
+if (dashPower > global.chrMap[? "speed"]) {
+	hspd = lengthdir_x(dashPower, moveDir);
+	vspd = lengthdir_y(dashPower, moveDir);
+}
+else {
+	hspd = (isRight - isLeft) * global.chrMap[? "speed"];
+	vspd = (isDown - isUp) * global.chrMap[? "speed"];
+	moveDir = point_direction(0, 0, hspd, vspd);
+}
+
 isMove = hspd != 0 || vspd != 0;
 
 if (isMove) {
@@ -23,11 +32,10 @@ if (isMove) {
 		}
 		vspd = 0;
 	}
-
-	var moveDir = point_direction(0, 0, hspd, vspd);
 	x += lengthdir_x(abs(hspd), moveDir);
 	y += lengthdir_y(abs(vspd), moveDir);
 }
+dashPower = scr_tween_to(dashPower, 0, 0.1);
 
 // 캐릭터 무기 방향 조절
 weaponAngle = point_direction(x, y, mouse_x, mouse_y);
