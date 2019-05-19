@@ -5,47 +5,61 @@ if (!instance_exists(obj_parent_transition)) {
 	scr_chr_swap();
 	scr_chr_roll();
 }
-	
-// 무기 스프라이트 설정
+
+// 무기 설정
+var rangerCrosshair, warriorCrosshair;
+
+switch (global.chrMap[? "rangerWeapon"]) {
+	case "pistol":
+		rangerSprite = spr_weapon_pistol;
+		rangerCrosshair = spr_ui_crosshair_ranger;
+		break;
+	case "degle":
+		rangerSprite = spr_weapon_deagle;
+		rangerCrosshair = spr_ui_crosshair_ranger;
+		break;
+	case "uzi":
+		rangerSprite = spr_weapon_uzi;
+		rangerCrosshair = spr_ui_crosshair_ranger;
+		break;
+	case "shotgun":
+		rangerSprite = spr_weapon_shotgun;
+		rangerCrosshair = spr_ui_crosshair_ranger;
+		break;
+	case "sniper":
+		rangerSprite = spr_weapon_sniper;
+		rangerCrosshair = spr_ui_crosshair_ranger;
+		break;
+}
+
+switch (global.chrMap[? "warriorWeapon"]) {
+	case "bat":
+		warriorSprite = spr_weapon_bat;
+		warriorCrosshair = spr_ui_crosshair_warrior;
+		break;
+	case "axe":
+		warriorSprite = spr_weapon_axe;
+		warriorCrosshair = spr_ui_crosshair_warrior;
+		break;
+	case "crowbar":
+		warriorSprite = spr_weapon_crowbar;
+		warriorCrosshair = spr_ui_crosshair_warrior;
+		break;
+	case "hammer":
+		warriorSprite = spr_weapon_hammer;
+		warriorCrosshair = spr_ui_crosshair_warrior;
+		break;
+	case "plunger":
+		warriorSprite = spr_weapon_plunger;
+		warriorCrosshair = spr_ui_crosshair_warrior;
+		break;
+}
+
 if (global.chrMap[? "swap"] == "ranger") {
-	switch (global.chrMap[? "rangerWeapon"]) {
-		case "pistol":
-			weaponSprite = spr_weapon_pistol;
-			break;
-		case "degle":
-			weaponSprite = spr_weapon_deagle;
-			break;
-		case "uzi":
-			weaponSprite = spr_weapon_uzi;
-			break;
-		case "shotgun":
-			weaponSprite = spr_weapon_shotgun;
-			break;
-		case "sniper":
-			weaponSprite = spr_weapon_sniper;
-			break;
-	}
-	cursor_sprite = spr_ui_crosshair_ranger;
+	cursor_sprite = rangerCrosshair;
 }
 else if (global.chrMap[? "swap"] == "warrior") {
-	switch (global.chrMap[? "warriorWeapon"]) {
-		case "bat":
-			weaponSprite = spr_weapon_bat;
-			break;
-		case "axe":
-			weaponSprite = spr_weapon_axe;
-			break;
-		case "crowbar":
-			weaponSprite = spr_weapon_crowbar;
-			break;
-		case "hammer":
-			weaponSprite = spr_weapon_hammer;
-			break;
-		case "plunger":
-			weaponSprite = spr_weapon_plunger;
-			break;
-	}
-	cursor_sprite = spr_ui_crosshair_warrior;
+	cursor_sprite = warriorCrosshair;
 }
 
 // 사망
