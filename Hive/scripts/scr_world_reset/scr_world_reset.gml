@@ -18,10 +18,10 @@ for (var _y = 0; _y < ds_grid_height(global.worldGrid); _y++) {
 }
 
 // 룸 이벤트 추가|섞기
-var minibossNum = 1;
+var minibossNum = 2;
 var supplyNum = 3;
 var shopNum = 1;
-var encounterNum = 1;
+var encounterNum = 3;
 var eventList = ds_list_create();
 
 repeat (minibossNum) {

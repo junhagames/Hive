@@ -17,14 +17,14 @@ for (var i = 0; i < instCount; i++) {
 		switch (object_index) {
 			#region obj_chr
 			case obj_chr:
-				if (weaponAngle > 0 && weaponAngle < 180) {
-					draw_sprite_ext(weaponSprite, isMove * -1, x + lengthdir_x(weaponLength, weaponAngle), y + lengthdir_y(weaponLength, weaponAngle) - 8, 1, weaponDir, weaponAngle, c_white, 1);
 					draw_sprite_ext(chrSprite, isMove * -1, x, y, image_xscale * weaponDir, image_yscale, image_angle, image_blend, image_alpha);
-				}
-				else {
-					draw_sprite_ext(chrSprite, isMove * -1, x, y, image_xscale * weaponDir, image_yscale, image_angle, image_blend, image_alpha);
-					draw_sprite_ext(weaponSprite, isMove * -1, x + lengthdir_x(weaponLength, weaponAngle), y + lengthdir_y(weaponLength, weaponAngle) - 8, 1, weaponDir, weaponAngle, c_white, 1);
-				}
+					
+					if (global.chrMap[? "swap"] == "warrior") {
+						draw_sprite_ext(weaponSprite, 0, x + lengthdir_x(weaponLength, weaponAngle), y + lengthdir_y(weaponLength, weaponAngle) - 8, 1, weaponDir * warriorDir, weaponAngle + 20 * weaponDir * warriorDir, c_white, 1);
+					}
+					else if (global.chrMap[? "swap"] == "ranger") {
+						draw_sprite_ext(weaponSprite, 0, x + lengthdir_x(weaponLength, weaponAngle), y + lengthdir_y(weaponLength, weaponAngle) - 8, 1, weaponDir, weaponAngle, c_white, 1);
+					}
 				break;
 			#endregion
 			#region default
