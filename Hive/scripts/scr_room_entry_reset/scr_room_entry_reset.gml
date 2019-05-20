@@ -250,6 +250,25 @@ switch (infoMap[? "shape"]) {
 						}
 					}	
 				}
+				else {
+					/* -------
+					 *   □ □ ■
+					 *   □ □
+					 *
+					 */
+					if (_x < ds_grid_width(global.worldGrid) - 1) {
+						var targetIndex = global.worldGrid[# _x + 1, _y];
+					
+						if (targetIndex != index && targetIndex != WALL) {
+							var entryIndex = ds_map_size(entryMap);
+							ds_map_add_map(entryMap, entryIndex, ds_map_create());
+						
+							var _entryMap = entryMap[? entryIndex];
+							_entryMap[? "targetIndex"] = targetIndex;
+							_entryMap[? "pos"] = "righttop";
+						}
+					}
+				}
 			}
 		}
 		else {

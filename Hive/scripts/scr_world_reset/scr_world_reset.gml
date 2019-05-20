@@ -55,6 +55,61 @@ switch (global.currentWorld) {
 		shopRoom = room_parent_city_shop;
 		encounterRoom = room_parent_city_encounter;
 		break;
+	case "swamp":
+		smallRoom = room_parent_swamp_small;
+		bigRoom = room_parent_swamp_big;
+		wlongRoom = room_parent_swamp_wlong;
+		hlongRoom = room_parent_swamp_hlong;
+		bossRoom = room_parent_swamp_boss;
+		minibossRoom = room_parent_swamp_miniboss;
+		supplyRoom = room_parent_swamp_supply;
+		shopRoom = room_parent_swamp_shop;
+		encounterRoom = room_parent_swamp_encounter;
+		break;
+	case "underground":
+		smallRoom = room_parent_underground_small;
+		bigRoom = room_parent_underground_big;
+		wlongRoom = room_parent_underground_wlong;
+		hlongRoom = room_parent_underground_hlong;
+		bossRoom = room_parent_underground_boss;
+		minibossRoom = room_parent_underground_miniboss;
+		supplyRoom = room_parent_underground_supply;
+		shopRoom = room_parent_underground_shop;
+		encounterRoom = room_parent_underground_encounter;
+		break;
+	case "jungle":
+		smallRoom = room_parent_jungle_small;
+		bigRoom = room_parent_jungle_big;
+		wlongRoom = room_parent_jungle_wlong;
+		hlongRoom = room_parent_jungle_hlong;
+		bossRoom = room_parent_jungle_boss;
+		minibossRoom = room_parent_jungle_miniboss;
+		supplyRoom = room_parent_jungle_supply;
+		shopRoom = room_parent_jungle_shop;
+		encounterRoom = room_parent_jungle_encounter;
+		break;
+	case "desert":
+		smallRoom = room_parent_desert_small;
+		bigRoom = room_parent_desert_big;
+		wlongRoom = room_parent_desert_wlong;
+		hlongRoom = room_parent_desert_hlong;
+		bossRoom = room_parent_desert_boss;
+		minibossRoom = room_parent_desert_miniboss;
+		supplyRoom = room_parent_desert_supply;
+		shopRoom = room_parent_desert_shop;
+		encounterRoom = room_parent_desert_encounter;
+		break;
+	case "school":
+		smallRoom = room_parent_school_small;
+		bigRoom = room_parent_school_big;
+		wlongRoom = room_parent_school_wlong;
+		hlongRoom = room_parent_school_hlong;
+		bossRoom = room_parent_school_boss;
+		minibossRoom = room_parent_school_miniboss;
+		supplyRoom = room_parent_school_supply;
+		shopRoom = room_parent_school_shop;
+		encounterRoom = room_parent_school_encounter;
+		break;	
 }
 
 // 월드 생성
