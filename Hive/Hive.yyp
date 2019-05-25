@@ -887,6 +887,14 @@
             }
         },
         {
+            "Key": "36c580ff-0b9f-496e-93bd-840903c3e0b4",
+            "Value": {
+                "id": "40f94dfb-7bed-40a2-bf20-5713dd68afbd",
+                "resourcePath": "views\\36c580ff-0b9f-496e-93bd-840903c3e0b4.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "375beea5-9cc5-41c5-840d-e8b0f3ac0cca",
             "Value": {
                 "id": "53fe0341-be85-4e77-b988-9a3d21d6ba31",
@@ -1687,6 +1695,14 @@
             }
         },
         {
+            "Key": "6c1f551f-778c-422e-80fb-3b03444d62d0",
+            "Value": {
+                "id": "f771c275-847f-46d2-b18e-586b0665d3f4",
+                "resourcePath": "sprites\\spr_joystick_front\\spr_joystick_front.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "6c471fe9-5648-4397-ad8a-06abe06be6a6",
             "Value": {
                 "id": "91caf5fa-1b35-449a-926d-309dc10abdd0",
@@ -2151,6 +2167,14 @@
             }
         },
         {
+            "Key": "8427047f-9ef8-4c77-89f3-9c20623d07b6",
+            "Value": {
+                "id": "aa44ea24-b6d7-4da1-874d-11b523b0c007",
+                "resourcePath": "options\\ios\\options_ios.yy",
+                "resourceType": "GMiOSOptions"
+            }
+        },
+        {
             "Key": "8429dccb-81bb-4dde-900c-67b833ef7f7b",
             "Value": {
                 "id": "e60262ec-54d9-44c6-a473-ab647c077db3",
@@ -2591,6 +2615,14 @@
             }
         },
         {
+            "Key": "a128950b-5063-4876-b4a6-b99dbd2ea6d1",
+            "Value": {
+                "id": "f6d366bb-ca96-4483-b189-d024dfa60be7",
+                "resourcePath": "options\\amazonfire\\options_amazonfire.yy",
+                "resourceType": "GMAmazonFireOptions"
+            }
+        },
+        {
             "Key": "a161b1b0-8954-451e-ba52-b05559d02757",
             "Value": {
                 "id": "44ee8853-8f59-45b5-a694-40c6651422d9",
@@ -2876,6 +2908,14 @@
                 "id": "b1157979-ccd8-42b6-8df4-156a51673d99",
                 "resourcePath": "views\\b070f224-24ba-4ded-beef-74d65ef712d9.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "b0a97f81-eb12-40f2-9c14-86cbf45734d4",
+            "Value": {
+                "id": "6ce2aeb7-6aef-47a8-b2b9-368d96622322",
+                "resourcePath": "sounds\\bgm_title\\bgm_title.yy",
+                "resourceType": "GMSound"
             }
         },
         {
@@ -3239,11 +3279,27 @@
             }
         },
         {
+            "Key": "c8c97c27-1976-4cd6-9ef0-1a2deee45252",
+            "Value": {
+                "id": "912da4a7-fbdb-4feb-911d-10d4ba8018e6",
+                "resourcePath": "scripts\\scr_vstick_update\\scr_vstick_update.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "c9447dc8-7e24-4b89-afe1-62487e8a7cd8",
             "Value": {
                 "id": "fafcd03f-f507-46c5-82a8-2bdc38ea3b1b",
                 "resourcePath": "views\\c9447dc8-7e24-4b89-afe1-62487e8a7cd8.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "c94c9191-4036-47dd-bfc5-8a7780f9d921",
+            "Value": {
+                "id": "e2c34aa3-9a4c-4941-9cdc-0553fc84632d",
+                "resourcePath": "scripts\\scr_vstick_init\\scr_vstick_init.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -3655,6 +3711,14 @@
             }
         },
         {
+            "Key": "e42bf5cc-3f46-4d67-a6d0-a4885a11ac3f",
+            "Value": {
+                "id": "dcd22519-f431-42bd-8056-c99166d56984",
+                "resourcePath": "options\\android\\options_android.yy",
+                "resourceType": "GMAndroidOptions"
+            }
+        },
+        {
             "Key": "e4a60401-6909-45b7-bd54-0821d82096b3",
             "Value": {
                 "id": "0dedc413-ca30-447e-bf4b-54fda2a4b30a",
@@ -3700,6 +3764,14 @@
                 "id": "abf01930-37a5-4ae0-b5f1-bb1e46c3f3a1",
                 "resourcePath": "sprites\\spr_entry_desert_left\\spr_entry_desert_left.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "e86b4526-b3e1-450a-bf17-344be82d172b",
+            "Value": {
+                "id": "740e4ade-ddd6-4055-ba38-4391bedd345b",
+                "resourcePath": "scripts\\scr_vstick_draw\\scr_vstick_draw.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -3951,6 +4023,14 @@
             }
         },
         {
+            "Key": "f7ee795b-09c1-4406-a6e1-69a690842983",
+            "Value": {
+                "id": "da88c6ca-4735-480e-891c-470c71f2f0c9",
+                "resourcePath": "sprites\\spr_joystick_back\\spr_joystick_back.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "f8035755-5764-4045-8713-672daf65257a",
             "Value": {
                 "id": "60bbf2c8-0a07-4e4d-b1e2-45c82f0d89f4",
@@ -4125,7 +4205,10 @@
         "b60c48f6-0676-4d33-8171-17e5e438c5c0",
         "efcbc3ef-ca6a-457d-9188-f57e19616f45",
         "f45fd46a-addb-40f2-bf55-1a5bca0b645d",
-        "2c695cf3-c202-4496-b298-ccaddba35813"
+        "2c695cf3-c202-4496-b298-ccaddba35813",
+        "c94c9191-4036-47dd-bfc5-8a7780f9d921",
+        "c8c97c27-1976-4cd6-9ef0-1a2deee45252",
+        "e86b4526-b3e1-450a-bf17-344be82d172b"
     ],
     "tutorial": ""
 }

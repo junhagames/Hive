@@ -5,7 +5,35 @@
 #macro CELL_WIDTH 40
 #macro CELL_HEIGHT 40
 #endregion
-#region 알람 열거형
+#region 열거형
+enum VSTICK {
+	MOVE,
+	ATTACK,
+}
+
+enum VSTICK_SETTING {
+	ACTIVE,
+	DEVICE_ID,
+	FIXED,
+	FIXED_X,
+	FIXED_Y,
+	CENTER_X,
+	CENTER_Y,
+	X,
+	Y,
+	RADIUS,
+	X_AXIS,
+	Y_AXIS,
+	DIRECTION,
+	CHECK,
+	PRESSED,
+	RELEASED,
+	DRAW_X,
+	DRAW_Y,
+	BACK_SPRITE,
+	FRONT_SPRITE,
+}
+
 enum ALARM_CHR {
 	ATTACK,
 	SKILL,
@@ -172,6 +200,9 @@ for (var _room = 0; room_exists(_room); _room++) {
 // 시드값 초기화
 randomize();
 
+// 더블 좌클릭시 우클릭 방지
+device_mouse_dbclick_enable(false);
+
 // 폰트 초기화
 draw_set_font(font_main);
 draw_set_halign(fa_center);
@@ -182,4 +213,9 @@ window_set_size(global.gameWidth * global.zoom, global.gameHeight * global.zoom)
 display_set_gui_size(global.gameWidth * global.zoom, global.gameHeight * global.zoom);
 
 // 크로스헤어 초기화
-cursor_sprite = spr_ui_crosshair_ranger;
+if (os_type == os_windows) {
+	cursor_sprite = spr_ui_crosshair_ranger;
+}
+else if (os_type == os_android) {
+	window_set_cursor(cr_none);
+}

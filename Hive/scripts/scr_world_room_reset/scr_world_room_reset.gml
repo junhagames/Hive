@@ -2,7 +2,7 @@
 /// @param index
 /// @param shape
 ///	@param event
-/// @param _room
+/// @param room
 
 var index = argument0;
 var shape = argument1;

@@ -17,30 +17,6 @@ for (var _y = 0; _y < ds_grid_height(global.worldGrid); _y++) {
 	}
 }
 
-// 룸 이벤트 추가|섞기
-var minibossNum = 2;
-var supplyNum = 3;
-var shopNum = 1;
-var encounterNum = 3;
-var eventList = ds_list_create();
-
-repeat (minibossNum) {
-	ds_list_add(eventList, "miniboss");
-}
-
-repeat (supplyNum) {
-	ds_list_add(eventList, "supply");
-}
-
-repeat (shopNum) {
-	ds_list_add(eventList, "shop");
-}
-
-repeat (encounterNum) {
-	ds_list_add(eventList, "encounter");
-}
-ds_list_shuffle(eventList);
-
 var smallRoom, bigRoom, wlongRoom, hlongRoom, bossRoom, minibossRoom, supplyRoom, shopRoom, encounterRoom;
 
 switch (global.currentWorld) {
@@ -111,6 +87,30 @@ switch (global.currentWorld) {
 		encounterRoom = room_parent_school_encounter;
 		break;	
 }
+
+// 룸 이벤트 추가|섞기
+var minibossNum = 2;
+var supplyNum = 3;
+var shopNum = 1;
+var encounterNum = 3;
+var eventList = ds_list_create();
+
+repeat (minibossNum) {
+	ds_list_add(eventList, "miniboss");
+}
+
+repeat (supplyNum) {
+	ds_list_add(eventList, "supply");
+}
+
+repeat (shopNum) {
+	ds_list_add(eventList, "shop");
+}
+
+repeat (encounterNum) {
+	ds_list_add(eventList, "encounter");
+}
+ds_list_shuffle(eventList);
 
 // 월드 생성
 var controlX = ds_grid_width(global.worldGrid) div 2;

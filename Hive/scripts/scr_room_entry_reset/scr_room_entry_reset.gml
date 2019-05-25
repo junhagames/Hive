@@ -1,7 +1,7 @@
 /// @description 룸 입구 초기화
 /// @param index
-/// @param _x
-/// @param _y
+/// @param x
+/// @param y
 
 var index = argument0;
 var _x = argument1;

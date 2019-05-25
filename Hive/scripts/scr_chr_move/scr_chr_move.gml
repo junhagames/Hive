@@ -6,16 +6,22 @@ var isUp = keyboard_check(ord("W"));
 var isDown = keyboard_check(ord("S"));
 var hspd, vspd;
 
-if (dashPower > global.chrMap[? "speed"]) {
-	hspd = lengthdir_x(dashPower, moveDir);
-	vspd = lengthdir_y(dashPower, moveDir);
+if (os_type == os_windows) {
+	if (dashPower > global.chrMap[? "speed"]) {
+		hspd = lengthdir_x(dashPower, moveDir);
+		vspd = lengthdir_y(dashPower, moveDir);
+	}
+	else {
+		hspd = (isRight - isLeft) * global.chrMap[? "speed"];
+		vspd = (isDown - isUp) * global.chrMap[? "speed"];
+		moveDir = point_direction(0, 0, hspd, vspd);
+	}
 }
-else {
-	hspd = (isRight - isLeft) * global.chrMap[? "speed"];
-	vspd = (isDown - isUp) * global.chrMap[? "speed"];
+else if (os_type == os_android) {
+	hspd = global.vstick[VSTICK.MOVE, VSTICK_SETTING.X_AXIS] * global.chrMap[? "speed"];
+	vspd = global.vstick[VSTICK.MOVE, VSTICK_SETTING.Y_AXIS] * global.chrMap[? "speed"];
 	moveDir = point_direction(0, 0, hspd, vspd);
 }
-
 isMove = hspd != 0 || vspd != 0;
 
 if (isMove) {
@@ -38,7 +44,12 @@ if (isMove) {
 dashPower = scr_tween_to(dashPower, 0, 0.1);
 
 // 캐릭터 무기 방향 조절
-weaponAngle = point_direction(x, y, mouse_x, mouse_y);
+if (os_type == os_windows) {
+	weaponAngle = point_direction(x, y, mouse_x, mouse_y);
+}
+else if (os_type == os_android) {
+	weaponAngle = global.vstick[VSTICK.ATTACK, VSTICK_SETTING.DIRECTION];
+}
 
 if (weaponAngle > 90 && weaponAngle < 270) {
 	weaponDir = -1;

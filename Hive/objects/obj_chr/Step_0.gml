@@ -55,15 +55,20 @@ switch (global.chrMap[? "warriorWeapon"]) {
 		break;
 }
 
-if (global.chrMap[? "swap"] == "ranger") {
-	cursor_sprite = rangerCrosshair;
+if (os_type == os_windows) {
+	if (global.chrMap[? "swap"] == "ranger") {
+		cursor_sprite = rangerCrosshair;
+	}
+	else if (global.chrMap[? "swap"] == "warrior") {
+		cursor_sprite = warriorCrosshair;
+	}
 }
-else if (global.chrMap[? "swap"] == "warrior") {
-	cursor_sprite = warriorCrosshair;
+else if (os_type == os_android) {
+	window_set_cursor(cr_none);
 }
 
 // 사망
 if (global.chrMap[? "hp"] <= 0) {
-	show_message("사망했습니다!");
+	show_message_async("사망했습니다!");
 	game_restart();
 }

@@ -73,3 +73,7 @@ if (global.chrMap[? "swap"] == "ranger") {
 	draw_text(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0) + 25, global.chrMap[? "ammo"]);
 }
 #endregion
+
+// 가상 조이스틱 그리기
+scr_vstick_draw(VSTICK.MOVE);
+scr_vstick_draw(VSTICK.ATTACK);

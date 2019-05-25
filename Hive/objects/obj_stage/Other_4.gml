@@ -225,8 +225,7 @@ with (obj_parent_entry) {
 }
 #endregion
 #region 캐릭터|시스템 생성
-var startX = 0;
-var startY = 0; 
+var startX, startY; 
 
 if (global.previousIndex == noone) {
 	startX = room_width / 2;
