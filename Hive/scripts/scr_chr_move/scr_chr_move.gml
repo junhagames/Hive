@@ -20,7 +20,7 @@ if (os_type == os_windows) {
 else if (os_type == os_android) {
 	hspd = global.vstick[VSTICK.MOVE, VSTICK_SETTING.X_AXIS] * global.chrMap[? "speed"];
 	vspd = global.vstick[VSTICK.MOVE, VSTICK_SETTING.Y_AXIS] * global.chrMap[? "speed"];
-	moveDir = point_direction(0, 0, hspd, vspd);
+	moveDir = global.vstick[VSTICK.MOVE, VSTICK_SETTING.DIRECTION];
 }
 isMove = hspd != 0 || vspd != 0;
 
@@ -41,7 +41,7 @@ if (isMove) {
 	x += lengthdir_x(abs(hspd), moveDir);
 	y += lengthdir_y(abs(vspd), moveDir);
 }
-dashPower = scr_tween_to(dashPower, 0, 0.1);
+dashPower = scr_tween_to(dashPower, 0, 0.06);
 
 // 캐릭터 무기 방향 조절
 if (os_type == os_windows) {

@@ -10,16 +10,16 @@ if (surface_exists(lightSuf)) {
 		gpu_set_blendmode(bm_subtract);
 
 		with (obj_chr) {
-			var _x = (x - obj_camera.x + global.gameWidth / 2) * global.zoom;
-			var _y = (y - obj_camera.y + global.gameHeight / 2) * global.zoom;
-			draw_circle(_x + random_range(-1, 1), _y + random_range(-1, 1), 180 * global.zoom + random_range(-1, 1), false);
-			draw_circle(_x + random_range(-1, 1), _y + random_range(-1, 1), 160 * global.zoom + random_range(-1, 1), false);
+			var _x = x - obj_camera.x + global.gameWidth / 2;
+			var _y = y - obj_camera.y + global.gameHeight / 2;
+			draw_circle(_x + random_range(-1, 1), _y + random_range(-1, 1), 180 + random_range(-1, 1), false);
+			draw_circle(_x + random_range(-1, 1), _y + random_range(-1, 1), 160 + random_range(-1, 1), false);
 		}
 	
 		with (obj_bullet) {
-			var _x = (x - obj_camera.x + global.gameWidth / 2) * global.zoom;
-			var _y = (y - obj_camera.y + global.gameHeight / 2) * global.zoom;
-			draw_sprite_ext(sprite_index, -1, _x, _y, global.zoom, global.zoom, image_angle, image_blend, image_alpha);
+			var _x = x - obj_camera.x + global.gameWidth / 2;
+			var _y = y - obj_camera.y + global.gameHeight / 2;
+			draw_sprite_ext(sprite_index, -1, _x, _y, 1, 1, image_angle, image_blend, image_alpha);
 		}
 		gpu_set_blendmode(bm_normal);
 	}
@@ -27,5 +27,5 @@ if (surface_exists(lightSuf)) {
 	surface_reset_target();
 }
 else {
-	lightSuf = surface_create(global.gameWidth * global.zoom, global.gameHeight * global.zoom);
+	lightSuf = surface_create(global.gameWidth, global.gameHeight);
 }

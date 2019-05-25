@@ -61,8 +61,6 @@ if (!file_exists("game.ini")) {
 	// 화면 초기화
 	ini_write_real("screen", "gameWidth", 1280);
 	ini_write_real("screen", "gameHeight", 720);
-	ini_write_real("screen", "zoom", 1);
-	ini_write_real("screen", "resolution", 1);
 }
 
 // 볼륨 불러오기
@@ -72,8 +70,6 @@ global.sfxVolume = ini_read_real("settings", "sfxVolume", 1);
 // 화면 불러오기
 global.gameWidth = ini_read_real("screen", "gameWidth", 1280);
 global.gameHeight = ini_read_real("screen", "gameHeight", 720);
-global.zoom = ini_read_real("screen", "zoom", 1);
-global.resolution = ini_read_real("screen", "resolution", 1);
 ini_close();
 #endregion
 
@@ -209,8 +205,8 @@ draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 
 // 화면 크기|해상도 초기화
-window_set_size(global.gameWidth * global.zoom, global.gameHeight * global.zoom);
-display_set_gui_size(global.gameWidth * global.zoom, global.gameHeight * global.zoom);
+window_set_size(global.gameWidth, global.gameHeight);
+display_set_gui_size(global.gameWidth, global.gameHeight);
 
 // 크로스헤어 초기화
 if (os_type == os_windows) {

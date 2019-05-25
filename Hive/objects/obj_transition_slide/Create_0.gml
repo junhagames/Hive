@@ -1,5 +1,5 @@
-newRoomSuf = surface_create(global.gameWidth * global.resolution, global.gameHeight * global.resolution);
-oldRoomSuf = surface_create(global.gameWidth * global.resolution, global.gameHeight * global.resolution);
+newRoomSuf = surface_create(global.gameWidth, global.gameHeight);
+oldRoomSuf = surface_create(global.gameWidth, global.gameHeight);
 surface_set_target(newRoomSuf);
 draw_clear_alpha(c_white, 0);
 surface_set_target(oldRoomSuf);
@@ -13,17 +13,17 @@ if (surface_exists(application_surface)) {
 
 if (global.previousPos == "top" || global.previousPos == "topleft" || global.previousPos == "topright") {
 	xTo = 0;
-	yTo = global.gameHeight * global.zoom;
+	yTo = global.gameHeight;
 }
 else if (global.previousPos == "right" || global.previousPos == "righttop" || global.previousPos == "rightbottom") {
-	xTo = -global.gameWidth * global.zoom;
+	xTo = -global.gameWidth;
 	yTo = 0;
 }
 else if (global.previousPos == "bottom" || global.previousPos == "bottomright" || global.previousPos == "bottomleft") {
 	xTo = 0;
-	yTo = -global.gameHeight * global.zoom;
+	yTo = -global.gameHeight;
 }
 else if (global.previousPos == "left" || global.previousPos == "leftbottom" || global.previousPos == "lefttop") {
-	xTo = global.gameWidth * global.zoom;
+	xTo = global.gameWidth;
 	yTo = 0;
 }

@@ -2679,14 +2679,6 @@
             }
         },
         {
-            "Key": "a67f6977-a4bf-420c-930b-2b6420042aac",
-            "Value": {
-                "id": "c5da349b-9a04-4818-a036-2141f7dfa11c",
-                "resourcePath": "scripts\\scr_screen_resize\\scr_screen_resize.yy",
-                "resourceType": "GMScript"
-            }
-        },
-        {
             "Key": "a6c08861-d2f2-444d-979e-cb950e73f352",
             "Value": {
                 "id": "4b85fde7-b178-46e8-a7c6-85c36eb1950e",
@@ -4185,7 +4177,6 @@
     ],
     "script_order": [
         "51127d59-376c-4ea7-9059-5fadff27366a",
-        "a67f6977-a4bf-420c-930b-2b6420042aac",
         "2c7c3f10-5fbe-4f8e-b75e-129aac8d7c03",
         "46afe279-5c2c-4f73-8ee6-8dd99ba3ad23",
         "f9cec0f6-b6f4-4914-8872-e3fc7283a961",
