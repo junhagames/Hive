@@ -1,3 +1,5 @@
+draw_self();
+
 if (hp > 0 && hp < hpMax) {
 	draw_set_alpha(0.6);
 	draw_set_color(c_red);
@@ -7,5 +9,3 @@ if (hp > 0 && hp < hpMax) {
 	draw_set_color(c_white);
 	draw_set_alpha(1);
 }
-
-draw_self();

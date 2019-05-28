@@ -82,10 +82,9 @@ for (var _y = 0; _y < ds_grid_height(global.worldGrid); _y++) {
 							break;
 					}
 				
-					draw_sprite_ext(iconSprite, 0,
+					draw_sprite(iconSprite, 0,
 						minimapSpriteX + (sprite_get_width(minimapSprite) - minimapw) / minimapw * minimapw / 2,
-						minimapSpriteY + (sprite_get_height(minimapSprite) - minimaph) / minimaph * minimaph / 2,
-						1, 1, 0, c_white, 1);
+						minimapSpriteY + (sprite_get_height(minimapSprite) - minimaph) / minimaph * minimaph / 2);
 				}
 			}
 		}

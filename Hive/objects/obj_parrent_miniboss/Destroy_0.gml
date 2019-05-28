@@ -1,1 +1,2 @@
-scr_room_inst_destroy();
+scr_room_inst_save();
+path_delete(path);

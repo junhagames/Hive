@@ -1,9 +1,15 @@
+// 피격 효과 그리기
+if (damageAlpha > 0) {
+	draw_set_alpha(damageAlpha);
+	draw_set_color(c_red);
+	draw_rectangle(0, 0, global.gameWidth, global.gameHeight, false);
+	draw_set_color(c_white);
+	draw_set_alpha(1);
+}
+
 // 광원 그리기
 if (surface_exists(lightSuf)) {
 	draw_surface(lightSuf, 0, 0);
-}
-else {
-	lightSuf = surface_create(global.gameWidth, global.gameHeight);
 }
 
 draw_set_alpha(0.6);
@@ -17,7 +23,7 @@ if (global.chrMap[? "hp"] > 0) {
 }
 
 // 코인 그리기
-draw_sprite_ext(spr_ui_coin, 0, 40, 120, 1, 1, 0, c_white, draw_get_alpha());
+draw_sprite(spr_ui_coin, 0, 40, 120);
 draw_text(60, 120, global.chrMap[? "coin"]);
 
 // 미니맵 그리기
@@ -58,7 +64,7 @@ if (surface_exists(minimapSuf)) {
 				frameSprite = spr_ui_minimap_school;
 				break;
 		}
-		draw_sprite_ext(frameSprite, 0, global.gameWidth - 240, 40, 1, 1, 0, c_white, 1);
+		draw_sprite(frameSprite, 0, global.gameWidth - 240, 40);
 	}
 }
 else {
@@ -69,7 +75,17 @@ draw_set_alpha(1);
 if (os_type == os_windows) {
 	// 총알 그리기
 	if (global.chrMap[? "swap"] == "ranger") {
+		if (global.chrMap[? "ammo"] >= max(global.chrMap[? "ammoMax"] / 3, 1)) {
+			draw_set_color(c_white);
+		}
+		else if (global.chrMap[? "ammo"] > 0) {
+			draw_set_color(c_yellow);
+		}
+		else {
+			draw_set_color(c_red);
+		}
 		draw_text(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0) + 25, global.chrMap[? "ammo"]);
+		draw_set_color(c_white);
 	}
 }
 else if (os_type == os_android) {

@@ -7,7 +7,7 @@
         "78ca3bcc-8d53-425e-97d7-5bc8f810a803"
     ],
     "filterType": "GMSprite",
-    "folderName": "Soldier",
+    "folderName": "Commando",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

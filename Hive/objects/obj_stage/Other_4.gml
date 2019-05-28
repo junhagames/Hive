@@ -285,7 +285,7 @@ instance_create_layer(0, 0, "layer_system", obj_camera);
 instance_create_layer(0, 0, "layer_draw", obj_draw);
 #endregion
 
-// 인스턴스 세이브|불러오기
+// 인스턴스 정보 초기화|불러오기
 scr_room_inst_start();
 
 // 길찾기 그리드 생성

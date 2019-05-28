@@ -9,7 +9,7 @@
         "e86b4526-b3e1-450a-bf17-344be82d172b"
     ],
     "filterType": "GMScript",
-    "folderName": "Virtual Joystick",
+    "folderName": "Joystick",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

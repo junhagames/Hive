@@ -28,7 +28,7 @@
         "af711b27-a0af-4f34-93b3-9786c4e84086",
         "284f58c5-7a5a-4d7b-8918-d7345e2ee56e",
         "7678a801-595d-478a-b390-61a55e74a24b",
-        "d0d8d90c-a18a-46d2-8d6c-5482f4f11916"
+        "199b156e-eb4d-481d-a754-4f68d1da7ed2"
     ],
     "IsDnD": false,
     "layers": [
@@ -123,8 +123,8 @@
                     "name": "layer_inst",
                     "id": "9c842f2d-f3c5-4ae5-8cc5-fe2ca09c9ab5",
                     "depth": 400,
-                    "grid_x": 40,
-                    "grid_y": 40,
+                    "grid_x": 32,
+                    "grid_y": 32,
                     "hierarchyFrozen": false,
                     "hierarchyVisible": true,
                     "inheritLayerDepth": true,
@@ -132,7 +132,7 @@
                     "inheritSubLayers": true,
                     "inheritVisibility": true,
                     "instances": [
-{"name": "inst_65A9CCBB","id": "d0d8d90c-a18a-46d2-8d6c-5482f4f11916","colour": { "Value": 4294967295 },"creationCodeFile": "","creationCodeType": "","ignore": false,"imageIndex": 0,"imageSpeed": 1,"inheritCode": false,"inheritItemSettings": false,"IsDnD": false,"m_originalParentID": "00000000-0000-0000-0000-000000000000","m_serialiseFrozen": false,"modelName": "GMRInstance","name_with_no_file_rename": "inst_65A9CCBB","objId": "72a565c0-ad28-4e3e-860c-2c505983468d","properties": null,"rotation": 0,"scaleX": 1,"scaleY": 1,"mvc": "1.1","x": 1280,"y": 720}
+
                     ],
                     "layers": [
 
@@ -276,7 +276,7 @@
                     "inheritSubLayers": true,
                     "inheritVisibility": true,
                     "instances": [
-
+{"name": "inst_65A9CCBB","id": "199b156e-eb4d-481d-a754-4f68d1da7ed2","colour": { "Value": 4294967295 },"creationCodeFile": "","creationCodeType": "","ignore": false,"imageIndex": 0,"imageSpeed": 1,"inheritCode": false,"inheritItemSettings": false,"IsDnD": false,"m_originalParentID": "00000000-0000-0000-0000-000000000000","m_serialiseFrozen": false,"modelName": "GMRInstance","name_with_no_file_rename": "inst_65A9CCBB","objId": "72a565c0-ad28-4e3e-860c-2c505983468d","properties": null,"rotation": 0,"scaleX": 1,"scaleY": 1,"mvc": "1.1","x": 1280,"y": 720}
                     ],
                     "layers": [
 

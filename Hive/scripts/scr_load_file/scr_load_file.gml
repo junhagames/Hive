@@ -11,10 +11,7 @@ var saveJson = json_decode(loadString);
 
 // 월드 불러오기
 ds_grid_read(global.worldGrid, saveJson[? "worldGrid"]);
-global.saveMap[? "worldGrid"] = ds_grid_write(global.worldGrid);
-
 global.currentWorld = saveJson[? "currentWorld"];
-global.saveMap[? "currentWorld"] = global.currentWorld;
 
 // 룸 불러오기
 var roomJson = saveJson[? "roomMap"];

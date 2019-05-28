@@ -22,6 +22,7 @@ for (var i = 0; i < instCount; i++) {
 			case obj_chr:
 				var secondWeapon;
 				
+				// 캐릭터|부무장 그리기
 				if (global.chrMap[? "swap"] == "ranger") {
 					secondWeapon = warriorSprite;
 				}
@@ -31,6 +32,7 @@ for (var i = 0; i < instCount; i++) {
 				draw_sprite_ext(secondWeapon, 0, x, y - 24, 1, 1, 90 + 20 * weaponDir, c_gray, 1);
 				draw_sprite_ext(chrSprite, isMove * -1, x, y, image_xscale * weaponDir, image_yscale, image_angle, image_blend, image_alpha);
 				
+				// 무기 그리기
 				if (global.chrMap[? "swap"] == "ranger") {
 					draw_sprite_ext(rangerSprite, 0, x + lengthdir_x(weaponLength, weaponAngle), y + lengthdir_y(weaponLength, weaponAngle) - 8, 1, weaponDir, weaponAngle, c_white, 1);
 				}

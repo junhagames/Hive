@@ -1,3 +1,3 @@
-scr_room_inst_destroy();
+scr_room_inst_save();
 
 event_inherited();

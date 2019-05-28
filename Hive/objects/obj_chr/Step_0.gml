@@ -1,5 +1,6 @@
 if (!instance_exists(obj_parent_transition)) {
 	scr_chr_move();
+	scr_chr_weaponAngle();
 	scr_chr_attack();
 	scr_chr_skill();
 	scr_chr_swap();

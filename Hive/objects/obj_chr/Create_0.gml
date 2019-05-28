@@ -1,9 +1,12 @@
 switch (global.chrMap[? "class"]) {
-	case "worker":
-		chrSprite = spr_chr_worker;
+	case "commando":
+		chrSprite = spr_chr_commando;
 		break;
-	case "soldier":
-		chrSprite = spr_chr_soldier;
+	case "firefighter":
+		chrSprite = spr_chr_firefighter;
+		break;
+	case "explorer":
+		chrSprite = spr_chr_explorer;
 		break;
 }
 rangerSprite = spr_weapon_pistol;
@@ -16,6 +19,7 @@ moveDir = 0;
 dashPower = 0;
 
 isMove = false;
+isDash = false;
 isAttackDelay = false;
 isSkillDelay = false;
 isDamageDelay = false;

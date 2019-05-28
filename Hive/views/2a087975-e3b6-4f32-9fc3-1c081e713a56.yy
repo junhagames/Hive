@@ -7,7 +7,7 @@
         "375beea5-9cc5-41c5-840d-e8b0f3ac0cca"
     ],
     "filterType": "GMSprite",
-    "folderName": "Worker",
+    "folderName": "Firefighter",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

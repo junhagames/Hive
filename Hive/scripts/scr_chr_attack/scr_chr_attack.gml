@@ -1,5 +1,14 @@
 /// @description 캐릭터 공격
 
+// 재장전
+if (global.chrMap[? "swap"] == "ranger") {
+	if (os_type == os_windows && mouse_check_button_released(mb_left) || os_type == os_android && global.vstick[VSTICK.ATTACK, VSTICK_SETTING.RELEASED]) {
+		if (global.chrMap[? "ammo"] == 0) {
+			global.chrMap[? "ammo"] = global.chrMap[? "ammoMax"];
+		}
+	}
+}
+
 if (!isAttackDelay) {
 	if (global.chrMap[? "swap"] == "ranger") {
 		if ((os_type == os_windows && mouse_check_button(mb_left)) || (os_type == os_android && global.vstick[VSTICK.ATTACK, VSTICK_SETTING.CHECK])) {
@@ -15,15 +24,11 @@ if (!isAttackDelay) {
 				
 				scr_camera_shake(4);
 			}
-			else if ((os_type == os_windows && mouse_check_button_pressed(mb_left)) || (os_type == os_android && global.vstick[VSTICK.ATTACK, VSTICK_SETTING.PRESSED])) {
-				// 재장전
-				global.chrMap[? "ammo"] = global.chrMap[? "ammoMax"];
-			}
 		}
 	}
 	else if (global.chrMap[? "swap"] == "warrior") {
 		if ((os_type == os_windows && mouse_check_button(mb_left)) || (os_type == os_android && global.vstick[VSTICK.ATTACK, VSTICK_SETTING.CHECK])) {
-			var melee = instance_create_layer(x + lengthdir_x(16, weaponAngle), y + lengthdir_y(16, weaponAngle), "layer_inst", obj_melee);
+			var melee = instance_create_layer(x + lengthdir_x(weaponLength, weaponAngle), y + lengthdir_y(weaponLength, weaponAngle), "layer_inst", obj_melee);
 			melee.image_angle = weaponAngle;
 			melee.damage = global.chrMap[? "power"] + global.chrMap[? "warriorDamage"];
 			isAttackDelay = true;

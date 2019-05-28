@@ -12,9 +12,9 @@ if (instance_exists(target)) {
 		my = mouse_y;
 	}
 	else if (os_type == os_android) {
-		mx = (global.vstick[VSTICK.ATTACK, VSTICK_SETTING.X] - global.vstick[VSTICK.ATTACK, VSTICK_SETTING.FIXED_X])
+		mx = (global.vstick[VSTICK.ATTACK, VSTICK_SETTING.X] - global.vstick[VSTICK.ATTACK, VSTICK_SETTING.CENTER_X])
 			/ (global.vstick[VSTICK.ATTACK, VSTICK_SETTING.RADIUS] * 2) * global.gameWidth + target.x;
-		my = (global.vstick[VSTICK.ATTACK, VSTICK_SETTING.Y] - global.vstick[VSTICK.ATTACK, VSTICK_SETTING.FIXED_Y])
+		my = (global.vstick[VSTICK.ATTACK, VSTICK_SETTING.Y] - global.vstick[VSTICK.ATTACK, VSTICK_SETTING.CENTER_Y])
 			/ (global.vstick[VSTICK.ATTACK, VSTICK_SETTING.RADIUS] * 2) * global.gameHeight + target.y;
 	}
 	x = median(global.gameWidth / 2, scr_tween_to(x, lerp(target.x, mx, 0.1), 0.3), room_width - global.gameWidth / 2);
@@ -22,12 +22,10 @@ if (instance_exists(target)) {
 }
 
 // 카메라 흔들기
+shake = scr_tween_to(shake, 0, 0.3);
 x += random_range(-shake, shake);
 y += random_range(-shake, shake);
 
-if (shake > 0) {
-    shake -= shake / 4;
-}
-
+// 카메라 업데이트
 var vm = matrix_build_lookat(x, y, -10, x, y, 0, 0, 1, 0);
 camera_set_view_mat(camera, vm);

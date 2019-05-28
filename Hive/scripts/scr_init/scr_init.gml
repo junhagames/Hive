@@ -1,7 +1,7 @@
 /// @description 게임 초기화
 
 #region 메크로 상수
-#macro WALL "#"
+#macro WALL -1
 #macro CELL_WIDTH 40
 #macro CELL_HEIGHT 40
 #endregion
@@ -15,13 +15,12 @@ enum VSTICK_SETTING {
 	ACTIVE,
 	DEVICE_ID,
 	FIXED,
-	FIXED_X,
-	FIXED_Y,
 	CENTER_X,
 	CENTER_Y,
 	X,
 	Y,
 	RADIUS,
+	DISTANCE,
 	X_AXIS,
 	Y_AXIS,
 	DIRECTION,
@@ -85,7 +84,8 @@ global.isClear = false;
 // 캐릭터 초기화
 global.chrMap = ds_map_create();
 global.chrMap[? "coin"] = 0;
-global.chrMap[? "class"] = "worker";
+global.chrMap[? "upgradePart"] = 0;
+global.chrMap[? "class"] = "commando";
 global.chrMap[? "hpMax"] = 100;
 global.chrMap[? "hp"] = global.chrMap[? "hpMax"];
 global.chrMap[? "power"] = 1;

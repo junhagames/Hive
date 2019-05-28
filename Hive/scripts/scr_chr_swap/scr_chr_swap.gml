@@ -1,7 +1,7 @@
 /// @description 캐릭터 무기 교체
 
-if (os_type == os_windows && (keyboard_check_pressed(ord("Q")) || mouse_wheel_up() || mouse_wheel_down())) {
-	if (!isSwapDelay) {
+if (!isSwapDelay) {
+	if (os_type == os_windows && (keyboard_check_pressed(ord("Q")) || mouse_wheel_up() || mouse_wheel_down())) {
 		if (global.chrMap[? "swap"] == "ranger") {
 			global.chrMap[? "swap"] = "warrior";
 			warriorDir = 1;
