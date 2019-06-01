@@ -53,7 +53,7 @@ enum ALARM_HIVE {
 ini_open("game.ini");
 
 if (!file_exists("game.ini")) {
-	// 볼륨 초기화
+	// 사운드 볼륨 초기화
 	ini_write_real("settings", "bgmVolume", 1);
 	ini_write_real("settings", "sfxVolume", 1);
 
@@ -62,9 +62,12 @@ if (!file_exists("game.ini")) {
 	ini_write_real("screen", "gameHeight", 720);
 }
 
-// 볼륨 불러오기
+// 사운드 관련 불러오기
 global.bgmVolume = ini_read_real("settings", "bgmVolume", 1);
 global.sfxVolume = ini_read_real("settings", "sfxVolume", 1);
+global.bgmPlaying = bgm_title;
+audio_group_load(audiogroup_bgm);
+audio_group_load(audiogroup_sfx);
 
 // 화면 불러오기
 global.gameWidth = ini_read_real("screen", "gameWidth", 1280);
@@ -88,9 +91,9 @@ global.chrMap[? "upgradePart"] = 0;
 global.chrMap[? "class"] = "commando";
 global.chrMap[? "hpMax"] = 100;
 global.chrMap[? "hp"] = global.chrMap[? "hpMax"];
-global.chrMap[? "power"] = 1;
+global.chrMap[? "power"] = 2;
 global.chrMap[? "armor"] = 1;
-global.chrMap[? "speed"] = 6;
+global.chrMap[? "speed"] = 5;
 global.chrMap[? "swap"] = "ranger";
 global.chrMap[? "ammoMax"] = 20;
 global.chrMap[? "ammo"] = global.chrMap[? "ammoMax"];
@@ -207,11 +210,13 @@ draw_set_valign(fa_middle);
 // 화면 크기|해상도 초기화
 window_set_size(global.gameWidth, global.gameHeight);
 display_set_gui_size(global.gameWidth, global.gameHeight);
+surface_resize(application_surface, global.gameWidth, global.gameHeight);
 
-// 크로스헤어 초기화
-if (os_type == os_windows) {
-	cursor_sprite = spr_ui_crosshair_ranger;
-}
-else if (os_type == os_android) {
-	window_set_cursor(cr_none);
+// 마우스 커서 초기화
+global.cursorSprite = spr_ui_cursor_action;
+
+// 가상 조이스틱 초기화
+if (os_type == os_android) {
+	scr_vstick_init(VSTICK.MOVE, false, 240, 540, sprite_get_width(spr_joystick_move_back) / 2, spr_joystick_move_back, spr_joystick_move_front);
+	scr_vstick_init(VSTICK.ATTACK, true, 1040, 540, sprite_get_width(spr_joystick_attack_back) / 2, spr_joystick_attack_back, spr_joystick_attack_front);
 }

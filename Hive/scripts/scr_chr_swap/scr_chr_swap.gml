@@ -8,6 +8,11 @@ if (!isSwapDelay) {
 		}
 		else if (global.chrMap[? "swap"] == "warrior") {
 			global.chrMap[? "swap"] = "ranger";
+			
+			if (global.chrMap[? "ammo"] == 0) {
+				global.chrMap[? "ammo"] = global.chrMap[? "ammoMax"];
+			}
+			audio_play_sound(sfx_gun_reload1, 10, false);
 		}
 		isSwapDelay = true;
 		alarm[ALARM_CHR.SWAP] = swapSpeed;

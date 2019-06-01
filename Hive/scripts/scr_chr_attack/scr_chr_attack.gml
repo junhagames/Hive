@@ -5,6 +5,7 @@ if (global.chrMap[? "swap"] == "ranger") {
 	if (os_type == os_windows && mouse_check_button_released(mb_left) || os_type == os_android && global.vstick[VSTICK.ATTACK, VSTICK_SETTING.RELEASED]) {
 		if (global.chrMap[? "ammo"] == 0) {
 			global.chrMap[? "ammo"] = global.chrMap[? "ammoMax"];
+			audio_play_sound(sfx_gun_reload1, 10, false);
 		}
 	}
 }
@@ -23,6 +24,7 @@ if (!isAttackDelay) {
 				alarm[ALARM_CHR.ATTACK] = global.chrMap[? "rangerSpeed"];
 				
 				scr_camera_shake(4);
+				audio_play_sound(sfx_gun_fire1, 10, false);
 			}
 		}
 	}

@@ -8,68 +8,63 @@ if (!instance_exists(obj_parent_transition)) {
 }
 
 // 무기 설정
-var rangerCrosshair, warriorCrosshair;
+var rangerCursor, warriorCursor;
 
 switch (global.chrMap[? "rangerWeapon"]) {
 	case "pistol":
 		rangerSprite = spr_weapon_pistol;
-		rangerCrosshair = spr_ui_crosshair_ranger;
+		rangerCursor = spr_ui_cursor_ranger1;
 		break;
 	case "degle":
 		rangerSprite = spr_weapon_deagle;
-		rangerCrosshair = spr_ui_crosshair_ranger;
+		rangerCursor = spr_ui_cursor_ranger1;
 		break;
 	case "uzi":
 		rangerSprite = spr_weapon_uzi;
-		rangerCrosshair = spr_ui_crosshair_ranger;
+		rangerCursor = spr_ui_cursor_ranger1;
 		break;
 	case "shotgun":
 		rangerSprite = spr_weapon_shotgun;
-		rangerCrosshair = spr_ui_crosshair_ranger;
+		rangerCursor = spr_ui_cursor_ranger1;
 		break;
 	case "sniper":
 		rangerSprite = spr_weapon_sniper;
-		rangerCrosshair = spr_ui_crosshair_ranger;
+		rangerCursor = spr_ui_cursor_ranger1;
 		break;
 }
 
 switch (global.chrMap[? "warriorWeapon"]) {
 	case "bat":
 		warriorSprite = spr_weapon_bat;
-		warriorCrosshair = spr_ui_crosshair_warrior;
+		warriorCursor = spr_ui_cursor_warrior1;
 		break;
 	case "axe":
 		warriorSprite = spr_weapon_axe;
-		warriorCrosshair = spr_ui_crosshair_warrior;
+		warriorCursor = spr_ui_cursor_warrior1;
 		break;
 	case "crowbar":
 		warriorSprite = spr_weapon_crowbar;
-		warriorCrosshair = spr_ui_crosshair_warrior;
+		warriorCursor = spr_ui_cursor_warrior1;
 		break;
 	case "hammer":
 		warriorSprite = spr_weapon_hammer;
-		warriorCrosshair = spr_ui_crosshair_warrior;
+		warriorCursor = spr_ui_cursor_warrior1;
 		break;
 	case "plunger":
 		warriorSprite = spr_weapon_plunger;
-		warriorCrosshair = spr_ui_crosshair_warrior;
+		warriorCursor = spr_ui_cursor_warrior1;
 		break;
 }
 
-if (os_type == os_windows) {
-	if (global.chrMap[? "swap"] == "ranger") {
-		cursor_sprite = rangerCrosshair;
-	}
-	else if (global.chrMap[? "swap"] == "warrior") {
-		cursor_sprite = warriorCrosshair;
-	}
+if (global.chrMap[? "swap"] == "ranger") {
+	global.cursorSprite = rangerCursor;
 }
-else if (os_type == os_android) {
-	window_set_cursor(cr_none);
+else if (global.chrMap[? "swap"] == "warrior") {
+	global.cursorSprite = warriorCursor;
 }
 
-// 사망
+// 캐릭터 사망
 if (global.chrMap[? "hp"] <= 0) {
 	show_message_async("사망했습니다!");
-	game_restart();
+	room_goto(room_title);
 }

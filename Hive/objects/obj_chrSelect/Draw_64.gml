@@ -1,0 +1,1 @@
+draw_text_transformed(global.gameWidth / 2, 180, "캐릭터 선택", 4, 4, 0);

@@ -1,14 +1,22 @@
 /// @description 월드 무작위 초기화
+/// @param worldName
 /// @param roomNum
 /// @param roomWidth
 /// @param roomHeight
 
-var roomNum = argument0;
-var roomWidth = argument1; 
-var roomHeight = argument2;
+var worldName = argument0;
+var roomNum = argument1;
+var roomWidth = argument2; 
+var roomHeight = argument3;
 
 // 월드 초기화
+ds_map_clear(global.roomMap);
+global.currentWorld = worldName;
 global.currentIndex = 0;
+global.previousIndex = noone;
+global.previousPos = noone;
+global.isClear = false;
+
 ds_grid_resize(global.worldGrid, roomWidth, roomHeight);
 
 for (var _y = 0; _y < ds_grid_height(global.worldGrid); _y++) {

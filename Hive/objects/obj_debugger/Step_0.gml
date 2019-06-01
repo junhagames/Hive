@@ -1,6 +1,6 @@
 // 재시작
 if (keyboard_check_pressed(vk_f5)) {
-	game_restart();
+	room_goto(room_title);
 }
 
 // 무기 변경
