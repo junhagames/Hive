@@ -57,7 +57,7 @@
     "option_android_permission_record_audio": false,
     "option_android_permission_write_external_storage": false,
     "option_android_scale": 1,
-    "option_android_screen_depth": 0,
+    "option_android_screen_depth": 1,
     "option_android_sleep_margin": 4,
     "option_android_splash_screens_landscape": "${base_options_dir}\\amazonfire\\splash\\landscape.png",
     "option_android_splash_screens_portrait": "${base_options_dir}\\amazonfire\\splash\\portrait.png",

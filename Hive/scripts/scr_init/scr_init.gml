@@ -225,7 +225,6 @@ draw_set_valign(fa_middle);
 
 // 화면 크기|해상도 초기화
 window_set_size(global.gameWidth, global.gameHeight);
-//display_set_gui_maximise(0.75, 0.75, 0, 0);
 display_set_gui_size(global.gameWidth, global.gameHeight);
 surface_resize(application_surface, global.gameWidth, global.gameHeight);
 
@@ -234,10 +233,9 @@ global.cursorSprite = spr_ui_cursor_action;
 
 // 가상 조이스틱|키 초기화
 if (os_type == os_android) {
+	scr_vstick_init(VSTICK.MOVE, false, 200, global.gameHeight - 180, sprite_get_width(spr_joystick_move_back) / 2, spr_joystick_move_back, spr_joystick_move_front);
+	scr_vkey_init(VKEY.ATTACK, global.gameWidth - 200, global.gameHeight - 180, sprite_get_width(spr_key_attack) / 2, spr_key_attack);
+	scr_vkey_init(VKEY.SKILL, global.gameWidth - 330, global.gameHeight - 100, sprite_get_width(spr_key_skill) / 2, spr_key_skill);
+	scr_vkey_init(VKEY.SWAP, global.gameWidth - 70, global.gameHeight - 260, sprite_get_width(spr_key_swap) / 2, spr_key_swap);
+	scr_vkey_init(VKEY.DASH, global.gameWidth - 70, global.gameHeight - 100, sprite_get_width(spr_key_dash) / 2, spr_key_dash);
 }
-scr_vstick_init(VSTICK.MOVE, false, 240, global.gameHeight - 180, sprite_get_width(spr_joystick_move_back) / 2, spr_joystick_move_back, spr_joystick_move_front);
-scr_vkey_init(VKEY.ATTACK, global.gameWidth - 240, global.gameHeight - 180, sprite_get_width(spr_key_attack) / 2, spr_key_attack);
-scr_vkey_init(VKEY.SKILL, global.gameWidth - 400, global.gameHeight - 70, sprite_get_width(spr_key_skill) / 2, spr_key_skill);
-scr_vkey_init(VKEY.SWAP, global.gameWidth - 70, global.gameHeight - 270, sprite_get_width(spr_key_swap) / 2, spr_key_swap);
-scr_vkey_init(VKEY.DASH, global.gameWidth - 70, global.gameHeight - 130, sprite_get_width(spr_key_dash) / 2, spr_key_dash);
-

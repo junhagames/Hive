@@ -3,6 +3,9 @@
 
 var target = argument0;
 
+var _x = 1280;
+var _y = 720;
+
 // 카메라 이동
 if (instance_exists(target)) {
 	var mx, my;
@@ -13,12 +16,12 @@ if (instance_exists(target)) {
 	}
 	else if (os_type == os_android) {
 		mx = (global.vstick[VSTICK.MOVE, VSTICK_SETTING.X] - global.vstick[VSTICK.MOVE, VSTICK_SETTING.CENTER_X])
-			/ (global.vstick[VSTICK.MOVE, VSTICK_SETTING.RADIUS] * 2) * global.gameWidth + target.x;
+			/ (global.vstick[VSTICK.MOVE, VSTICK_SETTING.RADIUS] * 2) * _x + target.x;
 		my = (global.vstick[VSTICK.MOVE, VSTICK_SETTING.Y] - global.vstick[VSTICK.MOVE, VSTICK_SETTING.CENTER_Y])
-			/ (global.vstick[VSTICK.MOVE, VSTICK_SETTING.RADIUS] * 2) * global.gameHeight + target.y;
+			/ (global.vstick[VSTICK.MOVE, VSTICK_SETTING.RADIUS] * 2) * _y + target.y;
 	}
-	x = median(global.gameWidth / 2, scr_tween_to(x, lerp(target.x, mx, 0.1), 0.3), room_width - global.gameWidth / 2);
-	y = median(global.gameHeight / 2, scr_tween_to(y, lerp(target.y, my, 0.1), 0.3), room_height - global.gameHeight / 2);
+	x = median(_x / 2, scr_tween_to(x, lerp(target.x, mx, 0.1), 0.3), room_width - _x / 2);
+	y = median(_y / 2, scr_tween_to(y, lerp(target.y, my, 0.1), 0.3), room_height - _y / 2);
 }
 
 // 카메라 흔들기

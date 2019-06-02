@@ -3,12 +3,12 @@ draw_set_alpha(0.6);
 // 체력 그리기
 if (global.chrMap[? "hp"] > 0) {
 	draw_set_color(c_lime);
-	draw_rectangle(40, 40, 40 + global.chrMap[? "hp"] / global.chrMap[? "hpMax"] * 300, 80, false);
+	draw_rectangle(40, 40, 40 + global.chrMap[? "hp"] / global.chrMap[? "hpMax"] * 200, 80, false);
 	draw_set_color(c_black);
-	draw_rectangle(40, 40, 340, 80, true);
+	draw_rectangle(40, 40, 240, 80, true);
 	draw_set_color(c_white);
 	draw_set_halign(fa_right);
-	draw_text(320, 40, string(global.chrMap[? "hp"]) + "/" + string(global.chrMap[? "hpMax"]));
+	draw_text(230, 40, string(global.chrMap[? "hp"]) + "/" + string(global.chrMap[? "hpMax"]));
 	draw_set_halign(fa_center);
 }
 
