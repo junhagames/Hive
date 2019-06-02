@@ -8,7 +8,7 @@
         "6c1f551f-778c-422e-80fb-3b03444d62d0"
     ],
     "filterType": "GMSprite",
-    "folderName": "Move",
+    "folderName": "Joystick",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

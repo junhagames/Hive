@@ -5,5 +5,5 @@ if (!isDamageDelay && !isDash) {
 	isDamageDelay = true;
 	alarm[ALARM_CHR.DAMAGE] = damageSpeed;
 	
-	obj_stage.damageAlpha = 0.3;
+	obj_game.damageAlpha = 0.3;
 }

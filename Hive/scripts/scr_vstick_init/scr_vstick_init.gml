@@ -15,7 +15,6 @@ var radius = argument4;
 var backSprite = argument5;
 var frontSprite = argument6;
 
-global.vstick[vstickID, VSTICK_SETTING.ACTIVE] = true;
 global.vstick[vstickID, VSTICK_SETTING.DEVICE_ID] = -1;
 global.vstick[vstickID, VSTICK_SETTING.FIXED] = fixed;
 global.vstick[vstickID, VSTICK_SETTING.CENTER_X] = centerX;

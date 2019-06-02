@@ -8,11 +8,16 @@
 #region 열거형
 enum VSTICK {
 	MOVE,
+}
+
+enum VKEY {
 	ATTACK,
+	SKILL,
+	SWAP,
+	DASH,
 }
 
 enum VSTICK_SETTING {
-	ACTIVE,
 	DEVICE_ID,
 	FIXED,
 	CENTER_X,
@@ -31,6 +36,17 @@ enum VSTICK_SETTING {
 	DRAW_Y,
 	BACK_SPRITE,
 	FRONT_SPRITE,
+}
+
+enum VKEY_SETTING {
+	DEVICE_ID,
+	X,
+	Y,
+	RADIUS,
+	CHECK,
+	PRESSED,
+	RELEASED,
+	SPRITE,
 }
 
 enum ALARM_CHR {
@@ -209,14 +225,19 @@ draw_set_valign(fa_middle);
 
 // 화면 크기|해상도 초기화
 window_set_size(global.gameWidth, global.gameHeight);
+//display_set_gui_maximise(0.75, 0.75, 0, 0);
 display_set_gui_size(global.gameWidth, global.gameHeight);
 surface_resize(application_surface, global.gameWidth, global.gameHeight);
 
 // 마우스 커서 초기화
 global.cursorSprite = spr_ui_cursor_action;
 
-// 가상 조이스틱 초기화
+// 가상 조이스틱|키 초기화
 if (os_type == os_android) {
-	scr_vstick_init(VSTICK.MOVE, false, 240, 540, sprite_get_width(spr_joystick_move_back) / 2, spr_joystick_move_back, spr_joystick_move_front);
-	scr_vstick_init(VSTICK.ATTACK, true, 1040, 540, sprite_get_width(spr_joystick_attack_back) / 2, spr_joystick_attack_back, spr_joystick_attack_front);
 }
+scr_vstick_init(VSTICK.MOVE, false, 240, global.gameHeight - 180, sprite_get_width(spr_joystick_move_back) / 2, spr_joystick_move_back, spr_joystick_move_front);
+scr_vkey_init(VKEY.ATTACK, global.gameWidth - 240, global.gameHeight - 180, sprite_get_width(spr_key_attack) / 2, spr_key_attack);
+scr_vkey_init(VKEY.SKILL, global.gameWidth - 400, global.gameHeight - 70, sprite_get_width(spr_key_skill) / 2, spr_key_skill);
+scr_vkey_init(VKEY.SWAP, global.gameWidth - 70, global.gameHeight - 270, sprite_get_width(spr_key_swap) / 2, spr_key_swap);
+scr_vkey_init(VKEY.DASH, global.gameWidth - 70, global.gameHeight - 130, sprite_get_width(spr_key_dash) / 2, spr_key_dash);
+

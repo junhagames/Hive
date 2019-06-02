@@ -5,10 +5,10 @@
     "name": "efdee764-0177-482d-a32e-d8362eaf9265",
     "children": [
         "72e8f8e8-c97a-414f-a8be-ae20314d69a3",
-        "af1cb6ca-d7a0-4378-a11c-616af4f37447"
+        "74452ec7-7ecc-42e0-9c80-25ad19cc148c"
     ],
     "filterType": "GMSprite",
-    "folderName": "Joystick",
+    "folderName": "Virtual",
     "isDefaultView": false,
     "localisedFolderName": ""
 }
