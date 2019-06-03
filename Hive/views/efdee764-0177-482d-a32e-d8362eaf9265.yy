@@ -8,7 +8,7 @@
         "74452ec7-7ecc-42e0-9c80-25ad19cc148c"
     ],
     "filterType": "GMSprite",
-    "folderName": "Virtual",
+    "folderName": "Virtual input",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

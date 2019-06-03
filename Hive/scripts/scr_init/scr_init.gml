@@ -1,6 +1,8 @@
 /// @description 게임 초기화
 
 #region 메크로 상수
+#macro RESOLUTION_WIDTH 1280
+#macro RESOLUTION_HEIGHT 720
 #macro WALL -1
 #macro CELL_WIDTH 40
 #macro CELL_HEIGHT 40
@@ -74,8 +76,8 @@ if (!file_exists("game.ini")) {
 	ini_write_real("settings", "sfxVolume", 1);
 
 	// 화면 초기화
-	ini_write_real("screen", "gameWidth", 1280);
-	ini_write_real("screen", "gameHeight", 720);
+	ini_write_real("screen", "gameWidth", RESOLUTION_WIDTH);
+	ini_write_real("screen", "gameHeight", RESOLUTION_HEIGHT);
 }
 
 // 사운드 관련 불러오기
@@ -86,40 +88,40 @@ audio_group_load(audiogroup_bgm);
 audio_group_load(audiogroup_sfx);
 
 // 화면 불러오기
-global.gameWidth = ini_read_real("screen", "gameWidth", 1280);
-global.gameHeight = ini_read_real("screen", "gameHeight", 720);
+global.gameWidth = ini_read_real("screen", "gameWidth", RESOLUTION_WIDTH);
+global.gameHeight = ini_read_real("screen", "gameHeight", RESOLUTION_HEIGHT);
 ini_close();
 #endregion
 
 // 월드 초기화
 global.worldGrid = ds_grid_create(0, 0);
 global.roomMap = ds_map_create();
-global.currentWorld = "city";
+global.currentWorld = "none";
 global.currentIndex = 0;
 global.previousIndex = noone;
 global.previousPos = noone;
-global.isClear = false;
+global.isBossClear = false;
 
 // 캐릭터 초기화
 global.chrMap = ds_map_create();
 global.chrMap[? "coin"] = 0;
 global.chrMap[? "upgradePart"] = 0;
-global.chrMap[? "class"] = "commando";
-global.chrMap[? "hpMax"] = 100;
-global.chrMap[? "hp"] = global.chrMap[? "hpMax"];
-global.chrMap[? "power"] = 2;
-global.chrMap[? "armor"] = 1;
-global.chrMap[? "speed"] = 5;
-global.chrMap[? "swap"] = "ranger";
-global.chrMap[? "ammoMax"] = 20;
-global.chrMap[? "ammo"] = global.chrMap[? "ammoMax"];
-global.chrMap[? "rangerWeapon"] = "pistol";
-global.chrMap[? "rangerDamage"] = 2;
-global.chrMap[? "rangerSpeed"] = room_speed * 0.13;
-global.chrMap[? "rangerAccuracy"] = 4;
-global.chrMap[? "warriorWeapon"] = "bat";
-global.chrMap[? "warriorDamage"] = 8;
-global.chrMap[? "warriorSpeed"] = room_speed * 0.3;
+global.chrMap[? "class"] = "none";
+global.chrMap[? "hpMax"] = 0;
+global.chrMap[? "hp"] = 0;
+global.chrMap[? "power"] = 0;
+global.chrMap[? "armor"] = 0;
+global.chrMap[? "speed"] = 0;
+global.chrMap[? "swap"] = "none";
+global.chrMap[? "ammoMax"] = 0;
+global.chrMap[? "ammo"] = 0;
+global.chrMap[? "rangerWeapon"] = "none";
+global.chrMap[? "rangerDamage"] = 0;
+global.chrMap[? "rangerSpeed"] = 0;
+global.chrMap[? "rangerAccuracy"] = 0;
+global.chrMap[? "warriorWeapon"] = "none";
+global.chrMap[? "warriorDamage"] = 0;
+global.chrMap[? "warriorSpeed"] = 0;
 
 // 저장 구조체 초기화
 global.saveMap = ds_map_create();

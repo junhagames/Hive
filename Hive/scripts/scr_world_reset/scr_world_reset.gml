@@ -10,13 +10,6 @@ var roomWidth = argument2;
 var roomHeight = argument3;
 
 // 월드 초기화
-ds_map_clear(global.roomMap);
-global.currentWorld = worldName;
-global.currentIndex = 0;
-global.previousIndex = noone;
-global.previousPos = noone;
-global.isClear = false;
-
 ds_grid_resize(global.worldGrid, roomWidth, roomHeight);
 
 for (var _y = 0; _y < ds_grid_height(global.worldGrid); _y++) {
@@ -24,11 +17,19 @@ for (var _y = 0; _y < ds_grid_height(global.worldGrid); _y++) {
 		global.worldGrid[# _x, _y] = WALL;	
 	}
 }
+ds_map_clear(global.roomMap);
+global.currentWorld = worldName;
+global.currentIndex = 0;
+global.previousIndex = noone;
+global.previousPos = noone;
+global.isBossClear = false;
 
-var smallRoom, bigRoom, wlongRoom, hlongRoom, bossRoom, minibossRoom, supplyRoom, shopRoom, encounterRoom;
+// 부모 룸 초기화
+var startRoom, smallRoom, bigRoom, wlongRoom, hlongRoom, bossRoom, minibossRoom, supplyRoom, shopRoom, encounterRoom;
 
 switch (global.currentWorld) {
 	case "city":
+		startRoom = room_city_start;
 		smallRoom = room_parent_city_small;
 		bigRoom = room_parent_city_big;
 		wlongRoom = room_parent_city_wlong;
@@ -40,6 +41,7 @@ switch (global.currentWorld) {
 		encounterRoom = room_parent_city_encounter;
 		break;
 	case "swamp":
+		startRoom = room_swamp_start;
 		smallRoom = room_parent_swamp_small;
 		bigRoom = room_parent_swamp_big;
 		wlongRoom = room_parent_swamp_wlong;
@@ -51,6 +53,7 @@ switch (global.currentWorld) {
 		encounterRoom = room_parent_swamp_encounter;
 		break;
 	case "underground":
+		startRoom = room_underground_start;
 		smallRoom = room_parent_underground_small;
 		bigRoom = room_parent_underground_big;
 		wlongRoom = room_parent_underground_wlong;
@@ -62,6 +65,7 @@ switch (global.currentWorld) {
 		encounterRoom = room_parent_underground_encounter;
 		break;
 	case "jungle":
+		startRoom = room_jungle_start;
 		smallRoom = room_parent_jungle_small;
 		bigRoom = room_parent_jungle_big;
 		wlongRoom = room_parent_jungle_wlong;
@@ -73,6 +77,7 @@ switch (global.currentWorld) {
 		encounterRoom = room_parent_jungle_encounter;
 		break;
 	case "desert":
+		startRoom = room_desert_start;
 		smallRoom = room_parent_desert_small;
 		bigRoom = room_parent_desert_big;
 		wlongRoom = room_parent_desert_wlong;
@@ -84,6 +89,7 @@ switch (global.currentWorld) {
 		encounterRoom = room_parent_desert_encounter;
 		break;
 	case "school":
+		startRoom = room_school_start;
 		smallRoom = room_parent_school_small;
 		bigRoom = room_parent_school_big;
 		wlongRoom = room_parent_school_wlong;
@@ -97,27 +103,24 @@ switch (global.currentWorld) {
 }
 
 // 룸 이벤트 추가|섞기
-var minibossNum = 2;
-var supplyNum = 3;
-var shopNum = 1;
-var encounterNum = 3;
 var eventList = ds_list_create();
 
-repeat (minibossNum) {
+repeat (2) {
 	ds_list_add(eventList, "miniboss");
 }
 
-repeat (supplyNum) {
+repeat (3) {
 	ds_list_add(eventList, "supply");
 }
 
-repeat (shopNum) {
+repeat (1) {
 	ds_list_add(eventList, "shop");
 }
 
-repeat (encounterNum) {
+repeat (3) {
 	ds_list_add(eventList, "encounter");
 }
+var eventTurn = max(floor((roomNum - 2) / ds_list_size(eventList)), 1);
 ds_list_shuffle(eventList);
 
 // 월드 생성
@@ -134,30 +137,23 @@ var shopList = ds_list_create();
 var encounterList = ds_list_create();
 
 global.worldGrid[# controlX, controlY] = 0;
-scr_world_room_reset(global.worldGrid[# controlX, controlY], "small", "stage", room_city_start);
+scr_world_room_reset(global.worldGrid[# controlX, controlY], "small", "stage", startRoom);
 
 for (var i = 1; i < roomNum; i++) {
 	var isCreateRoom = false;
 
 	do {
-		var previousX = controlX;
-		var previousY = controlY;
-		var controlDir = choose("east", "west", "south", "north");
 		var roomShape, roomEvent;
 	
 		// 룸 이벤트 설정
 		if (i == roomNum - 1) {
 			roomEvent = "boss";
 		}
+		else if (i mod eventTurn == 0) {	
+			roomEvent = eventList[| i / eventTurn - 1];
+		}
 		else {
-			var eventTurn = max(floor((roomNum - 2) / ds_list_size(eventList)), 1);
-
-			if (i mod eventTurn == 0) {	
-				roomEvent = eventList[| i / eventTurn - 1];
-			}
-			else {
-				roomEvent = "stage";
-			}
+			roomEvent = "stage";
 		}
 		
 		// 룸 모양 설정
@@ -181,6 +177,9 @@ for (var i = 1; i < roomNum; i++) {
 				roomShape = "big";
 				break;
 		}
+		var previousX = controlX;
+		var previousY = controlY;
+		var controlDir = choose("east", "west", "south", "north");
 
 		switch (roomShape) {
 			#region small

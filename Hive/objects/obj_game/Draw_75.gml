@@ -21,4 +21,18 @@ else if (os_type == os_android) {
 	scr_vkey_draw(VKEY.SKILL);
 	scr_vkey_draw(VKEY.SWAP);
 	scr_vkey_draw(VKEY.DASH);
+	
+	if (global.chrMap[? "swap"] == "ranger") {
+		if (global.chrMap[? "ammo"] >= max(global.chrMap[? "ammoMax"] / 3, 1)) {
+			draw_set_color(c_white);
+		}
+		else if (global.chrMap[? "ammo"] > 0) {
+			draw_set_color(c_yellow);
+		}
+		else {
+			draw_set_color(c_red);
+		}
+		draw_text(global.vkey[VKEY.SWAP, VKEY_SETTING.X], global.vkey[VKEY.SWAP, VKEY_SETTING.Y], global.chrMap[? "ammo"]);
+		draw_set_color(c_white);
+	}
 }

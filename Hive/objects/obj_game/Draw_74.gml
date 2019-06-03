@@ -1,3 +1,8 @@
+// 광원 그리기
+if (surface_exists(lightSuf)) {
+	draw_surface(lightSuf, 0, 0);
+}
+
 // 피격 효과 그리기
 if (damageAlpha > 0) {
 	draw_set_alpha(damageAlpha);

@@ -1,5 +1,5 @@
 if (hp <= 0) {
-	if (global.isClear) {
+	if (global.isBossClear) {
 		instance_create_layer(room_width / 2, room_height / 2, "layer_above", obj_stuff_heli);
 	}
 	else {

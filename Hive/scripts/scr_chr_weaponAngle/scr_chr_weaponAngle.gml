@@ -5,7 +5,18 @@ if (os_type == os_windows) {
 }
 else if (os_type == os_android) {
 	if (global.vkey[VKEY.ATTACK, VKEY_SETTING.CHECK]) {
-		var enemy = instance_nearest(x, y, obj_parent_enemy);
+		var enemy = noone;
+	
+		for (var i = 1; i <= instance_number(obj_parent_enemy); i++) {
+			enemy = scr_instance_nth_nearest(x, y, obj_parent_enemy, i);
+		
+			if (collision_line(x, y, enemy.x, enemy.y, obj_parent_solid, false, false) != noone) {
+				enemy = noone;
+			}
+			else {
+				break;
+			}
+		}
 		
 		if (enemy != noone) {
 			weaponAngle = point_direction(x, y, enemy.x, enemy.y);

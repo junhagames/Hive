@@ -2,7 +2,7 @@
 
 // 재장전
 if (global.chrMap[? "swap"] == "ranger") {
-	if (os_type == os_windows && mouse_check_button_released(mb_left) || os_type == os_android && global.vkey[VKEY.ATTACK, VKEY_SETTING.RELEASED]) {
+	if ((os_type == os_windows && mouse_check_button_released(mb_left)) || (os_type == os_android && global.vkey[VKEY.ATTACK, VKEY_SETTING.RELEASED])) {
 		if (global.chrMap[? "ammo"] == 0) {
 			global.chrMap[? "ammo"] = global.chrMap[? "ammoMax"];
 			audio_play_sound(sfx_gun_reload1, 10, false);

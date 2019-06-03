@@ -1,10 +1,12 @@
+global.chrMap[? "coin"] = 0;
+global.chrMap[? "upgradePart"] = 0;
 global.chrMap[? "class"] = "firefighter";
 global.chrMap[? "hpMax"] = 120;
 global.chrMap[? "hp"] = global.chrMap[? "hpMax"];
 global.chrMap[? "power"] = 1;
 global.chrMap[? "armor"] = 2;
 global.chrMap[? "speed"] = 5;
-
+global.chrMap[? "swap"] = "ranger";
 global.chrMap[? "ammoMax"] = 20;
 global.chrMap[? "ammo"] = global.chrMap[? "ammoMax"];
 global.chrMap[? "rangerWeapon"] = "pistol";

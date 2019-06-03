@@ -1,11 +1,16 @@
 draw_self();
 
-if (hp > 0 && hp < hpMax) {
-	draw_set_alpha(0.6);
+draw_set_alpha(0.6);
+
+// 체력 그리기
+if (hp > 0) {
 	draw_set_color(c_red);
-	draw_rectangle(x - 32, y - sprite_height - 20, x - 32 + hp / hpMax * 64, y - sprite_height - 5, false);
+	draw_rectangle(global.gameWidth / 2 - 150, 60, global.gameWidth / 2 - 150 + hp / hpMax * 300, 100, false);
 	draw_set_color(c_black);
-	draw_rectangle(x - 32, y - sprite_height - 20, x + 32, y - sprite_height - 5, true);
+	draw_rectangle(global.gameWidth / 2 - 150, 60, global.gameWidth / 2 + 150, 100, true);
 	draw_set_color(c_white);
-	draw_set_alpha(1);
 }
+
+// 이름 그리기
+draw_text(global.gameWidth / 2, 40, name)
+draw_set_alpha(1)

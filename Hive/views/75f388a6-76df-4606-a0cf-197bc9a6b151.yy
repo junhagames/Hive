@@ -8,7 +8,7 @@
         "f41a5edb-f676-4440-8d14-d15c9d6978e1"
     ],
     "filterType": "GMScript",
-    "folderName": "Virtual",
+    "folderName": "Virtual input",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

@@ -35,7 +35,6 @@ for (var _y = 0; _y < ds_grid_height(global.worldGrid); _y++) {
 						minimapSprite = spr_ui_minimap_hlong;
 						break;
 				}
-
 				var marginX = ds_grid_width(global.worldGrid) * 0.25;
 				var marginY = ds_grid_height(global.worldGrid) * 0.25;
 				var minimapSpriteX = _x * minimapw + minimapw * marginX;
