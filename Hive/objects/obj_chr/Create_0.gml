@@ -9,8 +9,8 @@ switch (global.chrMap[? "class"]) {
 		chrSprite = spr_chr_explorer;
 		break;
 }
-rangerSprite = spr_weapon_pistol;
-warriorSprite = spr_weapon_bat;
+rangerSprite = noone;
+warriorSprite = noone;
 weaponLength = 16;
 weaponAngle = 0;
 weaponDir = 1;
@@ -26,7 +26,6 @@ isDamageDelay = false;
 isSwapDelay = false;
 isdashDelay = false;
 
-skillSpeed = room_speed * 10;
 damageSpeed = room_speed;
 swapSpeed = room_speed * 0.2;
 dashSpeed = room_speed;

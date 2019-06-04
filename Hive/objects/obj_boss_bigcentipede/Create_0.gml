@@ -1,6 +1,6 @@
 hpMax = 100;
 hp = hpMax; 
-spd = random_range(4, 6);
+moveSpeed = random_range(4, 6);
 damage = 3;
 name = "대왕지네"
 

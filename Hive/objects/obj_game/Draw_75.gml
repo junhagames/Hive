@@ -22,6 +22,7 @@ else if (os_type == os_android) {
 	scr_vkey_draw(VKEY.SWAP);
 	scr_vkey_draw(VKEY.DASH);
 	
+	// 총알 그리기
 	if (global.chrMap[? "swap"] == "ranger") {
 		if (global.chrMap[? "ammo"] >= max(global.chrMap[? "ammoMax"] / 3, 1)) {
 			draw_set_color(c_white);

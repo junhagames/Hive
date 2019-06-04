@@ -5,16 +5,6 @@
     "name": "obj_parent_altar",
     "eventList": [
         {
-            "id": "e345388a-0835-4d40-ad19-36ee22490871",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 0,
-            "eventtype": 8,
-            "m_owner": "781eccb4-c256-4ce8-b3db-5d3c403f202d"
-        },
-        {
             "id": "b865ba7c-8582-4e77-830a-80d5e489f4b0",
             "modelName": "GMEvent",
             "mvc": "1.0",
@@ -32,6 +22,16 @@
             "collisionObjectId": "00000000-0000-0000-0000-000000000000",
             "enumb": 0,
             "eventtype": 1,
+            "m_owner": "781eccb4-c256-4ce8-b3db-5d3c403f202d"
+        },
+        {
+            "id": "13db6b0d-d654-42d7-98ba-49d953b97350",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 64,
+            "eventtype": 8,
             "m_owner": "781eccb4-c256-4ce8-b3db-5d3c403f202d"
         }
     ],

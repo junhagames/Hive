@@ -2,7 +2,7 @@
 
 var hspd, vspd;
 
-if (dashPower > global.chrMap[? "speed"]) {
+if (dashPower > global.chrMap[? "moveSpeed"]) {
 	// 대시 속도 설정
 	hspd = lengthdir_x(dashPower, moveDir);
 	vspd = lengthdir_y(dashPower, moveDir);
@@ -16,13 +16,13 @@ else {
 		var isRight = keyboard_check(ord("D"));
 		var isUp = keyboard_check(ord("W"));
 		var isDown = keyboard_check(ord("S"));
-		hspd = (isRight - isLeft) * global.chrMap[? "speed"];
-		vspd = (isDown - isUp) * global.chrMap[? "speed"];
+		hspd = (isRight - isLeft) * global.chrMap[? "moveSpeed"];
+		vspd = (isDown - isUp) * global.chrMap[? "moveSpeed"];
 		moveDir = point_direction(0, 0, hspd, vspd);
 	}
 	else if (os_type == os_android) {
-		hspd = global.vstick[VSTICK.MOVE, VSTICK_SETTING.X_AXIS] * global.chrMap[? "speed"];
-		vspd = global.vstick[VSTICK.MOVE, VSTICK_SETTING.Y_AXIS] * global.chrMap[? "speed"];
+		hspd = global.vstick[VSTICK.MOVE, VSTICK_SETTING.X_AXIS] * global.chrMap[? "moveSpeed"];
+		vspd = global.vstick[VSTICK.MOVE, VSTICK_SETTING.Y_AXIS] * global.chrMap[? "moveSpeed"];
 		moveDir = global.vstick[VSTICK.MOVE, VSTICK_SETTING.DIRECTION];
 	}
 	isDash = false;

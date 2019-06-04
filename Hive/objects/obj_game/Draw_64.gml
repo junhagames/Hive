@@ -3,22 +3,19 @@ draw_set_alpha(0.6);
 // 체력 그리기
 if (global.chrMap[? "hp"] > 0) {
 	draw_set_color(c_lime);
-	draw_rectangle(40, 40, 40 + global.chrMap[? "hp"] / global.chrMap[? "hpMax"] * 200, 80, false);
+	draw_rectangle(40, 40, 40 + global.chrMap[? "hp"] / global.chrMap[? "hpMax"] * 300, 80, false);
 	draw_set_color(c_black);
-	draw_rectangle(40, 40, 240, 80, true);
+	draw_rectangle(40, 40, 340, 80, true);
 	draw_set_color(c_white);
 	draw_set_halign(fa_right);
-	draw_text(230, 40, string(global.chrMap[? "hp"]) + "/" + string(global.chrMap[? "hpMax"]));
+	draw_text(330, 40, string(global.chrMap[? "hp"]) + "/" + string(global.chrMap[? "hpMax"]));
 	draw_set_halign(fa_center);
 }
 
-// 코인 그리기
-//draw_sprite(spr_ui_coin, 0, 40, 120);
-//draw_text(60, 120, global.chrMap[? "coin"]);
-
 // 미니맵 그리기
 if (surface_exists(minimapSuf)) {
-	if (keyboard_check(vk_tab)) {
+	if ((os_type == os_windows && keyboard_check(vk_tab)) ||
+		(os_type == os_android && global.vkey[VKEY.MINIMAP, VKEY_SETTING.CHECK])) {
 		draw_set_color(c_black);
 		draw_rectangle(global.gameWidth / 2 - surface_get_width(minimapSuf) / 2,
 			global.gameHeight / 2 - surface_get_height(minimapSuf) / 2,

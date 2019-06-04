@@ -12,13 +12,11 @@ if (instance_exists(target)) {
 		my = mouse_y;
 	}
 	else if (os_type == os_android) {
-		mx = (global.vstick[VSTICK.MOVE, VSTICK_SETTING.X] - global.vstick[VSTICK.MOVE, VSTICK_SETTING.CENTER_X])
-			/ (global.vstick[VSTICK.MOVE, VSTICK_SETTING.RADIUS] * 2) * cameraWidth + target.x;
-		my = (global.vstick[VSTICK.MOVE, VSTICK_SETTING.Y] - global.vstick[VSTICK.MOVE, VSTICK_SETTING.CENTER_Y])
-			/ (global.vstick[VSTICK.MOVE, VSTICK_SETTING.RADIUS] * 2) * cameraHeight + target.y;
+		mx = (global.vstick[VSTICK.MOVE, VSTICK_SETTING.X] - global.vstick[VSTICK.MOVE, VSTICK_SETTING.CENTER_X]) / (global.vstick[VSTICK.MOVE, VSTICK_SETTING.RADIUS] * 2) * global.cameraWidth + target.x;
+		my = (global.vstick[VSTICK.MOVE, VSTICK_SETTING.Y] - global.vstick[VSTICK.MOVE, VSTICK_SETTING.CENTER_Y]) / (global.vstick[VSTICK.MOVE, VSTICK_SETTING.RADIUS] * 2) * global.cameraHeight + target.y;
 	}
-	x = median(cameraWidth / 2, scr_tween_to(x, lerp(target.x, mx, 0.1), 0.3), room_width - cameraWidth / 2);
-	y = median(cameraHeight / 2, scr_tween_to(y, lerp(target.y, my, 0.1), 0.3), room_height - cameraHeight / 2);
+	x = median(global.cameraWidth / 2, scr_tween_to(x, lerp(target.x, mx, 0.1), 0.3), room_width - global.cameraWidth / 2);
+	y = median(global.cameraHeight / 2, scr_tween_to(y, lerp(target.y, my, 0.1), 0.3), room_height - global.cameraHeight / 2);
 }
 
 // 카메라 흔들기

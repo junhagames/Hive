@@ -1,8 +1,6 @@
 /// @description 게임 초기화
 
 #region 메크로 상수
-#macro RESOLUTION_WIDTH 1280
-#macro RESOLUTION_HEIGHT 720
 #macro WALL -1
 #macro CELL_WIDTH 40
 #macro CELL_HEIGHT 40
@@ -17,11 +15,11 @@ enum VKEY {
 	SKILL,
 	SWAP,
 	DASH,
+	MINIMAP,
 }
 
 enum VSTICK_SETTING {
 	DEVICE_ID,
-	FIXED,
 	CENTER_X,
 	CENTER_Y,
 	X,
@@ -76,8 +74,8 @@ if (!file_exists("game.ini")) {
 	ini_write_real("settings", "sfxVolume", 1);
 
 	// 화면 초기화
-	ini_write_real("screen", "gameWidth", RESOLUTION_WIDTH);
-	ini_write_real("screen", "gameHeight", RESOLUTION_HEIGHT);
+	ini_write_real("screen", "gameWidth", 1280);
+	ini_write_real("screen", "gameHeight", 720);
 }
 
 // 사운드 관련 불러오기
@@ -88,47 +86,11 @@ audio_group_load(audiogroup_bgm);
 audio_group_load(audiogroup_sfx);
 
 // 화면 불러오기
-global.gameWidth = ini_read_real("screen", "gameWidth", RESOLUTION_WIDTH);
-global.gameHeight = ini_read_real("screen", "gameHeight", RESOLUTION_HEIGHT);
+global.gameWidth = ini_read_real("screen", "gameWidth", 1280);
+global.gameHeight = ini_read_real("screen", "gameHeight", 720);
 ini_close();
 #endregion
-
-// 월드 초기화
-global.worldGrid = ds_grid_create(0, 0);
-global.roomMap = ds_map_create();
-global.currentWorld = "none";
-global.currentIndex = 0;
-global.previousIndex = noone;
-global.previousPos = noone;
-global.isBossClear = false;
-
-// 캐릭터 초기화
-global.chrMap = ds_map_create();
-global.chrMap[? "coin"] = 0;
-global.chrMap[? "upgradePart"] = 0;
-global.chrMap[? "class"] = "none";
-global.chrMap[? "hpMax"] = 0;
-global.chrMap[? "hp"] = 0;
-global.chrMap[? "power"] = 0;
-global.chrMap[? "armor"] = 0;
-global.chrMap[? "speed"] = 0;
-global.chrMap[? "swap"] = "none";
-global.chrMap[? "ammoMax"] = 0;
-global.chrMap[? "ammo"] = 0;
-global.chrMap[? "rangerWeapon"] = "none";
-global.chrMap[? "rangerDamage"] = 0;
-global.chrMap[? "rangerSpeed"] = 0;
-global.chrMap[? "rangerAccuracy"] = 0;
-global.chrMap[? "warriorWeapon"] = "none";
-global.chrMap[? "warriorDamage"] = 0;
-global.chrMap[? "warriorSpeed"] = 0;
-
-// 저장 구조체 초기화
-global.saveMap = ds_map_create();
-ds_map_add_map(global.saveMap, "roomMap", global.roomMap);
-ds_map_add_map(global.saveMap, "chrMap", global.chrMap);
-
-// 오브젝트 부모 계층 초기화
+#region 오브젝트 부모 계층 초기화
 global.objParentMap = ds_map_create();
 
 for (var obj = 0; object_exists(obj); obj++) {
@@ -139,8 +101,8 @@ for (var obj = 0; object_exists(obj); obj++) {
 		ds_list_add(global.objParentMap[? objParent], obj);
 	}
 }
-
-// 룸 부모 계층 초기화
+#endregion
+#region 룸 부모 계층 초기화
 global.roomParentMap = ds_map_create();
 var roomParent = noone;
 
@@ -213,12 +175,46 @@ for (var _room = 0; room_exists(_room); _room++) {
 		ds_list_add(global.roomParentMap[? roomParent], _room);
 	}
 }
+#endregion
+
+// 월드 초기화
+global.worldGrid = ds_grid_create(0, 0);
+global.roomMap = ds_map_create();
+global.currentWorld = "none";
+global.currentIndex = 0;
+global.previousIndex = noone;
+global.previousPos = noone;
+global.isBossClear = false;
+
+// 캐릭터 초기화
+global.chrMap = ds_map_create();
+global.chrMap[? "coin"] = 0;
+global.chrMap[? "upgradePart"] = 0;
+global.chrMap[? "class"] = "none";
+global.chrMap[? "hpMax"] = 0;
+global.chrMap[? "hp"] = 0;
+global.chrMap[? "power"] = 0;
+global.chrMap[? "armor"] = 0;
+global.chrMap[? "moveSpeed"] = 0;
+global.chrMap[? "skillSpeed"] = 0;
+global.chrMap[? "swap"] = "none";
+global.chrMap[? "ammoMax"] = 0;
+global.chrMap[? "ammo"] = 0;
+global.chrMap[? "rangerWeapon"] = "none";
+global.chrMap[? "rangerDamage"] = 0;
+global.chrMap[? "rangerSpeed"] = 0;
+global.chrMap[? "rangerAccuracy"] = 0;
+global.chrMap[? "warriorWeapon"] = "none";
+global.chrMap[? "warriorDamage"] = 0;
+global.chrMap[? "warriorSpeed"] = 0;
+
+// 저장 구조체 초기화
+global.saveMap = ds_map_create();
+ds_map_add_map(global.saveMap, "roomMap", global.roomMap);
+ds_map_add_map(global.saveMap, "chrMap", global.chrMap);
 
 // 시드값 초기화
 randomize();
-
-// 더블 좌클릭시 우클릭 방지
-device_mouse_dbclick_enable(false);
 
 // 폰트 초기화
 draw_set_font(font_main);
@@ -230,14 +226,27 @@ window_set_size(global.gameWidth, global.gameHeight);
 display_set_gui_size(global.gameWidth, global.gameHeight);
 surface_resize(application_surface, global.gameWidth, global.gameHeight);
 
+if (os_type == os_windows) {
+	global.cameraWidth = 1280;
+	global.cameraHeight = 720;
+}
+else if (os_type == os_android) {
+	global.cameraWidth = 960;
+	global.cameraHeight = 540;
+}
+
+// 더블 좌클릭시 우클릭 방지
+device_mouse_dbclick_enable(false);
+
 // 마우스 커서 초기화
-global.cursorSprite = spr_ui_cursor_action;
+global.cursorSprite = spr_ui_cursor_normal;
 
 // 가상 조이스틱|키 초기화
 if (os_type == os_android) {
-	scr_vstick_init(VSTICK.MOVE, false, 200, global.gameHeight - 180, sprite_get_width(spr_joystick_move_back) / 2, spr_joystick_move_back, spr_joystick_move_front);
-	scr_vkey_init(VKEY.ATTACK, global.gameWidth - 200, global.gameHeight - 180, sprite_get_width(spr_key_attack) / 2, spr_key_attack);
-	scr_vkey_init(VKEY.SKILL, global.gameWidth - 330, global.gameHeight - 100, sprite_get_width(spr_key_skill) / 2, spr_key_skill);
+	scr_vstick_init(VSTICK.MOVE, 240, global.gameHeight - 180, sprite_get_width(spr_joystick_back) / 2, spr_joystick_back, spr_joystick_front);
+	scr_vkey_init(VKEY.ATTACK, global.gameWidth - 240, global.gameHeight - 180, sprite_get_width(spr_key_attack) / 2, spr_key_attack);
+	scr_vkey_init(VKEY.SKILL, global.gameWidth - 410, global.gameHeight - 100, sprite_get_width(spr_key_skill) / 2, spr_key_skill);
 	scr_vkey_init(VKEY.SWAP, global.gameWidth - 70, global.gameHeight - 260, sprite_get_width(spr_key_swap) / 2, spr_key_swap);
 	scr_vkey_init(VKEY.DASH, global.gameWidth - 70, global.gameHeight - 100, sprite_get_width(spr_key_dash) / 2, spr_key_dash);
+	scr_vkey_init(VKEY.MINIMAP, global.gameWidth - 140, 140, 110, noone);
 }

@@ -8,18 +8,16 @@ if (surface_exists(lightSuf)) {
 	draw_set_alpha(1);
 
 	if (!instance_exists(obj_parent_transition)) {
+		var xscale = global.gameWidth / global.cameraWidth;
+		var yscale = global.gameHeight / global.cameraHeight;
 		gpu_set_blendmode(bm_subtract);
 
 		with (obj_chr) {
-			var _x = x - obj_camera.x + global.gameWidth / 2;
-			var _y = y - obj_camera.y + global.gameHeight / 2;
-			draw_sprite(spr_particle_light_glow, 0, _x + random_range(-1, 1), _y + random_range(-1, 1));
+			draw_sprite_ext(spr_particle_light_glow, 0, scr_x_to_gui(x) + random_range(-3, 3), scr_y_to_gui(y) + random_range(-3, 3), xscale, yscale, 0, c_white, 1);
 		}
 	
 		with (obj_bullet) {
-			var _x = x - obj_camera.x + global.gameWidth / 2;
-			var _y = y - obj_camera.y + global.gameHeight / 2;
-			draw_sprite_ext(sprite_index, 0, _x, _y, 1, 1, image_angle, image_blend, image_alpha);
+			draw_sprite_ext(sprite_index, 0, scr_x_to_gui(x), scr_y_to_gui(y), xscale, yscale, image_angle, c_white, 1);
 		}
 		gpu_set_blendmode(bm_normal);
 	}

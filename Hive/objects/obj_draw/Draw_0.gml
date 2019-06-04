@@ -30,14 +30,14 @@ for (var i = 0; i < instCount; i++) {
 					secondWeapon = rangerSprite;
 				}
 				draw_sprite_ext(secondWeapon, 0, x, y - 24, 1, 1, 90 + 20 * weaponDir, c_gray, 1);
-				draw_sprite_ext(chrSprite, isMove * -1, x, y, image_xscale * weaponDir, image_yscale, image_angle, image_blend, image_alpha);
+				draw_sprite_ext(chrSprite, isMove * -1, x, y, weaponDir, 1, 0, c_white, 1);
 				
 				// 무기 그리기
 				if (global.chrMap[? "swap"] == "ranger") {
-					draw_sprite_ext(rangerSprite, 0, x + lengthdir_x(weaponLength, weaponAngle), y + lengthdir_y(weaponLength, weaponAngle) - 8, 1, weaponDir, weaponAngle, c_white, 1);
+					draw_sprite_ext(rangerSprite, 0, x + lengthdir_x(weaponLength, weaponAngle), y + lengthdir_y(weaponLength, weaponAngle) - 16, 1, weaponDir, weaponAngle, c_white, 1);
 				}
 				else if (global.chrMap[? "swap"] == "warrior") {
-					draw_sprite_ext(warriorSprite, 0, x + lengthdir_x(weaponLength, weaponAngle), y + lengthdir_y(weaponLength, weaponAngle) - 8, 1, weaponDir * warriorDir, weaponAngle + 110 * weaponDir * warriorDir, c_white, 1);
+					draw_sprite_ext(warriorSprite, 0, x + lengthdir_x(weaponLength, weaponAngle), y + lengthdir_y(weaponLength, weaponAngle) - 16, 1, weaponDir * warriorDir, weaponAngle + 110 * weaponDir * warriorDir, c_white, 1);
 				}
 				break;
 			#endregion

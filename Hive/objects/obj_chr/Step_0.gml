@@ -25,11 +25,11 @@ switch (global.chrMap[? "rangerWeapon"]) {
 		break;
 	case "shotgun":
 		rangerSprite = spr_weapon_shotgun;
-		rangerCursor = spr_ui_cursor_ranger1;
+		rangerCursor = spr_ui_cursor_ranger2;
 		break;
 	case "sniper":
 		rangerSprite = spr_weapon_sniper;
-		rangerCursor = spr_ui_cursor_ranger1;
+		rangerCursor = spr_ui_cursor_ranger3;
 		break;
 }
 

@@ -10,5 +10,5 @@ if (hp > 0) {
 }
 
 // 이름 그리기
-draw_text(global.gameWidth / 2, 40, name)
-draw_set_alpha(1)
+draw_text(global.gameWidth / 2, 40, name);
+draw_set_alpha(1);

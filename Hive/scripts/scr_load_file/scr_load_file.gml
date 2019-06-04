@@ -9,6 +9,13 @@ buffer_delete(loadBuffer);
 
 var saveJson = json_decode(loadString);
 
+// 월드 초기화
+ds_map_clear(global.roomMap);
+global.currentIndex = 0;
+global.previousIndex = noone;
+global.previousPos = noone;
+global.isBossClear = false;
+	
 // 월드 불러오기
 ds_grid_read(global.worldGrid, saveJson[? "worldGrid"]);
 global.currentWorld = saveJson[? "currentWorld"];

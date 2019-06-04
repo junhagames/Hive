@@ -1,6 +1,6 @@
 hpMax = 10;
 hp = hpMax; 
-spd = random_range(4, 6);
+moveSpeed = random_range(4, 6);
 damage = 3;
 name = "나방"
 

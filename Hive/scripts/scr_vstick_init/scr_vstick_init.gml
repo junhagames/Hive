@@ -1,6 +1,5 @@
 /// @description 가상 조이스틱 초기화
 /// @param vstickID
-/// @param fixed
 /// @param centerX
 /// @param centerY
 /// @param radius
@@ -8,15 +7,13 @@
 /// @param frontSprite
 
 var vstickID = argument0;
-var fixed = argument1
-var centerX = argument2;
-var centerY = argument3;
-var radius = argument4;
-var backSprite = argument5;
-var frontSprite = argument6;
+var centerX = argument1;
+var centerY = argument2;
+var radius = argument3;
+var backSprite = argument4;
+var frontSprite = argument5;
 
 global.vstick[vstickID, VSTICK_SETTING.DEVICE_ID] = -1;
-global.vstick[vstickID, VSTICK_SETTING.FIXED] = fixed;
 global.vstick[vstickID, VSTICK_SETTING.CENTER_X] = centerX;
 global.vstick[vstickID, VSTICK_SETTING.CENTER_Y] = centerY;
 global.vstick[vstickID, VSTICK_SETTING.X] = centerX;

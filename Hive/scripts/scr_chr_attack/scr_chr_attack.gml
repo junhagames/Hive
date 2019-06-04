@@ -14,10 +14,10 @@ if (!isAttackDelay) {
 	if (global.chrMap[? "swap"] == "ranger") {
 		if ((os_type == os_windows && mouse_check_button(mb_left)) || (os_type == os_android && global.vkey[VKEY.ATTACK, VKEY_SETTING.CHECK])) {
 			if (global.chrMap[? "ammo"] > 0) {
-				var bullet = instance_create_layer(x + lengthdir_x(weaponLength, weaponAngle), y + lengthdir_y(weaponLength, weaponAngle) - 8, "layer_inst", obj_bullet);
+				var bullet = instance_create_layer(x + lengthdir_x(weaponLength, weaponAngle), y + lengthdir_y(weaponLength, weaponAngle) - 16, "layer_inst", obj_bullet);
 				bullet.direction = weaponAngle + random_range(-global.chrMap[? "rangerAccuracy"], global.chrMap[? "rangerAccuracy"]);
 				bullet.image_angle = bullet.direction;
-				bullet.speed = 18;
+				bullet.speed = random_range(14, 18);
 				bullet.damage = global.chrMap[? "power"] + global.chrMap[? "rangerDamage"];
 				global.chrMap[? "ammo"]--;
 				isAttackDelay = true;

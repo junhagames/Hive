@@ -6,7 +6,7 @@ surface_reset_target();
 surface_copy(pauseSuf, 0, 0, application_surface);
 
 // 일시정지 스프라이트 생성
-spr_pause = sprite_create_from_surface(pauseSuf, 0, 0, surface_get_width(pauseSuf), surface_get_height(pauseSuf), false, false, 0, 0);
+spr_pause = sprite_create_from_surface(pauseSuf, 0, 0, global.gameWidth, global.gameHeight, false, false, 0, 0);
 surface_free(pauseSuf);
 
 // 모든 인스턴스 비활성화 설정
