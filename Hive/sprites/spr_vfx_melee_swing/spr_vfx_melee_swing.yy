@@ -2,7 +2,7 @@
     "id": "1733d451-c5bb-4f92-906a-673fbd0fd9c3",
     "modelName": "GMSprite",
     "mvc": "1.12",
-    "name": "spr_particle_melee_swing",
+    "name": "spr_vfx_melee_swing",
     "For3D": false,
     "HTile": false,
     "VTile": false,

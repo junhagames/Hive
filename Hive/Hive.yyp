@@ -482,7 +482,7 @@
             "Key": "1733d451-c5bb-4f92-906a-673fbd0fd9c3",
             "Value": {
                 "id": "6c7724cf-d079-4c9f-9dc8-d2bd1ef96617",
-                "resourcePath": "sprites\\spr_particle_melee_swing\\spr_particle_melee_swing.yy",
+                "resourcePath": "sprites\\spr_vfx_melee_swing\\spr_vfx_melee_swing.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -1234,7 +1234,7 @@
             "Key": "44d7f2ad-7578-4ca1-a410-42a30ae55522",
             "Value": {
                 "id": "a1fc514f-7e32-4d18-bae1-81727192d92f",
-                "resourcePath": "sprites\\spr_particle_shadow\\spr_particle_shadow.yy",
+                "resourcePath": "sprites\\spr_vfx_shadow\\spr_vfx_shadow.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -1474,7 +1474,7 @@
             "Key": "55672fa8-4258-42ea-b76e-d4a52303849d",
             "Value": {
                 "id": "2dd90718-be18-471b-bf6f-66d32a421783",
-                "resourcePath": "sprites\\spr_particle_light_glow\\spr_particle_light_glow.yy",
+                "resourcePath": "sprites\\spr_vfx_light_glow\\spr_vfx_light_glow.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -2306,7 +2306,7 @@
             "Key": "7d22d634-4533-4b39-9d05-27316f3163b4",
             "Value": {
                 "id": "cde862e2-4f65-40e5-a8d2-35b29dceb1dc",
-                "resourcePath": "objects\\obj_particle_melee_swing\\obj_particle_melee_swing.yy",
+                "resourcePath": "objects\\obj_vfx_melee_swing\\obj_vfx_melee_swing.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -4410,7 +4410,7 @@
             "Key": "f63dcf7c-67a2-493b-bfcc-6c50fcce9e04",
             "Value": {
                 "id": "42574857-176a-4d6a-abf5-dcda2c16e522",
-                "resourcePath": "sprites\\spr_particle_bullet_hit\\spr_particle_bullet_hit.yy",
+                "resourcePath": "sprites\\spr_vfx_bullet_hit\\spr_vfx_bullet_hit.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -4498,7 +4498,7 @@
             "Key": "f9e896bb-2812-45fb-a299-820f288f5240",
             "Value": {
                 "id": "7d127931-85ce-4214-83a3-480d29c094b8",
-                "resourcePath": "objects\\obj_particle_bullet_hit\\obj_particle_bullet_hit.yy",
+                "resourcePath": "objects\\obj_vfx_bullet_hit\\obj_vfx_bullet_hit.yy",
                 "resourceType": "GMObject"
             }
         },

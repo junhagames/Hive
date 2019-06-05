@@ -5,5 +5,7 @@ if (!isDamageDelay && !isDash) {
 	isDamageDelay = true;
 	alarm[ALARM_CHR.DAMAGE] = damageSpeed;
 	
+	isHit = true;
+	alarm[ALARM_VFX.HIT] = room_speed * 0.1;
 	obj_game.damageAlpha = 0.3;
 }

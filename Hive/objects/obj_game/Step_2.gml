@@ -13,7 +13,7 @@ if (surface_exists(lightSuf)) {
 		gpu_set_blendmode(bm_subtract);
 
 		with (obj_chr) {
-			draw_sprite_ext(spr_particle_light_glow, 0, scr_x_to_gui(x) + random_range(-3, 3), scr_y_to_gui(y) + random_range(-3, 3), xscale, yscale, 0, c_white, 1);
+			draw_sprite_ext(spr_vfx_light_glow, 0, scr_x_to_gui(x) + random_range(-3, 3), scr_y_to_gui(y) + random_range(-3, 3), xscale, yscale, 0, c_white, 1);
 		}
 	
 		with (obj_bullet) {

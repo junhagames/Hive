@@ -1,4 +1,5 @@
 hp = 10;
+isHit = false;
 
 switch (global.currentWorld) {
 	case "city":

@@ -10,7 +10,7 @@
         "b14d641b-754d-4fb4-b876-8534412371b7"
     ],
     "filterType": "GMSprite",
-    "folderName": "Particle",
+    "folderName": "VFX",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

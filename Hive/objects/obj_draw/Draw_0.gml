@@ -15,14 +15,14 @@ for (var i = 0; i < instCount; i++) {
 
 	with (instID) {
 		// 그림자 그리기
-		draw_sprite_ext(spr_particle_shadow, 0, x, y, sprite_width / sprite_get_width(spr_particle_shadow), 1, 0, c_white, 1);
+		draw_sprite_ext(spr_vfx_shadow, 0, x, y, sprite_width / sprite_get_width(spr_vfx_shadow), 1, 0, c_white, 1);
 		
 		switch (object_index) {
 			#region obj_chr
 			case obj_chr:
 				var secondWeapon;
 				
-				// 캐릭터|부무장 그리기
+				// 부무장 그리기
 				if (global.chrMap[? "swap"] == "ranger") {
 					secondWeapon = warriorSprite;
 				}
@@ -30,8 +30,14 @@ for (var i = 0; i < instCount; i++) {
 					secondWeapon = rangerSprite;
 				}
 				draw_sprite_ext(secondWeapon, 0, x, y - 24, 1, 1, 90 + 20 * weaponDir, c_gray, 1);
-				draw_sprite_ext(chrSprite, isMove * -1, x, y, weaponDir, 1, 0, c_white, 1);
 				
+				// 캐릭터 그리기
+				if (isHit) {
+					gpu_set_fog(true, c_white, 0, 0);
+				}
+				draw_sprite_ext(chrSprite, isMove * -1, x, y, weaponDir, 1, 0, c_white, 1);
+				gpu_set_fog(false, c_white, 0, 0);
+
 				// 무기 그리기
 				if (global.chrMap[? "swap"] == "ranger") {
 					draw_sprite_ext(rangerSprite, 0, x + lengthdir_x(weaponLength, weaponAngle), y + lengthdir_y(weaponLength, weaponAngle) - 16, 1, weaponDir, weaponAngle, c_white, 1);
@@ -43,7 +49,11 @@ for (var i = 0; i < instCount; i++) {
 			#endregion
 			#region default
 			default:
+				if (isHit) {
+					gpu_set_fog(true, c_white, 0, 0);
+				}
 				draw_self();
+				gpu_set_fog(false, c_white, 0, 0);
 				break;
 			#endregion
 		}

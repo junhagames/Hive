@@ -188,7 +188,7 @@
                 },
                 {
                     "__type": "GMRInstanceLayer_Model:#YoYoStudio.MVCFormat",
-                    "name": "layer_particle",
+                    "name": "layer_vfx",
                     "id": "e5b8ad4d-c37d-4403-b579-a59743c3da50",
                     "depth": 500,
                     "grid_x": 32,

@@ -1,2 +1,2 @@
-var particle = instance_create_layer(x, y, "layer_particle", obj_particle_bullet_hit);
-particle.image_angle = image_angle;
+var vfx = instance_create_layer(x, y, "layer_vfx", obj_vfx_bullet_hit);
+vfx.image_angle = image_angle;

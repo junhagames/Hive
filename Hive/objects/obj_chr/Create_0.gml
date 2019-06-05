@@ -1,3 +1,5 @@
+global.chrMap[? "ammo"] = global.chrMap[? "ammoMax"];
+
 switch (global.chrMap[? "class"]) {
 	case "commando":
 		chrSprite = spr_chr_commando;
@@ -30,4 +32,4 @@ damageSpeed = room_speed;
 swapSpeed = room_speed * 0.2;
 dashSpeed = room_speed;
 
-global.chrMap[? "ammo"] = global.chrMap[? "ammoMax"];
+event_inherited();

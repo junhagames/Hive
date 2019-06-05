@@ -64,6 +64,10 @@ enum ALARM_INSECT {
 enum ALARM_HIVE {
 	SPAWN,
 }
+
+enum ALARM_VFX {
+	HIT = 11,
+}
 #endregion
 #region 게임 설정|데이터 불러오기
 ini_open("game.ini");

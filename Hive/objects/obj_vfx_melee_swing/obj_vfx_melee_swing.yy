@@ -1,8 +1,8 @@
 {
-    "id": "f9e896bb-2812-45fb-a299-820f288f5240",
+    "id": "7d22d634-4533-4b39-9d05-27316f3163b4",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "obj_particle_bullet_hit",
+    "name": "obj_vfx_melee_swing",
     "eventList": [
         
     ],
@@ -24,6 +24,6 @@
     "physicsStartAwake": true,
     "properties": null,
     "solid": false,
-    "spriteId": "f63dcf7c-67a2-493b-bfcc-6c50fcce9e04",
+    "spriteId": "1733d451-c5bb-4f92-906a-673fbd0fd9c3",
     "visible": true
 }
