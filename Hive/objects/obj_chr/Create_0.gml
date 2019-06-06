@@ -22,6 +22,8 @@ dashPower = 0;
 
 isMove = false;
 isDash = false;
+isAction = false;
+
 isAttackDelay = false;
 isSkillDelay = false;
 isDamageDelay = false;

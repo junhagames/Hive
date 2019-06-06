@@ -44,7 +44,7 @@ if (global.vstick[vstickID, VSTICK_SETTING.CHECK]) {
 	}
 	
 	// 가상 조이스틱 방향 설정
-	if (global.vstick[vstickID, VSTICK_SETTING.DISTANCE] > global.vstick[vstickID, VSTICK_SETTING.RADIUS] / 3) {
+	if (global.vstick[vstickID, VSTICK_SETTING.DISTANCE] > global.vstick[vstickID, VSTICK_SETTING.RADIUS] / 2) {
 		global.vstick[vstickID, VSTICK_SETTING.X_AXIS] = global.vstick[vstickID, VSTICK_SETTING.CENTER_X] > global.vstick[vstickID, VSTICK_SETTING.X] ? -1 : 1;
 		global.vstick[vstickID, VSTICK_SETTING.Y_AXIS] = global.vstick[vstickID, VSTICK_SETTING.CENTER_Y] > global.vstick[vstickID, VSTICK_SETTING.Y] ? -1 : 1;
 	}

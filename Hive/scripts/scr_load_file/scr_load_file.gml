@@ -64,30 +64,7 @@ for (var i = 0; i < ds_map_size(roomJson); i++) {
 		
 		_instMap[? "id"] = _instJson[? "id"];
 		_instMap[? "object"] = _instJson[? "object"];
-			
-		if (_instMap[? "object"] == obj_solid_rock) {
-			// obj_solid_rock
-			_instMap[? "hp"] = _instJson[? "hp"];
-		}
-		else {
-			// obj_parent_enemy
-			var enemyList = global.objParentMap[? obj_parent_enemy];
-
-			for (var k = 0; k < ds_list_size(enemyList); k++) {
-				if (_instMap[? "object"] == enemyList[| k]) {
-					_instMap[? "hp"] = _instJson[? "hp"];
-				}
-			}
-			
-			// obj_parent_altar
-			var altarList = global.objParentMap[? obj_parent_enemy];
-
-			for (var k = 0; k < ds_list_size(altarList); k++) {
-				if (_instMap[? "object"] == altarList[| k]) {
-					_instMap[? "hp"] = _instJson[? "hp"];
-				}
-			}
-		}
+		scr_inst_map_save(_instMap);
 	}
 }
 
