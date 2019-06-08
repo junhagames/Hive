@@ -1,6 +1,8 @@
 /// @description 게임 초기화
 
 #region 메크로 상수
+#macro VERSION "0.1"
+#macro SAVE_FILE "save.sav"
 #macro WALL -1
 #macro CELL_WIDTH 40
 #macro CELL_HEIGHT 40
@@ -181,36 +183,10 @@ for (var _room = 0; room_exists(_room); _room++) {
 }
 #endregion
 
-// 월드 초기화
+// 게임 설정 초기화
 global.worldGrid = ds_grid_create(0, 0);
 global.roomMap = ds_map_create();
-global.currentWorld = "none";
-global.currentIndex = 0;
-global.previousIndex = noone;
-global.previousPos = noone;
-global.isBossClear = false;
-
-// 캐릭터 초기화
 global.chrMap = ds_map_create();
-global.chrMap[? "coin"] = 0;
-global.chrMap[? "upgradePart"] = 0;
-global.chrMap[? "class"] = "none";
-global.chrMap[? "hpMax"] = 0;
-global.chrMap[? "hp"] = 0;
-global.chrMap[? "power"] = 0;
-global.chrMap[? "armor"] = 0;
-global.chrMap[? "moveSpeed"] = 0;
-global.chrMap[? "skillSpeed"] = 0;
-global.chrMap[? "swap"] = "none";
-global.chrMap[? "ammoMax"] = 0;
-global.chrMap[? "ammo"] = 0;
-global.chrMap[? "rangerWeapon"] = "none";
-global.chrMap[? "rangerDamage"] = 0;
-global.chrMap[? "rangerSpeed"] = 0;
-global.chrMap[? "rangerAccuracy"] = 0;
-global.chrMap[? "warriorWeapon"] = "none";
-global.chrMap[? "warriorDamage"] = 0;
-global.chrMap[? "warriorSpeed"] = 0;
 
 // 저장 구조체 초기화
 global.saveMap = ds_map_create();

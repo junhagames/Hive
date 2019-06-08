@@ -1,1 +1,1 @@
-room_goto(room_chrselect);
+obj_title.sector = 1;

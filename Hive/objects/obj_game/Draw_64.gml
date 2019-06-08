@@ -14,8 +14,7 @@ if (global.chrMap[? "hp"] > 0) {
 
 // 미니맵 그리기
 if (surface_exists(minimapSuf)) {
-	if ((os_type == os_windows && keyboard_check(vk_tab)) ||
-		(os_type == os_android && global.vkey[VKEY.MINIMAP, VKEY_SETTING.CHECK])) {
+	if ((os_type == os_windows && keyboard_check(vk_tab)) || (os_type == os_android && global.vkey[VKEY.MINIMAP, VKEY_SETTING.CHECK])) {
 		draw_set_color(c_black);
 		draw_rectangle(global.gameWidth / 2 - surface_get_width(minimapSuf) / 2,
 			global.gameHeight / 2 - surface_get_height(minimapSuf) / 2,

@@ -5,7 +5,7 @@ if (global.chrMap[? "swap"] == "ranger") {
 	if ((os_type == os_windows && mouse_check_button_released(mb_left)) || (os_type == os_android && global.vkey[VKEY.ATTACK, VKEY_SETTING.RELEASED])) {
 		if (global.chrMap[? "ammo"] == 0) {
 			global.chrMap[? "ammo"] = global.chrMap[? "ammoMax"];
-			audio_play_sound(sfx_gun_reload1, 10, false);
+			audio_play_sound(sfx_ranger_reload1, 10, false);
 		}
 	}
 }
@@ -24,13 +24,13 @@ if (!isAttackDelay) {
 				alarm[ALARM_CHR.ATTACK] = global.chrMap[? "rangerSpeed"];
 				
 				scr_camera_shake(4);
-				audio_play_sound(sfx_gun_fire1, 10, false);
+				audio_play_sound(sfx_ranger_attack1, 10, false);
 			}
 		}
 	}
 	else if (global.chrMap[? "swap"] == "warrior") {
 		if ((os_type == os_windows && mouse_check_button(mb_left)) || (os_type == os_android && global.vkey[VKEY.ATTACK, VKEY_SETTING.CHECK])) {
-			var melee = instance_create_layer(x + lengthdir_x(weaponLength, weaponAngle), y + lengthdir_y(weaponLength, weaponAngle), "layer_inst", obj_melee);
+			var melee = instance_create_layer(x + lengthdir_x(weaponLength, weaponAngle), y + lengthdir_y(weaponLength, weaponAngle) - 16, "layer_inst", obj_melee);
 			melee.image_angle = weaponAngle;
 			melee.damage = global.chrMap[? "power"] + global.chrMap[? "warriorDamage"];
 			isAttackDelay = true;
@@ -41,6 +41,7 @@ if (!isAttackDelay) {
 			warriorDir *= -1;
 
 			scr_camera_shake(10);
+			audio_play_sound(sfx_warrior_attack1, 10, false);
 		}
 	}
 }

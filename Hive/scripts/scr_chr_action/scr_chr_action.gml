@@ -23,8 +23,7 @@ else {
 }
 
 if (isAction) {
-	if ((os_type == os_windows && (keyboard_check_pressed(ord("E")) || mouse_check_button_pressed(mb_left))) ||
-		(os_type == os_android && global.vkey[VKEY.ATTACK, VKEY_SETTING.PRESSED])) {
+	if ((os_type == os_windows && (keyboard_check_pressed(ord("E")) || mouse_check_button_pressed(mb_left))) || (os_type == os_android && global.vkey[VKEY.ATTACK, VKEY_SETTING.PRESSED])) {
 		with (stuff) {
 			switch (object_index) {
 				#region obj_stuff_supply
@@ -35,23 +34,27 @@ if (isAction) {
 				#endregion
 				#region obj_stuff_heli
 				case obj_stuff_heli:
+					var targetRoom;
+					
 					switch (global.currentWorld) {
 						case "city":
-							room_goto(room_village_subway);
+							targetRoom = room_village_subway;
 							break;
 						case "swamp":
-							room_goto(room_village_camp);
+							targetRoom = room_village_camp;
 							break;
 						case "underground":
-							room_goto(room_village_terminal);
+							targetRoom = room_village_terminal;
 							break;
 						case "jungle":
-							room_goto(room_village_bunker);
+							targetRoom = room_village_bunker;
 							break;
 						case "desert":
-							room_goto(room_village_tunnel);
+							targetRoom = room_village_tunnel;
 							break;	
 					}
+					var transition = instance_create_layer(0, 0, "layer_system", obj_transition_fadeout);
+					transition.targetRoom = targetRoom;
 				#endregion
 			}
 		}

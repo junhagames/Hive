@@ -1,0 +1,1 @@
+obj_title.sector = 0;

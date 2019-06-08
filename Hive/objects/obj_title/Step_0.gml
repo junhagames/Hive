@@ -1,0 +1,1 @@
+camera_set_view_pos(camera, scr_tween_to(camera_get_view_x(camera), sector * 1280, 0.2), 0);

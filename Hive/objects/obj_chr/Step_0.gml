@@ -1,4 +1,4 @@
-if (!instance_exists(obj_parent_transition)) {
+if (!instance_exists(obj_transition_slide)) {
 	scr_chr_move();
 	scr_chr_weaponAngle();
 	scr_chr_attack();
@@ -72,5 +72,6 @@ else {
 // 캐릭터 사망
 if (global.chrMap[? "hp"] <= 0) {
 	show_message_async("사망했습니다!");
+	file_delete(SAVE_FILE); 
 	room_goto(room_title);
 }

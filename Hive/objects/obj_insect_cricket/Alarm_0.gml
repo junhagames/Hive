@@ -1,1 +1,1 @@
-scr_insect_move(target);
+scr_enemy_move(target);

@@ -7,7 +7,7 @@ if (surface_exists(lightSuf)) {
 	draw_set_color(c_white);
 	draw_set_alpha(1);
 
-	if (!instance_exists(obj_parent_transition)) {
+	if (!instance_exists(obj_transition_slide)) {
 		var xscale = global.gameWidth / global.cameraWidth;
 		var yscale = global.gameHeight / global.cameraHeight;
 		gpu_set_blendmode(bm_subtract);

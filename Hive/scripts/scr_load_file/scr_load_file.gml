@@ -15,7 +15,7 @@ global.currentIndex = 0;
 global.previousIndex = noone;
 global.previousPos = noone;
 global.isBossClear = false;
-	
+
 // 월드 불러오기
 ds_grid_read(global.worldGrid, saveJson[? "worldGrid"]);
 global.currentWorld = saveJson[? "currentWorld"];
@@ -25,7 +25,7 @@ var roomJson = saveJson[? "roomMap"];
 
 for (var i = 0; i < ds_map_size(roomJson); i++) {
 	var _roomJson = roomJson[? string(i)];
-	
+
 	ds_map_add_map(global.roomMap, i, ds_map_create());
 	var _roomMap =  global.roomMap[? i];
 
@@ -42,10 +42,10 @@ for (var i = 0; i < ds_map_size(roomJson); i++) {
 	infoMap[? "event"] = infoJson[? "event"];
 	infoMap[? "search"] = infoJson[? "search"];
 	infoMap[? "room"] = infoJson[? "room"];
-	
+
 	// 룸 입구 정보 불러오기
 	var entryJson = _roomJson[? "entry"];
-	
+
 	for (var j = 0; j < ds_map_size(entryJson); j++) {
 		ds_map_add_map(entryMap, j, ds_map_create());	
 		var _entryMap = entryMap[? j];
@@ -53,15 +53,15 @@ for (var i = 0; i < ds_map_size(roomJson); i++) {
 		_entryMap[? "targetIndex"] = _entryJson[? "targetIndex"];
 		_entryMap[? "pos"] = _entryJson[? "pos"];
 	}
-	
+
 	// 룸 인스턴스 정보 불러오기
 	var instJson = _roomJson[? "inst"];
-	
+
 	for (var j = 0; j < ds_map_size(instJson); j++) {
 		ds_map_add_map(instMap, j, ds_map_create());
 		var _instMap = instMap[? j];
 		var _instJson = instJson[? string(j)];
-		
+	
 		_instMap[? "id"] = _instJson[? "id"];
 		_instMap[? "object"] = _instJson[? "object"];
 		scr_inst_map_save(_instMap);
@@ -69,4 +69,24 @@ for (var i = 0; i < ds_map_size(roomJson); i++) {
 }
 
 // 캐릭터 정보 불러오기
-global.chrMap = saveJson[? "chrMap"];
+var _chrMap = saveJson[? "chrMap"];
+global.chrMap[? "class"] = _chrMap[? "class"];
+global.chrMap[? "hpMax"] = _chrMap[? "hpMax"];
+global.chrMap[? "power"] = _chrMap[? "power"];
+global.chrMap[? "armor"] = _chrMap[? "armor"];
+global.chrMap[? "moveSpeed"] = _chrMap[? "moveSpeed"];
+global.chrMap[? "skillSpeed"] = _chrMap[? "skillSpeed"];
+global.chrMap[? "rangerWeapon"] = _chrMap[? "rangerWeapon"];
+global.chrMap[? "rangerDamage"] = _chrMap[? "rangerDamage"];
+global.chrMap[? "rangerSpeed"] = _chrMap[? "rangerSpeed"];
+global.chrMap[? "rangerAccuracy"] = _chrMap[? "rangerAccuracy"];
+global.chrMap[? "ammoMax"] = _chrMap[? "ammoMax"];
+global.chrMap[? "warriorWeapon"] = _chrMap[? "warriorWeapon"];
+global.chrMap[? "warriorDamage"] = _chrMap[? "warriorDamage"];
+global.chrMap[? "warriorSpeed"] = _chrMap[? "warriorSpeed"];
+
+global.chrMap[? "hp"] = _chrMap[? "hp"];
+global.chrMap[? "ammo"] = _chrMap[? "ammo"];
+global.chrMap[? "coin"] = _chrMap[? "coin"];
+global.chrMap[? "upgradePart"] = _chrMap[? "upgradePart"];
+global.chrMap[? "swap"] = _chrMap[? "swap"];

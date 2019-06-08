@@ -7,7 +7,7 @@
         "32517ea1-cda4-4a6e-8951-0c8ff4410e45"
     ],
     "filterType": "GMObject",
-    "folderName": "Particle",
+    "folderName": "VFX",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

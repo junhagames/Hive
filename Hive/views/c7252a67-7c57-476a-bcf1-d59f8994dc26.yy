@@ -7,7 +7,7 @@
         "c409b13a-9a1e-4791-ac34-9dda91511612"
     ],
     "filterType": "GMSprite",
-    "folderName": "Hp",
+    "folderName": "HP",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

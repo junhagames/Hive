@@ -1,2 +1,9 @@
-draw_sprite_ext(spr_pause, 0, 0, 0, 1, 1, 0, make_color_hsv(current_time / 30 mod 255, 255, 255), 1);
-draw_text_transformed(global.gameWidth / 2, global.gameHeight / 2, "PAUSE", 6, 6, 0);
+draw_sprite(spr_pause, 0, 0, 0);
+
+draw_set_alpha(0.8);
+draw_set_color(c_black);
+draw_rectangle(0, 0, global.gameWidth, global.gameHeight, false);
+draw_set_color(c_white);
+draw_set_alpha(1);
+
+draw_text(global.gameWidth / 2, global.gameHeight / 2, "일시정지");
