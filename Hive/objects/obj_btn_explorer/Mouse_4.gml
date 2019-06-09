@@ -1,8 +1,7 @@
 scr_world_reset("city", 20, 11, 11);
-scr_chr_reset("explorer", 80, 1, 0, 6, room_speed * 10, "pistol", 2, room_speed * 0.13, 4, 20, "bat", 8, room_speed * 0.3);
+scr_chr_reset("explorer", 80, 1, 0, 6, room_speed * 10, "shotgun", 10, room_speed * 0.3, 20, 8, "chicken", 15, room_speed * 0.2);
 scr_save_file(SAVE_FILE);
-var transition = instance_create_layer(0, 0, "layer_system", obj_transition_fadeout);
-transition.targetRoom = scr_world_room_index(0);
+scr_transition_fadeout(scr_world_room_index(0));
 
 // 배경음악 재생
 audio_stop_sound(global.bgmPlaying);

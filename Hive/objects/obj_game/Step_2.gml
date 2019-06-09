@@ -16,7 +16,7 @@ if (surface_exists(lightSuf)) {
 			draw_sprite_ext(spr_vfx_light_glow, 0, scr_x_to_gui(x) + random_range(-3, 3), scr_y_to_gui(y) + random_range(-3, 3), xscale, yscale, 0, c_white, 1);
 		}
 	
-		with (obj_bullet) {
+		with (obj_parent_bullet) {
 			draw_sprite_ext(sprite_index, 0, scr_x_to_gui(x), scr_y_to_gui(y), xscale, yscale, image_angle, c_white, 1);
 		}
 		gpu_set_blendmode(bm_normal);

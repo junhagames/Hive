@@ -10,7 +10,9 @@ with (obj_stuff_supply) {
 }
 
 with (obj_stuff_heli) {
-	ds_priority_add(list, id, distance_to_object(obj_chr));
+	if (!isUse) {
+		ds_priority_add(list, id, distance_to_object(obj_chr));
+	}
 }
 var stuff = ds_priority_find_min(list);
 ds_priority_destroy(list);
@@ -28,8 +30,10 @@ if (isAction) {
 			switch (object_index) {
 				#region obj_stuff_supply
 				case obj_stuff_supply:
-					global.chrMap[? "upgradePart"] += 4;
+					var amount = 4;
+					global.chrMap[? "upgradePart"] += amount;
 					isUse = true;
+					scr_vfx_text(x, y, "보급 +" + string(amount), c_green);
 					break;
 				#endregion
 				#region obj_stuff_heli
@@ -53,8 +57,8 @@ if (isAction) {
 							targetRoom = room_village_tunnel;
 							break;	
 					}
-					var transition = instance_create_layer(0, 0, "layer_system", obj_transition_fadeout);
-					transition.targetRoom = targetRoom;
+					isUse = true;
+					scr_transition_fadeout(targetRoom);
 				#endregion
 			}
 		}

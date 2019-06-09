@@ -10,11 +10,16 @@ else if (os_type == os_android) {
 		for (var i = 1; i <= instance_number(obj_parent_enemy); i++) {
 			enemy = scr_instance_nth_nearest(x, y, obj_parent_enemy, i);
 		
-			if (collision_line(x, y, enemy.x, enemy.y, obj_parent_solid, false, false) != noone) {
-				enemy = noone;
+			if (distance_to_object(enemy) < 400) {
+				if (collision_line(x, y, enemy.x, enemy.y, obj_parent_solid, false, false) == noone) {
+					break;
+				}
+				else {
+					enemy = noone;
+				}
 			}
 			else {
-				break;
+				enemy = noone;
 			}
 		}
 		

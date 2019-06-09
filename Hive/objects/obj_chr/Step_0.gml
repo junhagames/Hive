@@ -55,6 +55,14 @@ switch (global.chrMap[? "warriorWeapon"]) {
 		warriorSprite = spr_weapon_plunger;
 		warriorCursor = spr_cursor_warrior1;
 		break;
+	case "knife":
+		warriorSprite = spr_weapon_knife;
+		warriorCursor = spr_cursor_warrior1;
+		break;
+	case "chicken":
+		warriorSprite = spr_weapon_chicken;
+		warriorCursor = spr_cursor_warrior1;
+		break;
 }
 
 if (!isAction) {

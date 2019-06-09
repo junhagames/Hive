@@ -21,7 +21,7 @@ for (var i = 0; i < instCount; i++) {
 			#region obj_chr
 			case obj_chr:
 				var secondWeapon;
-				
+
 				// 부무장 그리기
 				if (global.chrMap[? "swap"] == "ranger") {
 					secondWeapon = warriorSprite;
