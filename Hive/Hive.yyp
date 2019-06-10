@@ -95,6 +95,14 @@
             }
         },
         {
+            "Key": "03782a91-0b2a-40ff-87db-6777984fddca",
+            "Value": {
+                "id": "505d4be1-c02e-4646-a7ee-0cb21ae2fe26",
+                "resourcePath": "sprites\\spr_item_potion_heal\\spr_item_potion_heal.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "03c57652-7146-4421-a3dc-fce6be52aba0",
             "Value": {
                 "id": "39776e91-076e-493c-ac00-1a158e94a9b0",
@@ -1087,6 +1095,14 @@
             }
         },
         {
+            "Key": "3729087d-d12f-401d-8890-7654f3bd498e",
+            "Value": {
+                "id": "b2622d97-0a56-4539-ba59-9a589c9116cc",
+                "resourcePath": "views\\3729087d-d12f-401d-8890-7654f3bd498e.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "378661a6-10b1-485a-926f-696dc5dec1dc",
             "Value": {
                 "id": "8f975627-9a05-44b1-aeb0-6cea59c73527",
@@ -1484,6 +1500,14 @@
                 "id": "8d1d48b1-c3a4-499f-ab60-5a872560d971",
                 "resourcePath": "tilesets\\tile_city_wall\\tile_city_wall.yy",
                 "resourceType": "GMTileSet"
+            }
+        },
+        {
+            "Key": "4feeb234-0504-4f14-89d7-aafd63731560",
+            "Value": {
+                "id": "7da57c1e-affc-43cf-a770-a1d9c370040f",
+                "resourcePath": "views\\4feeb234-0504-4f14-89d7-aafd63731560.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -3583,6 +3607,14 @@
             }
         },
         {
+            "Key": "ba635a95-6b3f-4550-9660-9b8e52d174b5",
+            "Value": {
+                "id": "c9625a2f-49c3-4dfb-bb65-c6cb8d0fefe6",
+                "resourcePath": "objects\\obj_item_potion_heal\\obj_item_potion_heal.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "ba69d9c7-3c5c-4fa7-8b6e-bbd1f415cbc6",
             "Value": {
                 "id": "9aa641d3-b3bf-4fc7-9d92-5172d9a19a86",
@@ -3652,6 +3684,14 @@
                 "id": "4655e95c-d3a6-49c9-b9f4-39e417359bf0",
                 "resourcePath": "views\\bd6bca90-fad4-4f0d-982a-f5bcb5065fd3.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "bd92db9b-0ddc-48ee-98ba-7ea804ab2340",
+            "Value": {
+                "id": "ef3c75be-a483-4ea7-859f-9cd4bbf7148d",
+                "resourcePath": "sprites\\spr_item_potion_sold\\spr_item_potion_sold.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -4463,6 +4503,14 @@
             }
         },
         {
+            "Key": "ee9011c8-7724-44ac-ba15-58a58f76536f",
+            "Value": {
+                "id": "05d1e521-ecb3-4ed3-b9f1-057cca23b599",
+                "resourcePath": "objects\\obj_parent_item\\obj_parent_item.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "ef38db62-5f6e-4d4a-9b37-e3902fa45fae",
             "Value": {
                 "id": "f447fe1c-af86-4bbd-86cd-e39e50f17e97",
@@ -4708,6 +4756,14 @@
                 "id": "e326b5c4-2118-4b13-9475-cb1abd10a35f",
                 "resourcePath": "sprites\\spr_weapon_deagle\\spr_weapon_deagle.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "fa306be8-9739-4186-a9a5-328a31dc4b82",
+            "Value": {
+                "id": "82a9ab5e-7a46-4d6f-b13f-f4ed1b9bf5c1",
+                "resourcePath": "views\\fa306be8-9739-4186-a9a5-328a31dc4b82.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
