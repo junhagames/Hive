@@ -2,7 +2,7 @@
     "id": "bd92db9b-0ddc-48ee-98ba-7ea804ab2340",
     "modelName": "GMSprite",
     "mvc": "1.12",
-    "name": "spr_item_potion_sold",
+    "name": "spr_item_sold",
     "For3D": false,
     "HTile": false,
     "VTile": false,

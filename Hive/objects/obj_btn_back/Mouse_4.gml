@@ -1,1 +1,3 @@
-obj_title.sector = 0;
+if (!instance_exists(obj_parent_transition)) {
+	obj_title.sector = 0;
+}

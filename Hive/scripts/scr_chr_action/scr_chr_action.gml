@@ -10,9 +10,7 @@ with (obj_stuff_supply) {
 }
 
 with (obj_stuff_heli) {
-	if (!isUse) {
-		ds_priority_add(list, id, distance_to_object(obj_chr));
-	}
+	ds_priority_add(list, id, distance_to_object(obj_chr));
 }
 
 with (obj_parent_item) {
@@ -36,10 +34,9 @@ if (isAction) {
 			switch (object_index) {
 				#region obj_stuff_supply
 				case obj_stuff_supply:
-					var amount = 4;
-					global.chrMap[? "upgradePart"] += amount;
+					global.chrMap[? "upgradePart"] += irandom_range(3, 4);
 					isUse = true;
-					scr_vfx_text(x, y - sprite_height / 2, "보급 +" + string(amount), c_green);
+					scr_vfx_text(x, y - sprite_height / 2, "잡동사니 " + string(global.chrMap[? "upgradePart"]), c_lime);
 					break;
 				#endregion
 				#region obj_stuff_heli
@@ -63,33 +60,15 @@ if (isAction) {
 							targetRoom = room_village_tunnel;
 							break;	
 					}
-					isUse = true;
 					scr_transition_fadeout(targetRoom);
 					break;
 				#endregion
-				#region default
-				default:
-					var isBreak = false;
-					#region obj_parent_item
-					var itemList = global.objParentMap[? obj_parent_item];
-					
-					for (var i = 0; i < ds_list_size(itemList); i++) {
-						if (object_index == itemList[| i]) {
-							if (global.chrMap[? "coin"] >= price) {
-								global.chrMap[? "coin"] -= price;
-							}
-							else {
-								show_debug_message("NO MONEY!");
-							}
-							isBreak = true;
-							break;
-						}
+				#region obj_item_potion_heal
+				case obj_item_potion_heal:
+					if (global.chrMap[? "coin"] >= price) {
+						global.chrMap[? "hp"] = global.chrMap[? "hpMax"];
+						isSold = true;	
 					}
-					
-					if (isBreak) {
-						break;
-					}
-					#endregion
 					break;
 				#endregion
 			}

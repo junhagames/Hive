@@ -44,6 +44,16 @@ if (ds_map_empty(instMap)) {
 		_instMap[? "object"] = object_index;
 		_instMap[? "hp"] = hp;
 	}
+	
+	with (obj_parent_item) {
+		var instIndex = ds_map_size(instMap);
+		ds_map_add_map(instMap, instIndex, ds_map_create());
+
+		var _instMap = instMap[? instIndex];
+		_instMap[? "id"] = id;
+		_instMap[? "object"] = object_index;
+		_instMap[? "isSold"] = isSold;
+	}
 }
 else {
 	// 인스턴스 정보 불러오기

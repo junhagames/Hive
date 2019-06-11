@@ -11,12 +11,7 @@ var roomHeight = argument3;
 
 // 월드 초기화
 ds_grid_resize(global.worldGrid, roomWidth, roomHeight);
-
-for (var _y = 0; _y < ds_grid_height(global.worldGrid); _y++) {
-	for (var _x = 0; _x < ds_grid_width(global.worldGrid); _x++) {
-		global.worldGrid[# _x, _y] = WALL;	
-	}
-}
+ds_grid_clear(global.worldGrid, WALL);
 ds_map_clear(global.roomMap);
 global.currentWorld = worldName;
 global.currentIndex = 0;
@@ -104,24 +99,28 @@ switch (global.currentWorld) {
 
 // 룸 이벤트 추가|섞기
 var eventList = ds_list_create();
+var minibossNum = 2;
+var supplyNum = 3;
+var shopNum = 1;
+var encounterNum = 3;
 
-repeat (2) {
+repeat (minibossNum) {
 	ds_list_add(eventList, "miniboss");
 }
 
-repeat (3) {
+repeat (supplyNum) {
 	ds_list_add(eventList, "supply");
 }
 
-repeat (1) {
+repeat (shopNum) {
 	ds_list_add(eventList, "shop");
 }
 
-repeat (3) {
+repeat (encounterNum) {
 	ds_list_add(eventList, "encounter");
 }
-var eventTurn = max(floor((roomNum - 2) / ds_list_size(eventList)), 1);
 ds_list_shuffle(eventList);
+var eventTurn = max(floor((roomNum - 2) / ds_list_size(eventList)), 1);
 
 // 월드 생성
 var controlX = ds_grid_width(global.worldGrid) div 2;
@@ -139,13 +138,61 @@ var encounterList = ds_list_create();
 global.worldGrid[# controlX, controlY] = 0;
 scr_world_room_reset(global.worldGrid[# controlX, controlY], "small", "stage", startRoom);
 
+var count = 0;
+
 for (var i = 1; i < roomNum; i++) {
 	var isCreateRoom = false;
 
 	do {
-		var roomShape, roomEvent;
+		// 무한 루프 탈출
+		count++;
+		
+		if (count > 2000) {
+			ds_grid_clear(global.worldGrid, WALL);
+			ds_map_clear(global.roomMap);
+
+			ds_list_clear(eventList);
+			
+			repeat (minibossNum) {
+				ds_list_add(eventList, "miniboss");
+			}
+
+			repeat (supplyNum) {
+				ds_list_add(eventList, "supply");
+			}
+
+			repeat (shopNum) {
+				ds_list_add(eventList, "shop");
+			}
+
+			repeat (encounterNum) {
+				ds_list_add(eventList, "encounter");
+			}
+			ds_list_shuffle(eventList);
+			
+			ds_list_clear(smallList);
+			ds_list_clear(bigList);
+			ds_list_clear(wlongList);
+			ds_list_clear(hlongList);
+			ds_list_clear(bossList);
+			ds_list_clear(minibossList);
+			ds_list_clear(supplyList);
+			ds_list_clear(shopList);
+			ds_list_clear(encounterList);
+			
+			controlX = ds_grid_width(global.worldGrid) div 2;
+			controlY = ds_grid_height(global.worldGrid) div 2;
+			
+			global.worldGrid[# controlX, controlY] = 0;
+			scr_world_room_reset(global.worldGrid[# controlX, controlY], "small", "stage", startRoom);
+			
+			count = 0;
+			i = 1;
+		}
 	
 		// 룸 이벤트 설정
+		var roomEvent;
+
 		if (i == roomNum - 1) {
 			roomEvent = "boss";
 		}
@@ -157,6 +204,8 @@ for (var i = 1; i < roomNum; i++) {
 		}
 		
 		// 룸 모양 설정
+		var roomShape;
+		
 		switch (roomEvent) {
 			case "stage":
 				roomShape = choose("small", "big", "wlong", "hlong");

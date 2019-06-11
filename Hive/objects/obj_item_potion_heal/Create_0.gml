@@ -1,2 +1,2 @@
-price = 10;
+price = 0;
 isSold = false;
