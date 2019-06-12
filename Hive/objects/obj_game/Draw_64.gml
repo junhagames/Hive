@@ -22,7 +22,7 @@ if (surface_exists(minimapSuf)) {
 			global.gameHeight / 2 + surface_get_height(minimapSuf) / 2,
 			false);
 		draw_set_color(c_white);
-		draw_surface(minimapSuf, global.gameWidth / 2 - surface_get_width(minimapSuf) / 2, global.gameHeight / 2 - surface_get_height(minimapSuf) / 2);
+		draw_surface_ext(minimapSuf, global.gameWidth / 2 - surface_get_width(minimapSuf) / 2 * 1.5, global.gameHeight / 2 - surface_get_height(minimapSuf) / 2 * 1.5, 1.5, 1.5, 0, c_white, draw_get_alpha());
 	}
 	else {
 		draw_surface_part(minimapSuf, minimapX, minimapY, 200, 200, global.gameWidth - 240, 40);

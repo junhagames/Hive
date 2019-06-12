@@ -1,4 +1,4 @@
-if (!instance_exists(obj_parent_transition)) {
+if (!instance_exists(obj_transition_slide)) {
 	scr_chr_move();
 	scr_chr_weaponAngle();
 	scr_chr_attack();

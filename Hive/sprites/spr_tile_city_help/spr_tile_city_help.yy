@@ -2,14 +2,14 @@
     "id": "f355107a-3047-4010-8c2f-10f0c119a960",
     "modelName": "GMSprite",
     "mvc": "1.12",
-    "name": "spr_help",
+    "name": "spr_tile_city_help",
     "For3D": false,
     "HTile": false,
     "VTile": false,
-    "bbox_bottom": 313,
-    "bbox_left": 17,
-    "bbox_right": 618,
-    "bbox_top": 17,
+    "bbox_bottom": 234,
+    "bbox_left": 13,
+    "bbox_right": 463,
+    "bbox_top": 13,
     "bboxmode": 0,
     "colkind": 1,
     "coltolerance": 0,
@@ -40,7 +40,7 @@
     ],
     "gridX": 0,
     "gridY": 0,
-    "height": 320,
+    "height": 240,
     "layers": [
         {
             "id": "5027e08e-190a-4790-828e-b0c634ea7bbb",
@@ -64,7 +64,7 @@
     "swfPrecision": 2.525,
     "textureGroupId": "1225f6b0-ac20-43bd-a82e-be73fa0b6f4f",
     "type": 0,
-    "width": 640,
+    "width": 480,
     "xorig": 0,
     "yorig": 0
 }

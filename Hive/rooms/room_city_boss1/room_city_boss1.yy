@@ -307,8 +307,8 @@
                     "m_parentID": "2edeeaa3-696b-450c-93fb-f6105f28c14b",
                     "m_serialiseFrozen": false,
                     "modelName": "GMRTileLayer",
-                    "prev_tileheight": 0,
-                    "prev_tilewidth": 0,
+                    "prev_tileheight": 80,
+                    "prev_tilewidth": 80,
                     "mvc": "1.0",
                     "tiles": {
                         "SerialiseData": null,
@@ -360,8 +360,8 @@
                     "m_parentID": "bce426d2-c8cd-4371-bd85-9510e2c5c2d8",
                     "m_serialiseFrozen": false,
                     "modelName": "GMRTileLayer",
-                    "prev_tileheight": 0,
-                    "prev_tilewidth": 0,
+                    "prev_tileheight": 40,
+                    "prev_tilewidth": 40,
                     "mvc": "1.0",
                     "tiles": {
                         "SerialiseData": null,

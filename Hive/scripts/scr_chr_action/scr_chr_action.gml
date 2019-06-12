@@ -10,7 +10,9 @@ with (obj_stuff_supply) {
 }
 
 with (obj_stuff_heli) {
-	ds_priority_add(list, id, distance_to_object(obj_chr));
+	if (!isUse) {
+		ds_priority_add(list, id, distance_to_object(obj_chr));
+	}
 }
 
 with (obj_parent_item) {
@@ -18,7 +20,7 @@ with (obj_parent_item) {
 		ds_priority_add(list, id, distance_to_object(obj_chr));
 	}
 }
-var stuff = ds_priority_find_min(list);
+stuff = ds_priority_find_min(list);
 ds_priority_destroy(list);
 
 if (distance_to_object(stuff) < 40) {
@@ -60,6 +62,7 @@ if (isAction) {
 							targetRoom = room_village_tunnel;
 							break;	
 					}
+					isUse = true;
 					scr_transition_fadeout(targetRoom);
 					break;
 				#endregion

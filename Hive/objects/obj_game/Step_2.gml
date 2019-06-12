@@ -7,7 +7,7 @@ if (surface_exists(lightSuf)) {
 	draw_set_color(c_white);
 	draw_set_alpha(1);
 
-	if (!instance_exists(obj_parent_transition)) {
+	if (!instance_exists(obj_transition_slide)) {
 		var xscale = global.gameWidth / global.cameraWidth;
 		var yscale = global.gameHeight / global.cameraHeight;
 		gpu_set_blendmode(bm_subtract);
@@ -17,7 +17,7 @@ if (surface_exists(lightSuf)) {
 		}
 	
 		with (obj_parent_bullet) {
-			draw_sprite_ext(sprite_index, 0, scr_x_to_gui(x), scr_y_to_gui(y), xscale, yscale, image_angle, c_white, 1);
+			draw_sprite_ext(sprite_index, 0, scr_x_to_gui(x), scr_y_to_gui(y), xscale, yscale, image_angle, c_white, image_alpha);
 		}
 		gpu_set_blendmode(bm_normal);
 	}

@@ -4,7 +4,16 @@
     "mvc": "1.0",
     "name": "obj_stuff_heli",
     "eventList": [
-        
+        {
+            "id": "5ee715f5-3070-4024-ab00-4b70128f3d1d",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 0,
+            "m_owner": "d2a385c0-18a3-4147-af9c-29a041f135f1"
+        }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,

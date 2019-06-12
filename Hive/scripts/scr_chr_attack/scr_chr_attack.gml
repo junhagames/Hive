@@ -22,7 +22,7 @@ if (!isAttackDelay) {
 						break;
 					case "shotgun":
 						bulletObj = obj_bullet2;
-						bulletNum = 10;
+						bulletNum = 5;
 						break;
 					case "sniper":
 						bulletObj = obj_bullet3;

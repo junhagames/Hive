@@ -3167,14 +3167,6 @@
             }
         },
         {
-            "Key": "a709827f-4e31-40b1-8633-114704d6d431",
-            "Value": {
-                "id": "25a0d3ad-9187-4a70-96c1-d2ba9f32c426",
-                "resourcePath": "views\\a709827f-4e31-40b1-8633-114704d6d431.yy",
-                "resourceType": "GMFolder"
-            }
-        },
-        {
             "Key": "a729fe5f-481b-4288-bcaf-ac9860d35191",
             "Value": {
                 "id": "eed70536-025d-421f-b4ab-468903538bae",
@@ -3252,14 +3244,6 @@
                 "id": "e4f6cab0-9b19-4726-80c6-d20525026acc",
                 "resourcePath": "options\\linux\\options_linux.yy",
                 "resourceType": "GMLinuxOptions"
-            }
-        },
-        {
-            "Key": "a99ef59f-c6bb-4bed-a104-d63d7c2f0f6e",
-            "Value": {
-                "id": "55ec1318-6fe3-4fe1-9ce3-ddbea9f5bf17",
-                "resourcePath": "objects\\obj_parent_transition\\obj_parent_transition.yy",
-                "resourceType": "GMObject"
             }
         },
         {
@@ -4618,7 +4602,7 @@
             "Key": "f355107a-3047-4010-8c2f-10f0c119a960",
             "Value": {
                 "id": "9cfef2f5-29fd-4ad7-a2c9-bf5952089e99",
-                "resourcePath": "sprites\\spr_help\\spr_help.yy",
+                "resourcePath": "sprites\\spr_tile_city_help\\spr_tile_city_help.yy",
                 "resourceType": "GMSprite"
             }
         },

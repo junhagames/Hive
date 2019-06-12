@@ -4,7 +4,16 @@
     "mvc": "1.0",
     "name": "obj_melee1",
     "eventList": [
-        
+        {
+            "id": "4b9922c5-a105-4b33-828b-60ae590a98e9",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 0,
+            "m_owner": "e29b5032-4053-4e73-9cc6-457aa78dcccb"
+        }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,

@@ -1,4 +1,4 @@
-if (!instance_exists(obj_parent_transition)) {
+if (!instance_exists(obj_transition_fadeout)) {
 	if (file_exists(SAVE_FILE)) {
 		scr_load_file(SAVE_FILE);
 		scr_transition_fadeout(scr_world_room_index(0));
