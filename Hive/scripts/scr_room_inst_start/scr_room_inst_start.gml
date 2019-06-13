@@ -10,9 +10,11 @@ if (ds_map_empty(instMap)) {
 		ds_map_add_map(instMap, instIndex, ds_map_create());
 
 		var _instMap = instMap[? instIndex];
+		_instMap[? "index"] = instIndex;
 		_instMap[? "id"] = id;
 		_instMap[? "object"] = object_index;
 		_instMap[? "hp"] = hp;
+		index = instIndex;
 	}
 	
 	with (obj_stuff_supply) {
@@ -20,9 +22,11 @@ if (ds_map_empty(instMap)) {
 		ds_map_add_map(instMap, instIndex, ds_map_create());
 
 		var _instMap = instMap[? instIndex];
+		_instMap[? "index"] = instIndex;
 		_instMap[? "id"] = id;
 		_instMap[? "object"] = object_index;
 		_instMap[? "isUse"] = isUse;
+		index = instIndex;
 	}
 	
 	with (obj_parent_enemy) {
@@ -30,9 +34,11 @@ if (ds_map_empty(instMap)) {
 		ds_map_add_map(instMap, instIndex, ds_map_create());
 
 		var _instMap = instMap[? instIndex];
+		_instMap[? "index"] = instIndex;
 		_instMap[? "id"] = id;
 		_instMap[? "object"] = object_index;
 		_instMap[? "hp"] = hp;
+		index = instIndex;
 	}
 	
 	with (obj_parent_altar) {
@@ -40,9 +46,11 @@ if (ds_map_empty(instMap)) {
 		ds_map_add_map(instMap, instIndex, ds_map_create());
 
 		var _instMap = instMap[? instIndex];
+		_instMap[? "index"] = instIndex;
 		_instMap[? "id"] = id;
 		_instMap[? "object"] = object_index;
 		_instMap[? "hp"] = hp;
+		index = instIndex;
 	}
 	
 	with (obj_parent_item) {
@@ -50,9 +58,11 @@ if (ds_map_empty(instMap)) {
 		ds_map_add_map(instMap, instIndex, ds_map_create());
 
 		var _instMap = instMap[? instIndex];
+		_instMap[? "index"] = instIndex;
 		_instMap[? "id"] = id;
 		_instMap[? "object"] = object_index;
 		_instMap[? "isSold"] = isSold;
+		index = instIndex;
 	}
 }
 else {
@@ -61,6 +71,7 @@ else {
 		var _instMap = instMap[? i];
 		
 		with (_instMap[? "id"]) {
+			index = _instMap[? "index"];
 			scr_inst_map_load(_instMap);
 		}
 	}

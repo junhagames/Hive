@@ -62,6 +62,7 @@ for (var i = 0; i < ds_map_size(roomJson); i++) {
 		var _instMap = instMap[? j];
 		var _instJson = instJson[? string(j)];
 	
+		_instMap[? "index"] = _instJson[? "index"];
 		_instMap[? "id"] = _instJson[? "id"];
 		_instMap[? "object"] = _instJson[? "object"];
 		scr_inst_map_save(_instMap);

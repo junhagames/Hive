@@ -1,0 +1,1 @@
+global.chrMap[? "rangerAccuracy"] += 1;

@@ -20,7 +20,7 @@ global.previousPos = noone;
 global.isBossClear = false;
 
 // 부모 룸 초기화
-var startRoom, smallRoom, bigRoom, wlongRoom, hlongRoom, bossRoom, minibossRoom, supplyRoom, shopRoom, encounterRoom;
+var startRoom, smallRoom, bigRoom, wlongRoom, hlongRoom, bossRoom, minibossRoom, supplyRoom, potionshopRoom, weaponshopRoom, encounterRoom;
 
 switch (global.currentWorld) {
 	case "city":
@@ -32,7 +32,8 @@ switch (global.currentWorld) {
 		bossRoom = room_parent_city_boss;
 		minibossRoom = room_parent_city_miniboss;
 		supplyRoom = room_parent_city_supply;
-		shopRoom = room_parent_city_shop;
+		potionshopRoom = room_parent_city_potionshop;
+		weaponshopRoom = room_parent_city_weaponshop;
 		encounterRoom = room_parent_city_encounter;
 		break;
 	case "swamp":
@@ -44,7 +45,8 @@ switch (global.currentWorld) {
 		bossRoom = room_parent_swamp_boss;
 		minibossRoom = room_parent_swamp_miniboss;
 		supplyRoom = room_parent_swamp_supply;
-		shopRoom = room_parent_swamp_shop;
+		potionshopRoom = room_parent_swamp_potionshop;
+		weaponshopRoom = room_parent_swamp_weaponshop;
 		encounterRoom = room_parent_swamp_encounter;
 		break;
 	case "underground":
@@ -56,7 +58,8 @@ switch (global.currentWorld) {
 		bossRoom = room_parent_underground_boss;
 		minibossRoom = room_parent_underground_miniboss;
 		supplyRoom = room_parent_underground_supply;
-		shopRoom = room_parent_underground_shop;
+		potionshopRoom = room_parent_underground_potionshop;
+		weaponshopRoom = room_parent_underground_weaponshop;
 		encounterRoom = room_parent_underground_encounter;
 		break;
 	case "jungle":
@@ -68,7 +71,8 @@ switch (global.currentWorld) {
 		bossRoom = room_parent_jungle_boss;
 		minibossRoom = room_parent_jungle_miniboss;
 		supplyRoom = room_parent_jungle_supply;
-		shopRoom = room_parent_jungle_shop;
+		potionshopRoom = room_parent_jungle_potionshop;
+		weaponshopRoom = room_parent_jungle_weaponshop;
 		encounterRoom = room_parent_jungle_encounter;
 		break;
 	case "desert":
@@ -80,7 +84,8 @@ switch (global.currentWorld) {
 		bossRoom = room_parent_desert_boss;
 		minibossRoom = room_parent_desert_miniboss;
 		supplyRoom = room_parent_desert_supply;
-		shopRoom = room_parent_desert_shop;
+		potionshopRoom = room_parent_desert_potionshop;
+		weaponshopRoom = room_parent_desert_weaponshop;
 		encounterRoom = room_parent_desert_encounter;
 		break;
 	case "school":
@@ -92,7 +97,8 @@ switch (global.currentWorld) {
 		bossRoom = room_parent_school_boss;
 		minibossRoom = room_parent_school_miniboss;
 		supplyRoom = room_parent_school_supply;
-		shopRoom = room_parent_school_shop;
+		potionshopRoom = room_parent_school_potionshop;
+		weaponshopRoom = room_parent_school_weaponshop;
 		encounterRoom = room_parent_school_encounter;
 		break;	
 }
@@ -101,8 +107,9 @@ switch (global.currentWorld) {
 var eventList = ds_list_create();
 var minibossNum = 2;
 var supplyNum = 3;
-var shopNum = 1;
-var encounterNum = 3;
+var potionshopNum = 1;
+var weaponshopNum = 1;
+var encounterNum = 2;
 
 repeat (minibossNum) {
 	ds_list_add(eventList, "miniboss");
@@ -112,8 +119,12 @@ repeat (supplyNum) {
 	ds_list_add(eventList, "supply");
 }
 
-repeat (shopNum) {
-	ds_list_add(eventList, "shop");
+repeat (potionshopNum) {
+	ds_list_add(eventList, "potionshop");
+}
+
+repeat (weaponshopNum) {
+	ds_list_add(eventList, "weaponshop");
 }
 
 repeat (encounterNum) {
@@ -132,7 +143,8 @@ var hlongList = ds_list_create();
 var bossList = ds_list_create();
 var minibossList = ds_list_create();
 var supplyList = ds_list_create();
-var shopList = ds_list_create();
+var potionshopList = ds_list_create();
+var weaponshopList = ds_list_create();
 var encounterList = ds_list_create();
 
 global.worldGrid[# controlX, controlY] = 0;
@@ -161,8 +173,12 @@ for (var i = 1; i < roomNum; i++) {
 				ds_list_add(eventList, "supply");
 			}
 
-			repeat (shopNum) {
-				ds_list_add(eventList, "shop");
+			repeat (potionshopNum) {
+				ds_list_add(eventList, "potionshop");
+			}
+			
+			repeat (weaponshopNum) {
+				ds_list_add(eventList, "weaponshop");
 			}
 
 			repeat (encounterNum) {
@@ -177,7 +193,8 @@ for (var i = 1; i < roomNum; i++) {
 			ds_list_clear(bossList);
 			ds_list_clear(minibossList);
 			ds_list_clear(supplyList);
-			ds_list_clear(shopList);
+			ds_list_clear(potionshopList);
+			ds_list_clear(weaponshopList);
 			ds_list_clear(encounterList);
 			
 			controlX = ds_grid_width(global.worldGrid) div 2;
@@ -219,7 +236,10 @@ for (var i = 1; i < roomNum; i++) {
 			case "supply":
 				roomShape = "small";
 				break;
-			case "shop":
+			case "potionshop":
+				roomShape = "small";
+				break;
+			case "weaponshop":
 				roomShape = "small";
 				break;
 			case "encounter":
@@ -256,29 +276,35 @@ for (var i = 1; i < roomNum; i++) {
 						global.worldGrid[# controlX, controlY] = i;
 						var roomlist, _roomList;
 						
-						if (roomEvent == "stage") {
-							roomlist = smallList;
-							_roomList = global.roomParentMap[? smallRoom];
-						}
-						else if (roomEvent == "boss") {
-							roomlist = bossList;
-							_roomList = global.roomParentMap[? bossRoom];
-						}
-						else if (roomEvent == "miniboss") {
-							roomlist = minibossList;
-							_roomList = global.roomParentMap[? minibossRoom];
-						}
-						else if (roomEvent == "supply") {
-							roomlist = supplyList;
-							_roomList = global.roomParentMap[? supplyRoom];
-						}
-						else if (roomEvent == "shop") {
-							roomlist = shopList;
-							_roomList = global.roomParentMap[? shopRoom];
-						}
-						else if (roomEvent == "encounter") {
-							roomlist = encounterList;
-							_roomList = global.roomParentMap[? encounterRoom];
+						switch (roomEvent) {
+							case "stage":
+								roomlist = smallList;
+								_roomList = global.roomParentMap[? smallRoom];
+								break;
+							case "boss":
+								roomlist = bossList;
+								_roomList = global.roomParentMap[? bossRoom];
+								break;
+							case "miniboss":
+								roomlist = minibossList;
+								_roomList = global.roomParentMap[? minibossRoom];
+								break;
+							case "supply":
+								roomlist = supplyList;
+								_roomList = global.roomParentMap[? supplyRoom];
+								break;
+							case "potionshop":
+								roomlist = potionshopList;
+								_roomList = global.roomParentMap[? potionshopRoom];
+								break;
+							case "weaponshop":
+								roomlist = weaponshopList;
+								_roomList = global.roomParentMap[? weaponshopRoom];
+								break;
+							case "encounter":
+								roomlist = encounterList;
+								_roomList = global.roomParentMap[? encounterRoom];
+								break;
 						}
 						
 						if (ds_list_empty(roomlist)) {
@@ -347,29 +373,35 @@ for (var i = 1; i < roomNum; i++) {
 							ds_grid_set_region(global.worldGrid, controlX1, controlY1, controlX2, controlY2, i);
 							var roomlist, _roomList;
 						
-							if (roomEvent == "stage") {
-								roomlist = bigList;
-								_roomList = global.roomParentMap[? bigRoom];
-							}
-							else if (roomEvent == "boss") {
-								roomlist = bossList;
-								_roomList = global.roomParentMap[? bossRoom];
-							}
-							else if (roomEvent == "miniboss") {
-								roomlist = minibossList;
-								_roomList = global.roomParentMap[? minibossRoom];
-							}
-							else if (roomEvent == "supply") {
-								roomlist = supplyList;
-								_roomList = global.roomParentMap[? supplyRoom];
-							}
-							else if (roomEvent == "shop") {
-								roomlist = shopList;
-								_roomList = global.roomParentMap[? shopRoom];
-							}
-							else if (roomEvent == "encounter") {
-								roomlist = encounterList;
-								_roomList = global.roomParentMap[? encounterRoom];
+							switch (roomEvent) {
+								case "stage":
+									roomlist = bigList;
+									_roomList = global.roomParentMap[? bigRoom];
+									break;
+								case "boss":
+									roomlist = bossList;
+									_roomList = global.roomParentMap[? bossRoom];
+									break;
+								case "miniboss":
+									roomlist = minibossList;
+									_roomList = global.roomParentMap[? minibossRoom];
+									break;
+								case "supply":
+									roomlist = supplyList;
+									_roomList = global.roomParentMap[? supplyRoom];
+									break;
+								case "potionshop":
+									roomlist = potionshopList;
+									_roomList = global.roomParentMap[? potionshopRoom];
+									break;
+								case "weaponshop":
+									roomlist = weaponshopList;
+									_roomList = global.roomParentMap[? weaponshopRoom];
+									break;
+								case "encounter":
+									roomlist = encounterList;
+									_roomList = global.roomParentMap[? encounterRoom];
+									break;
 							}
 						
 							if (ds_list_empty(roomlist)) {
@@ -443,29 +475,35 @@ for (var i = 1; i < roomNum; i++) {
 							ds_grid_set_region(global.worldGrid, controlX1, controlY1, controlX2, controlY2, i);
 							var roomlist, _roomList;
 						
-							if (roomEvent == "stage") {
-								roomlist = wlongList;
-								_roomList = global.roomParentMap[? wlongRoom];
-							}
-							else if (roomEvent == "boss") {
-								roomlist = bossList;
-								_roomList = global.roomParentMap[? bossRoom];
-							}
-							else if (roomEvent == "miniboss") {
-								roomlist = minibossList;
-								_roomList = global.roomParentMap[? minibossRoom];
-							}
-							else if (roomEvent == "supply") {
-								roomlist = supplyList;
-								_roomList = global.roomParentMap[? supplyRoom];
-							}
-							else if (roomEvent == "shop") {
-								roomlist = shopList;
-								_roomList = global.roomParentMap[? shopRoom];
-							}
-							else if (roomEvent == "encounter") {
-								roomlist = encounterList;
-								_roomList = global.roomParentMap[? encounterRoom];
+							switch (roomEvent) {
+								case "stage":
+									roomlist = wlongList;
+									_roomList = global.roomParentMap[? wlongRoom];
+									break;
+								case "boss":
+									roomlist = bossList;
+									_roomList = global.roomParentMap[? bossRoom];
+									break;
+								case "miniboss":
+									roomlist = minibossList;
+									_roomList = global.roomParentMap[? minibossRoom];
+									break;
+								case "supply":
+									roomlist = supplyList;
+									_roomList = global.roomParentMap[? supplyRoom];
+									break;
+								case "potionshop":
+									roomlist = potionshopList;
+									_roomList = global.roomParentMap[? potionshopRoom];
+									break;
+								case "weaponshop":
+									roomlist = weaponshopList;
+									_roomList = global.roomParentMap[? weaponshopRoom];
+									break;
+								case "encounter":
+									roomlist = encounterList;
+									_roomList = global.roomParentMap[? encounterRoom];
+									break;
 							}
 						
 							if (ds_list_empty(roomlist)) {
@@ -539,29 +577,35 @@ for (var i = 1; i < roomNum; i++) {
 							ds_grid_set_region(global.worldGrid, controlX1, controlY1, controlX2, controlY2, i);
 							var roomlist, _roomList;
 						
-							if (roomEvent == "stage") {
-								roomlist = hlongList;
-								_roomList = global.roomParentMap[? hlongRoom];
-							}
-							else if (roomEvent == "boss") {
-								roomlist = bossList;
-								_roomList = global.roomParentMap[? bossRoom];
-							}
-							else if (roomEvent == "miniboss") {
-								roomlist = minibossList;
-								_roomList = global.roomParentMap[? minibossRoom];
-							}
-							else if (roomEvent == "supply") {
-								roomlist = supplyList;
-								_roomList = global.roomParentMap[? supplyRoom];
-							}
-							else if (roomEvent == "shop") {
-								roomlist = shopList;
-								_roomList = global.roomParentMap[? shopRoom];
-							}
-							else if (roomEvent == "encounter") {
-								roomlist = encounterList;
-								_roomList = global.roomParentMap[? encounterRoom];
+							switch (roomEvent) {
+								case "stage":
+									roomlist = hlongList;
+									_roomList = global.roomParentMap[? hlongRoom];
+									break;
+								case "boss":
+									roomlist = bossList;
+									_roomList = global.roomParentMap[? bossRoom];
+									break;
+								case "miniboss":
+									roomlist = minibossList;
+									_roomList = global.roomParentMap[? minibossRoom];
+									break;
+								case "supply":
+									roomlist = supplyList;
+									_roomList = global.roomParentMap[? supplyRoom];
+									break;
+								case "potionshop":
+									roomlist = potionshopList;
+									_roomList = global.roomParentMap[? potionshopRoom];
+									break;
+								case "weaponshop":
+									roomlist = weaponshopList;
+									_roomList = global.roomParentMap[? weaponshopRoom];
+									break;
+								case "encounter":
+									roomlist = encounterList;
+									_roomList = global.roomParentMap[? encounterRoom];
+									break;
 							}
 						
 							if (ds_list_empty(roomlist)) {
@@ -593,7 +637,8 @@ ds_list_destroy(hlongList);
 ds_list_destroy(bossList);
 ds_list_destroy(minibossList);
 ds_list_destroy(supplyList);
-ds_list_destroy(shopList);
+ds_list_destroy(potionshopList);
+ds_list_destroy(weaponshopList);
 ds_list_destroy(encounterList);
 
 // 룸 입구 생성

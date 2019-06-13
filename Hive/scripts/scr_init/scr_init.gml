@@ -122,7 +122,8 @@ for (var _room = 0; room_exists(_room); _room++) {
 		roomName == "room_parent_city_boss" ||
 		roomName == "room_parent_city_miniboss" ||
 		roomName == "room_parent_city_supply" ||
-		roomName == "room_parent_city_shop" ||
+		roomName == "room_parent_city_potionshop" ||
+		roomName == "room_parent_city_weaponshop" ||
 		roomName == "room_parent_city_encounter" ||
 		
 		roomName == "room_parent_swamp_small" ||
@@ -132,7 +133,8 @@ for (var _room = 0; room_exists(_room); _room++) {
 		roomName == "room_parent_swamp_boss" ||
 		roomName == "room_parent_swamp_miniboss" ||
 		roomName == "room_parent_swamp_supply" ||
-		roomName == "room_parent_swamp_shop" ||
+		roomName == "room_parent_swamp_potionshop" ||
+		roomName == "room_parent_swamp_weaponshop" ||
 		roomName == "room_parent_swamp_encounter" ||
 		
 		roomName == "room_parent_underground_small" ||
@@ -142,7 +144,8 @@ for (var _room = 0; room_exists(_room); _room++) {
 		roomName == "room_parent_underground_boss" ||
 		roomName == "room_parent_underground_miniboss" ||
 		roomName == "room_parent_underground_supply" ||
-		roomName == "room_parent_underground_shop" ||
+		roomName == "room_parent_underground_potionshop" ||
+		roomName == "room_parent_underground_weaponshop" ||
 		roomName == "room_parent_underground_encounter" ||
 		
 		roomName == "room_parent_jungle_small" ||
@@ -152,7 +155,8 @@ for (var _room = 0; room_exists(_room); _room++) {
 		roomName == "room_parent_jungle_boss" ||
 		roomName == "room_parent_jungle_miniboss" ||
 		roomName == "room_parent_jungle_supply" ||
-		roomName == "room_parent_jungle_shop" ||
+		roomName == "room_parent_jungle_potionshop" ||
+		roomName == "room_parent_jungle_weaponshop" ||
 		roomName == "room_parent_jungle_encounter" ||
 		
 		roomName == "room_parent_desert_small" ||
@@ -162,7 +166,8 @@ for (var _room = 0; room_exists(_room); _room++) {
 		roomName == "room_parent_desert_boss" ||
 		roomName == "room_parent_desert_miniboss" ||
 		roomName == "room_parent_desert_supply" ||
-		roomName == "room_parent_desert_shop" ||
+		roomName == "room_parent_desert_potionshop" ||
+		roomName == "room_parent_desert_weaponshop" ||
 		roomName == "room_parent_desert_encounter" ||
 		
 		roomName == "room_parent_school_small" ||
@@ -172,7 +177,8 @@ for (var _room = 0; room_exists(_room); _room++) {
 		roomName == "room_parent_school_boss" ||
 		roomName == "room_parent_school_miniboss" ||
 		roomName == "room_parent_school_supply" ||
-		roomName == "room_parent_school_shop" ||
+		roomName == "room_parent_school_potionshop" ||
+		roomName == "room_parent_school_weaponshop" ||
 		roomName == "room_parent_school_encounter") {
 		roomParent = _room;
 		ds_map_add_list(global.roomParentMap, roomParent, ds_list_create());
@@ -217,16 +223,3 @@ else if (os_type == os_android) {
 
 // 더블 좌클릭시 우클릭 방지
 device_mouse_dbclick_enable(false);
-
-// 마우스 커서 초기화
-global.cursorSprite = spr_cursor_normal;
-
-// 가상 조이스틱|키 초기화
-if (os_type == os_android) {
-	scr_vstick_init(VSTICK.MOVE, 240, global.gameHeight - 180, sprite_get_width(spr_vstick_back) / 2, spr_vstick_back, spr_vstick_front);
-	scr_vkey_init(VKEY.ATTACK, global.gameWidth - 240, global.gameHeight - 180, sprite_get_width(spr_vkey_attack) / 2, spr_vkey_attack);
-	scr_vkey_init(VKEY.SKILL, global.gameWidth - 410, global.gameHeight - 100, sprite_get_width(spr_vkey_skill) / 2, spr_vkey_skill);
-	scr_vkey_init(VKEY.SWAP, global.gameWidth - 70, global.gameHeight - 260, sprite_get_width(spr_vkey_swap) / 2, spr_vkey_swap);
-	scr_vkey_init(VKEY.DASH, global.gameWidth - 70, global.gameHeight - 100, sprite_get_width(spr_vkey_dash) / 2, spr_vkey_dash);
-	scr_vkey_init(VKEY.MINIMAP, global.gameWidth - 140, 140, 110, noone);
-}

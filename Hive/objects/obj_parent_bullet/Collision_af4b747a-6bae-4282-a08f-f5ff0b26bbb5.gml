@@ -1,9 +1,13 @@
 if (ds_list_find_index(penetrateList, other.id) == -1) {
-	other.hp -= damage;
+	other.hp -=  damage;
 	penetrate++;
 
 	if (penetrate < penetrateMax) {
 		ds_list_add(penetrateList, other.id);
+		
+		if (penetrate == 1) {
+			damage = floor(damage / 2);
+		}
 	}
 	else {
 		instance_destroy();

@@ -10,7 +10,12 @@ if (global.chrMap[? "hp"] > 0) {
 	draw_set_halign(fa_right);
 	draw_text(330, 40, string(global.chrMap[? "hp"]) + "/" + string(global.chrMap[? "hpMax"]));
 	draw_set_halign(fa_center);
+	//draw_sprite(spr_ui_hp, 0, 60, 80);
 }
+
+// 코인 그리기
+//draw_sprite(spr_ui_coin, 0, 120, 100);
+//draw_text(150, 100, global.chrMap[? "coin"]);
 
 // 미니맵 그리기
 if (surface_exists(minimapSuf)) {

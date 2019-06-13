@@ -5,7 +5,8 @@
     "name": "7bc932ec-56dc-4b33-99c6-236c8a0c4252",
     "children": [
         "b2d70eaf-85a6-43e9-a680-fbd86407b732",
-        "3729087d-d12f-401d-8890-7654f3bd498e"
+        "aed15580-693e-4759-80ba-e4a332cf1f9e",
+        "bbe9b95d-2174-4bb1-b800-72dcdd8639ae"
     ],
     "filterType": "GMSprite",
     "folderName": "Shop",

@@ -73,9 +73,12 @@ for (var _y = 0; _y < ds_grid_height(global.worldGrid); _y++) {
 						case "supply":			
 							iconSprite = spr_ui_minimap_supply;
 							break;
-						case "shop":
-							iconSprite = spr_ui_minimap_shop;
+						case "potionshop":
+							iconSprite = spr_ui_minimap_potionshop;
 							break;
+						case "weaponshop":
+							iconSprite = spr_ui_minimap_weaponshop;
+							break;	
 						case "encounter":
 							iconSprite = spr_ui_minimap_encounter;
 							break;

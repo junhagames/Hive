@@ -10,7 +10,7 @@
         "af291ecd-ffa1-412a-945d-8fe78f26b6a1"
     ],
     "filterType": "GMSprite",
-    "folderName": "Shop",
+    "folderName": "Potion shop",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

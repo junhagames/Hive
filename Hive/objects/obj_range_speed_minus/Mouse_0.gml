@@ -1,0 +1,1 @@
+global.chrMap[? "rangerSpeed"] += 0.1;

@@ -11,8 +11,6 @@ switch (global.chrMap[? "class"]) {
 		chrSprite = spr_chr_explorer;
 		break;
 }
-rangerSprite = noone;
-warriorSprite = noone;
 weaponLength = 16;
 weaponAngle = 0;
 weaponDir = 1;

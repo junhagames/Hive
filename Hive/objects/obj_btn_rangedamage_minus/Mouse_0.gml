@@ -1,0 +1,1 @@
+global.chrMap[? "rangerDamage"] = max(global.chrMap[? "rangerDamage"] - 1, 1);

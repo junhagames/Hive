@@ -11,7 +11,6 @@ else {
 		blockID = block.id;
 	}
 }
-
-scr_room_inst_save();
+scr_room_inst_save(index);
 
 event_inherited();

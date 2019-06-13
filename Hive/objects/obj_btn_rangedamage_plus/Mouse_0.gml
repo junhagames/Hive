@@ -1,0 +1,1 @@
+global.chrMap[? "rangerDamage"] += 1;

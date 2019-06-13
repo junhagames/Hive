@@ -1,4 +1,4 @@
-penetrateMax = 1;
+penetrateMax = 2;
 speedMax = random_range(14, 18);
 speed = speedMax;
 friction = 0.6;

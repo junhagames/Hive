@@ -97,19 +97,51 @@ with (obj_parent_entry) {
 				}
 				break;
 			#endregion
-			#region shop
-			case "shop":
+			#region potionshop
+			case "potionshop":
 				if (posTo == "top") {
-					sprite_index = spr_entry_shop_top;
+					sprite_index = spr_entry_potionshop_top;
 				}
 				else if (posTo == "right") {
-					sprite_index = spr_entry_shop_right;
+					sprite_index = spr_entry_potionshop_right;
 				}
 				else if (posTo == "bottom") {
-					sprite_index = spr_entry_shop_bottom;
+					sprite_index = spr_entry_potionshop_bottom;
 				}
 				else if (posTo == "left") {
-					sprite_index = spr_entry_shop_left;
+					sprite_index = spr_entry_potionshop_left;
+				}
+				break;
+			#endregion
+			#region weaponshop
+			case "weaponshop":
+				if (posTo == "top") {
+					sprite_index = spr_entry_weaponshop_top;
+				}
+				else if (posTo == "right") {
+					sprite_index = spr_entry_weaponshop_right;
+				}
+				else if (posTo == "bottom") {
+					sprite_index = spr_entry_weaponshop_bottom;
+				}
+				else if (posTo == "left") {
+					sprite_index = spr_entry_weaponshop_left;
+				}
+				break;
+			#endregion
+			#region encounter
+			case "encounter":
+				if (posTo == "top") {
+					sprite_index = spr_entry_encounter_top;
+				}
+				else if (posTo == "right") {
+					sprite_index = spr_entry_encounter_right;
+				}
+				else if (posTo == "bottom") {
+					sprite_index = spr_entry_encounter_bottom;
+				}
+				else if (posTo == "left") {
+					sprite_index = spr_entry_encounter_left;
 				}
 				break;
 			#endregion
