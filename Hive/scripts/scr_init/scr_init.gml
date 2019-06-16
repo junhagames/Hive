@@ -8,6 +8,7 @@
 #macro CELL_HEIGHT 40
 #endregion
 #region 열거형
+#region 가상 조이스틱|키
 enum VSTICK {
 	MOVE,
 }
@@ -18,6 +19,7 @@ enum VKEY {
 	SWAP,
 	DASH,
 	MINIMAP,
+	MENU,
 }
 
 enum VSTICK_SETTING {
@@ -50,7 +52,26 @@ enum VKEY_SETTING {
 	RELEASED,
 	SPRITE,
 }
+#endregion
+#region 메뉴
+enum MENU {
+	LIST,
+	STATUS,
+	DICTIONARY,
+	ACHIEVEMENTS,
+	OPTION,
+	EXIT,
+}
 
+enum MENU_LIST {
+	STATUS,
+	DICTIONARY,
+	ACHIEVEMENTS,
+	OPTION,
+	EXIT,
+}
+#endregion
+#region 알람
 enum ALARM_CHR {
 	ATTACK,
 	SKILL,
@@ -70,6 +91,7 @@ enum ALARM_HIVE {
 enum ALARM_VFX {
 	HIT = 11,
 }
+#endregion
 #endregion
 #region 게임 설정|데이터 불러오기
 ini_open("game.ini");
@@ -183,7 +205,13 @@ for (var _room = 0; room_exists(_room); _room++) {
 		roomParent = _room;
 		ds_map_add_list(global.roomParentMap, roomParent, ds_list_create());
 	}
-	else if (roomParent != noone) {
+	else if (roomParent != noone &&
+		roomName != "room_city_start" &&
+		roomName != "room_swamp_start" &&
+		roomName != "room_underground_start" &&
+		roomName != "room_jungle_start" &&
+		roomName != "room_desert_start" &&
+		roomName != "room_school_start") {
 		ds_list_add(global.roomParentMap[? roomParent], _room);
 	}
 }

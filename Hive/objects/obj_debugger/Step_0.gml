@@ -1,8 +1,3 @@
-// 재시작
-if (keyboard_check_pressed(vk_f5)) {
-	room_goto(room_title);
-}
-
 // 무기 변경
 if (keyboard_check_pressed(ord("1"))) {
 	global.chrMap[? "rangerWeapon"] = "pistol";

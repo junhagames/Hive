@@ -31,7 +31,8 @@ else {
 }
 
 if (isAction) {
-	if ((os_type == os_windows && (keyboard_check_pressed(ord("E")) || mouse_check_button_pressed(mb_left))) || (os_type == os_android && global.vkey[VKEY.ATTACK, VKEY_SETTING.PRESSED])) {
+	if ((os_type == os_windows && (keyboard_check_pressed(ord("E")) || mouse_check_button_pressed(mb_left))) ||
+		(os_type == os_android && global.vkey[VKEY.ATTACK, VKEY_SETTING.PRESSED])) {
 		with (stuff) {
 			switch (object_index) {
 				#region obj_stuff_supply
