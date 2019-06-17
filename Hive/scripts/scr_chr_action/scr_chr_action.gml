@@ -3,6 +3,12 @@
 var list = ds_priority_create();
 ds_priority_add(list, id, 1000000);
 
+with (obj_stuff_chest) {
+	if (!isUse) {
+		ds_priority_add(list, id, distance_to_object(obj_chr));
+	}
+}
+
 with (obj_stuff_supply) {
 	if (!isUse) {
 		ds_priority_add(list, id, distance_to_object(obj_chr));
@@ -35,11 +41,20 @@ if (isAction) {
 		(os_type == os_android && global.vkey[VKEY.ATTACK, VKEY_SETTING.PRESSED])) {
 		with (stuff) {
 			switch (object_index) {
+				#region obj_stuff_chest
+				case obj_stuff_chest:
+					var amount = irandom_range(1, 3);
+					global.chrMap[? "coin"] += amount;
+					isUse = true;
+					scr_vfx_text(x, y - sprite_height / 2, "코인 +" + string(amount), c_yellow);
+					break;
+				#endregion
 				#region obj_stuff_supply
 				case obj_stuff_supply:
-					global.chrMap[? "upgradePart"] += irandom_range(3, 4);
+					var amount = irandom_range(1, 3);
+					global.chrMap[? "upgradePart"] += amount;
 					isUse = true;
-					scr_vfx_text(x, y - sprite_height / 2, "잡동사니 " + string(global.chrMap[? "upgradePart"]), c_lime);
+					scr_vfx_text(x, y - sprite_height / 2, "잡동사니 +" + string(amount), c_lime);
 					break;
 				#endregion
 				#region obj_stuff_heli

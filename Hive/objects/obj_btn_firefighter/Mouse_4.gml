@@ -1,6 +1,6 @@
 if (!instance_exists(obj_transition_fadeout)) {
 	scr_world_reset("city", 50, 11, 11);
-	scr_chr_reset("firefighter", 120, 1, 2, 5, room_speed * 10, "uzi", 2, room_speed * 0.08, 12, 30, "knife", 15, room_speed * 0.3);
+	scr_chr_reset("firefighter", 40, 1, 2, 5, room_speed * 10, "sniper", 50, room_speed * 0.4, 0, 4, "knife", 15, room_speed * 0.3);
 	scr_save_file(SAVE_FILE);
 	scr_transition_fadeout(room_story);
 

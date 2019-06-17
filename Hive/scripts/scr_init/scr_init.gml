@@ -1,7 +1,7 @@
 /// @description 게임 초기화
 
 #region 메크로 상수
-#macro VERSION "0.1"
+#macro VERSION "0.2"
 #macro SAVE_FILE "save.sav"
 #macro WALL -1
 #macro CELL_WIDTH 40
@@ -57,6 +57,7 @@ enum VKEY_SETTING {
 enum MENU {
 	LIST,
 	STATUS,
+	INVENTORY,
 	DICTIONARY,
 	ACHIEVEMENTS,
 	OPTION,
@@ -65,6 +66,7 @@ enum MENU {
 
 enum MENU_LIST {
 	STATUS,
+	INVENTORY,
 	DICTIONARY,
 	ACHIEVEMENTS,
 	OPTION,

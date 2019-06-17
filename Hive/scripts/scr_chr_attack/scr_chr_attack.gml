@@ -15,7 +15,7 @@ if (!isAttackDelay) {
 						break;
 					case "degle":
 						bulletObj = obj_bullet1;
-						bulletNum = 2;
+						bulletNum = 1;
 						break;
 					case "uzi":
 						bulletObj = obj_bullet1;

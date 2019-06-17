@@ -1,6 +1,7 @@
 textPos = 0;
 textSpeedMax = 6;
 textSpeed = textSpeedMax;
+alpha = 0;
 alarm[0] = textSpeed;
 
 switch (global.currentWorld) {

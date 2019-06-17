@@ -1,4 +1,4 @@
-hpMax = 10;
+hpMax = 200;
 hp = hpMax; 
 moveSpeed = random_range(4, 6);
 damage = 3;

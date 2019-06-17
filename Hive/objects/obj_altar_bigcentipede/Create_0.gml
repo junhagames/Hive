@@ -1,4 +1,4 @@
-hpMax = 10;
+hpMax = 300;
 hp = hpMax;
 name = "보스 소환 제단"
 

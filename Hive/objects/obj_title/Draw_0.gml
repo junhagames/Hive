@@ -4,4 +4,4 @@ draw_set_halign(fa_left);
 draw_text(30, room_height - 30, platform + VERSION);
 draw_set_halign(fa_center);
 
-draw_text(room_width - room_width / 4, 60, "캐릭터 선택");
+draw_text_transformed(room_width - room_width / 4, 120, "캐릭터 선택", 2, 2, 0);

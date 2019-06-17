@@ -7,7 +7,7 @@
         "bba856cc-f6cc-404d-9a0b-bb0939bb9b0a"
     ],
     "filterType": "GMRoom",
-    "folderName": "Menu",
+    "folderName": "Title",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

@@ -1,7 +1,7 @@
-hpMax = 10;
+hpMax = 11;
 hp = hpMax; 
 moveSpeed = random_range(4, 6);
-damage = 3;
+damage = 2;
 
 target = obj_chr;
 moveDelay = room_speed * 0.5;

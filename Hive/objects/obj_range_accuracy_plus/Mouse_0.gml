@@ -1,1 +1,0 @@
-global.chrMap[? "rangerAccuracy"] = max(global.chrMap[? "rangerAccuracy"] - 1, 0);

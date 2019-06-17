@@ -17,6 +17,18 @@ if (ds_map_empty(instMap)) {
 		index = instIndex;
 	}
 	
+	with (obj_stuff_chest) {
+		var instIndex = ds_map_size(instMap);
+		ds_map_add_map(instMap, instIndex, ds_map_create());
+
+		var _instMap = instMap[? instIndex];
+		_instMap[? "index"] = instIndex;
+		_instMap[? "id"] = id;
+		_instMap[? "object"] = object_index;
+		_instMap[? "isUse"] = isUse;
+		index = instIndex;
+	}
+	
 	with (obj_stuff_supply) {
 		var instIndex = ds_map_size(instMap);
 		ds_map_add_map(instMap, instIndex, ds_map_create());

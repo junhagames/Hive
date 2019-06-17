@@ -22,8 +22,8 @@ for (var i = 0; i < ds_list_size(menu[menuSector]); i++) {
 }
 var _menuText = menuText[menuSector];
 var _menuSprite = menuSprite[menuSector];
-draw_sprite(_menuSprite[| menuSelect[menuSector]], 0, 900, global.gameHeight / 2 - 80);
-draw_set_valign(fa_top);
-draw_text(800, global.gameHeight / 2 + 80, string_hash_to_newline(_menuText[| menuSelect[menuSector]]));
-draw_set_valign(fa_middle);
+draw_sprite(_menuSprite[| menuSelect[menuSector]], 0, global.gameWidth - 300, global.gameHeight / 2 - 80);
 draw_set_halign(fa_center);
+draw_set_valign(fa_top);
+draw_text(global.gameWidth - 300, global.gameHeight / 2 + 80, string_hash_to_newline(_menuText[| menuSelect[menuSector]]));
+draw_set_valign(fa_middle);

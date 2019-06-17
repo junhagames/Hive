@@ -1,21 +1,14 @@
-var diffX = event_data[? "posX"] - offsetX;
-var diffY = event_data[? "posY"] - offsetY;
+var diffX = event_data[? "guiposX"] - offsetX;
+var diffY = event_data[? "guiposY"] - offsetY;
 
 var marginX = 200;
 var marginY = 80;
-if (abs(diffX) > marginX) {
-	offsetX = event_data[? "posX"];
+
+if (abs(diffX) > marginX && xAxis == 0) {
 	xAxis = sign(diffX);
-}
-else {
-	xAxis = 0;
 }
 
 if (abs(diffY) > marginY) {
-	offsetY = event_data[? "posY"];
+	offsetY = event_data[? "guiposY"];
 	yAxis = sign(diffY);
-
-}
-else {
-	yAxis = 0;
 }

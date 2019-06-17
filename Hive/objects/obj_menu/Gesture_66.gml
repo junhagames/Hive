@@ -1,2 +1,3 @@
-offsetX = event_data[? "posX"];
-offsetY = event_data[? "posY"];
+offsetX = event_data[? "guiposX"];
+offsetY = event_data[? "guiposY"];
+xAxis = 0;
