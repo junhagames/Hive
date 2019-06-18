@@ -1,1 +1,0 @@
-scr_enemy_move(target);

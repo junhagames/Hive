@@ -2383,6 +2383,14 @@
             }
         },
         {
+            "Key": "6e44fbbf-e2f4-4576-9bd7-63fc8bea50a9",
+            "Value": {
+                "id": "991842d2-0125-4b2d-9414-a8886ae83c26",
+                "resourcePath": "scripts\\scr_enemy_reset\\scr_enemy_reset.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "6e5cc91a-47a8-460f-97c1-0dd73b687524",
             "Value": {
                 "id": "128780af-3c7e-468b-9b0e-f58d509b0ef7",
@@ -4047,14 +4055,6 @@
             }
         },
         {
-            "Key": "b35ee10e-b24d-45e5-b853-ab2a0f0ca8ea",
-            "Value": {
-                "id": "a4d3cd96-d8b9-4fca-a1c1-17e3ebbad5f3",
-                "resourcePath": "objects\\obj_debugger\\obj_debugger.yy",
-                "resourceType": "GMObject"
-            }
-        },
-        {
             "Key": "b3f4385b-689f-4f40-a621-acb0067719ac",
             "Value": {
                 "id": "6f1731a8-3ee7-4e69-9fc9-a5b9885251e3",
@@ -5455,14 +5455,6 @@
             }
         },
         {
-            "Key": "f45fd46a-addb-40f2-bf55-1a5bca0b645d",
-            "Value": {
-                "id": "a5c690c1-8e0d-4d58-a9b9-890786609b24",
-                "resourcePath": "scripts\\scr_enemy_move\\scr_enemy_move.yy",
-                "resourceType": "GMScript"
-            }
-        },
-        {
             "Key": "f4bd7693-d906-4e59-b36e-5cf142a53773",
             "Value": {
                 "id": "177d8844-f235-456b-959c-77ec4381476d",
@@ -5758,7 +5750,7 @@
         "d549e5da-eac9-4073-aa64-e5927f646d6e",
         "efcbc3ef-ca6a-457d-9188-f57e19616f45",
         "3c0eaf4a-c87b-44bf-9925-f1e0224b5f82",
-        "f45fd46a-addb-40f2-bf55-1a5bca0b645d",
+        "6e44fbbf-e2f4-4576-9bd7-63fc8bea50a9",
         "fd2a2f78-4155-47e5-b206-ae81a66e2135",
         "bc2a0cc2-13c7-47f7-a563-7493b7bea8d0",
         "a9ec683e-94a8-497e-981c-57a72a020401",

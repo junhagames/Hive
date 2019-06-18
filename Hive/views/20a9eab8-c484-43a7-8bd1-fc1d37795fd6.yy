@@ -4,7 +4,7 @@
     "mvc": "1.1",
     "name": "20a9eab8-c484-43a7-8bd1-fc1d37795fd6",
     "children": [
-        "f45fd46a-addb-40f2-bf55-1a5bca0b645d"
+        "6e44fbbf-e2f4-4576-9bd7-63fc8bea50a9"
     ],
     "filterType": "GMScript",
     "folderName": "Enemy",

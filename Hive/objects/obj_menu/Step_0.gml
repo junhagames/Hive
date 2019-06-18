@@ -13,7 +13,7 @@ if ((os_type == os_windows && (keyboard_check_pressed(vk_up) || keyboard_check_p
 if ((os_type == os_windows && (keyboard_check_pressed(vk_right) || keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("D")) || mouse_check_button_pressed(mb_left))) ||
 	(os_type == os_android && xAxis == -1)) {
 	switch (menuSector) {
-		#region LIST
+		#region List
 		case MENU.LIST:
 			switch (menuSelect[menuSector]) {
 				case MENU_LIST.STATUS:

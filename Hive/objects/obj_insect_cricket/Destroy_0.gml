@@ -1,3 +1,3 @@
-path = path_add();
+path_delete(path);
 
 event_inherited();

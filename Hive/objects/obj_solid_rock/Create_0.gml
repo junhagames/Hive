@@ -1,4 +1,4 @@
-hp = 25;
+hp = 30;
 isHit = false;
 
 switch (global.currentWorld) {

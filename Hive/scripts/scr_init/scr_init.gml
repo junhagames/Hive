@@ -73,6 +73,13 @@ enum MENU_LIST {
 	EXIT,
 }
 #endregion
+#region 적
+enum STATE {
+	IDLE,
+	WANDER,
+	ALERT,
+}
+#endregion
 #region 알람
 enum ALARM_CHR {
 	ATTACK,
