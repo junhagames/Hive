@@ -20,7 +20,7 @@ if (instance_exists(target)) {
 }
 
 // 카메라 흔들기
-shake = scr_tween_to(shake, 0, 0.3);
+shake = scr_tween_to(shake, 0, 0.1);
 x += random_range(-shake, shake);
 y += random_range(-shake, shake);
 

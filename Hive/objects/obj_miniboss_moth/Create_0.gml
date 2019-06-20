@@ -1,11 +1,4 @@
-hpMax = 200;
-hp = hpMax; 
-moveSpeed = random_range(4, 6);
-damage = 3;
-name = "나방"
-
-target = obj_chr;
-moveDelay = room_speed * 0.5;
-moveDistance = 1200;
+path = path_add();
+scr_enemy_reset("나방", 400, 4, 5, obj_chr, 400);
 
 event_inherited();

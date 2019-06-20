@@ -32,5 +32,6 @@ global.chrMap[? "warriorSpeed"] = argument13;
 global.chrMap[? "hp"] = global.chrMap[? "hpMax"];
 global.chrMap[? "ammo"] = global.chrMap[? "ammoMax"];
 global.chrMap[? "coin"] = 0;
-global.chrMap[? "upgradePart"] = 0;
+global.chrMap[? "oddments"] = 0;
+global.chrMap[? "part"] = 0;
 global.chrMap[? "swap"] = "ranger";

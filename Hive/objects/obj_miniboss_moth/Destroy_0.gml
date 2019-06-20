@@ -1,3 +1,3 @@
-// TODO 아이템 드랍
+path_delete(path);
 
 event_inherited();

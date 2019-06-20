@@ -10,7 +10,7 @@
     "option_android_build_tools": "23.0.2",
     "option_android_compile_sdk": "23",
     "option_android_device_support": 0,
-    "option_android_display_name": "Hive",
+    "option_android_display_name": "MEGA HIVE",
     "option_android_facebook_app_display_name": "",
     "option_android_facebook_id": "",
     "option_android_gamepad_support": true,

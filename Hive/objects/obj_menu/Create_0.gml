@@ -61,7 +61,7 @@ for (var i = 0; i < array_length_1d(menu); i++) {
 	for (var j = 0; j < ds_list_size(menu[i]); j++) {
 		ds_list_add(menuX[i], 0);
 		ds_list_add(menuY[i], 0);
-		ds_list_add(menuText[i], "개기모띠한 매뉴입니다");
+		ds_list_add(menuText[i], "메뉴 구현예정");
 		ds_list_add(menuSprite[i], spr_ui_menu_option);
 	}
 	menuSelect[i] = 0;

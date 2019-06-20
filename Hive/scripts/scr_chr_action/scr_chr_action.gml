@@ -43,52 +43,165 @@ if (isAction) {
 			switch (object_index) {
 				#region obj_stuff_chest
 				case obj_stuff_chest:
-					var amount = irandom_range(1, 3);
-					global.chrMap[? "coin"] += amount;
+					global.chrMap[? "coin"] += irandom_range(1, 3);
 					isUse = true;
-					scr_vfx_text(x, y - sprite_height / 2, "코인 +" + string(amount), c_yellow);
+					scr_vfx_text(x, y - sprite_height / 2, "코인 " + string(global.chrMap[? "coin"]), c_yellow);
 					break;
 				#endregion
 				#region obj_stuff_supply
 				case obj_stuff_supply:
-					var amount = irandom_range(1, 3);
-					global.chrMap[? "upgradePart"] += amount;
+					global.chrMap[? "oddments"] += irandom_range(5, 10);
+					global.chrMap[? "part"] += irandom_range(1, 3);
 					isUse = true;
-					scr_vfx_text(x, y - sprite_height / 2, "잡동사니 +" + string(amount), c_lime);
+					scr_vfx_text(x, y - sprite_height / 2, "잡동사니 " + string(global.chrMap[? "oddments"]), c_navy);
+					scr_vfx_text(x, y - sprite_height / 2 - 40, "부품 " + string(global.chrMap[? "part"]), c_fuchsia);
 					break;
 				#endregion
 				#region obj_stuff_heli
 				case obj_stuff_heli:
-					var targetRoom;
+					var targetRoom = room_title;
 					
-					switch (global.currentWorld) {
-						case "city":
-							targetRoom = room_village_subway;
-							break;
-						case "swamp":
-							targetRoom = room_village_camp;
-							break;
-						case "underground":
-							targetRoom = room_village_terminal;
-							break;
-						case "jungle":
-							targetRoom = room_village_bunker;
-							break;
-						case "desert":
-							targetRoom = room_village_tunnel;
-							break;	
-					}
+					//switch (global.currentWorld) {
+					//	case "city":
+					//		targetRoom = room_village_subway;
+					//		break;
+					//	case "swamp":
+					//		targetRoom = room_village_camp;
+					//		break;
+					//	case "underground":
+					//		targetRoom = room_village_terminal;
+					//		break;
+					//	case "jungle":
+					//		targetRoom = room_village_bunker;
+					//		break;
+					//	case "desert":
+					//		targetRoom = room_village_tunnel;
+					//		break;	
+					//}
 					isUse = true;
+					show_message_async("게임 클리어!");
 					scr_transition_fadeout(targetRoom);
 					break;
 				#endregion
-				#region obj_item_potion_heal
-				case obj_item_potion_heal:
+				#region Potion shop
+				#region obj_item_potion_healsmall
+				case obj_item_potion_healsmall:
 					if (global.chrMap[? "coin"] >= price) {
-						global.chrMap[? "hp"] = global.chrMap[? "hpMax"];
+						if (global.chrMap[? "hp"] < global.chrMap[? "hpMax"]) {
+							global.chrMap[? "hp"] = min(global.chrMap[? "hp"] + global.chrMap[? "hpMax"] / 100 * 20, global.chrMap[? "hpMax"]);
+							global.chrMap[? "coin"] -= price;
+							isSold = true;
+						}
+					}
+					break;
+				#endregion
+				#region obj_item_potion_healbig
+				case obj_item_potion_healbig:
+					if (global.chrMap[? "coin"] >= price) {
+						if (global.chrMap[? "hp"] < global.chrMap[? "hpMax"]) {
+							global.chrMap[? "hp"] = min(global.chrMap[? "hp"] + global.chrMap[? "hpMax"] / 100 * 50, global.chrMap[? "hpMax"]);
+							global.chrMap[? "coin"] -= price;
+							isSold = true;
+						}
+					}
+					break;
+				#endregion
+				#region obj_item_potion_hpmax
+				case obj_item_potion_hpmax:
+					if (global.chrMap[? "coin"] >= price) {
+						global.chrMap[? "hpMax"] += 3;
+						global.chrMap[? "hp"] += 3;
+						global.chrMap[? "coin"] -= price;
 						isSold = true;	
 					}
 					break;
+				#endregion
+				#region obj_item_potion_power
+				case obj_item_potion_power:
+					if (global.chrMap[? "coin"] >= price) {
+						global.chrMap[? "power"]++;
+						global.chrMap[? "coin"] -= price;
+						isSold = true;	
+					}
+					break;
+				#endregion
+				#region obj_item_potion_armor
+				case obj_item_potion_armor:
+					if (global.chrMap[? "coin"] >= price) {
+						global.chrMap[? "armor"] += 2;
+						global.chrMap[? "coin"] -= price;
+						isSold = true;	
+					}
+					break;
+				#endregion
+				#region obj_item_potion_speed
+				case obj_item_potion_speed:
+					if (global.chrMap[? "coin"] >= price) {
+						global.chrMap[? "moveSpeed"] += 0.5;
+						global.chrMap[? "coin"] -= price;
+						isSold = true;	
+					}
+					break;
+				#endregion
+				#endregion
+				#region Weapon shop
+				#region obj_item_oddments
+				case obj_item_oddments:
+					if (global.chrMap[? "coin"] >= price) {
+						global.chrMap[? "oddments"] += 5;
+						global.chrMap[? "coin"] -= price;
+						isSold = true;	
+					}
+					break;
+				#endregion
+				#region obj_item_part
+				case obj_item_part:
+					if (global.chrMap[? "coin"] >= price) {
+						global.chrMap[? "part"] += 1;
+						global.chrMap[? "coin"] -= price;
+						isSold = true;	
+					}
+					break;
+				#endregion
+				#region obj_item_weapon
+				case obj_item_weapon:
+					if (global.chrMap[? "coin"] >= price) {
+						switch (global.chrMap[? "warriorWeapon"]) {
+							case "bat":
+								global.chrMap[? "warriorWeapon"] = "axe";
+								global.chrMap[? "warriorDamage"] = 5;
+								global.chrMap[? "warriorSpeed"] = room_speed * 0.4;
+								break;
+							case "axe":
+								global.chrMap[? "warriorWeapon"] = "crowbar";
+								global.chrMap[? "warriorDamage"] = 10;
+								global.chrMap[? "warriorSpeed"] = room_speed * 0.4;
+								break;
+							case "crowbar":
+								global.chrMap[? "warriorWeapon"] = "hammer";
+								global.chrMap[? "warriorDamage"] = 20;
+								global.chrMap[? "warriorSpeed"] = room_speed * 0.4;
+								break;
+							case "hammer":
+								global.chrMap[? "warriorWeapon"] = "plunger";
+								global.chrMap[? "warriorDamage"] = 3;
+								global.chrMap[? "warriorSpeed"] = room_speed * 0.1;
+								break;
+							case "plunger":
+								global.chrMap[? "warriorWeapon"] = "knife";
+								global.chrMap[? "warriorDamage"] = 15;
+								global.chrMap[? "warriorSpeed"] = room_speed * 0.3;
+								break;
+							case "knife":
+								global.chrMap[? "warriorWeapon"] = "chicken";
+								global.chrMap[? "warriorDamage"] = 15;
+								global.chrMap[? "warriorSpeed"] = room_speed * 0.2;
+								isSold = true;
+								break;
+						}
+					}
+					break;
+				#endregion
 				#endregion
 			}
 		}

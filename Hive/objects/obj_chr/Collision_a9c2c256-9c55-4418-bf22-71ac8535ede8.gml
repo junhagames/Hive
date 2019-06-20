@@ -1,0 +1,1 @@
+scr_chr_damage();

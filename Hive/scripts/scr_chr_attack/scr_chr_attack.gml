@@ -83,7 +83,7 @@ if (!isAttackDelay) {
 			
 			warriorDir *= -1;
 			scr_vfx_melee_swing(melee.x, melee.y, melee.image_angle);
-			scr_camera_shake(10);
+			scr_camera_shake(6);
 			audio_play_sound(sfx_warrior_attack1, 10, false);
 		}
 	}

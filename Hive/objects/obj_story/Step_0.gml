@@ -1,5 +1,5 @@
-if (textPos == string_length(text)) {
-	if (mouse_check_button_pressed(mb_left)) {
+if (textPos == string_length(text) || skipPos >= skipPosMax) {
+	if ((mouse_check_button_pressed(mb_left) || skipPos >= skipPosMax) && !instance_exists(obj_transition_fadeout)) {
 		var targetRoom;
 	
 		switch (global.currentWorld) {
@@ -24,14 +24,15 @@ if (textPos == string_length(text)) {
 		}
 		scr_transition_fadeout(targetRoom);
 	}
-	alpha = (alpha + 1) mod 360;
+	continueAlpha = (continueAlpha + 1) mod 360;
 }
 
 if (mouse_check_button(mb_left)) {
-    textSpeed = textSpeedMax / 3;
+	if (skipPos < skipPosMax) {
+		skipPos++;
+	}
 }
 else {
-    textSpeed = textSpeedMax;
+	skipPos = 0;
 }
-
-
+skipAlpha = skipPos / skipPosMax;

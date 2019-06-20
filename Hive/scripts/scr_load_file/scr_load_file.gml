@@ -89,5 +89,5 @@ global.chrMap[? "warriorSpeed"] = _chrMap[? "warriorSpeed"];
 global.chrMap[? "hp"] = _chrMap[? "hp"];
 global.chrMap[? "ammo"] = _chrMap[? "ammo"];
 global.chrMap[? "coin"] = _chrMap[? "coin"];
-global.chrMap[? "upgradePart"] = _chrMap[? "upgradePart"];
+global.chrMap[? "oddments"] = _chrMap[? "oddments"];
 global.chrMap[? "swap"] = _chrMap[? "swap"];

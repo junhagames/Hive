@@ -1,3 +1,3 @@
 if (isSold) {
-	sprite_index = spr_item_sold;
+	instance_destroy();
 }

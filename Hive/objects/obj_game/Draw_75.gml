@@ -21,7 +21,7 @@ else if (os_type == os_android) {
 	// 가상 조이스틱|키 그리기
 	scr_vstick_draw(VSTICK.MOVE);
 	scr_vkey_draw(VKEY.ATTACK);
-	scr_vkey_draw(VKEY.SKILL);
+	//scr_vkey_draw(VKEY.SKILL);
 	scr_vkey_draw(VKEY.SWAP);
 	scr_vkey_draw(VKEY.DASH);
 	

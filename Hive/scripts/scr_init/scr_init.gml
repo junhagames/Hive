@@ -81,6 +81,10 @@ enum STATE {
 }
 #endregion
 #region 알람
+enum ALARM_STORY {
+	TEXT,
+}
+
 enum ALARM_CHR {
 	ATTACK,
 	SKILL,
