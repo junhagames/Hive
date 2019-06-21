@@ -107,9 +107,9 @@ switch (global.currentWorld) {
 var eventList = ds_list_create();
 var minibossNum = 2;
 var supplyNum = 3;
-var potionshopNum = 1;
-var weaponshopNum = 1;
-var encounterNum = 2;
+var potionshopNum = 2;
+var weaponshopNum = 2;
+var encounterNum = 3;
 
 repeat (minibossNum) {
 	ds_list_add(eventList, "miniboss");

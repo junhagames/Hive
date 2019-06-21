@@ -5,5 +5,5 @@ if (textPos < string_length(text)) {
         textPos += 1;
         alarm[ALARM_STORY.TEXT] = textSpeed;
     }
-    until(string_char_at(text, textPos) != " " && string_char_at(text, textPos) != "#")
+    until (string_char_at(text, textPos) != " " && string_char_at(text, textPos) != "#")
 }

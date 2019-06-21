@@ -1,5 +1,5 @@
 textPos = 0;
-textSpeed = 6;
+textSpeed = 5;
 skipPos = 0;
 skipPosMax = room_speed;
 skipAlpha = 0;

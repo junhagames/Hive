@@ -53,7 +53,7 @@ if (isAction) {
 					global.chrMap[? "oddments"] += irandom_range(5, 10);
 					global.chrMap[? "part"] += irandom_range(1, 3);
 					isUse = true;
-					scr_vfx_text(x, y - sprite_height / 2, "잡동사니 " + string(global.chrMap[? "oddments"]), c_navy);
+					scr_vfx_text(x, y - sprite_height / 2, "잡동사니 " + string(global.chrMap[? "oddments"]), c_lime);
 					scr_vfx_text(x, y - sprite_height / 2 - 40, "부품 " + string(global.chrMap[? "part"]), c_fuchsia);
 					break;
 				#endregion
@@ -88,7 +88,7 @@ if (isAction) {
 				case obj_item_potion_healsmall:
 					if (global.chrMap[? "coin"] >= price) {
 						if (global.chrMap[? "hp"] < global.chrMap[? "hpMax"]) {
-							global.chrMap[? "hp"] = min(global.chrMap[? "hp"] + global.chrMap[? "hpMax"] / 100 * 20, global.chrMap[? "hpMax"]);
+							global.chrMap[? "hp"] = min(global.chrMap[? "hp"] + floor(global.chrMap[? "hpMax"] / 100 * 30), global.chrMap[? "hpMax"]);
 							global.chrMap[? "coin"] -= price;
 							isSold = true;
 						}
@@ -99,7 +99,7 @@ if (isAction) {
 				case obj_item_potion_healbig:
 					if (global.chrMap[? "coin"] >= price) {
 						if (global.chrMap[? "hp"] < global.chrMap[? "hpMax"]) {
-							global.chrMap[? "hp"] = min(global.chrMap[? "hp"] + global.chrMap[? "hpMax"] / 100 * 50, global.chrMap[? "hpMax"]);
+							global.chrMap[? "hp"] = min(global.chrMap[? "hp"] + floor(global.chrMap[? "hpMax"] / 100 * 70), global.chrMap[? "hpMax"]);
 							global.chrMap[? "coin"] -= price;
 							isSold = true;
 						}
@@ -109,8 +109,8 @@ if (isAction) {
 				#region obj_item_potion_hpmax
 				case obj_item_potion_hpmax:
 					if (global.chrMap[? "coin"] >= price) {
-						global.chrMap[? "hpMax"] += 3;
-						global.chrMap[? "hp"] += 3;
+						global.chrMap[? "hpMax"] += 5;
+						global.chrMap[? "hp"] += 5;
 						global.chrMap[? "coin"] -= price;
 						isSold = true;	
 					}
@@ -128,7 +128,7 @@ if (isAction) {
 				#region obj_item_potion_armor
 				case obj_item_potion_armor:
 					if (global.chrMap[? "coin"] >= price) {
-						global.chrMap[? "armor"] += 2;
+						global.chrMap[? "armor"] += 1;
 						global.chrMap[? "coin"] -= price;
 						isSold = true;	
 					}
@@ -169,36 +169,37 @@ if (isAction) {
 						switch (global.chrMap[? "warriorWeapon"]) {
 							case "bat":
 								global.chrMap[? "warriorWeapon"] = "axe";
-								global.chrMap[? "warriorDamage"] = 5;
-								global.chrMap[? "warriorSpeed"] = room_speed * 0.4;
+								global.chrMap[? "warriorDamage"] = 10;
+								global.chrMap[? "warriorSpeed"] = room_speed * 0.3;
 								break;
 							case "axe":
 								global.chrMap[? "warriorWeapon"] = "crowbar";
-								global.chrMap[? "warriorDamage"] = 10;
-								global.chrMap[? "warriorSpeed"] = room_speed * 0.4;
+								global.chrMap[? "warriorDamage"] = 15;
+								global.chrMap[? "warriorSpeed"] = room_speed * 0.2;
 								break;
 							case "crowbar":
 								global.chrMap[? "warriorWeapon"] = "hammer";
 								global.chrMap[? "warriorDamage"] = 20;
-								global.chrMap[? "warriorSpeed"] = room_speed * 0.4;
+								global.chrMap[? "warriorSpeed"] = room_speed * 0.3;
 								break;
 							case "hammer":
 								global.chrMap[? "warriorWeapon"] = "plunger";
-								global.chrMap[? "warriorDamage"] = 3;
+								global.chrMap[? "warriorDamage"] = 4;
 								global.chrMap[? "warriorSpeed"] = room_speed * 0.1;
 								break;
 							case "plunger":
 								global.chrMap[? "warriorWeapon"] = "knife";
-								global.chrMap[? "warriorDamage"] = 15;
-								global.chrMap[? "warriorSpeed"] = room_speed * 0.3;
+								global.chrMap[? "warriorDamage"] = 20;
+								global.chrMap[? "warriorSpeed"] = room_speed * 0.2;
 								break;
 							case "knife":
 								global.chrMap[? "warriorWeapon"] = "chicken";
-								global.chrMap[? "warriorDamage"] = 15;
-								global.chrMap[? "warriorSpeed"] = room_speed * 0.2;
+								global.chrMap[? "warriorDamage"] = 20;
+								global.chrMap[? "warriorSpeed"] = room_speed * 0.1;
 								isSold = true;
 								break;
 						}
+						global.chrMap[? "coin"] -= price;
 					}
 					break;
 				#endregion

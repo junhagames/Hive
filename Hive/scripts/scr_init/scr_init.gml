@@ -1,7 +1,7 @@
 /// @description 게임 초기화
 
 #region 메크로 상수
-#macro VERSION "0.2"
+#macro VERSION "1.0"
 #macro SAVE_FILE "save.sav"
 #macro WALL -1
 #macro CELL_WIDTH 40
