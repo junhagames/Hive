@@ -1,55 +1,50 @@
 /// @description 캐릭터 상호작용
 
 var list = ds_priority_create();
-ds_priority_add(list, id, 1000000);
+ds_priority_add(list, noone, 1000000);
 
-with (obj_stuff_chest) {
-	if (!isUse) {
+var distance = 40;
+
+with (obj_chest) {
+	if (!isUse && distance_to_object(obj_chr) < distance) {
 		ds_priority_add(list, id, distance_to_object(obj_chr));
 	}
 }
 
-with (obj_stuff_supply) {
-	if (!isUse) {
+with (obj_supply) {
+	if (!isUse && distance_to_object(obj_chr) < distance) {
 		ds_priority_add(list, id, distance_to_object(obj_chr));
 	}
 }
 
 with (obj_stuff_heli) {
-	if (!isUse) {
+	if (!isUse && distance_to_object(obj_chr) < distance) {
 		ds_priority_add(list, id, distance_to_object(obj_chr));
 	}
 }
 
 with (obj_parent_item) {
-	if (!isSold) {
+	if (distance_to_object(obj_chr) < distance) {
 		ds_priority_add(list, id, distance_to_object(obj_chr));
 	}
 }
 stuff = ds_priority_find_min(list);
 ds_priority_destroy(list);
 
-if (distance_to_object(stuff) < 40) {
-	isAction = true;
-}
-else {
-	isAction = false;
-}
-
-if (isAction) {
+if (distance_to_object(stuff) < distance) {
 	if ((os_type == os_windows && (keyboard_check_pressed(ord("E")) || mouse_check_button_pressed(mb_left))) ||
 		(os_type == os_android && global.vkey[VKEY.ATTACK, VKEY_SETTING.PRESSED])) {
 		with (stuff) {
 			switch (object_index) {
-				#region obj_stuff_chest
-				case obj_stuff_chest:
+				#region obj_chest
+				case obj_chest:
 					global.chrMap[? "coin"] += irandom_range(1, 3);
 					isUse = true;
 					scr_vfx_text(x, y - sprite_height / 2, "코인 " + string(global.chrMap[? "coin"]), c_yellow);
 					break;
 				#endregion
-				#region obj_stuff_supply
-				case obj_stuff_supply:
+				#region obj_supply
+				case obj_supply:
 					global.chrMap[? "oddments"] += irandom_range(5, 10);
 					global.chrMap[? "part"] += irandom_range(1, 3);
 					isUse = true;
@@ -60,24 +55,6 @@ if (isAction) {
 				#region obj_stuff_heli
 				case obj_stuff_heli:
 					var targetRoom = room_title;
-					
-					//switch (global.currentWorld) {
-					//	case "city":
-					//		targetRoom = room_village_subway;
-					//		break;
-					//	case "swamp":
-					//		targetRoom = room_village_camp;
-					//		break;
-					//	case "underground":
-					//		targetRoom = room_village_terminal;
-					//		break;
-					//	case "jungle":
-					//		targetRoom = room_village_bunker;
-					//		break;
-					//	case "desert":
-					//		targetRoom = room_village_tunnel;
-					//		break;	
-					//}
 					isUse = true;
 					show_message_async("게임 클리어!");
 					scr_transition_fadeout(targetRoom);
@@ -163,39 +140,77 @@ if (isAction) {
 					}
 					break;
 				#endregion
-				#region obj_item_weapon
-				case obj_item_weapon:
+				#region obj_item_ranger
+				case obj_item_ranger:
+					if (global.chrMap[? "coin"] >= price) {
+						switch (global.chrMap[? "rangerWeapon"]) {
+							case "pistol":
+								global.chrMap[? "rangerWeapon"] = "deagle";
+								global.chrMap[? "rangerDamage"] = DEAGLE.DAMAGE;
+								global.chrMap[? "rangerSpeed"] = DEAGLE.SPEED;
+								global.chrMap[? "rangerAccuracy"] = DEAGLE.ACCURACY;
+								global.chrMap[? "ammoMax"] = DEAGLE.AMMO;
+								break;
+							case "deagle":
+								global.chrMap[? "rangerWeapon"] = "uzi";
+								global.chrMap[? "rangerDamage"] = UZI.DAMAGE;
+								global.chrMap[? "rangerSpeed"] = UZI.SPEED;
+								global.chrMap[? "rangerAccuracy"] = UZI.ACCURACY;
+								global.chrMap[? "ammoMax"] = UZI.AMMO;
+								break;
+							case "uzi":
+								global.chrMap[? "rangerWeapon"] = "shotgun";
+								global.chrMap[? "rangerDamage"] = SHOTGUN.DAMAGE;
+								global.chrMap[? "rangerSpeed"] = SHOTGUN.SPEED;
+								global.chrMap[? "rangerAccuracy"] = SHOTGUN.ACCURACY;
+								global.chrMap[? "ammoMax"] = SHOTGUN.AMMO;
+								break;
+							case "shotgun":
+								global.chrMap[? "rangerWeapon"] = "sniper";
+								global.chrMap[? "rangerDamage"] = SNIPER.DAMAGE;
+								global.chrMap[? "rangerSpeed"] = SNIPER.SPEED;
+								global.chrMap[? "rangerAccuracy"] = SNIPER.ACCURACY;
+								global.chrMap[? "ammoMax"] = SNIPER.AMMO;
+								break;
+						}
+						global.chrMap[? "ammo"] =global.chrMap[? "ammoMax"];
+						global.chrMap[? "coin"] -= price;
+					}
+					break;
+				#endregion
+				#region obj_item_warrior
+				case obj_item_warrior:
 					if (global.chrMap[? "coin"] >= price) {
 						switch (global.chrMap[? "warriorWeapon"]) {
 							case "bat":
 								global.chrMap[? "warriorWeapon"] = "axe";
-								global.chrMap[? "warriorDamage"] = 10;
-								global.chrMap[? "warriorSpeed"] = room_speed * 0.3;
+								global.chrMap[? "warriorDamage"] = AXE.DAMAGE;
+								global.chrMap[? "warriorSpeed"] = AXE.SPEED;
 								break;
 							case "axe":
 								global.chrMap[? "warriorWeapon"] = "crowbar";
-								global.chrMap[? "warriorDamage"] = 15;
-								global.chrMap[? "warriorSpeed"] = room_speed * 0.2;
+								global.chrMap[? "warriorDamage"] = CROWBAR.DAMAGE;
+								global.chrMap[? "warriorSpeed"] = CROWBAR.SPEED;
 								break;
 							case "crowbar":
 								global.chrMap[? "warriorWeapon"] = "hammer";
-								global.chrMap[? "warriorDamage"] = 20;
-								global.chrMap[? "warriorSpeed"] = room_speed * 0.3;
+								global.chrMap[? "warriorDamage"] = HAMMER.DAMAGE;
+								global.chrMap[? "warriorSpeed"] = HAMMER.SPEED;
 								break;
 							case "hammer":
 								global.chrMap[? "warriorWeapon"] = "plunger";
-								global.chrMap[? "warriorDamage"] = 4;
-								global.chrMap[? "warriorSpeed"] = room_speed * 0.1;
+								global.chrMap[? "warriorDamage"] = PLUNGER.DAMAGE;
+								global.chrMap[? "warriorSpeed"] = PLUNGER.SPEED;
 								break;
 							case "plunger":
 								global.chrMap[? "warriorWeapon"] = "knife";
-								global.chrMap[? "warriorDamage"] = 20;
-								global.chrMap[? "warriorSpeed"] = room_speed * 0.2;
+								global.chrMap[? "warriorDamage"] = KNIFE.DAMAGE;
+								global.chrMap[? "warriorSpeed"] = KNIFE.SPEED;
 								break;
 							case "knife":
 								global.chrMap[? "warriorWeapon"] = "chicken";
-								global.chrMap[? "warriorDamage"] = 20;
-								global.chrMap[? "warriorSpeed"] = room_speed * 0.1;
+								global.chrMap[? "warriorDamage"] = CHICKEN.DAMAGE;
+								global.chrMap[? "warriorSpeed"] = CHICKEN.SPEED;
 								isSold = true;
 								break;
 						}

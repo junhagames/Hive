@@ -9,13 +9,13 @@ switch (instMap[? "object"]) {
 		hp = instMap[? "hp"];
 		break;
 	#endregion
-	#region obj_stuff_chest
-	case obj_stuff_chest:
+	#region obj_chest
+	case obj_chest:
 		isUse = instMap[? "isUse"];
 		break;
 	#endregion
-	#region obj_stuff_supply
-	case obj_stuff_supply:
+	#region obj_supply
+	case obj_supply:
 		isUse = instMap[? "isUse"];
 		break;
 	#endregion

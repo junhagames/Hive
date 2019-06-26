@@ -9,19 +9,18 @@ buffer_delete(loadBuffer);
 
 var saveJson = json_decode(loadString);
 
-// 월드 초기화
-ds_map_clear(global.roomMap);
-global.currentIndex = 0;
-global.previousIndex = noone;
-global.previousPos = noone;
-global.isBossClear = false;
-
 // 월드 불러오기
 ds_grid_read(global.worldGrid, saveJson[? "worldGrid"]);
 global.currentWorld = saveJson[? "currentWorld"];
+global.currentIndex = saveJson[? "currentIndex"];
+global.previousIndex = saveJson[? "previousIndex"];
+global.previousPos = saveJson[? "previousPos"];
+global.isBossClear = saveJson[? "isBossClear"];
+global.time = saveJson[? "time"];
 
 // 룸 불러오기
 var roomJson = saveJson[? "roomMap"];
+ds_map_clear(global.roomMap);
 
 for (var i = 0; i < ds_map_size(roomJson); i++) {
 	var _roomJson = roomJson[? string(i)];
@@ -61,11 +60,78 @@ for (var i = 0; i < ds_map_size(roomJson); i++) {
 		ds_map_add_map(instMap, j, ds_map_create());
 		var _instMap = instMap[? j];
 		var _instJson = instJson[? string(j)];
-	
+		
 		_instMap[? "index"] = _instJson[? "index"];
 		_instMap[? "id"] = _instJson[? "id"];
 		_instMap[? "object"] = _instJson[? "object"];
-		scr_inst_map_save(_instMap);
+		
+		switch (_instJson[? "object"]) {
+			#region obj_solid_rock
+			case obj_solid_rock:
+				_instMap[? "hp"] = _instJson[? "hp"];
+				break;
+			#endregion
+			#region obj_chest
+			case obj_chest:
+				_instMap[? "isUse"] = _instJson[? "isUse"];
+				break;
+			#endregion
+			#region obj_supply
+			case obj_supply:
+				_instMap[? "isUse"] = _instJson[? "isUse"];
+				break;
+			#endregion
+			#region default
+			default:
+				var isBreak = false;
+				#region obj_parent_enemy
+				var enemyList = global.objParentMap[? obj_parent_enemy];
+			
+				for (var k = 0; k < ds_list_size(enemyList); k++) {
+					if (_instMap[? "object"] == enemyList[| k]) {
+						_instMap[? "hp"] = _instJson[? "hp"];
+						isBreak = true;
+						break;
+					}
+				}
+				
+				if (isBreak) {
+					break;
+				}
+				#endregion
+				#region obj_parent_altar
+				var altarList = global.objParentMap[? obj_parent_altar];
+			
+				for (var k = 0; k < ds_list_size(altarList); k++) {
+					if (_instMap[? "object"] == altarList[| k]) {
+						_instMap[? "hp"] = _instJson[? "hp"];
+						isBreak = true;
+						break;
+					}
+				}
+				
+				if (isBreak) {
+					break;
+				}
+				#endregion
+				#region obj_parent_item
+				var itemList = global.objParentMap[? obj_parent_item];
+				
+				for (var k = 0; k < ds_list_size(itemList); k++) {
+					if (_instMap[? "object"] == itemList[| k]) {
+						_instMap[? "isSold"] = _instJson[? "isSold"];
+						isBreak = true;
+						break;
+					}
+				}
+				
+				if (isBreak) {
+					break;
+				}
+				#endregion
+				break;
+			#endregion
+		}
 	}
 }
 
@@ -90,4 +156,5 @@ global.chrMap[? "hp"] = _chrMap[? "hp"];
 global.chrMap[? "ammo"] = _chrMap[? "ammo"];
 global.chrMap[? "coin"] = _chrMap[? "coin"];
 global.chrMap[? "oddments"] = _chrMap[? "oddments"];
+global.chrMap[? "part"] = _chrMap[? "part"];
 global.chrMap[? "swap"] = _chrMap[? "swap"];

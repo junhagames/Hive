@@ -16,7 +16,7 @@ if (global.chrMap[? "hp"] > 0) {
 if (surface_exists(minimapSuf)) {
 	if ((os_type == os_windows && keyboard_check(vk_tab)) ||
 		(os_type == os_android && global.vkey[VKEY.MINIMAP, VKEY_SETTING.CHECK])) {
-		draw_set_color(c_black);
+		draw_set_color(c_dkgray);
 		draw_rectangle(global.gameWidth / 2 - surface_get_width(minimapSuf) / 2,
 			global.gameHeight / 2 - surface_get_height(minimapSuf) / 2,
 			global.gameWidth / 2 + surface_get_width(minimapSuf) / 2,
@@ -27,31 +27,7 @@ if (surface_exists(minimapSuf)) {
 	}
 	else {
 		draw_surface_part(minimapSuf, minimapX, minimapY, 200, 200, global.gameWidth - 240, 40);
-
-		// 미니맵 액자 그리기
-		var frameSprite;
-		
-		switch (global.currentWorld) {
-			case "city":
-				frameSprite = spr_ui_minimap_city;
-				break;
-			case "swamp":
-				frameSprite = spr_ui_minimap_swamp;
-				break;
-			case "underground":
-				frameSprite = spr_ui_minimap_underground;
-				break;
-			case "jungle":
-				frameSprite = spr_ui_minimap_jungle;
-				break;
-			case "desert":
-				frameSprite = spr_ui_minimap_desert;
-				break;
-			case "school":
-				frameSprite = spr_ui_minimap_school;
-				break;
-		}
-		draw_sprite(frameSprite, 0, global.gameWidth - 240, 40);
+		draw_sprite(spr_ui_minimap_frame, 0, global.gameWidth - 240, 40);
 	}
 }
 else {

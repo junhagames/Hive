@@ -17,7 +17,7 @@ if (ds_map_empty(instMap)) {
 		index = instIndex;
 	}
 	
-	with (obj_stuff_chest) {
+	with (obj_chest) {
 		var instIndex = ds_map_size(instMap);
 		ds_map_add_map(instMap, instIndex, ds_map_create());
 
@@ -29,7 +29,7 @@ if (ds_map_empty(instMap)) {
 		index = instIndex;
 	}
 	
-	with (obj_stuff_supply) {
+	with (obj_supply) {
 		var instIndex = ds_map_size(instMap);
 		ds_map_add_map(instMap, instIndex, ds_map_create());
 

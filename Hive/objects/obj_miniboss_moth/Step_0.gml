@@ -5,34 +5,34 @@ if (instance_exists(target)) {
 
 switch (state) {
 	#region Idle
-	case STATE.IDLE:
+	case ENEMY_STATE.IDLE:
 		counter++;
 		
 		if (counter >= room_speed * 2) {
 			var change = choose(0, 1);
 			
 			if (change == 0) {
-				state = STATE.WANDER;
+				state = ENEMY_STATE.WANDER;
 			}
 			counter = 0;
 		}
 		
 		if (instance_exists(target)) {
 			if (distance_to_object(target) < alertDistance && mp_grid_path(obj_game.enemyPathGrid, path, x, y, dx, dy, true)) {
-				state = STATE.ALERT;
+				state = ENEMY_STATE.ALERT;
 			}
 		}
 		break;
 	#endregion
 	#region Wander
-	case STATE.WANDER:
+	case ENEMY_STATE.WANDER:
 		counter++;
 		
 		if (counter >= room_speed * 2) {
 			var change = choose(0, 1);
 			
 			if (change == 0) {
-				state = STATE.IDLE;
+				state = ENEMY_STATE.IDLE;
 			}
 			dir = random(360);
 			moveX = moveSpeed * choose(-1, 1) / 2;
@@ -52,13 +52,13 @@ switch (state) {
 
 		if (instance_exists(target)) {
 			if (distance_to_object(target) < alertDistance && mp_grid_path(obj_game.enemyPathGrid, path, x, y, dx, dy, true)) {
-				state = STATE.ALERT;
+				state = ENEMY_STATE.ALERT;
 			}
 		}
 		break;
 	#endregion
 	#region Alert
-		case STATE.ALERT:
+		case ENEMY_STATE.ALERT:
 			if (instance_exists(target)) {
 				if (mp_grid_path(obj_game.enemyPathGrid, path, x, y, dx, dy, true)) {
 				    path_start(path, moveSpeed, path_action_stop, false);

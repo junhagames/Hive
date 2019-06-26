@@ -6,6 +6,11 @@ var fileName = argument0;
 // 월드 세이브
 global.saveMap[? "worldGrid"] = ds_grid_write(global.worldGrid);
 global.saveMap[? "currentWorld"] = global.currentWorld;
+global.saveMap[? "currentIndex"] = global.currentIndex;
+global.saveMap[? "previousIndex"] = global.previousIndex;
+global.saveMap[? "previousPos"] = global.previousPos;
+global.saveMap[? "isBossClear"] = global.isBossClear;
+global.saveMap[? "time"] = global.time;
 
 // 세이브 파일 생성
 var saveString = json_encode(global.saveMap);

@@ -22,6 +22,12 @@ if (os_type == os_android) {
 	scr_vkey_init(VKEY.MENU, 140, 140, 110, noone);
 }
 
+// 파티클 생성기
+particleSys = part_system_create();
+emitterEmber = part_emitter_create(particleSys);
+part_emitter_region(particleSys, emitterEmber, 0, room_width, room_height, room_height, ps_shape_rectangle, ps_distr_linear);
+part_emitter_stream(particleSys, emitterEmber, global.particleEmber, 2);
+
 // 배경음악 재생
 audio_stop_sound(global.bgmPlaying);
 

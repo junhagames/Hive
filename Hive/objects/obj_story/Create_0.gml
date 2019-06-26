@@ -1,34 +1,28 @@
 textPos = 0;
-textSpeed = 5;
+textSpeed = 4;
 skipPos = 0;
-skipPosMax = room_speed;
+skipPosMax = room_speed * 2;
 skipAlpha = 0;
 continueAlpha = 0;
 alarm[ALARM_STORY.TEXT] = textSpeed;
 
-switch (global.currentWorld) {
-	case "city":
-        title = "도시 입성!";
-        text = "사람이 살지 않는 유령 도시다#메가하이브 외각쪽에 위치하고 있기 때문에 강력하지 않은 고대곤충들이 서식하고 있다#소문에 의하면 매우 위험한 대왕지네가 도시를 장악하고 있다고 한다";
-        break;
-    case "swamp":
-        title = "늪지대 입성!";
-        text = "메가하이브의 영향으로 짧은 시간안에 녹색지역으로 버린 도시다#주로 날아다니는 고대 곤충들이 득실거린다";
-        break;
-    case "underground":
-        title = "지하상가 입성!";
-        text = "미로처럼 복잡한 구조를 가진 지하상가다#지하에 있기 때문에 매우 어두어서 조심해야겠다#개미가 많아보이는데 개미굴로 추측된다";
-        break;
-    case "jungle":
-        title = "정글 입성!"
-        text = "빽빽한 나무가 앞을 가려서 전진하기 힘들어진다#먹을 게 많아보이는데 독을 가진 생물이 많기 때문에 조심해야겠다";
-        break;
-    case "desert":
-        title = "사막 입성!"
-        text = "너무 더워서 점점 힘들어지는 기분이 느껴진다#저 멀리서 건물이 보이는데 신기루 인가...";
-        break;
-    case "school":
-        title = "학교 입성!"
-        text = "드디어 고대 곤충들의 비밀을 알아낼 수 있는 장소에 도착했다#곧있으면 엄청난 일이 일어날 것같은 예감이 든다";
-        break;
+if (global.currentWorld == "school") {
+	title = "챕터 1. 영웅등장";
+	text = "2020년 이미 멸종된 줄 알았던 수많은 고대 곤충들이 세계 전역 땅속에서 나오기 시작한다.#" +
+		"고대 곤충들로부터 인류는 속수무책으로 당하고, 모든 도시들이 파괴되었다.#" +
+		"인류는 고대 곤충을 섬멸하기 위해 군대를 총 동원하여 전쟁을 하게 된다.#" +
+		"전쟁 도중, \"메가하이브\"라 불리는 곤충 군락의 중심지가 \"선린인터넷고\"에 존재한다는#" +
+		"중요한 정보를 입수하게 된다.#" +
+		"메가하이브의 위치 정보를 입수함에도 불구하고 고대 곤충들의 엄청난 번식력을 이기지 못해,#" +
+		"고대 곤충과의 전쟁에 패배와 함께 생존한 나머지 극소수의 인류는 멸종의 위기를 맞이하게 된다.##" + 
+		"모두가 희망을 잃어버렸을 때, 한 영웅이 등장한다.";
 }
+
+// 파티클 생성기
+particleSys = part_system_create();
+emitterSmoke = part_emitter_create(particleSys);
+emitterEmber = part_emitter_create(particleSys);
+part_emitter_region(particleSys, emitterSmoke, 0, room_width, 0, room_height, ps_shape_rectangle, ps_distr_linear);
+part_emitter_stream(particleSys, emitterSmoke, global.particleSmoke, 1);
+part_emitter_region(particleSys, emitterEmber, 0, room_width, room_height, room_height, ps_shape_rectangle, ps_distr_linear);
+part_emitter_stream(particleSys, emitterEmber, global.particleEmber, 1);

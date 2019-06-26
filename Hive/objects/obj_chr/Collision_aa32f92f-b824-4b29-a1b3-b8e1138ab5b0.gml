@@ -1,5 +1,5 @@
-// 룸 이동
 if (other.isOpen) {
+	// 게임 세이브
 	var _roomMap = global.roomMap[? global.currentIndex];
 	var instMap = _roomMap[? "inst"];
 
@@ -10,6 +10,9 @@ if (other.isOpen) {
 			scr_inst_map_save(_instMap);
 		}
 	}
+	scr_save_file(SAVE_FILE);
+	
+	// 룸 이동
 	global.previousIndex = global.currentIndex;
 	global.currentIndex = other.targetIndex;
 	global.previousPos = other.pos;

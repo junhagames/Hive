@@ -1,9 +1,5 @@
-var tweenTime = 0.6;
-
-if (alpha > 0) {
-	alpha -= 1 / room_speed / tweenTime;
-}
-else {
-	instance_destroy();
-}
+var tweenTime = 1.3;
+image_alpha -= 1 / room_speed / tweenTime;
 y--;
+
+event_inherited();

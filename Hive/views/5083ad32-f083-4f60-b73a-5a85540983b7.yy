@@ -4,12 +4,10 @@
     "mvc": "1.1",
     "name": "5083ad32-f083-4f60-b73a-5a85540983b7",
     "children": [
-        "b4e90bcc-4a7b-4646-9b74-c58380e29e74",
-        "4eae7ce9-cc8d-4c92-8022-8c0539494eea",
-        "60a1011c-494a-4e86-96f8-01279a3e52f6",
-        "0c84b518-e7bf-41e7-a0c2-a171d603e476",
-        "fddefdeb-ec0a-4cfa-83a9-13b6d287618b",
-        "620144cb-aec5-4ada-b279-83f1a4bc00f8"
+        "a729fe5f-481b-4288-bcaf-ac9860d35191",
+        "775b4bdc-b591-4198-a6c2-f08b79b86e57",
+        "eb546a49-6be3-4394-a451-4853ff1c04e4",
+        "75465e4c-5a22-4dc0-971a-21cedab87d1c"
     ],
     "filterType": "GMSprite",
     "folderName": "Stage",

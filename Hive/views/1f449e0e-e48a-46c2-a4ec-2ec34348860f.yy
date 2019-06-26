@@ -7,7 +7,7 @@
         "fc4e0ee7-8257-4d86-b8d3-7829872b12b8"
     ],
     "filterType": "GMSound",
-    "folderName": "Game",
+    "folderName": "Stage",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

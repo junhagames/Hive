@@ -9,7 +9,7 @@
         "311762de-303e-4a12-a8ad-328f14414f33"
     ],
     "filterType": "GMTileSet",
-    "folderName": "City",
+    "folderName": "Stage",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

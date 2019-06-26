@@ -1,0 +1,2 @@
+part_emitter_region(obj_game.particleSys, obj_game.emitterFlame, x, x, y - 30, y - 30, ps_shape_ellipse, ps_distr_linear);
+part_emitter_burst(obj_game.particleSys, obj_game.emitterFlame, global.particleFlame, 1);

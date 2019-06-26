@@ -16,7 +16,7 @@ switch (global.chrMap[? "rangerWeapon"]) {
 		rangerSprite = spr_weapon_pistol;
 		rangerCursor = spr_cursor_ranger1;
 		break;
-	case "degle":
+	case "deagle":
 		rangerSprite = spr_weapon_deagle;
 		rangerCursor = spr_cursor_ranger1;
 		break;
@@ -65,7 +65,7 @@ switch (global.chrMap[? "warriorWeapon"]) {
 		break;
 }
 
-if (!isAction) {
+if (stuff == noone) {
 	if (global.chrMap[? "swap"] == "ranger") {
 		global.cursorSprite = rangerCursor;
 	}

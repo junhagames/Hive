@@ -9,7 +9,7 @@
         "1568e5cc-af13-4913-9660-3c6144b4514b"
     ],
     "filterType": "GMRoom",
-    "folderName": "City",
+    "folderName": "Game",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

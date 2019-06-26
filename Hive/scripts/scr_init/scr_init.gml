@@ -2,6 +2,7 @@
 
 #region 메크로 상수
 #macro VERSION "1.0"
+#macro SETTING_FILE "setting.ini"
 #macro SAVE_FILE "save.sav"
 #macro WALL -1
 #macro CELL_WIDTH 40
@@ -73,8 +74,8 @@ enum MENU_LIST {
 	EXIT,
 }
 #endregion
-#region 적
-enum STATE {
+#region 적 상태
+enum ENEMY_STATE {
 	IDLE,
 	WANDER,
 	ALERT,
@@ -91,6 +92,7 @@ enum ALARM_CHR {
 	DAMAGE,
 	SWAP,
 	DASH,
+	RELOAD,
 }
 
 enum ALARM_INSECT {
@@ -105,11 +107,85 @@ enum ALARM_VFX {
 	HIT = 11,
 }
 #endregion
+#region 무기
+#region 원거리무기
+enum PISTOL {
+	DAMAGE = 2,
+	SPEED = 7.8,
+	ACCURACY = 15,
+	AMMO = 15,
+}
+
+enum DEAGLE {
+	DAMAGE = 5,
+	SPEED = 7.8,
+	ACCURACY = 10,
+	AMMO = 15,
+}
+
+enum UZI {
+	DAMAGE = 3,
+	SPEED = 4.8,
+	ACCURACY = 30,
+	AMMO = 30,
+}
+
+enum SHOTGUN {
+	DAMAGE = 3,
+	SPEED = 18,
+	ACCURACY = 20,
+	AMMO = 5,
+}
+
+enum SNIPER {
+	DAMAGE = 20,
+	SPEED = 24,
+	ACCURACY = 0,
+	AMMO = 4,
+}
+#endregion
+#region 근접무기
+enum BAT {
+	DAMAGE = 5,
+	SPEED = 18,
+}
+
+enum AXE {
+	DAMAGE = 10,
+	SPEED = 18,
+}
+
+enum CROWBAR {
+	DAMAGE = 12,
+	SPEED = 12,
+}
+
+enum HAMMER {
+	DAMAGE = 15,
+	SPEED = 12,
+}
+
+enum PLUNGER {
+	DAMAGE = 5,
+	SPEED = 6,
+}
+
+enum KNIFE {
+	DAMAGE = 20,
+	SPEED = 12,
+}
+
+enum CHICKEN {
+	DAMAGE = 20,
+	SPEED = 6,
+}
+#endregion
+#endregion
 #endregion
 #region 게임 설정|데이터 불러오기
-ini_open("game.ini");
+ini_open(SETTING_FILE);
 
-if (!file_exists("game.ini")) {
+if (!file_exists(SETTING_FILE)) {
 	// 사운드 볼륨 초기화
 	ini_write_real("settings", "bgmVolume", 1);
 	ini_write_real("settings", "sfxVolume", 1);
@@ -131,6 +207,39 @@ global.gameWidth = ini_read_real("screen", "gameWidth", 1280);
 global.gameHeight = ini_read_real("screen", "gameHeight", 720);
 ini_close();
 #endregion
+#region 파티클 초기화
+#region 안개
+global.particleSmoke = part_type_create();
+part_type_shape(global.particleSmoke, pt_shape_smoke);
+part_type_size(global.particleSmoke, 2, 6, 0.01, 0);
+part_type_orientation(global.particleSmoke, 0, 360, 0, 2, 0);
+part_type_life(global.particleSmoke, room_speed * 3, room_speed * 4);
+part_type_blend(global.particleSmoke, true);
+part_type_alpha3(global.particleSmoke, 0.001, 0.03, 0.001);
+part_type_color3(global.particleSmoke, c_red, c_orange, c_red);
+#endregion
+#region 잉것불
+global.particleEmber = part_type_create();
+part_type_shape(global.particleEmber, pt_shape_pixel);
+part_type_size(global.particleEmber, 4, 4, 0, 0);
+part_type_speed(global.particleEmber, 2, 4, 0, 0);
+part_type_direction(global.particleEmber, 70, 110, 0, 0);
+part_type_orientation(global.particleEmber, 0, 360, 0, 2, 0);
+part_type_life(global.particleEmber, room_speed * 1, room_speed * 2);
+part_type_alpha3(global.particleEmber, 0.8, 0.6, 0.1);
+part_type_color3(global.particleEmber, c_red, c_orange, c_yellow);
+#endregion
+#region 화염
+global.particleFlame = part_type_create();
+part_type_shape(global.particleFlame, pt_shape_explosion);
+part_type_scale(global.particleFlame, 1, 1);
+part_type_alpha3(global.particleFlame, 1, 1, 0);
+part_type_color3(global.particleFlame, c_white, c_yellow, c_red);
+part_type_speed(global.particleFlame, 3, 6, 0, 0);
+part_type_direction(global.particleFlame, 80, 100, 0, 10);
+part_type_life(global.particleFlame, 10, 20);
+#endregion
+#endregion
 #region 오브젝트 부모 계층 초기화
 global.objParentMap = ds_map_create();
 
@@ -150,62 +259,7 @@ var roomParent = noone;
 for (var _room = 0; room_exists(_room); _room++) {
 	var roomName = room_get_name(_room);
 	
-	if (roomName == "room_parent_city_small" ||
-		roomName == "room_parent_city_big" ||
-		roomName == "room_parent_city_wlong" ||
-		roomName == "room_parent_city_hlong" ||
-		roomName == "room_parent_city_boss" ||
-		roomName == "room_parent_city_miniboss" ||
-		roomName == "room_parent_city_supply" ||
-		roomName == "room_parent_city_potionshop" ||
-		roomName == "room_parent_city_weaponshop" ||
-		roomName == "room_parent_city_encounter" ||
-		
-		roomName == "room_parent_swamp_small" ||
-		roomName == "room_parent_swamp_big" ||
-		roomName == "room_parent_swamp_wlong" ||
-		roomName == "room_parent_swamp_hlong" ||
-		roomName == "room_parent_swamp_boss" ||
-		roomName == "room_parent_swamp_miniboss" ||
-		roomName == "room_parent_swamp_supply" ||
-		roomName == "room_parent_swamp_potionshop" ||
-		roomName == "room_parent_swamp_weaponshop" ||
-		roomName == "room_parent_swamp_encounter" ||
-		
-		roomName == "room_parent_underground_small" ||
-		roomName == "room_parent_underground_big" ||
-		roomName == "room_parent_underground_wlong" ||
-		roomName == "room_parent_underground_hlong" ||
-		roomName == "room_parent_underground_boss" ||
-		roomName == "room_parent_underground_miniboss" ||
-		roomName == "room_parent_underground_supply" ||
-		roomName == "room_parent_underground_potionshop" ||
-		roomName == "room_parent_underground_weaponshop" ||
-		roomName == "room_parent_underground_encounter" ||
-		
-		roomName == "room_parent_jungle_small" ||
-		roomName == "room_parent_jungle_big" ||
-		roomName == "room_parent_jungle_wlong" ||
-		roomName == "room_parent_jungle_hlong" ||
-		roomName == "room_parent_jungle_boss" ||
-		roomName == "room_parent_jungle_miniboss" ||
-		roomName == "room_parent_jungle_supply" ||
-		roomName == "room_parent_jungle_potionshop" ||
-		roomName == "room_parent_jungle_weaponshop" ||
-		roomName == "room_parent_jungle_encounter" ||
-		
-		roomName == "room_parent_desert_small" ||
-		roomName == "room_parent_desert_big" ||
-		roomName == "room_parent_desert_wlong" ||
-		roomName == "room_parent_desert_hlong" ||
-		roomName == "room_parent_desert_boss" ||
-		roomName == "room_parent_desert_miniboss" ||
-		roomName == "room_parent_desert_supply" ||
-		roomName == "room_parent_desert_potionshop" ||
-		roomName == "room_parent_desert_weaponshop" ||
-		roomName == "room_parent_desert_encounter" ||
-		
-		roomName == "room_parent_school_small" ||
+	if (roomName == "room_parent_school_small" ||
 		roomName == "room_parent_school_big" ||
 		roomName == "room_parent_school_wlong" ||
 		roomName == "room_parent_school_hlong" ||
@@ -218,13 +272,7 @@ for (var _room = 0; room_exists(_room); _room++) {
 		roomParent = _room;
 		ds_map_add_list(global.roomParentMap, roomParent, ds_list_create());
 	}
-	else if (roomParent != noone &&
-		roomName != "room_city_start" &&
-		roomName != "room_swamp_start" &&
-		roomName != "room_underground_start" &&
-		roomName != "room_jungle_start" &&
-		roomName != "room_desert_start" &&
-		roomName != "room_school_start") {
+	else if (roomParent != noone && roomName != "room_school_start") {
 		ds_list_add(global.roomParentMap[? roomParent], _room);
 	}
 }

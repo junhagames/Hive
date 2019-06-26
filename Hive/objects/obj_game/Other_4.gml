@@ -147,103 +147,17 @@ with (obj_parent_entry) {
 			#endregion
 			#region default
 			default:
-				switch (global.currentWorld) {
-					#region city
-					case "city":
-						if (posTo == "top") {
-							sprite_index = spr_entry_city_top;
-						}
-						else if (posTo == "right") {
-							sprite_index = spr_entry_city_right;
-						}
-						else if (posTo == "bottom") {
-							sprite_index = spr_entry_city_bottom;
-						}
-						else if (posTo == "left") {
-							sprite_index = spr_entry_city_left;
-						}
-						break;
-					#endregion
-					#region swamp;
-					case "swamp":
-						if (posTo == "top") {
-							sprite_index = spr_entry_swamp_top;
-						}
-						else if (posTo == "right") {
-							sprite_index = spr_entry_swamp_right;
-						}
-						else if (posTo == "bottom") {
-							sprite_index = spr_entry_swamp_bottom;
-						}
-						else if (posTo == "left") {
-							sprite_index = spr_entry_swamp_left;
-						}
-						break;
-					#endregion
-					#region underground
-					case "underground":
-						if (posTo == "top") {
-							sprite_index = spr_entry_underground_top;
-						}
-						else if (posTo == "right") {
-							sprite_index = spr_entry_underground_right;
-						}
-						else if (posTo == "bottom") {
-							sprite_index = spr_entry_underground_bottom;
-						}
-						else if (posTo == "left") {
-							sprite_index = spr_entry_underground_left;
-						}
-						break;
-					#endregion
-					#region jungle
-					case "jungle":
-						if (posTo == "top") {
-							sprite_index = spr_entry_jungle_top;
-						}
-						else if (posTo == "right") {
-							sprite_index = spr_entry_jungle_right;
-						}
-						else if (posTo == "bottom") {
-							sprite_index = spr_entry_jungle_bottom;
-						}
-						else if (posTo == "left") {
-							sprite_index = spr_entry_jungle_left;
-						}
-						break;
-					#endregion
-					#region desert
-					case "desert":
-						if (posTo == "top") {
-							sprite_index = spr_entry_desert_top;
-						}
-						else if (posTo == "right") {
-							sprite_index = spr_entry_desert_right;
-						}
-						else if (posTo == "bottom") {
-							sprite_index = spr_entry_desert_bottom;
-						}
-						else if (posTo == "left") {
-							sprite_index = spr_entry_desert_left;
-						}
-						break;
-					#endregion
-					#region school
-					case "school":
-						if (posTo == "top") {
-							sprite_index = spr_entry_school_top;
-						}
-						else if (posTo == "right") {
-							sprite_index = spr_entry_school_right;
-						}
-						else if (posTo == "bottom") {
-							sprite_index = spr_entry_desert_bottom;
-						}
-						else if (posTo == "left") {
-							sprite_index = spr_entry_school_left;
-						}
-						break;
-					#endregion
+				if (posTo == "top") {
+					sprite_index = spr_entry_stage_top;
+				}
+				else if (posTo == "right") {
+					sprite_index = spr_entry_stage_right;
+				}
+				else if (posTo == "bottom") {
+					sprite_index = spr_entry_stage_bottom;
+				}
+				else if (posTo == "left") {
+					sprite_index = spr_entry_stage_left;
 				}
 				break;
 			#endregion

@@ -5,19 +5,19 @@
     "name": "obj_btn_commando",
     "eventList": [
         {
-            "id": "fbaf7ebb-4afd-4a82-879b-b8f57382fb7d",
+            "id": "c95955a9-6b30-4664-b63c-247b424c8cfb",
             "modelName": "GMEvent",
             "mvc": "1.0",
             "IsDnD": false,
             "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 4,
-            "eventtype": 6,
+            "enumb": 0,
+            "eventtype": 13,
             "m_owner": "b0645742-ad91-4e93-9462-f0162de7259a"
         }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,
-    "parentObjectId": "00000000-0000-0000-0000-000000000000",
+    "parentObjectId": "a33d13d1-7b0a-4b85-9ead-08bb313fe855",
     "persistent": false,
     "physicsAngularDamping": 0.1,
     "physicsDensity": 0.5,

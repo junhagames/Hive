@@ -26,10 +26,14 @@ isAttackDelay = false;
 isSkillDelay = false;
 isDamageDelay = false;
 isSwapDelay = false;
-isdashDelay = false;
+isDashDelay = false;
+isReloadDelay= false;
 
 damageSpeed = room_speed;
 swapSpeed = room_speed * 0.2;
 dashSpeed = room_speed;
+reloadSpeed = room_speed * 0.5;
+
+stuff = noone;
 
 event_inherited();

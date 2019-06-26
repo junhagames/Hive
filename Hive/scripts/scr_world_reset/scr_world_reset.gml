@@ -18,89 +18,23 @@ global.currentIndex = 0;
 global.previousIndex = noone;
 global.previousPos = noone;
 global.isBossClear = false;
+global.time = 0;
 
 // 부모 룸 초기화
 var startRoom, smallRoom, bigRoom, wlongRoom, hlongRoom, bossRoom, minibossRoom, supplyRoom, potionshopRoom, weaponshopRoom, encounterRoom;
 
-switch (global.currentWorld) {
-	case "city":
-		startRoom = room_city_start;
-		smallRoom = room_parent_city_small;
-		bigRoom = room_parent_city_big;
-		wlongRoom = room_parent_city_wlong;
-		hlongRoom = room_parent_city_hlong;
-		bossRoom = room_parent_city_boss;
-		minibossRoom = room_parent_city_miniboss;
-		supplyRoom = room_parent_city_supply;
-		potionshopRoom = room_parent_city_potionshop;
-		weaponshopRoom = room_parent_city_weaponshop;
-		encounterRoom = room_parent_city_encounter;
-		break;
-	case "swamp":
-		startRoom = room_swamp_start;
-		smallRoom = room_parent_swamp_small;
-		bigRoom = room_parent_swamp_big;
-		wlongRoom = room_parent_swamp_wlong;
-		hlongRoom = room_parent_swamp_hlong;
-		bossRoom = room_parent_swamp_boss;
-		minibossRoom = room_parent_swamp_miniboss;
-		supplyRoom = room_parent_swamp_supply;
-		potionshopRoom = room_parent_swamp_potionshop;
-		weaponshopRoom = room_parent_swamp_weaponshop;
-		encounterRoom = room_parent_swamp_encounter;
-		break;
-	case "underground":
-		startRoom = room_underground_start;
-		smallRoom = room_parent_underground_small;
-		bigRoom = room_parent_underground_big;
-		wlongRoom = room_parent_underground_wlong;
-		hlongRoom = room_parent_underground_hlong;
-		bossRoom = room_parent_underground_boss;
-		minibossRoom = room_parent_underground_miniboss;
-		supplyRoom = room_parent_underground_supply;
-		potionshopRoom = room_parent_underground_potionshop;
-		weaponshopRoom = room_parent_underground_weaponshop;
-		encounterRoom = room_parent_underground_encounter;
-		break;
-	case "jungle":
-		startRoom = room_jungle_start;
-		smallRoom = room_parent_jungle_small;
-		bigRoom = room_parent_jungle_big;
-		wlongRoom = room_parent_jungle_wlong;
-		hlongRoom = room_parent_jungle_hlong;
-		bossRoom = room_parent_jungle_boss;
-		minibossRoom = room_parent_jungle_miniboss;
-		supplyRoom = room_parent_jungle_supply;
-		potionshopRoom = room_parent_jungle_potionshop;
-		weaponshopRoom = room_parent_jungle_weaponshop;
-		encounterRoom = room_parent_jungle_encounter;
-		break;
-	case "desert":
-		startRoom = room_desert_start;
-		smallRoom = room_parent_desert_small;
-		bigRoom = room_parent_desert_big;
-		wlongRoom = room_parent_desert_wlong;
-		hlongRoom = room_parent_desert_hlong;
-		bossRoom = room_parent_desert_boss;
-		minibossRoom = room_parent_desert_miniboss;
-		supplyRoom = room_parent_desert_supply;
-		potionshopRoom = room_parent_desert_potionshop;
-		weaponshopRoom = room_parent_desert_weaponshop;
-		encounterRoom = room_parent_desert_encounter;
-		break;
-	case "school":
-		startRoom = room_school_start;
-		smallRoom = room_parent_school_small;
-		bigRoom = room_parent_school_big;
-		wlongRoom = room_parent_school_wlong;
-		hlongRoom = room_parent_school_hlong;
-		bossRoom = room_parent_school_boss;
-		minibossRoom = room_parent_school_miniboss;
-		supplyRoom = room_parent_school_supply;
-		potionshopRoom = room_parent_school_potionshop;
-		weaponshopRoom = room_parent_school_weaponshop;
-		encounterRoom = room_parent_school_encounter;
-		break;	
+if (global.currentWorld == "school") {
+	startRoom = room_school_start;
+	smallRoom = room_parent_school_small;
+	bigRoom = room_parent_school_big;
+	wlongRoom = room_parent_school_wlong;
+	hlongRoom = room_parent_school_hlong;
+	bossRoom = room_parent_school_boss;
+	minibossRoom = room_parent_school_miniboss;
+	supplyRoom = room_parent_school_supply;
+	potionshopRoom = room_parent_school_potionshop;
+	weaponshopRoom = room_parent_school_weaponshop;
+	encounterRoom = room_parent_school_encounter;
 }
 
 // 룸 이벤트 추가|섞기

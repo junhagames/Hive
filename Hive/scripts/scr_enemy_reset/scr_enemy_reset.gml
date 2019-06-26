@@ -14,7 +14,7 @@ target = argument4;
 alertDistance = argument5;
 
 hp = hpMax;
-state = STATE.WANDER;
+state = ENEMY_STATE.WANDER;
 counter = 0;
 dir = random(360);
 moveX = 0;

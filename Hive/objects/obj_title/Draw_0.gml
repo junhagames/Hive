@@ -1,4 +1,4 @@
-draw_sprite(spr_text_logo, 0, 320, 300);
+draw_sprite(spr_text_logo, 0, 280, 300);
 
 draw_set_halign(fa_left);
 draw_text(30, room_height - 60, "[개발진] 강준하, 김유빈, 구연진, 안민혁");

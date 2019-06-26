@@ -1,5 +1,5 @@
 if (ds_list_find_index(penetrateList, other.id) == -1) {
-	other.hp -= damage * 2;
+	other.hp -= damage;
 	penetrate++;
 
 	if (penetrate < penetrateMax) {

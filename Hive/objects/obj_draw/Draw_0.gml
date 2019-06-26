@@ -57,6 +57,6 @@ for (var i = 0; i < instCount; i++) {
 				break;
 			#endregion
 		}
-	}
+	}	
 }
 ds_grid_destroy(depthGrid);
