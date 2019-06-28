@@ -38,15 +38,15 @@ if (distance_to_object(stuff) < distance) {
 			switch (object_index) {
 				#region obj_chest
 				case obj_chest:
-					global.chrMap[? "coin"] += irandom_range(1, 3);
+					global.chrMap[? "coin"] += irandom_range(1, 2);
 					isUse = true;
 					scr_vfx_text(x, y - sprite_height / 2, "코인 " + string(global.chrMap[? "coin"]), c_yellow);
 					break;
 				#endregion
 				#region obj_supply
 				case obj_supply:
-					global.chrMap[? "oddments"] += irandom_range(5, 10);
-					global.chrMap[? "part"] += irandom_range(1, 3);
+					global.chrMap[? "oddments"]++;
+					global.chrMap[? "part"]++;
 					isUse = true;
 					scr_vfx_text(x, y - sprite_height / 2, "잡동사니 " + string(global.chrMap[? "oddments"]), c_lime);
 					scr_vfx_text(x, y - sprite_height / 2 - 40, "부품 " + string(global.chrMap[? "part"]), c_fuchsia);
@@ -125,7 +125,7 @@ if (distance_to_object(stuff) < distance) {
 				#region obj_item_oddments
 				case obj_item_oddments:
 					if (global.chrMap[? "coin"] >= price) {
-						global.chrMap[? "oddments"] += 5;
+						global.chrMap[? "oddments"]++;
 						global.chrMap[? "coin"] -= price;
 						isSold = true;	
 					}
@@ -134,7 +134,7 @@ if (distance_to_object(stuff) < distance) {
 				#region obj_item_part
 				case obj_item_part:
 					if (global.chrMap[? "coin"] >= price) {
-						global.chrMap[? "part"] += 1;
+						global.chrMap[? "part"]++;
 						global.chrMap[? "coin"] -= price;
 						isSold = true;	
 					}

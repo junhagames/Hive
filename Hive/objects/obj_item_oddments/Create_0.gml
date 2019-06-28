@@ -1,4 +1,4 @@
-price = 3;
-name = "잡동사니";
+price = 1;
+name = "잡동사니(미구현)";
 
 event_inherited();
