@@ -3095,6 +3095,14 @@
             }
         },
         {
+            "Key": "cc8b9d2c-e6b2-42fc-9a39-c901dce725b8",
+            "Value": {
+                "id": "1959c8f7-e51c-4ef0-a30b-0ad967261e26",
+                "resourcePath": "objects\\obj_insect_mosquito\\obj_insect_mosquito.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "cc98d028-7bdd-4680-85f3-c87a7baa481e",
             "Value": {
                 "id": "bab29142-73c5-4e93-8cbb-d82845664e4c",
@@ -3115,14 +3123,6 @@
             "Value": {
                 "id": "8494da02-65ff-4bae-8039-25d1bd25ee18",
                 "resourcePath": "objects\\obj_insect_cavecricket\\obj_insect_cavecricket.yy",
-                "resourceType": "GMObject"
-            }
-        },
-        {
-            "Key": "ce1e029e-f593-41a8-953d-bb55ca4291e2",
-            "Value": {
-                "id": "f440ff3d-a238-4584-b43c-c0fbfa784d70",
-                "resourcePath": "objects\\obj_insect_mosquito\\obj_insect_mosquito.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -3244,14 +3244,6 @@
                 "id": "bbb3c002-9823-44e2-bac0-1a10f9c61d07",
                 "resourcePath": "sprites\\spr_weapon_shotgun\\spr_weapon_shotgun.yy",
                 "resourceType": "GMSprite"
-            }
-        },
-        {
-            "Key": "d885591c-3aaa-478f-9325-3a195f21cf3b",
-            "Value": {
-                "id": "f6c4af41-108d-4112-ab26-a74445e85f17",
-                "resourcePath": "objects\\obj_insect\\obj_insect.yy",
-                "resourceType": "GMObject"
             }
         },
         {

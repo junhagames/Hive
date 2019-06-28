@@ -4,7 +4,6 @@
     "mvc": "1.1",
     "name": "69d0d6cf-4ade-4071-845b-90cb2212f69a",
     "children": [
-        "d885591c-3aaa-478f-9325-3a195f21cf3b",
         "a415169a-88f7-49aa-9be6-69c808a5cdb7",
         "c1aaee8f-512c-45eb-9e24-6cadf6f62d7d",
         "3770b72b-dff2-4e06-82fb-b5dd854381b4",
@@ -15,8 +14,8 @@
         "6d0e303a-c936-4b4d-8ad1-b0001032826e",
         "9abe5124-fb47-4356-9399-6425f09836d9",
         "368dadf5-3047-4ac5-9284-b61585a69986",
-        "ce1e029e-f593-41a8-953d-bb55ca4291e2",
-        "a22d3ffd-aa28-420c-90da-daf5d2959c50"
+        "a22d3ffd-aa28-420c-90da-daf5d2959c50",
+        "cc8b9d2c-e6b2-42fc-9a39-c901dce725b8"
     ],
     "filterType": "GMObject",
     "folderName": "Insect",

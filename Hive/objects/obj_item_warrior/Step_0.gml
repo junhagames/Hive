@@ -20,12 +20,12 @@ switch (global.chrMap[? "warriorWeapon"]) {
 		sprite_index = spr_weapon_plunger;
 		break;
 	case "plunger":
-		price = 15;
+		price = 12;
 		name = "장미칼";
 		sprite_index = spr_weapon_knife;
 		break;
 	case "knife":
-		price = 20;
+		price = 15;
 		name = "닭다리";
 		sprite_index = spr_weapon_chicken;
 		break;
