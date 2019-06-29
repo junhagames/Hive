@@ -1,7 +1,7 @@
 /// @description 게임 초기화
 
 #region 메크로 상수
-#macro VERSION "1.0"
+#macro VERSION "1.2"
 #macro SETTING_FILE "setting.ini"
 #macro SAVE_FILE "save.sav"
 #macro WALL -1
@@ -131,7 +131,7 @@ enum UZI {
 }
 
 enum SHOTGUN {
-	DAMAGE = 3,
+	DAMAGE = 2,
 	SPEED = 18,
 	ACCURACY = 20,
 	AMMO = 5,
@@ -309,6 +309,9 @@ else if (os_type == os_android) {
 	global.cameraWidth = 960;
 	global.cameraHeight = 540;
 }
+
+// 마우스 커서 초기화
+global.cursorSprite = spr_cursor_normal;
 
 // 더블 좌클릭시 우클릭 방지
 device_mouse_dbclick_enable(false);

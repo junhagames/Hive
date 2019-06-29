@@ -9,7 +9,7 @@ if (!isSwapDelay) {
 		}
 		else if (global.chrMap[? "swap"] == "warrior") {
 			global.chrMap[? "swap"] = "ranger";
-			audio_play_sound(sfx_ranger_reload1, 10, false);
+			audio_play_sound(sfx_ranger_reload, 10, false);
 		}
 		isSwapDelay = true;
 		alarm[ALARM_CHR.SWAP] = swapSpeed;

@@ -4,11 +4,16 @@ draw_set_alpha(0.6);
 if (global.chrMap[? "hp"] > 0) {
 	draw_set_color(c_lime);
 	draw_rectangle(40, 40, 40 + global.chrMap[? "hp"] / global.chrMap[? "hpMax"] * 300, 80, false);
-	draw_set_color(c_black);
-	draw_rectangle(40, 40, 340, 80, true);
-	draw_set_color(c_white);
+	draw_sprite_ext(spr_ui_hpbar, 0, 40, 40, 1, 1, 0, c_white, 1);
+	
+	if (os_type == os_android) {
+		draw_sprite_ext(spr_ui_menu_option, 0, 70, 60, 0.2, 0.2, 0, c_white, 1);
+	}
 	draw_set_halign(fa_right);
-	draw_text(330, 40, string(global.chrMap[? "hp"]) + "/" + string(global.chrMap[? "hpMax"]));
+	draw_set_color(c_black);
+	draw_text(330, 60, string(global.chrMap[? "hp"]) + "/" + string(global.chrMap[? "hpMax"]));
+	draw_set_color(c_white);
+	draw_text(332, 62, string(global.chrMap[? "hp"]) + "/" + string(global.chrMap[? "hpMax"]));
 	draw_set_halign(fa_center);
 }
 

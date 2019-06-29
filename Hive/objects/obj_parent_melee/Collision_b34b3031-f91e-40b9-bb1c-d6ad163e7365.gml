@@ -10,6 +10,8 @@ if (ds_list_find_index(penetrateList, other.id) == -1) {
 	}
 	
 	if (other.hp <= 0) {
+		var sfx = audio_play_sound(sfx_enemy_destroy, 10, false);
+		audio_sound_pitch(sfx, random_range(0.8, 1.2));
 		instance_destroy(other);
 	}
 	else if (!other.isHit) {

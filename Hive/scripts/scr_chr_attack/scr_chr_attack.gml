@@ -47,7 +47,8 @@ if (!isAttackDelay && !isAction) {
 					alarm[ALARM_CHR.ATTACK] = global.chrMap[? "rangerSpeed"];
 					scr_vfx_bullet(spr_vfx_bullet_shell);
 					scr_camera_shake(4);
-					audio_play_sound(sfx_ranger_attack1, 10, false);
+					var sfx = audio_play_sound(sfx_ranger_attack, 10, false);
+					audio_sound_pitch(sfx, random_range(0.8, 1.2));
 				}
 			}
 		}
@@ -88,7 +89,8 @@ if (!isAttackDelay && !isAction) {
 				alarm[ALARM_CHR.ATTACK] = global.chrMap[? "warriorSpeed"];
 				scr_vfx_melee_swing(melee.x, melee.y, melee.image_angle);
 				scr_camera_shake(4);
-				audio_play_sound(sfx_warrior_attack1, 10, false);
+				var sfx = audio_play_sound(sfx_warrior_attack, 10, false);
+				audio_sound_pitch(sfx, random_range(0.8, 1.2));
 			}
 		}
 	}

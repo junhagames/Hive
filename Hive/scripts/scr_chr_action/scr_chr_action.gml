@@ -57,6 +57,7 @@ if (distance_to_object(stuff) < distance) {
 					var targetRoom = room_title;
 					isUse = true;
 					show_message_async("게임 클리어!");
+					file_delete(SAVE_FILE); 
 					scr_transition_fadeout(targetRoom);
 					break;
 				#endregion
@@ -86,8 +87,8 @@ if (distance_to_object(stuff) < distance) {
 				#region obj_item_potion_hpmax
 				case obj_item_potion_hpmax:
 					if (global.chrMap[? "coin"] >= price) {
-						global.chrMap[? "hpMax"] += 5;
-						global.chrMap[? "hp"] += 5;
+						global.chrMap[? "hpMax"] += 10;
+						global.chrMap[? "hp"] += 10;
 						global.chrMap[? "coin"] -= price;
 						isSold = true;	
 					}
@@ -221,5 +222,6 @@ if (distance_to_object(stuff) < distance) {
 				#endregion
 			}
 		}
+		audio_play_sound(sfx_button_click, 10, false);
 	}
 }

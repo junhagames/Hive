@@ -5,12 +5,12 @@ switch (global.chrMap[? "rangerWeapon"]) {
 		sprite_index = spr_weapon_deagle;
 		break;
 	case "deagle":
-		price = 6;
+		price = 5;
 		name = "UZI";
 		sprite_index = spr_weapon_uzi;
 		break;
 	case "uzi":
-		price = 8;
+		price = 7;
 		name = "산탄총";
 		sprite_index = spr_weapon_shotgun;
 		break;

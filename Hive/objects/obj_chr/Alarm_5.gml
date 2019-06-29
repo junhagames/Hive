@@ -2,4 +2,4 @@
 
 global.chrMap[? "ammo"] = global.chrMap[? "ammoMax"];
 isReloadDelay = false;
-audio_play_sound(sfx_ranger_reload1, 10, false);
+audio_play_sound(sfx_ranger_reload, 10, false);
