@@ -1,5 +1,5 @@
 # 메가하이브 https://junhaddi.itch.io/mega-hive
-![t8oEkM](https://user-images.githubusercontent.com/36301491/60677116-98bb5e80-9ebb-11e9-8d3d-661aa4e3c5ef.png)
+![KakaoTalk_20190621_203128304_08](https://user-images.githubusercontent.com/36301491/60677272-06678a80-9ebc-11e9-9a28-4c5c318367db.png)
 ---
 ## 게임소개
 littleidea: https://www.bensound.com
